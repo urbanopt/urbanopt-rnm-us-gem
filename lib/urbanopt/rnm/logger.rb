@@ -31,7 +31,7 @@
 require 'logger'
 
 module URBANopt
-  module Rnm
+  module RNM
     @@logger = Logger.new(STDOUT)
 
     # Definining class variable "@@logger" to log errors, info and warning messages.

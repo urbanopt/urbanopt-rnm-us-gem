@@ -1,0 +1,274 @@
+{
+  "id": "7",
+  "name": "Office 1",
+  "directory_name": "/Users/kflemin/Downloads/rnm_project/run/baseline_scenario/7",
+  "feature_type": "Building",
+  "timesteps_per_hour": 1,
+  "simulation_status": "Complete",
+  "timeseries_csv": {
+    "path": "/feature_reports/default_feature_report.csv",
+    "first_report_datetime": "0",
+    "column_names": [
+      "Datetime",
+      "Electricity:Facility(kWh)",
+      "ElectricityProduced:Facility()",
+      "Gas:Facility(kBtu)",
+      "Cooling:Electricity(kWh)",
+      "Heating:Electricity(kWh)",
+      "InteriorLights:Electricity(kWh)",
+      "ExteriorLights:Electricity(kWh)",
+      "InteriorEquipment:Electricity(kWh)",
+      "Fans:Electricity(kWh)",
+      "Pumps:Electricity(kWh)",
+      "WaterSystems:Electricity()",
+      "HeatRejection:Electricity(kWh)",
+      "HeatRejection:Gas(kBtu)",
+      "Heating:Gas(kBtu)",
+      "WaterSystems:Gas(kBtu)",
+      "InteriorEquipment:Gas(kBtu)",
+      "DistrictCooling:Facility()",
+      "DistrictHeating:Facility()",
+      "District Cooling Chilled Water Rate()",
+      "District Cooling Mass Flow Rate()",
+      "District Cooling Inlet Temperature()",
+      "District Cooling Outlet Temperature()",
+      "District Heating Hot Water Rate()",
+      "District Heating Mass Flow Rate()",
+      "District Heating Inlet Temperature()",
+      "District Heating Outlet Temperature()",
+      "1 ZONE VAV 1 CLG COIL(W)",
+      "1 ZONE VAV 2 CLG COIL(W)",
+      "1 ZONE VAV 3 CLG COIL(W)",
+      "1 ZONE VAV 4 CLG COIL(W)",
+      "1 ZONE VAV 5 CLG COIL(W)",
+      "1 ZONE VAV CLG COIL(W)",
+      "1 ZONE VAV 1 MAIN HTG COIL(W)",
+      "1 ZONE VAV 2 MAIN HTG COIL(W)",
+      "1 ZONE VAV 3 MAIN HTG COIL(W)",
+      "1 ZONE VAV 4 MAIN HTG COIL(W)",
+      "1 ZONE VAV 5 MAIN HTG COIL(W)",
+      "1 ZONE VAV MAIN HTG COIL(W)",
+      "BUILDING STORY 1 THERMALZONE REHEAT COIL(W)",
+      "BUILDING STORY 2 THERMALZONE REHEAT COIL(W)",
+      "BUILDING STORY 3 THERMALZONE REHEAT COIL(W)",
+      "BUILDING STORY 4 THERMALZONE REHEAT COIL(W)",
+      "BUILDING STORY 5 THERMALZONE REHEAT COIL(W)",
+      "BUILDING STORY 6 THERMALZONE REHEAT COIL(W)",
+      "Zone Thermal Comfort Fanger Model PMV()",
+      "Zone Thermal Comfort Fanger Model PPD()",
+      "Net Electric Energy(kWh)",
+      "Electricity:Facility Power(kW)",
+      "ElectricityProduced:Facility Power(kW)",
+      "Electricity:Facility Apparent Power(kVA)",
+      "ElectricityProduced:Facility Apparent Power(kVA)",
+      "Net Power(kW)",
+      "Net Apparent Power(kVA)",
+      "Ice Thermal Storage End Fraction()",
+      "Cooling Coil Ice Thermal Storage End Fraction()"
+    ]
+  },
+  "location": {
+    "latitude": -78.8477458263774,
+    "longitude": 42.81618452154641,
+    "surface_elevation": 215.0
+  },
+  "program": {
+    "floor_area": 325536.71010119794,
+    "conditioned_area": 325536.71010119794,
+    "unconditioned_area": 0.0,
+    "footprint_area": 325536.71010119794,
+    "maximum_roof_height": 18.0,
+    "maximum_number_of_stories": 6,
+    "number_of_residential_units": 1,
+    "building_types": [
+      {
+        "building_type": "Office",
+        "floor_area": 325536.65809111745,
+        "maximum_occupancy": 1627.6832904555872
+      }
+    ],
+    "window_area": {
+      "north_window_area": 6022.40787814909,
+      "south_window_area": 6022.40787814909,
+      "east_window_area": 2827.6792664696436,
+      "west_window_area": 2827.6792664696436,
+      "total_window_area": 17700.174289237468
+    },
+    "wall_area": {
+      "north_wall_area": 20074.692927163633,
+      "south_wall_area": 20074.908205371965,
+      "east_wall_area": 9425.633434600202,
+      "west_wall_area": 9425.741073704368,
+      "total_wall_area": 59000.975640840166
+    },
+    "roof_area": {
+      "total_roof_area": 162768.32904555876
+    },
+    "orientation": 0.0,
+    "aspect_ratio": 2.1297977548619915
+  },
+  "construction_costs": [
+
+  ],
+  "reporting_periods": [
+    {
+      "start_date": {
+        "month": 1,
+        "day_of_month": 1,
+        "year": 2017
+      },
+      "end_date": {
+        "month": 12,
+        "day_of_month": 31,
+        "year": 2017
+      },
+      "total_site_energy": 15807589.672702271,
+      "total_source_energy": 37395555.791689746,
+      "net_site_energy": 15807589.672702271,
+      "net_source_energy": 37395555.791689746,
+      "electricity": 9726413.985114433,
+      "natural_gas": 6081175.687587838,
+      "additional_fuel": 0.0,
+      "district_cooling": 0.0,
+      "district_heating": 0.0,
+      "water": 6021.86,
+      "electricity_produced": 9726416.828565795,
+      "end_uses": {
+        "electricity": {
+          "heating": 0.0,
+          "cooling": 1315105.7326059309,
+          "interior_lighting": 3264793.983604034,
+          "exterior_lighting": 527005.2752366107,
+          "interior_equipment": 3853492.6752018384,
+          "exterior_equipment": 0.0,
+          "fans": 215476.74413202953,
+          "pumps": 482723.2593755725,
+          "heat_rejection": 67816.31495841785,
+          "humidification": 0.0,
+          "heat_recovery": 0.0,
+          "water_systems": 0.0,
+          "refrigeration": 0.0,
+          "generators": 0.0
+        },
+        "natural_gas": {
+          "heating": 5620631.348827597,
+          "cooling": 0.0,
+          "interior_lighting": 0.0,
+          "exterior_lighting": 0.0,
+          "interior_equipment": 0.0,
+          "exterior_equipment": 0.0,
+          "fans": 0.0,
+          "pumps": 0.0,
+          "heat_rejection": 0.0,
+          "humidification": 0.0,
+          "heat_recovery": 0.0,
+          "water_systems": 460544.3387602409,
+          "refrigeration": 0.0,
+          "generators": 0.0
+        },
+        "additional_fuel": {
+          "heating": 0.0,
+          "cooling": 0.0,
+          "interior_lighting": 0.0,
+          "exterior_lighting": 0.0,
+          "interior_equipment": 0.0,
+          "exterior_equipment": 0.0,
+          "fans": 0.0,
+          "pumps": 0.0,
+          "heat_rejection": 0.0,
+          "humidification": 0.0,
+          "heat_recovery": 0.0,
+          "water_systems": 0.0,
+          "refrigeration": 0.0,
+          "generators": 0.0
+        },
+        "district_cooling": {
+          "heating": 0.0,
+          "cooling": 0.0,
+          "interior_lighting": 0.0,
+          "exterior_lighting": 0.0,
+          "interior_equipment": 0.0,
+          "exterior_equipment": 0.0,
+          "fans": 0.0,
+          "pumps": 0.0,
+          "heat_rejection": 0.0,
+          "humidification": 0.0,
+          "heat_recovery": 0.0,
+          "water_systems": 0.0,
+          "refrigeration": 0.0,
+          "generators": 0.0
+        },
+        "district_heating": {
+          "heating": 0.0,
+          "cooling": 0.0,
+          "interior_lighting": 0.0,
+          "exterior_lighting": 0.0,
+          "interior_equipment": 0.0,
+          "exterior_equipment": 0.0,
+          "fans": 0.0,
+          "pumps": 0.0,
+          "heat_rejection": 0.0,
+          "humidification": 0.0,
+          "heat_recovery": 0.0,
+          "water_systems": 0.0,
+          "refrigeration": 0.0,
+          "generators": 0.0
+        },
+        "water": {
+          "heating": 0.0,
+          "cooling": 0.0,
+          "interior_lighting": 0.0,
+          "exterior_lighting": 0.0,
+          "interior_equipment": 0.0,
+          "exterior_equipment": 0.0,
+          "fans": 0.0,
+          "pumps": 0.0,
+          "heat_rejection": 4106228.1103333845,
+          "humidification": 0.0,
+          "heat_recovery": 0.0,
+          "water_systems": 1601403.3719677716,
+          "refrigeration": 0.0,
+          "generators": 0.0
+        }
+      },
+      "energy_production": {
+        "electricity_produced": {
+          "photovoltaic": 0.0
+        }
+      },
+      "utility_costs": [
+        {
+          "fuel_type": "Electricity"
+        },
+        {
+          "fuel_type": "Natural Gas"
+        }
+      ],
+      "comfort_result": {
+        "time_setpoint_not_met_during_occupied_cooling": 733.0,
+        "time_setpoint_not_met_during_occupied_heating": 1881.0,
+        "time_setpoint_not_met_during_occupied_hours": 2614.0,
+        "hours_out_of_comfort_bounds_PMV": 0.0,
+        "hours_out_of_comfort_bounds_PPD": 0.0
+      }
+    }
+  ],
+  "distributed_generation": {
+    "solar_pv": [
+
+    ],
+    "wind": [
+
+    ],
+    "generator": [
+
+    ],
+    "storage": [
+
+    ]
+  },
+  "power_distribution": {
+  },
+  "thermal_storage": {
+  }
+}

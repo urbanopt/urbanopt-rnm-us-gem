@@ -28,18 +28,44 @@
 # OF THE POSSIBILITY OF SUCH DAMAGE.
 # *********************************************************************************
 
+require 'fileutils'
+
 require_relative '../spec_helper'
 
-RSpec.describe URBANopt::Rnm do
+RSpec.describe URBANopt::RNM do
   it 'has a version number' do
-    expect(URBANopt::Rnm::VERSION).not_to be nil
+    expect(URBANopt::RNM::VERSION).not_to be nil
   end
 
   it 'has a logger' do
-    expect(URBANopt::Rnm.logger).not_to be nil
-    current_level = URBANopt::Rnm.logger.level
-    URBANopt::Rnm.logger.level = Logger::DEBUG
-    expect(URBANopt::Rnm.logger.level).to eq Logger::DEBUG
-    URBANopt::Rnm.logger.level = current_level
+    expect(URBANopt::RNM.logger).not_to be nil
+    current_level = URBANopt::RNM.logger.level
+    URBANopt::RNM.logger.level = Logger::DEBUG
+    expect(URBANopt::RNM.logger.level).to eq Logger::DEBUG
+    URBANopt::RNM.logger.level = current_level
+  end
+
+  it 'creates the rnm-us input files' do
+
+    root_dir = File.join(File.dirname(__FILE__), '..', 'test', 'example_project')
+    if !File.exists?(File.join(File.dirname(__FILE__), '..', 'test'))
+      FileUtils.mkdir_p(File.join(File.dirname(__FILE__), '..', 'test'))
+    end
+    run_dir = File.join(root_dir, 'run', 'baseline_scenario')
+    feature_file_path = File.join(root_dir,  'example_project_streets.json')
+
+    FileUtils.cp_r(File.join(File.dirname(__FILE__), '..', 'files', 'example_project'), File.join(File.dirname(__FILE__), '..', 'test'))
+    # check that example project directory was created
+    expect(File.exists?(root_dir)).to be true
+
+    runner = URBANopt::RNM::Runner.new('baseline', root_dir, run_dir, feature_file_path)
+    runner.create_simulation_files()
+
+    # check that input files were created
+    expect(File.exists?(File.join(run_dir, 'rnm-us'))).to be true
+    expect(File.exists?(File.join(run_dir, 'rnm-us', 'customers.txt'))).to be true
+    expect(File.exists?(File.join(run_dir, 'rnm-us', 'customers_ext.txt'))).to be true
+    expect(File.exists?(File.join(run_dir, 'rnm-us', 'streetmap.txt'))).to be true
+
   end
 end

@@ -1,0 +1,325 @@
+{
+  "id": "12",
+  "name": "Mall 1",
+  "directory_name": "/Users/kflemin/Downloads/rnm_project/run/baseline_scenario/12",
+  "feature_type": "Building",
+  "timesteps_per_hour": 1,
+  "simulation_status": "Complete",
+  "timeseries_csv": {
+    "path": "/feature_reports/default_feature_report.csv",
+    "first_report_datetime": "0",
+    "column_names": [
+      "Datetime",
+      "Electricity:Facility(kWh)",
+      "ElectricityProduced:Facility()",
+      "Gas:Facility(kBtu)",
+      "Cooling:Electricity(kWh)",
+      "Heating:Electricity(kWh)",
+      "InteriorLights:Electricity(kWh)",
+      "ExteriorLights:Electricity(kWh)",
+      "InteriorEquipment:Electricity(kWh)",
+      "Fans:Electricity(kWh)",
+      "Pumps:Electricity(kWh)",
+      "WaterSystems:Electricity()",
+      "HeatRejection:Electricity(kWh)",
+      "HeatRejection:Gas(kBtu)",
+      "Heating:Gas(kBtu)",
+      "WaterSystems:Gas(kBtu)",
+      "InteriorEquipment:Gas(kBtu)",
+      "DistrictCooling:Facility()",
+      "DistrictHeating:Facility()",
+      "District Cooling Chilled Water Rate()",
+      "District Cooling Mass Flow Rate()",
+      "District Cooling Inlet Temperature()",
+      "District Cooling Outlet Temperature()",
+      "District Heating Hot Water Rate()",
+      "District Heating Mass Flow Rate()",
+      "District Heating Inlet Temperature()",
+      "District Heating Outlet Temperature()",
+      "5 ZONE VAV 1 CLG COIL(W)",
+      "5 ZONE VAV 2 CLG COIL(W)",
+      "5 ZONE VAV CLG COIL(W)",
+      "5 ZONE VAV 1 MAIN HTG COIL(W)",
+      "5 ZONE VAV 2 MAIN HTG COIL(W)",
+      "5 ZONE VAV MAIN HTG COIL(W)",
+      "BUILDING STORY 1 THERMALZONE 1 REHEAT COIL(W)",
+      "BUILDING STORY 1 THERMALZONE 2 REHEAT COIL(W)",
+      "BUILDING STORY 1 THERMALZONE 3 REHEAT COIL(W)",
+      "BUILDING STORY 1 THERMALZONE 4 REHEAT COIL(W)",
+      "BUILDING STORY 1 THERMALZONE REHEAT COIL(W)",
+      "BUILDING STORY 2 THERMALZONE 1 REHEAT COIL(W)",
+      "BUILDING STORY 2 THERMALZONE 2 REHEAT COIL(W)",
+      "BUILDING STORY 2 THERMALZONE 3 REHEAT COIL(W)",
+      "BUILDING STORY 2 THERMALZONE 4 REHEAT COIL(W)",
+      "BUILDING STORY 2 THERMALZONE REHEAT COIL(W)",
+      "BUILDING STORY 3 THERMALZONE 1 REHEAT COIL(W)",
+      "BUILDING STORY 3 THERMALZONE 2 REHEAT COIL(W)",
+      "BUILDING STORY 3 THERMALZONE 3 REHEAT COIL(W)",
+      "BUILDING STORY 3 THERMALZONE 4 REHEAT COIL(W)",
+      "BUILDING STORY 3 THERMALZONE REHEAT COIL(W)",
+      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 1 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 1()",
+      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 1 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 1()",
+      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 2 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 1()",
+      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 2 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 1()",
+      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 3 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 1()",
+      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 3 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 1()",
+      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 4 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 1()",
+      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 4 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 1()",
+      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE STRIPMALL STRIP MALL - TYPE 1 PEOPLE 1()",
+      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE STRIPMALL STRIP MALL - TYPE 2 PEOPLE 1()",
+      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE 1 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
+      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE 1 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
+      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE 2 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
+      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE 2 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
+      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE 3 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
+      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE 3 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
+      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE 4 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
+      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE 4 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
+      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
+      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
+      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 1 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 2()",
+      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 2 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 2()",
+      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 3 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 2()",
+      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 4 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 2()",
+      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE STRIPMALL STRIP MALL - TYPE 3 PEOPLE 2()",
+      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 1 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 1()",
+      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 1 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 1()",
+      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 2 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 1()",
+      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 2 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 1()",
+      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 3 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 1()",
+      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 3 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 1()",
+      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 4 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 1()",
+      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 4 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 1()",
+      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE STRIPMALL STRIP MALL - TYPE 1 PEOPLE 1()",
+      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE STRIPMALL STRIP MALL - TYPE 2 PEOPLE 1()",
+      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE 1 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
+      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE 1 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
+      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE 2 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
+      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE 2 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
+      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE 3 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
+      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE 3 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
+      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE 4 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
+      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE 4 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
+      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
+      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
+      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 1 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 2()",
+      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 2 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 2()",
+      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 3 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 2()",
+      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 4 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 2()",
+      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE STRIPMALL STRIP MALL - TYPE 3 PEOPLE 2()",
+      "Net Electric Energy(kWh)",
+      "Electricity:Facility Power(kW)",
+      "ElectricityProduced:Facility Power(kW)",
+      "Electricity:Facility Apparent Power(kVA)",
+      "ElectricityProduced:Facility Apparent Power(kVA)",
+      "Net Power(kW)",
+      "Net Apparent Power(kVA)",
+      "Ice Thermal Storage End Fraction()",
+      "Cooling Coil Ice Thermal Storage End Fraction()"
+    ]
+  },
+  "location": {
+    "latitude": -78.84827121830484,
+    "longitude": 42.817900060746815,
+    "surface_elevation": 215.0
+  },
+  "program": {
+    "floor_area": 374214.77273510105,
+    "conditioned_area": 374214.77273510105,
+    "unconditioned_area": 0.0,
+    "footprint_area": 374214.77273510105,
+    "maximum_roof_height": 10.799999713897705,
+    "maximum_number_of_stories": 3,
+    "number_of_residential_units": 1,
+    "building_types": [
+      {
+        "building_type": "StripMall",
+        "floor_area": 374214.7775093396,
+        "maximum_occupancy": 2993.7182200747166
+      }
+    ],
+    "window_area": {
+      "north_window_area": 1739.7708406527922,
+      "south_window_area": 1739.7708406527922,
+      "east_window_area": 8101.564814240739,
+      "west_window_area": 8101.672453344906,
+      "total_window_area": 19682.77894889123
+    },
+    "wall_area": {
+      "north_wall_area": 5799.056737002363,
+      "south_wall_area": 5799.272015210697,
+      "east_wall_area": 27005.35956627469,
+      "west_wall_area": 27005.35956627469,
+      "total_wall_area": 65609.04788476245
+    },
+    "roof_area": {
+      "total_roof_area": 124738.25916977989
+    },
+    "orientation": 0.0,
+    "aspect_ratio": 0.21473725327636234
+  },
+  "construction_costs": [
+
+  ],
+  "reporting_periods": [
+    {
+      "start_date": {
+        "month": 1,
+        "day_of_month": 1,
+        "year": 2017
+      },
+      "end_date": {
+        "month": 12,
+        "day_of_month": 31,
+        "year": 2017
+      },
+      "total_site_energy": 20834830.635186512,
+      "total_source_energy": 53719402.49348427,
+      "net_site_energy": 20834830.635186512,
+      "net_source_energy": 53719402.49348427,
+      "electricity": 14946924.336601764,
+      "natural_gas": 5887906.298584748,
+      "additional_fuel": 0.0,
+      "district_cooling": 0.0,
+      "district_heating": 0.0,
+      "water": 7243.32,
+      "electricity_produced": 14946924.336601764,
+      "end_uses": {
+        "electricity": {
+          "heating": 0.0,
+          "cooling": 1464405.8853976845,
+          "interior_lighting": 7672295.243800209,
+          "exterior_lighting": 1219423.5943103016,
+          "interior_equipment": 2206252.867295715,
+          "exterior_equipment": 0.0,
+          "fans": 1496934.9689668377,
+          "pumps": 529896.1174535663,
+          "heat_rejection": 72100.44834223404,
+          "humidification": 0.0,
+          "heat_recovery": 285624.6892064182,
+          "water_systems": 0.0,
+          "refrigeration": 0.0,
+          "generators": 0.0
+        },
+        "natural_gas": {
+          "heating": 5405666.425940536,
+          "cooling": 0.0,
+          "interior_lighting": 0.0,
+          "exterior_lighting": 0.0,
+          "interior_equipment": 0.0,
+          "exterior_equipment": 0.0,
+          "fans": 0.0,
+          "pumps": 0.0,
+          "heat_rejection": 0.0,
+          "humidification": 0.0,
+          "heat_recovery": 0.0,
+          "water_systems": 482239.8726442127,
+          "refrigeration": 0.0,
+          "generators": 0.0
+        },
+        "additional_fuel": {
+          "heating": 0.0,
+          "cooling": 0.0,
+          "interior_lighting": 0.0,
+          "exterior_lighting": 0.0,
+          "interior_equipment": 0.0,
+          "exterior_equipment": 0.0,
+          "fans": 0.0,
+          "pumps": 0.0,
+          "heat_rejection": 0.0,
+          "humidification": 0.0,
+          "heat_recovery": 0.0,
+          "water_systems": 0.0,
+          "refrigeration": 0.0,
+          "generators": 0.0
+        },
+        "district_cooling": {
+          "heating": 0.0,
+          "cooling": 0.0,
+          "interior_lighting": 0.0,
+          "exterior_lighting": 0.0,
+          "interior_equipment": 0.0,
+          "exterior_equipment": 0.0,
+          "fans": 0.0,
+          "pumps": 0.0,
+          "heat_rejection": 0.0,
+          "humidification": 0.0,
+          "heat_recovery": 0.0,
+          "water_systems": 0.0,
+          "refrigeration": 0.0,
+          "generators": 0.0
+        },
+        "district_heating": {
+          "heating": 0.0,
+          "cooling": 0.0,
+          "interior_lighting": 0.0,
+          "exterior_lighting": 0.0,
+          "interior_equipment": 0.0,
+          "exterior_equipment": 0.0,
+          "fans": 0.0,
+          "pumps": 0.0,
+          "heat_rejection": 0.0,
+          "humidification": 0.0,
+          "heat_recovery": 0.0,
+          "water_systems": 0.0,
+          "refrigeration": 0.0,
+          "generators": 0.0
+        },
+        "water": {
+          "heating": 0.0,
+          "cooling": 0.0,
+          "interior_lighting": 0.0,
+          "exterior_lighting": 0.0,
+          "interior_equipment": 0.0,
+          "exterior_equipment": 0.0,
+          "fans": 0.0,
+          "pumps": 0.0,
+          "heat_rejection": 4880471.481403723,
+          "humidification": 0.0,
+          "heat_recovery": 0.0,
+          "water_systems": 1984871.2225041334,
+          "refrigeration": 0.0,
+          "generators": 0.0
+        }
+      },
+      "energy_production": {
+        "electricity_produced": {
+          "photovoltaic": 0.0
+        }
+      },
+      "utility_costs": [
+        {
+          "fuel_type": "Electricity"
+        },
+        {
+          "fuel_type": "Natural Gas"
+        }
+      ],
+      "comfort_result": {
+        "time_setpoint_not_met_during_occupied_cooling": 421.0,
+        "time_setpoint_not_met_during_occupied_heating": 604.0,
+        "time_setpoint_not_met_during_occupied_hours": 1025.0,
+        "hours_out_of_comfort_bounds_PMV": 4438.0,
+        "hours_out_of_comfort_bounds_PPD": 1726.0
+      }
+    }
+  ],
+  "distributed_generation": {
+    "solar_pv": [
+
+    ],
+    "wind": [
+
+    ],
+    "generator": [
+
+    ],
+    "storage": [
+
+    ]
+  },
+  "power_distribution": {
+  },
+  "thermal_storage": {
+  }
+}

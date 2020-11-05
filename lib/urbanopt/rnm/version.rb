@@ -29,7 +29,7 @@
 # *********************************************************************************
 
 module URBANopt
-  module Rnm
+  module RNM
     VERSION = '0.1.0'.freeze
   end
 end
