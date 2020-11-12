@@ -31,14 +31,14 @@ require 'geoutm'
 
 module URBANopt
   module RNM
-  	# creating a class to process each costumer consumption and coordinate (including both buildings and streets)
-		class Processor
-	    # defining a method to set each street nodes to a uniform distance among eachothers, valid for both streets and buildings
-	    # the method is passing as arguments the harsh with each feature info from the geojson file, the latitude and longitude to be converted to UTM,
-	    # the array containing the already processed nodes, the index defining the position of the lat and lon passed in this method
-	    # and the index defining the reached position in the array with the processed nodes
-	    # this method returns the array with the processed nodes and its index
-	    def coordinates(harsh, lat, lon, coordinates, k, i)
+    # creating a class to process each customer consumption and coordinate (including both buildings and streets)
+    class Processor
+      # defining a method to set each street nodes to a uniform distance among eachothers, valid for both streets and buildings
+      # the method is passing as arguments the harsh with each feature info from the geojson file, the latitude and longitude to be converted to UTM,
+      # the array containing the already processed nodes, the index defining the position of the lat and lon passed in this method
+      # and the index defining the reached position in the array with the processed nodes
+      # this method returns the array with the processed nodes and its index
+      def coordinates(harsh, lat, lon, coordinates, k, i)
         lat_lon = GeoUtm::LatLon.new(lat, lon)
         z = 0 #default value for surface elevation
         uniform_distance = 10 # values set as uniform distance among nodes
@@ -75,32 +75,43 @@ module URBANopt
                 i += 1
         end 
         return coordinates, i
-	    end 
+      end 
 
-	    # defining a method to find the coordinates of the closest node of each building building to the closest street, to be used for the customers_ext.txt file
-	    # the method receives as arguments every nodes of 1 building and the array containing all the street nodes computed before
-	    # and it returns the coordinates and id of the closest node of the building to the street
-	    def consumer_coordinates(building, street)
-        distance = []
-        min_dist = []
+      # defining a method to find the coordinates of the closest node of each building building to the closest street, to be used for the customers_ext.txt file
+      # the method receives as arguments every nodes of 1 building and the array containing all the street nodes computed before
+      # and it returns the coordinates and id of the closest node of the building to the street
+       ## The new algorithm developed calculates an approximate distance: (x+y)/2, of each building-node with each street-node and compares it with the "minimum_distance"
+        # this approximate distance has been defined in order to be able to disregard all the distances which are greater than the "minimum distance" computed until that moment, without being required to compute the Pithagorean Theorem, which requires a long computational time.
+        # Therefore (x+y)/2 has been computed knowing that: if the minimum length of the hypothenuse of a right triangle is when the triangle is isosceles so when the hyphothenuse (d) is equal to d = sqrt(2)*x (where x is the distance among the nodes on the x-axis),
+        # so we can assume that x = (x+y)/2, than if d = sqrt(2)*((x+y)/2) > (x+y)/2 > minimum_distance
+        # than it confirmes that x and y can be disregarded and there is no need to compute the real distance for that node since the approximate distance value (which represents the minimum possible distance for the sum of those catheti)
+        # is greater than the minimum_distance that it is been compared with. 
+        # This process it is iterated for all the distances among the building-nodes with the street-nodes until an approximate distance (x+y)/2 is lower than the minimum distance computed until that moment 
+        # and in that case the real distance with the Pythagorean Theorem is computed and compared with the minimum distance.
+        def consumer_coordinates(building, street)
+        dist_min = 5000 #assuming a first fitticious minimum distance that will be replaced later on by the real minimum distance
         # iterating the distance among each node of each street and each node of each building until the minimum distance is found
-        for j in 0..building.length-1 # assessing each building node of the considered building
+           for j in 0..building.length-1 # assessing each building node of the considered building
             for i in 0..street.length-1 # assessing each street node
-                y = building[j][1]-street[i][1]
-                x = building[j][0] - street[i][0]
-                distance[i] = (x**2 + y**2)**(0.5) # finding the distance of each building node with each street node
+                y = building[j][1]-street[i][1] #calculating the distance on the y-axis
+                x = building[j][0] - street[i][0] #calculating the distance on the x-axis
+                distance_approx = (x + y)/2 # finding the "approximate" distance of each building node with each street node, in order to reduce computational time (considering that if the sum of the 2 cathets divided by 2 is lower than the minimum distance, than the real distance of this building node to the closest street-node will be further processed to see if it can be a "candidate" for the minimum distance)
+                if distance_approx < dist_min # if the the new distance found is lower than the minimum one than the real distance considering this building-node and this street-node will be computed
+                    distance = ((x)**2 + (y)**2)**(0.5) # the real distance between the building node and the street node is computed
+                    if distance < dist_min # if the new distance is lower than the minimum distance found until that moment, than this new "distance" value will be set as the minimum distance between the building node and the street node
+                        dist_min = distance
+                        chosen_coord = building[j] # assigning the node coordinates values and id of the building with the minimium distance to the street to chose_coord variable
+                    end
+                end
             end
-            min_dist[j] = distance.min() # finding the min distance for each node of the building
         end
-        index = min_dist.index {|x| x == min_dist.min()} # finding the index position of the node with the closest distance to the street 
-        chosen_coord = building[index] # assigning the closest node coordinates values and id to chose_coord variable
         return chosen_coord
-	    end 
+    end
 
-	    # creating a method to process each building electricity consumption for the customer_ext txt file
-	    # the method receives as argument the required data obtined from each feature csv and json urbanopt output files
-	    # and returns the customer_ext array for each feature, with the required customer data needed for RNM-US
-	    def construct_costumer(active_power, apparent_power, energy, building_map, area, height, users)
+      # creating a method to process each building electricity consumption for the customer_ext txt file
+      # the method receives as argument the required data obtined from each feature csv and json urbanopt output files
+      # and returns the customer_ext array for each feature, with the required customer data needed for RNM-US
+      def construct_customer(active_power, apparent_power, energy, building_map, area, height, users)
         # the default variables are defined (i.e. type and rurality type)
         peak_active_power = active_power.max().round(2)
         peak_apparent_power = apparent_power.max().round(2)

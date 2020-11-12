@@ -40,12 +40,14 @@ module URBANopt
 	    def coordinates_file_load(geojson_file)
 	        i = 0 # index representing the number of street_nodes
 	        building_number = 0 # variable created to keep track the number of building in the example_project
-	        costumers_coordinates = [] # array containing the coordinates and id of the closest node of each building to the street
+	        customers_coordinates = [] # array containing the coordinates and id of the closest node of each building to the street
 	        street_coordinates = [] # array containing every street node coordinates and id
 	        coordinates_buildings = [] # array containing every building node coordinates and id
+	        building_ids = [] # array containing building_ids to retrieve urbanopt results later
 	        streets = JSON.parse(geojson_file)
 	        # each features (linestring, multilinestring and polygon) are processed in an external method, to create intermediate nodes
 	        # for a better graphical representation of the district 
+	        # "Point" geometry is ignored (site origin feature)
 	        streets['features'].each do |street|
 	            for k in 0..street['geometry']['coordinates'].length-1 
 	                # the geojson file is read and according to the "type" of feature (linestring, multilinestring, polygon)
@@ -63,15 +65,16 @@ module URBANopt
 	                        building, h = URBANopt::RNM::Processor.new.coordinates(street, street['geometry']['coordinates'][k][j][1], street['geometry']['coordinates'][k][j][0], building, j, h) 
 	                    end 
 	                    coordinates_buildings[building_number] = building # inserting in each index the nodes coordinates and id of each building
+	                    building_ids[building_number] = street['properties']['id']
 	                    building_number += 1
 	                end
 	            end
 	        end 
 	        # an external method is called to find the coordinates of the closest node of each building to the street
 	            for i in 0..building_number-1
-	                costumers_coordinates[i] = URBANopt::RNM::Processor.new.consumer_coordinates(coordinates_buildings[i], street_coordinates)
+	                customers_coordinates[i] = URBANopt::RNM::Processor.new.consumer_coordinates(coordinates_buildings[i], street_coordinates)
 	            end
-	        return street_coordinates, costumers_coordinates, building_number
+	        return street_coordinates, customers_coordinates, building_number, building_ids
 	    end
 	    # defining a method for the customers_ext file creation: 
 	    # obtaining all the needed input from each feature_report.csv file (active & apparent power and tot energy consumed)
@@ -93,8 +96,8 @@ module URBANopt
 	        area = (folder['program']['floor_area']).round(2)
 	        height = (folder['program']['maximum_roof_height']).round(2)
 	        users = folder['program']['number_of_residential_units']
-	        # calling an external method to costruct the customer_ext array
-	        customer_ext, customer = URBANopt::RNM::Processor.new.construct_costumer(active_power, apparent_power, energy, building_map, area, height, users)
+	        # calling an external method to construct the customer_ext array
+	        customer_ext, customer = URBANopt::RNM::Processor.new.construct_customer(active_power, apparent_power, energy, building_map, area, height, users)
 	        return customer_ext, customer
 	    end
 		end

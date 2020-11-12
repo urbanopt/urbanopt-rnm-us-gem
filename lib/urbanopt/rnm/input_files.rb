@@ -28,6 +28,8 @@
 # OF THE POSSIBILITY OF SUCH DAMAGE.
 # *********************************************************************************
 
+require 'urbanopt/rnm/logger'
+
 module URBANopt
   module RNM
 		class InputFiles
@@ -45,12 +47,14 @@ module URBANopt
 	    	@feature_file_path = feature_file_path
 	    	@rnm_dirname = rnm_dirname
 
+				# initialize @@logger
+        @@logger ||= URBANopt::RNM.logger
+
 	    	# initialize RNM directory
         if !Dir.exist?(File.join(@run_dir, @rnm_dirname))
           FileUtils.mkdir_p(File.join(@run_dir, @rnm_dirname))
           @@logger.info("Created directory: " + File.join(@run_dir, @rnm_dirname))
         end
-
 	    end
 
 	    ##
@@ -63,13 +67,15 @@ module URBANopt
 		    customers_coordinates = []
 		    
 		    # the streetmap GEOjson file is loaded and a method is called to extract the required information regarding the street and building location
-		    street_coordinates, customers_coordinates, tot_buildings = URBANopt::RNM::Dataload.new.coordinates_file_load(File.read(@feature_file_path))
-		    
-		    # the csv and json feature_report files are loaded for each building and the building location is passed as an argument in order to obtain the customer_ext array with the required information (e.g. location, electricity consumption)
-        # TODO: need to use ID of buildings (from geojson file) as directory name
-        # reports are always in 'feature_reports' directory now
-        for j in 0..tot_buildings-1
-          file_path = File.join(@run_dir, "#{j+1}", 'feature_reports', 'default_feature_report')
+		    street_coordinates, customers_coordinates, tot_buildings, building_ids = URBANopt::RNM::Dataload.new.coordinates_file_load(File.read(@feature_file_path))
+		    puts("BUILDING IDS: #{building_ids}")
+
+          (0..tot_buildings-1).each do |j|
+          # use building_ids lookup to get name of results directory
+          # reports will be in 'feature_reports' directory 
+          puts("j: #{j}")
+          puts("path: #{building_ids[j]}")
+          file_path = File.join(@run_dir, "#{building_ids[j]}", 'feature_reports', 'default_feature_report')
 		   		data_customers_ext[j], data_customers[j] = URBANopt::RNM::Dataload.new.customer_files_load(file_path + ".csv", File.read(file_path + ".json"), customers_coordinates[j])
         end
         

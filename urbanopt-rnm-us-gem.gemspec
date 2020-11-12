@@ -29,5 +29,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'rubocop', '~> 0.54.0'
   spec.add_dependency 'rubocop-checkstyle_formatter', '~> 0.4.0'
   spec.add_dependency 'geoutm', '~>1.0.2'
+  spec.add_dependency 'faraday', '1.0.1'
   
 end

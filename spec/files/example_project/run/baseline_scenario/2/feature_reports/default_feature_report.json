@@ -6,7 +6,7 @@
   "timesteps_per_hour": 1,
   "simulation_status": "Complete",
   "timeseries_csv": {
-    "path": "/feature_reports/default_feature_report.csv",
+    "path": "/Users/kflemin/Downloads/rnm_project/run/baseline_scenario/2/013_default_feature_reports/default_feature_reports.csv",
     "first_report_datetime": "0",
     "column_names": [
       "Datetime",
@@ -130,12 +130,12 @@
       "start_date": {
         "month": 1,
         "day_of_month": 1,
-        "year": 2017
+        "year": "2017"
       },
       "end_date": {
         "month": 12,
         "day_of_month": 31,
-        "year": 2017
+        "year": "2017"
       },
       "total_site_energy": 7536520.441315327,
       "total_source_energy": 14620297.078770591,

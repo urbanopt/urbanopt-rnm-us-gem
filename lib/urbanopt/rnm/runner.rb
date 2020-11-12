@@ -48,10 +48,13 @@ module URBANopt
         @root_dir = root_dir
         @run_dir = run_dir
         @feature_file_path = feature_file_path
+        @api_client = nil
+        @rnm_dirname = 'rnm-us'
+        @rnm_dir = File.join(@run_dir, @rnm_dirname)
 
         # initialize @@logger
         @@logger ||= URBANopt::RNM.logger
-
+        
         # retrieve location of template inputs
         # TODO: better way to do this?
         $LOAD_PATH.each do |path_item|
@@ -94,17 +97,25 @@ module URBANopt
       # Run RNM-US Simulation (via RNM-US api)
       ##
       def run()
-
-        puts('hello world')
+        # start client
+        @api_client = URBANopt::RNM::ApiClient.new(@name, @rnm_dir, @template_inputs, true)
+        @api_client.submit_simulation()
+        
       end
-
       
       ##
       # Retrieve RNM-US results (via RNM-US api)
       ##
       def get_results()
-        puts('hello world')
+        # ping for results and download when ready
+        @api_client.get_results()
+      end
 
+      ## 
+      # Download results for a simulation separately
+      ##
+      def download_results(sim_id=nil)
+        @api_client.download_results(sim_id)
       end
     end
   end
