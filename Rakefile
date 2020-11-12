@@ -44,5 +44,5 @@ task default: :spec
 # example rake task
 desc 'Return gem version number'
 task :version_number do
-	puts "Version is: #{URBANopt::Rnm::VERSION}"
+	puts "Version is: #{URBANopt::RNM::VERSION}"
 end

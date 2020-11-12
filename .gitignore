@@ -25,3 +25,5 @@ Gemfile.lock
 /.idea
 runner.conf
 
+# ignore template files for now
+/template_inputs/*

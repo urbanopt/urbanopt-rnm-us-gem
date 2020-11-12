@@ -30,3 +30,8 @@
 
 require 'urbanopt/rnm/version'
 require 'urbanopt/rnm/logger'
+require 'urbanopt/rnm/dataload'
+require 'urbanopt/rnm/input_files'
+require 'urbanopt/rnm/processor'
+require 'urbanopt/rnm/runner'
+require 'urbanopt/rnm/api_client'
