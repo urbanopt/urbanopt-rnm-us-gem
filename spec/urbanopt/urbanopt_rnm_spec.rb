@@ -50,14 +50,71 @@ RSpec.describe URBANopt::RNM do
     before(:all) do
       @root_dir = File.join(File.dirname(__FILE__), '..', 'test', 'example_project')
       @run_dir = File.join(@root_dir, 'run', 'baseline_scenario')
-      @feature_file_path = File.join(@root_dir,  'example_project_streets.json')
-      @name = 'baseline_scenario'
+      @feature_file_path = File.join(@root_dir,  'example_project_combined1.json')
+      @reopt = false
+      @extended_catalog_path = File.join(File.dirname(__FILE__), '..', '..','catalogs',  'extended_catalog.json')
+      @average_peak_catalog_path = File.join(File.dirname(__FILE__), '..', '..','catalogs',  'average_peak_per_building_type.json')
+      @name = 'baseline_scenario' 
       
       if !File.exists?(File.join(File.dirname(__FILE__), '..', 'test'))
         FileUtils.mkdir_p(File.join(File.dirname(__FILE__), '..', 'test'))
       end
       
       FileUtils.cp_r(File.join(File.dirname(__FILE__), '..', 'files', 'example_project'), File.join(File.dirname(__FILE__), '..', 'test'))
+      @runner = URBANopt::RNM::Runner.new(@name, @root_dir, @run_dir, @feature_file_path, @reopt, @extended_catalog_path, @average_peak_catalog_path)
+    end
+    
+    it 'creates the rnm-us input files' do
+
+      # check that example project directory was created
+      expect(File.exists?(@root_dir)).to be true
+      
+      # create sim files
+      @runner.create_simulation_files()
+
+      # check that input files were created
+      expect(File.exists?(File.join(@run_dir, 'rnm-us'))).to be true
+      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'customers.txt'))).to be true
+      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'customers_ext.txt'))).to be true
+      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'streetmapAS.txt'))).to be true
+      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'cust_profile_p.txt'))).to be true
+      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'cust_profile_q.txt'))).to be true
+      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'cust_profile_q_estendido.txt'))).to be true
+      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'cust_profile_p_estendido.txt'))).to be true
+      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'ficheros_entrada.txt'))).to be true
+      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'ficheros_entrada_inc.txt'))).to be true
+
+
+    end
+
+    #it 'runs and gets results' do
+      # depends on files created in previous test
+     # @runner.run()
+     # @runner.get_results()
+      # begin
+      #   @runner.get_results()
+      # rescue
+        # test download with a valid simulation (just for quick testing)
+        # @runner.download_results('344c0187-47ae-4fff-9bb1-a98030ca255b')
+      # end
+    #end
+  end
+  #modify this according to reopt
+  context 'run simulation' do
+    before(:all) do
+      @root_dir = File.join(File.dirname(__FILE__), '..', 'reopt_test', 'example_project')
+      @run_dir = File.join(@root_dir, 'run', 'baseline_scenario')
+      @feature_file_path = File.join(@root_dir,  'example_project_streets.json')
+      @name = 'baseline_scenario' 
+      @reopt = true
+      @extended_catalog_path = File.join(File.dirname(__FILE__), '..', '..','catalogs',  'extended_catalog.json')
+      @average_peak_catalog_path = File.join(File.dirname(__FILE__), '..', '..','catalogs',  'average_peak_per_building_type.json')
+      
+      if !File.exists?(File.join(File.dirname(__FILE__), '..', 'reopt_test'))
+        FileUtils.mkdir_p(File.join(File.dirname(__FILE__), '..', 'reopt_test'))
+      end
+      
+      FileUtils.cp_r(File.join(File.dirname(__FILE__), '..', 'files', 'example_project'), File.join(File.dirname(__FILE__), '..', 'reopt_test'))
       @runner = URBANopt::RNM::Runner.new(@name, @root_dir, @run_dir, @feature_file_path)
     end
     
@@ -73,21 +130,31 @@ RSpec.describe URBANopt::RNM do
       expect(File.exists?(File.join(@run_dir, 'rnm-us'))).to be true
       expect(File.exists?(File.join(@run_dir, 'rnm-us', 'customers.txt'))).to be true
       expect(File.exists?(File.join(@run_dir, 'rnm-us', 'customers_ext.txt'))).to be true
-      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'streetmap.txt'))).to be true
+      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'streetmapAS.txt'))).to be true
+      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'cust_profile_p.txt'))).to be true
+      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'cust_profile_q.txt'))).to be true
+      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'cust_profile_q_estendido.txt'))).to be true
+      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'cust_profile_p_estendido.txt'))).to be true
+      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'ficheros_entrada.txt'))).to be true
+      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'ficheros_entrada_inc.txt'))).to be true
+      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'gen_profile_p_extendido.txt'))).to be true
+      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'gen_profile_q_extendido.txt'))).to be true
+      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'gen_profile_q.txt'))).to be true
+      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'gen_profile_p.txt'))).to be true
+      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'generators.txt'))).to be true
+      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'ficheros_entrada_inc.txt'))).to be true
 
     end
 
-    it 'runs and gets results' do
+    #it 'runs and gets results' do
       # depends on files created in previous test
-      @runner.run()
-      @runner.get_results()
+     # @runner.run()
+      #@runner.get_results()
       # begin
       #   @runner.get_results()
       # rescue
         # test download with a valid simulation (just for quick testing)
         # @runner.download_results('344c0187-47ae-4fff-9bb1-a98030ca255b')
       # end
-    end
   end
-
 end

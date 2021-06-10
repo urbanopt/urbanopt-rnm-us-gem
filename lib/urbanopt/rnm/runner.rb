@@ -42,7 +42,7 @@ module URBANopt
       # * +root_dir+ - _String_ - Full path to root directory for the scenario, contains Gemfile describing dependencies.
       # * +run_dir+ - _String_ - Full path to directory for simulation of this scenario
       # * +feature_file_path+ - _String_ - Full path to GeoJSON feature file containing features and streets for simulation.
-      def initialize(name, root_dir, run_dir, feature_file_path)
+      def initialize(name, root_dir, run_dir, feature_file_path, reopt, extended_catalog_path, average_peak_catalog_path)
         @name = name
         # these are all absolute paths
         @root_dir = root_dir
@@ -51,7 +51,9 @@ module URBANopt
         @api_client = nil
         @rnm_dirname = 'rnm-us'
         @rnm_dir = File.join(@run_dir, @rnm_dirname)
-
+        @reopt = reopt
+        @extended_catalog_path = extended_catalog_path
+        @average_peak_catalog_path = average_peak_catalog_path
         # initialize @@logger
         @@logger ||= URBANopt::RNM.logger
         
@@ -83,12 +85,23 @@ module URBANopt
       attr_reader :feature_file_path #:nodoc:
 
       ##
+      # Feature file path associated with this Scenario.
+      attr_reader :reopt #:nodoc:
+
+      ##
+      # Feature file path associated with this Scenario.
+      attr_reader :average_peak_catalog_path #:nodoc:
+
+      ##
+      # Feature file path associated with this Scenario.
+      attr_reader :extended_catalog_path #:nodoc:
+      ##
       # Create RNM-US Input Files
       ##
       def create_simulation_files()
 
         # generate RNM-US input files
-        in_files = URBANopt::RNM::InputFiles.new(@run_dir, @feature_file_path)
+        in_files = URBANopt::RNM::InputFiles.new(@run_dir, @feature_file_path, @reopt, @extended_catalog_path, @average_peak_catalog_path)
         in_files.create()
 
       end
