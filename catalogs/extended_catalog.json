@@ -14789,7 +14789,7 @@
       },
       {
         "nameclass": "UG TPLX 1/0",
-        "ampacity (A)": null,
+        "ampacity (A)": 235,
         "gmr (mm)": 3.2135,
         "resistance (ohm/km)": 0.5413,
         "diameter (mm)": 8.25246,
