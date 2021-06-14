@@ -29,6 +29,7 @@
 # OF THE POSSIBILITY OF SUCH DAMAGE.
 # *********************************************************************************
 require 'geoutm'
+require 'json'
 
 module URBANopt
   module RNM
@@ -39,10 +40,10 @@ module URBANopt
       # the array containing the already processed nodes, the index defining the position of the lat and lon passed in this method
       # and the index defining the reached position in the array with the processed nodes
       # this method returns the array with the processed nodes and its index
-      def Streetmap.coordinates(harsh, lat, lon, coordinates, k, i)
+      def coordinates(harsh, lat, lon, coordinates, k, i)
         lat_lon = GeoUtm::LatLon.new(lat, lon)
         z = 0 #default value for surface elevation
-        uniform_distance = 10 # values set as uniform distance among nodes
+        uniform_distance = 17 # values set as uniform distance among nodes
         utm = lat_lon.to_utm # converting latitude and longitude to UTM
         x_utm = utm.e.round(2) # UTM x-distance from the origin
         y_utm = utm.n.round(2) # UTM y-distance from the origin
@@ -89,7 +90,7 @@ module URBANopt
         # is greater than the minimum_distance that it is been compared with. 
         # This process it is iterated for all the distances among the building-nodes with the street-nodes until an approximate distance (x+y)/2 is lower than the minimum distance computed until that moment 
         # and in that case the real distance with the Pythagorean Theorem is computed and compared with the minimum distance.
-        def Streetmap.consumer_coordinates(building, street)
+        def consumer_coordinates(building, street)
         dist_min = 5000 #assuming a first fitticious minimum distance that will be replaced later on by the real minimum distance
         # iterating the distance among each node of each street and each node of each building until the minimum distance is found
             for j in 0..building.length-1 # assessing each building node of the considered building
@@ -120,13 +121,14 @@ module URBANopt
 	        street_coordinates = [] # array containing every street node coordinates and id
 	        coordinates_buildings = [] # array containing every building node coordinates and id
 	        building_ids = [] # array containing building_ids to retrieve urbanopt results later
+            building_floors = []
             substation_location = []
 	        streets = JSON.parse(geojson_file)
 	        # each features (linestring, multilinestring and polygon) are processed in an external method, to create intermediate nodes
 	        # for a better graphical representation of the district 
 	        # "Point" geometry is ignored (site origin feature)
-            ug_ratio = streets['%underground_cables_ratio'].to_i
-            only_lv_consumers = streets['only_LV_consumers']
+            ug_ratio = streets['project']['%underground_cables_ratio'].to_i
+            only_lv_consumers = streets['project']['only_lv_consumers']
             #put error ifthere is not this info, and use default values
 	        streets['features'].each do |street|
 	                # the geojson file is read and according to the "type" of feature (linestring, multilinestring, polygon)
@@ -164,6 +166,7 @@ module URBANopt
                             end 
                             coordinates_buildings[building_number] = building # inserting in each index the nodes coordinates and id of each building
                             building_ids[building_number] = street['properties']['id']
+                            building_floors[building_number] = street['properties']['number_of_stories']
                             building_number += 1
 	                end
 	            end
@@ -187,6 +190,9 @@ module URBANopt
 	            for i in 0..building_number-1
 	                customers_coordinates[i] = self.consumer_coordinates(coordinates_buildings[i], street)
 	            end
-	        return street, customers_coordinates, coordinates_building, building_number, building_ids, substation_location, only_lv_consumers #considering creating an hash as attribute
+	        return street, customers_coordinates, coordinates_buildings, building_number, building_ids, substation_location, only_lv_consumers #considering creating an hash as attribute
 	    end
+    end
+end
+end
 
