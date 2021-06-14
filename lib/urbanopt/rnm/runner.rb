@@ -99,7 +99,7 @@ module URBANopt
       # Create RNM-US Input Files
       ##
       def create_simulation_files()
-
+        
         # generate RNM-US input files
         in_files = URBANopt::RNM::InputFiles.new(@run_dir, @feature_file_path, @reopt, @extended_catalog_path, @average_peak_catalog_path)
         in_files.create()
