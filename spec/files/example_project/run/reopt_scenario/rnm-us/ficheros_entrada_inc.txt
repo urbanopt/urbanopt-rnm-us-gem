@@ -1,0 +1,3 @@
+CClienteGreenfield;customers_ext.txt;cust_profile_p.txt;cust_profile_q.txt;cust_profile_p_extendido.txt;cust_profile_q_extendido.txt
+CGeneradorGreenfield;generators.txt;gen_profile_p.txt;gen_profile_q.txt;gen_profile_p_extendido.txt;gen_profile_q_extendido.txt
+END

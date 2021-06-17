@@ -27,7 +27,7 @@
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
 # OF THE POSSIBILITY OF SUCH DAMAGE.
 # *********************************************************************************
-
+require 'json'
 require 'urbanopt/rnm/logger'
 
 module URBANopt
@@ -40,9 +40,13 @@ module URBANopt
 	    # [parameters:]
 	    # * +run_dir+ - _String_ - Full path to directory for simulation of this scenario
 	    # * +feature_file_path+ - _String_ - Full path to GeoJSON feature file containing features and streets for simulation.
-	    # * +rnm_dirname+ - _String_ - name of RNM-US directory that will contain the input files (within the scenario directory)
-	    ##
-	    def initialize(run_dir, feature_file_path, reopt=false, extended_catalog_path, average_building_peak_catalog_path, rnm_dirname: 'rnm-us', opendss_catalog: false)
+	    # * +reopt+ - _Boolean_ - Input command from the user to either include or not DG capabilities in planning the network, if REopt was ran before
+        # * +extended_catalog_path+ - _String_ - Full path to the extended_catalog which include all the info about electric equipment and RNM-US parameters
+        # * +average_building_peak_ctalog_path+ - _String_ - Full path to the catalog providing average peak building consumption per floor area and average floor area per building type 
+        # * +rnm_dirname+ - _String_ - name of RNM-US directory that will contain the input files (within the scenario directory)
+	    # * +opendss_catalog+ - _Boolean_ - Input command from the user to either run or not the opendss_conversion_script to convert the extended_catalog in OpenDSS catalog 
+        ##
+	    def initialize(run_dir, feature_file_path, reopt=false, extended_catalog_path, average_building_peak_catalog_path, rnm_dirname: 'rnm-us', opendss_catalog: true)
 	    	@run_dir = run_dir
 	    	@feature_file_path = feature_file_path
 	    	@rnm_dirname = rnm_dirname
@@ -59,17 +63,14 @@ module URBANopt
                 @@logger.info("Created directory: " + File.join(@run_dir, @rnm_dirname))
             end
 	    end
-        def generate_opendss_catalog()
-            #put the script
-            #place this new file created in the rnm-us folder outside the inputs folder
-        end
-
         #finding the limits on LV defined by the equipments in the catalog
         def catalog_limits()
             catalog = JSON.parse(File.read(@extended_catalog_path))
             limit = Hash.new(0)
             limit_lines = Hash.new(0)
             limit_trafo = Hash.new(0)
+            # evaluating first all the LV power lines included in the extended catalog and finding the LV 3-phase and single-phase
+            # lines with the highest capacity
             catalog['LINES'][1].each do |key, v|
                     (0..catalog['LINES'][1][key].length-1).each do |ii|
                         if catalog['LINES'][1][key][ii]["Voltage(kV)"] == "0.416"
@@ -88,7 +89,6 @@ module URBANopt
                                     limit_lines[:three_phase] = ((current*((catalog['LINES'][1][key][ii]["Voltage(kV)"]).to_f)) * ((3)**0.5)).round(2)
                                 end
                             else
-                                #puts (current*((catalog['LINES'][1][key][ii]["Voltage(kV)"]).to_f * 1000))
                                 if (current*((catalog['LINES'][1][key][ii]["Voltage(kV)"]).to_f)) > limit_lines[:single_phase]
                                     limit_lines[:single_phase] = (current*((catalog['LINES'][1][key][ii]["Voltage(kV)"]).to_f)).round(2)
                                 end
@@ -97,6 +97,8 @@ module URBANopt
                     end
                 
             end
+            # evaluating all the distribution transformers included in the extended catalog and finding 3-phase and single-phase
+            # distr. transformers with the highest capacity
             (0..catalog["SUBSTATIONS AND DISTRIBUTION TRANSFORMERS"].length-1).each do |k, v|
                 catalog["SUBSTATIONS AND DISTRIBUTION TRANSFORMERS"][k].each do |key, value|
                     if catalog["SUBSTATIONS AND DISTRIBUTION TRANSFORMERS"][k][key][0]["Voltage level"] == "MV-LV"
@@ -114,6 +116,7 @@ module URBANopt
                     end
                 end
             end
+            # setting as the limit for single-phase and 3-phase the component with the lowest capacity
             if limit_trafo[:three_phase] < limit_lines[:three_phase]
                 limit[:three_phase] = limit_trafo[:three_phase]
             else
@@ -129,20 +132,23 @@ module URBANopt
 
 
 	    ##
-	    # Create the files that are required as input in RNM-US. (streetmap.txt, customers.txt, customers_ext.txt)
+	    # Create the files that are required as input in RNM-US.
+        # (e.g. streetmapAS.txt, customers.txt, customers_ext.txt, customers_profiles_p.txt, customers_profiles_q.txt,
+        # customers_profiles_p_ext.txt, customers_profiles_q_ext.txt,substation_location.txt, generators.txt, 
+        # generator_profiles_p.txt, generator_profiles_q.txt, generator_profiles_p_ext.txt, generator_profiles_q_ext.txt, 
+        # ficheros_entrada.txt, ficheros_entrada_inc.txt, udcons.csv)
 	    ##
 	    def create()
-		    # the streetmap GEOjson file is loaded and a method is called to extract the required information regarding the street and building location
-		    #anche qui inserire tutti gli att_accessors
-            street_coordinates, customers_coordinates, coordinates_buildings, tot_buildings, building_ids, substation_location, only_lv_consumers = URBANopt::RNM::Streetmap.new.coordinates_file_load(File.read(@feature_file_path)) #maybe I can convert this with an hash, with all this info
+		    # the GEOjson file is loaded and a method is called to extract the required information regarding the street, building and substation location
+            street_coordinates, customers_coordinates, coordinates_buildings, tot_buildings, building_ids, substation_location, only_lv_consumers = URBANopt::RNM::Geojson_input.new.coordinates_file_load(File.read(@feature_file_path))
 		    puts("BUILDING IDS: #{building_ids}")
-            n = 0 #counter per number of consumers' nodes
             #define the LV/MV limit imposed by the components of the catalog: distr.transformers and power lines
             lv_limit = self.catalog_limits()
-            
+            # veryfying if running RNM-US with REopt option
             if @reopt
                 if !File.join(@run_dir, 'feature_optimization').nil?
                     scenario_report_path = File.join(@run_dir, 'feature_optimization')
+                    # creating a class prosumers with all the info for all the DER and consumption for each building
                     prosumers = URBANopt::RNM::Prosumers.new(@reopt, only_lv_consumers, @average_building_peak_catalog_path, lv_limit) #passing these 2 conditions to see what option did the user 
                 else 
                     raise 'scenario report is not found'
@@ -151,38 +157,47 @@ module URBANopt
             else
                 if !File.join(@run_dir, 'scenario_report').nil?
                     scenario_report_path = File.join(@run_dir, 'default_scenario_report')
+                    # creating a class consumers with all the info about the consumption for each building
                     consumers = URBANopt::RNM::Consumers.new(@reopt, only_lv_consumers, @average_building_peak_catalog_path, lv_limit) #passing these 2 conditions to see what option did the user applied
                 else
                     raise 'scenario_report is not found'
                 end
             end 
-            hours =  URBANopt::RNM::Report_scenario.new(@reopt) # accroding to the 2 extreme hours of the year (maximum net demand and maximum net generation) the distribution network is planned
+             # finding the 2 most extreme hours of the year (maximum net demand and maximum net generation) the distribution network is planned
+            hours =  URBANopt::RNM::Report_scenario.new(@reopt)
             hours.scenario_report_results(scenario_report_path + ".csv")
-            (0..5).each do |j| #tot_buildings-1).each do |j|
+            #iterating over each building to define each consumer/prosumer
+            (0..tot_buildings-1).each do |j|
                     # use building_ids lookup to get name of results directory
                     # reports will be in 'feature_reports' directory 
                     puts("j: #{j}")
                     puts("path: #{building_ids[j]}")
-                    if @reopt #the condition if there s reopt or not can be mooved above
+                    if @reopt 
+                        hours.hour_index_min
                         file_path = File.join(@run_dir, "#{building_ids[j]}", 'feature_reports', 'feature_optimization')
                         prosumers.prosumer_files_load(file_path + ".csv", File.read(file_path + ".json"), customers_coordinates[j], coordinates_buildings[j], hours)
-                        #data_customers_ext, data_customers, data_dg[j], profile_customer_p, profile_customer_q, profile_customer_p_ext, profile_customer_q_ext, dg_profile_p[j], dg_profile_q[j], profile_dg_p_extended[j], profile_dg_q_extended[j], n  = URBANopt::RNM::Dataload.customer_files_load(file_path + ".csv", File.read(file_path + ".json"), customers_coordinates[j], coordinates_buildings[j], data_customers, data_customers_ext, n, average_building_peak_catalog_path, profile_customer_p, profile_customer_q, profile_customer_p_ext, profile_customer_q_ext, hours))
                     else
                         file_path = File.join(@run_dir, "#{building_ids[j]}", 'feature_reports', 'default_feature_report')
                         consumers.customer_files_load(file_path + ".csv", File.read(file_path + ".json"), customers_coordinates[j], coordinates_buildings[j], hours)
-                        #data_customers_ext, data_customers, profile_customer_p, profile_customer_q, profile_customer_p_ext, profile_customer_q_ext, n  = URBANopt::RNM::Consumers.customer_files_load(file_path + ".csv", File.read(file_path + ".json"), customers_coordinates[j], coordinates_buildings[j], data_customers, data_customers_ext, n, average_building_peak_catalog_path, profile_customer_p, profile_customer_q, profile_customer_p_ext, profile_customer_q_ext, hours))
-                    end
+                   end
             end
-            #call the opendss_catalog_function-->if @opendss_catalog
-        
-            # creating the streetmap.txt, cutomers.txt and customers_ext.txt files in the folder Inputs in the RNM folder
-            #qui cambiare tutti gli argomenti con i nuovi attributi
+            rnm_us_catalog = URBANopt::RNM::Rnm_us_catalog_conversion.new(@extended_catalog_path, @run_dir, @rnm_dirname)
+            rnm_us_catalog.processing_data
+            #call and create the opendss_catalog class if the user wants to convert the extended catalog into OpenDSS catalog
+            if @opendss_catalog
+                @opendss_catalog = URBANopt::RNM::Conversion_to_opendss_catalog.new(@extended_catalog_path)
+                @opendss_catalog.create_catalog
+                File.open(File.join(@run_dir,"opendss_catalog.json"),"w") do |f|
+                    f.write(JSON.pretty_generate(@opendss_catalog.hash))
+                end
+            end
+            # creating all the inputs files required by the RNM-US model in the folder Inputs in the RNM folder
 		    File.open(File.join(@run_dir, @rnm_dirname, "streetmapAS.txt"), "w+") do |f|
 			    f.puts(street_coordinates.map { |x| x.join(';') })
 		    end
             ficheros_entrada=Array.new
             if substation_location != 'nil'
-                File.open(File.join(@run_dir, @rnm_dirname, "primary_substation.txt"), "w+") do |f|
+                File.open(File.join(@run_dir, @rnm_dirname, "primary_substations.txt"), "w+") do |f|
                     f.puts(substation_location.map { |x| x.join(';') })
                 end
                 ficheros_entrada=Array.new
@@ -267,7 +282,6 @@ module URBANopt
                     g.puts(ficheros_entrada_inc)
                 end
             end
-            #create the ficheros_entrada file and understand where to include the extended scenario script to convert to rnm-us catalog
         end
 
 

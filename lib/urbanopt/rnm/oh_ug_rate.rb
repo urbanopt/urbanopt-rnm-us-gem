@@ -29,6 +29,8 @@
 # OF THE POSSIBILITY OF SUCH DAMAGE.
 # *********************************************************************************
 
+# creating a class to find when the power lines in a street have to be considered OH or UG
+# according to a threshold height obtained from the %UG defined by the user
 module URBANopt
     module RNM
         class Oh_ug_rate
@@ -39,6 +41,7 @@ module URBANopt
                 @n_buildings_street = n_buildings_street
             end
             # for each street calculate the average height given the buildings in the streets
+            #and it calculates the number of buildings in each street
             def height_building(coordinates_building, coordinates_street, floors)
                 height = []
                 id_building = []
@@ -72,8 +75,10 @@ module URBANopt
                 end
                     @n_buildings_street = n_buildings_street
                     @av_height = (height_sum / (i+1)).to_f.round(2)
-                #return @av_height, @n_buildings_street
             end
+
+            # defining a method which defines the "threshold height", in an iterative way and adding 0.1m of height until the threhold limit is reached
+            # when the % of streets in the district above the threshold is equal to the UG rate defined by the user 
             def threshold_height(street_type, ug_ratio)
                 h_threshold = 0
                 tot_build_in_streets = 0
@@ -87,7 +92,7 @@ module URBANopt
                     n_street_oh[ii] = 0
                     for i in 0..street_type.length-1
                         if street_type[i].av_height < h_threshold
-                            n_street_oh[ii] += street_type[i].n_buildings_street #qui sommo numero di palazzi per ognuna di queste strade (n_build_oh += street_type.n_build)
+                            n_street_oh[ii] += street_type[i].n_buildings_street 
                         end
                     end
                     ii += 1 
@@ -96,6 +101,8 @@ module URBANopt
                 h_threshold = h_threshold - 0.10
                 return h_threshold.to_i
             end
+            # defining a method that decides to place each street either OH or UG, according to its average height and the threshold height,
+            # if the street has a height below the threshold height it has to modelled has OH, otherwise UG
             def classify_street_type(street_type, ug_ratio)
                 h = self.threshold_height(street_type, ug_ratio)
                 if @av_height < h

@@ -12,5 +12,7 @@ RNM-US provides output results in GIS, JSON and OpenDSS format. The results in G
 The JSON format output provides a set of results regarding size, costs and measures of the synthetic network modelled.
 The OpenDSS format presents results for power system analysis and simulations.
 
-The current functionalities of the RNM-US Gem include the creation of a streetmap text file and customers text files.
-The streetmap text file is developed from coordinates information provided by geoJSON feature file input. The customers text files, which define all the network consumers included in the project, are created from their peak electricity demand, and building location, provided by csv and json feature_report files modeled by the URBANopt Scenario Gem.
+The current functionalities of the RNM-US Gem include the creation of a streetmap text file, the substation txt file and multiple txt files related to the consumers peak loads and profiles and DERs peak generation and profiles.
+The streetmap text file is developed from coordinates information provided by geoJSON feature file input. The customers and generators text files, which define all the network consumers and DG included in the project, are created from their peak electricity demand/generation, and building location, provided by csv and json feature_report files modeled by the URBANopt Scenario Gem.
+The profiles txt files are divided among the consumers hourly profiles of active and reactive power and the DG hourly profiles of active and reactive power for the 2 most "extreme" days of maximum net demand and maximum net generation for the district .
+Finally, the extended profiles txt files provide the active and reactive profiles for each consumer/DG for the whole year. 
