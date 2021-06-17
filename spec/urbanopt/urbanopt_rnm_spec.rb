@@ -115,7 +115,7 @@ RSpec.describe URBANopt::RNM do
          FileUtils.mkdir_p(File.join(File.dirname(__FILE__), '..', 'test_reopt'))
        end
       
-       FileUtils.cp_r(File.join(File.dirname(__FILE__), '..', 'files', 'example_project'), File.join(File.dirname(__FILE__), '..', 'reopt_test'))
+       FileUtils.cp_r(File.join(File.dirname(__FILE__), '..', 'files', 'example_project'), File.join(File.dirname(__FILE__), '..', 'test_reopt'))
        @runner = URBANopt::RNM::Runner.new(@name, @root_dir, @run_dir, @feature_file_path, @reopt, @extended_catalog_path, @average_peak_catalog_path)
       end
     
