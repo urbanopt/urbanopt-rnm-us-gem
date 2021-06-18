@@ -1,3 +1,0 @@
-CSubestacionDistribucionGreenfield;primary_substations.txt
-CPuntoCallejero;streetmapAS.txt
-END

@@ -38,7 +38,7 @@ module URBANopt
 	class Prosumers
 		attr_accessor :customers, :customers_ext, :profile_customer_p, :profile_customer_q, :profile_customer_p_ext, :profile_customer_q_ext, :dg, :dg_profile_p, :dg_profile_q, :profile_dg_p_extended, :profile_dg_q_extended, :power_factor
 		#initializing all the attributes to build the inputs files required by the RNM-US model
-		def initialize(reopt, only_lv_consumers, average_building_peak_catalog_path, lv_limit)
+		def initialize(reopt, only_lv_consumers = false, average_building_peak_catalog_path, lv_limit)
 			@reopt = reopt
 			@average_building_peak_catalog_path = average_building_peak_catalog_path
 			@only_lv_consumers = only_lv_consumers
