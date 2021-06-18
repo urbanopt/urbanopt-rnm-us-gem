@@ -139,7 +139,7 @@ module URBANopt
 	        streets = JSON.parse(geojson_file)
             # parsing the options defined by the user to run the RNM-US with a certain % of UG cables and designing the network with only LV nodes
             # to be consistent in case several case-studies are run to have an homogenous parameter on how to compare the same buildings with different energy consumption
-            ug_ratio = streets['project']['%underground_cables_ratio'].to_i
+            ug_ratio = streets['project']['underground_cables_ratio'].to_f
             only_lv_consumers = streets['project']['only_lv_consumers']
             # each features (linestring, multilinestring and polygon) are processed in an external method, to create intermediate nodes
 	        # for a better graphical representation of the district 

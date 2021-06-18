@@ -86,7 +86,8 @@ module URBANopt
                 for i in 0..street_type.length-1
                     tot_build_in_streets += street_type[i].n_buildings_street
                 end
-                street_set_oh = ((tot_build_in_streets)*(1-ug_ratio)).to_i
+                #puts tot_build_in_streets
+                street_set_oh = ((tot_build_in_streets)*(1-ug_ratio)).round
                 ii = 0
                 while  ii == 0 || n_street_oh[ii-1] < street_set_oh 
                     n_street_oh[ii] = 0
@@ -99,7 +100,7 @@ module URBANopt
                     h_threshold += 0.10
                 end 
                 h_threshold = h_threshold - 0.10
-                return h_threshold.to_i
+                return h_threshold
             end
             # defining a method that decides to place each street either OH or UG, according to its average height and the threshold height,
             # if the street has a height below the threshold height it has to modelled has OH, otherwise UG
