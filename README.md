@@ -16,3 +16,19 @@ The current functionalities of the RNM-US Gem include the creation of a streetma
 The streetmap text file is developed from coordinates information provided by geoJSON feature file input. The customers and generators text files, which define all the network consumers and DG included in the project, are created from their peak electricity demand/generation, and building location, provided by csv and json feature_report files modeled by the URBANopt Scenario Gem.
 The profiles txt files are divided among the consumers hourly profiles of active and reactive power and the DG hourly profiles of active and reactive power for the 2 most "extreme" days of maximum net demand and maximum net generation for the district .
 Finally, the extended profiles txt files provide the active and reactive profiles for each consumer/DG for the whole year. 
+
+## Generate input files
+
+The `create_inputs` rake command can be used to generate the RNM-US inputs for an arbitrary command.  You will need to specify the path to the scenario results directory and the path to the GeoJSON feature file:
+
+```bash
+  bundle exec rake create_inputs[/path/to/example_project/run/scenario_name,/path/to/feature_file.json]
+```
+
+## Generating OpenDSS catalog
+
+An OpenDSS-formatted catalog can be generated from the extended catalog with the following command:
+
+```bash
+bundle exec rake create_opendss_catalog[/desired/path/to/opendss_catalog.json]
+```

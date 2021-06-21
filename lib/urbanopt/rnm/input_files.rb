@@ -35,18 +35,18 @@ module URBANopt
 	class InputFiles
 
 	    ##
-	    # Initialize InputFiles attributs: +run_dir+, +feature_file_path+, +rnm_dirname+ 
+	    # Initialize InputFiles attributes: +run_dir+, +feature_file_path+, +reopt+, +extended_catalog_path+, +average_building_peak_catalog_path+, +rnm_dirname+, +opendss_catalog+
 	    ##
 	    # [parameters:]
 	    # * +run_dir+ - _String_ - Full path to directory for simulation of this scenario
 	    # * +feature_file_path+ - _String_ - Full path to GeoJSON feature file containing features and streets for simulation.
-	    # * +reopt+ - _Boolean_ - Input command from the user to either include or not DG capabilities in planning the network, if REopt was ran before
-        # * +extended_catalog_path+ - _String_ - Full path to the extended_catalog which include all the info about electric equipment and RNM-US parameters
-        # * +average_building_peak_ctalog_path+ - _String_ - Full path to the catalog providing average peak building consumption per floor area and average floor area per building type 
+	    # * +extended_catalog_path+ - _String_ - Full path to the extended_catalog which include all the info about electric equipment and RNM-US parameters
+        # * +average_building_peak_catalog_path+ - _String_ - Full path to the catalog providing average peak building consumption per floor area and average floor area per building type 
+        # * +reopt+ - _Boolean_ - Input command from the user to either include or not DG capabilities in planning the network, if REopt was ran before
+        # * +opendss_catalog+ - _Boolean_ - Input command from the user to either run or not the opendss_conversion_script to convert the extended_catalog in OpenDSS catalog 
         # * +rnm_dirname+ - _String_ - name of RNM-US directory that will contain the input files (within the scenario directory)
-	    # * +opendss_catalog+ - _Boolean_ - Input command from the user to either run or not the opendss_conversion_script to convert the extended_catalog in OpenDSS catalog 
         ##
-	    def initialize(run_dir, feature_file_path, reopt=false, extended_catalog_path, average_building_peak_catalog_path, rnm_dirname: 'rnm-us', opendss_catalog: true)
+	    def initialize(run_dir, feature_file_path, extended_catalog_path, average_building_peak_catalog_path, reopt:false, opendss_catalog:true, rnm_dirname:'rnm-us')
 	    	@run_dir = run_dir
 	    	@feature_file_path = feature_file_path
 	    	@rnm_dirname = rnm_dirname
@@ -142,7 +142,7 @@ module URBANopt
 		    # the GEOjson file is loaded and a method is called to extract the required information regarding the street, building and substation location
             street_coordinates, customers_coordinates, coordinates_buildings, tot_buildings, building_ids, substation_location, only_lv_consumers = URBANopt::RNM::Geojson_input.new.coordinates_file_load(File.read(@feature_file_path))
 		    puts("BUILDING IDS: #{building_ids}")
-            #define the LV/MV limit imposed by the components of the catalog: distr.transformers and power lines
+            # define the LV/MV limit imposed by the components of the catalog: distr.transformers and power lines
             lv_limit = self.catalog_limits()
             # veryfying if running RNM-US with REopt option
             if @reopt
@@ -166,12 +166,10 @@ module URBANopt
              # finding the 2 most extreme hours of the year (maximum net demand and maximum net generation) the distribution network is planned
             hours =  URBANopt::RNM::Report_scenario.new(@reopt)
             hours.scenario_report_results(scenario_report_path + ".csv")
-            #iterating over each building to define each consumer/prosumer
+            # iterating over each building to define each consumer/prosumer
             (0..tot_buildings-1).each do |j|
                     # use building_ids lookup to get name of results directory
                     # reports will be in 'feature_reports' directory 
-                    puts("j: #{j}")
-                    puts("path: #{building_ids[j]}")
                     if @reopt 
                         hours.hour_index_min
                         file_path = File.join(@run_dir, "#{building_ids[j]}", 'feature_reports', 'feature_optimization')
@@ -183,13 +181,11 @@ module URBANopt
             end
             rnm_us_catalog = URBANopt::RNM::Rnm_us_catalog_conversion.new(@extended_catalog_path, @run_dir, @rnm_dirname)
             rnm_us_catalog.processing_data
-            #call and create the opendss_catalog class if the user wants to convert the extended catalog into OpenDSS catalog
+            # call and create the opendss_catalog class if the user wants to convert the extended catalog into OpenDSS catalog
             if @opendss_catalog
                 @opendss_catalog = URBANopt::RNM::Conversion_to_opendss_catalog.new(@extended_catalog_path)
-                @opendss_catalog.create_catalog
-                File.open(File.join(@run_dir,"opendss_catalog.json"),"w") do |f|
-                    f.write(JSON.pretty_generate(@opendss_catalog.hash))
-                end
+                # create catalog and save to specified path
+                @opendss_catalog.create_catalog(File.join(@run_dir,"opendss_catalog.json"))
             end
             # creating all the inputs files required by the RNM-US model in the folder Inputs in the RNM folder
 		    File.open(File.join(@run_dir, @rnm_dirname, "streetmapAS.txt"), "w+") do |f|

@@ -42,7 +42,11 @@ module URBANopt
       # * +root_dir+ - _String_ - Full path to root directory for the scenario, contains Gemfile describing dependencies.
       # * +run_dir+ - _String_ - Full path to directory for simulation of this scenario
       # * +feature_file_path+ - _String_ - Full path to GeoJSON feature file containing features and streets for simulation.
-      def initialize(name, root_dir, run_dir, feature_file_path, reopt, extended_catalog_path, average_peak_catalog_path)
+      # * +extended_catalog_path+ - _String_ - Full path to the extended catalog
+      # * +average_peak_catalog_path+ - _String_ - Full path to average peak catalog
+      # * +reopt+ - _Boolean_ - Use REopt results to generate inputs? Defaults to false
+      # * +opendss_catalog+ - _Boolean_ - Generate OpenDSS catalog? Defaults to true
+      def initialize(name, root_dir, run_dir, feature_file_path, extended_catalog_path, average_peak_catalog_path, reopt:false, opendss_catalog:true)
         @name = name
         # these are all absolute paths
         @root_dir = root_dir
@@ -54,18 +58,19 @@ module URBANopt
         @reopt = reopt
         @extended_catalog_path = extended_catalog_path
         @average_peak_catalog_path = average_peak_catalog_path
+        @opendss_catalog = opendss_catalog
         # initialize @@logger
         @@logger ||= URBANopt::RNM.logger
         
         # retrieve location of template inputs
-        # TODO: better way to do this?
-        $LOAD_PATH.each do |path_item|
-          if path_item.to_s.end_with?('example_inputs')
-            @template_inputs = path_item
-            @@logger.info("Found location of example RNM-US template Inputs: #{path_item}")
-            break
-          end
-        end
+        # TODO: no longer needed: remove
+        # $LOAD_PATH.each do |path_item|
+        #   if path_item.to_s.end_with?('example_inputs')
+        #     @template_inputs = path_item
+        #     @@logger.info("Found location of example RNM-US template Inputs: #{path_item}")
+        #     break
+        #   end
+        # end
       end
 
       ##
@@ -101,7 +106,7 @@ module URBANopt
       def create_simulation_files()
         
         # generate RNM-US input files
-        in_files = URBANopt::RNM::InputFiles.new(@run_dir, @feature_file_path, @reopt, @extended_catalog_path, @average_peak_catalog_path)
+        in_files = URBANopt::RNM::InputFiles.new(@run_dir, @feature_file_path, @extended_catalog_path, @average_peak_catalog_path, reopt:@reopt, opendss_catalog:@opendss_catalog)
         in_files.create()
 
       end
@@ -111,6 +116,7 @@ module URBANopt
       ##
       def run()
         # start client
+        # TODO: fix this!
         @api_client = URBANopt::RNM::ApiClient.new(@name, @rnm_dir, @template_inputs, true)
         @api_client.submit_simulation()
         

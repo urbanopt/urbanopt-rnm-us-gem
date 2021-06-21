@@ -28,5 +28,5 @@ runner.conf
 
 # ignore template files for now
 /template_inputs/*
-
+test_opendss_catalog.json
 *.sql
