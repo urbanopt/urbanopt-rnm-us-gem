@@ -12,9 +12,7 @@
     "begin_date": "2017-01-01T07:00:00.000Z",
     "end_date": "2017-12-31T07:00:00.000Z",
     "timesteps_per_hour": 1,
-    "default_template": "90.1-2013",
-    "underground_cables_ratio": "0.9",
-    "only_lv_consumers": false
+    "default_template": "90.1-2013"
   },
   "features": [
     {

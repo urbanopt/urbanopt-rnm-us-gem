@@ -61,16 +61,7 @@ module URBANopt
         @opendss_catalog = opendss_catalog
         # initialize @@logger
         @@logger ||= URBANopt::RNM.logger
-        
-        # retrieve location of template inputs
-        # TODO: no longer needed: remove
-        # $LOAD_PATH.each do |path_item|
-        #   if path_item.to_s.end_with?('example_inputs')
-        #     @template_inputs = path_item
-        #     @@logger.info("Found location of example RNM-US template Inputs: #{path_item}")
-        #     break
-        #   end
-        # end
+      
       end
 
       ##
@@ -117,7 +108,7 @@ module URBANopt
       def run()
         # start client
         # TODO: fix this!
-        @api_client = URBANopt::RNM::ApiClient.new(@name, @rnm_dir, @template_inputs, true)
+        @api_client = URBANopt::RNM::ApiClient.new(@name, @rnm_dir, true)
         @api_client.submit_simulation()
         
       end

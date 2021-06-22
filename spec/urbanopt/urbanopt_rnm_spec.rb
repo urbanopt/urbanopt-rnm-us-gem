@@ -89,6 +89,16 @@ RSpec.describe URBANopt::RNM do
 
     end
 
+    it 'uses default field values when none are specified in feature file' do
+
+      @feature_file_path2 = File.join(@root_dir, 'example_project_streets_missingfields.json')
+      
+      @runner2 = URBANopt::RNM::Runner.new(@name, @root_dir, @run_dir, @feature_file_path2, @extended_catalog_path, @average_peak_catalog_path, reopt:@reopt)
+      expect {  @runner2.create_simulation_files() }.to output(a_string_including("RNM-US gem WARNING: field ['project']['only_lv_consumers'] not specified in Feature File...using default value of true")).to_stdout
+      expect {  @runner2.create_simulation_files() }.to output(a_string_including("RNM-US gem WARNING: field ['project']['only_lv_consumers'] not specified in Feature File...using default value of true")).to_stdout
+
+    end
+
     #it 'runs and gets results' do
       # depends on files created in previous test
      # @runner.run()

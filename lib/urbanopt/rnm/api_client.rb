@@ -44,7 +44,7 @@ module URBANopt
       # * +rnm_dir+ - _String_ - Full path to the rnm_directory of inputs/results for the scenario
       # * +template_inputs+ - _String_ - Location of template inputs for the RNM-US simulation (unused)
       # * +use_localhost+ - _Bool_ - Flag to use localhost API vs production API
-  	  def initialize(name, rnm_dir, template_inputs, use_localhost=false)
+  	  def initialize(name, rnm_dir, use_localhost=false)
   	  	# todo: add NREL developer api key support
   	  	@use_localhost = use_localhost
   	  	if @use_localhost
@@ -56,9 +56,8 @@ module URBANopt
         # params
         @name = name
         @rnm_dir = rnm_dir
-        # TODO: not currently using these (use those on the API server so you don't have to send these in)
-        # decide whether to store here on in API
-        @template_inputs = template_inputs
+
+        # double check files exist
   	  		
         # initialize @@logger
         @@logger ||= URBANopt::RNM.logger
@@ -69,6 +68,17 @@ module URBANopt
         @results = {}
 
   	  end
+
+      ## 
+      # Check and Zip files
+      ##
+      def zip_input_files()
+        files_list = ['cust_profile_p.txt', 'cust_profile_p_extendido.txt', 'cust_profile_q.txt', 'cust_profile_q_extendido.txt',
+                      'customers.txt', 'customers_ext.txt', 'ficheros_entrada.txt', 'ficheros_entrada_inc.txt', 'gen_profile_p.txt',
+                      'gen_profile_p_extendido.txt', 'gen_profile_q.txt', 'gen_profile_q_extendido.txt', 'generators.txt', 
+                      'primary_substations.txt', 'streetmapAS.txt', 'udcons.csv']
+
+      end
 
       ##
       # Submit simulation to RNM-US API
