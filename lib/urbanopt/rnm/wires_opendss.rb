@@ -38,14 +38,14 @@ module URBANopt
             end
             def create(line_geometry, conductor)
                 # providing all info in ft
-                hash = {}
-                conductor.each do |k, v|            
-                    if k.include? '(mm)'
-                        k = k.split(' ')[0]
-                        hash[k] = v
+                hash = {}               
+                conductor.each do |k, v| 
+                    if k.include? "(mm)"
+                        new_key =  k.sub("(mm)", "") + '(ft)'
+                        hash[new_key] = v
                     elsif k.include? '(ohm/km)'
-                        k = k.split(' ')[0]
-                        hash[k] = v
+                        new_key = k.sub("(ohm/km)", "") + '(ohm/mi)'
+                        hash[new_key] = v
                     elsif k != 'voltage level' && k != "type"
                         hash[k] = v
                     end
