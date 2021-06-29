@@ -41,3 +41,9 @@ An OpenDSS-formatted catalog can be generated from the extended catalog with the
 ```bash
 bundle exec rake create_opendss_catalog[/desired/path/to/opendss_catalog.json]
 ```
+
+## Testing
+
+```bash
+bundle exec rspec
+```

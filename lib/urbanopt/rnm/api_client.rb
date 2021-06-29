@@ -31,6 +31,7 @@
 require 'faraday'
 require 'json'
 require 'urbanopt/rnm/logger'
+require 'zip'
 
 module URBANopt
   module RNM
@@ -44,7 +45,7 @@ module URBANopt
       # * +rnm_dir+ - _String_ - Full path to the rnm_directory of inputs/results for the scenario
       # * +template_inputs+ - _String_ - Location of template inputs for the RNM-US simulation (unused)
       # * +use_localhost+ - _Bool_ - Flag to use localhost API vs production API
-  	  def initialize(name, rnm_dir, use_localhost=false)
+  	  def initialize(name, rnm_dir, use_localhost=false, reopt=false)
   	  	# todo: add NREL developer api key support
   	  	@use_localhost = use_localhost
   	  	if @use_localhost
@@ -56,6 +57,7 @@ module URBANopt
         # params
         @name = name
         @rnm_dir = rnm_dir
+        @reopt = reopt
 
         # double check files exist
   	  		
@@ -73,10 +75,40 @@ module URBANopt
       # Check and Zip files
       ##
       def zip_input_files()
-        files_list = ['cust_profile_p.txt', 'cust_profile_p_extendido.txt', 'cust_profile_q.txt', 'cust_profile_q_extendido.txt',
-                      'customers.txt', 'customers_ext.txt', 'ficheros_entrada.txt', 'ficheros_entrada_inc.txt', 'gen_profile_p.txt',
-                      'gen_profile_p_extendido.txt', 'gen_profile_q.txt', 'gen_profile_q_extendido.txt', 'generators.txt', 
+
+        input_files = ['cust_profile_p.txt', 'cust_profile_p_extendido.txt', 'cust_profile_q.txt', 'cust_profile_q_extendido.txt',
+                      'customers.txt', 'customers_ext.txt', 'ficheros_entrada.txt', 'ficheros_entrada_inc.txt',
                       'primary_substations.txt', 'streetmapAS.txt', 'udcons.csv']
+        reopt_files = ['gen_profile_p.txt', 'gen_profile_p_extendido.txt', 'gen_profile_q.txt', 
+                       'gen_profile_q_extendido.txt', 'generators.txt']
+    
+        if @reopt
+          input_files += reopt_files
+        end
+
+        puts "INPUT FILES: #{input_files}"
+
+        # check that all files exist in folder
+        missing_files = []
+        input_files.each do |f|
+          if !File.exists?(File.join(@rnm_dir, f))
+            missing_files << f
+          end
+        end 
+
+        if missing_files.size > 0
+          raise "Input Files missing in directory: #{missing_files.join(',')}"
+        end           
+
+        # zip up
+        Zip::File.open(File.join(@rnm_dir, 'inputs.zip'), Zip::File::CREATE) do |zipfile|
+          input_files.each do |filename|
+            # Two arguments:
+            # - The name of the file as it will appear in the archive
+            # - The original file, including the path to find it
+            zipfile.add(filename, File.join(@rnm_dir, filename))
+          end
+        end
 
       end
 
@@ -91,20 +123,21 @@ module URBANopt
 
   	  	# add post data
   	  	payload = {name: @name}
-  	  	files = {'customers': 'customers.txt', 'customers_ext': 'customers_ext.txt', 'streetmap': 'streetmap.txt'}
+  	  	files = {'inputs': 'inputs.zip'}
   	  	files.each do |key, the_file|
   	  		payload[key] = Faraday::FilePart.new(File.join(@rnm_dir, the_file), the_file)
   	  	end
 
   			resp = conn.post('simulations', payload)
-        data = JSON.parse(resp.body)
-        @sim_id = data['simulation_id']
         
         if resp.status != 200
           msg = "Error submitting simulation to RNM-US API: status code #{resp.status} #{data['status']} - #{data['message']}"
           @@logger.error(msg)
           raise msg
         end
+
+        data = JSON.parse(resp.body)
+        @sim_id = data['simulation_id']
   	  end
 
       ##
@@ -148,7 +181,7 @@ module URBANopt
             else
               # try again
               puts ("TRYING AGAIN...#{tries}")
-              sleep(1)
+              sleep(3)
             end
           end 
         end
@@ -177,6 +210,7 @@ module URBANopt
 
         if resp.status == 200
           File.open(File.join(@rnm_dir, 'results.zip'), "wb") { |f| f.write streamed.join }
+          puts "RNM-US results.zip downloaded to #{@rnm_dir}"
           # TODO: unzip?
         else
           msg = "Error retrieving results for #{the_sim_id}. error code: #{resp.status}.  #{resp.body}"

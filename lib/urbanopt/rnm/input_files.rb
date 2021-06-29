@@ -62,6 +62,7 @@ module URBANopt
                 FileUtils.mkdir_p(File.join(@run_dir, @rnm_dirname))
                 @@logger.info("Created directory: " + File.join(@run_dir, @rnm_dirname))
             end
+
 	    end
         #finding the limits on LV defined by the equipments in the catalog
         def catalog_limits()
@@ -145,6 +146,7 @@ module URBANopt
             # define the LV/MV limit imposed by the components of the catalog: distr.transformers and power lines
             lv_limit = self.catalog_limits()
             # veryfying if running RNM-US with REopt option
+
             if @reopt
                 if !File.join(@run_dir, 'feature_optimization').nil?
                     scenario_report_path = File.join(@run_dir, 'feature_optimization')

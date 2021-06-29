@@ -99,6 +99,20 @@ RSpec.describe URBANopt::RNM do
 
     end
 
+    it 'zips input files' do
+      @rnm_dir = File.join(@run_dir, 'rnm-us')
+
+      if File.exists?(File.join(@rnm_dir, 'inputs.zip'))
+        FileUtils.rm_r(File.join(@rnm_dir, 'inputs.zip'))
+      end
+
+      use_local = true
+      @api_client = URBANopt::RNM::ApiClient.new(@name, @rnm_dir, use_local, @reopt)
+      @api_client.zip_input_files()
+
+      expect(File.exists?(File.join(@rnm_dir, 'inputs.zip'))).to be true
+    end
+
     #it 'runs and gets results' do
       # depends on files created in previous test
      # @runner.run()
@@ -161,6 +175,20 @@ RSpec.describe URBANopt::RNM do
       # check that opendss catalog was not created
       expect(File.exists?(File.join(@run_dir, 'opendss_catalog.json'))).to be false 
     end
+
+    it 'zips input files including reopt files' do
+      @rnm_dir = File.join(@run_dir, 'rnm-us')
+
+      if File.exists?(File.join(@rnm_dir, 'inputs.zip'))
+        FileUtils.rm_r(File.join(@rnm_dir, 'inputs.zip'))
+      end
+      
+      use_local = true
+      @api_client = URBANopt::RNM::ApiClient.new(@name, @rnm_dir, use_local, @reopt)
+      @api_client.zip_input_files()
+
+      expect(File.exists?(File.join(@rnm_dir, 'inputs.zip'))).to be true
+    end
   end
 
   context 'save opendss catalog' do
@@ -181,15 +209,4 @@ RSpec.describe URBANopt::RNM do
     end
   end
 
-    #it 'runs and gets results' do
-      # depends on files created in previous test
-     # @runner.run()
-      #@runner.get_results()
-      # begin
-      #   @runner.get_results()
-      # rescue
-        # test download with a valid simulation (just for quick testing)
-        # @runner.download_results('344c0187-47ae-4fff-9bb1-a98030ca255b')
-      # end
-  #end
 end

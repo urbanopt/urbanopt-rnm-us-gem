@@ -61,6 +61,8 @@ module URBANopt
         @opendss_catalog = opendss_catalog
         # initialize @@logger
         @@logger ||= URBANopt::RNM.logger
+
+        puts "REOPT: #{@reopt}, OPENDSS_CATALOG: #{@opendss_catalog}"
       
       end
 
@@ -108,7 +110,7 @@ module URBANopt
       def run()
         # start client
         # TODO: fix this!
-        @api_client = URBANopt::RNM::ApiClient.new(@name, @rnm_dir, true)
+        @api_client = URBANopt::RNM::ApiClient.new(@name, @rnm_dir, use_localhost:true, reopt:@reopt)
         @api_client.submit_simulation()
         
       end
