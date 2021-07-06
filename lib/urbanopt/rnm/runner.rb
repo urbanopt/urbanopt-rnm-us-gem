@@ -46,7 +46,7 @@ module URBANopt
       # * +average_peak_catalog_path+ - _String_ - Full path to average peak catalog
       # * +reopt+ - _Boolean_ - Use REopt results to generate inputs? Defaults to false
       # * +opendss_catalog+ - _Boolean_ - Generate OpenDSS catalog? Defaults to true
-      def initialize(name, root_dir, run_dir, feature_file_path, reopt, extended_catalog_path, average_peak_catalog_path, opendss_catalog:false)
+      def initialize(name, root_dir, run_dir, feature_file_path, extended_catalog_path, average_peak_catalog_path, reopt:false, opendss_catalog:true)
         @name = name
         # these are all absolute paths
         @root_dir = root_dir
