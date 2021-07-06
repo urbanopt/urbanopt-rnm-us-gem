@@ -47,7 +47,7 @@ module URBANopt
         # * +opendss_catalog+ - _Boolean_ - Input command from the user to either run or not the opendss_conversion_script to convert the extended_catalog in OpenDSS catalog 
         # * +rnm_dirname+ - _String_ - name of RNM-US directory that will contain the input files (within the scenario directory)
         ##
-	    def initialize(run_dir, feature_file_path, extended_catalog_path, average_building_peak_catalog_path, reopt:false, opendss_catalog:false, rnm_dirname:'rnm-us')
+	    def initialize(run_dir, feature_file_path, extended_catalog_path, average_building_peak_catalog_path, reopt:false, opendss_catalog:true, rnm_dirname:'rnm-us')
 	    	@run_dir = run_dir
 	    	@feature_file_path = feature_file_path
 	    	@rnm_dirname = rnm_dirname
