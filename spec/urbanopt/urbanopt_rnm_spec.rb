@@ -61,7 +61,7 @@ RSpec.describe URBANopt::RNM do
       end
       
       FileUtils.cp_r(File.join(File.dirname(__FILE__), '..', 'files', 'example_project'), File.join(File.dirname(__FILE__), '..', 'test'))
-      @runner = URBANopt::RNM::Runner.new(@name, @root_dir, @run_dir, @feature_file_path, @extended_catalog_path, @average_peak_catalog_path, reopt:@reopt)
+      @runner = URBANopt::RNM::Runner.new(@name, @root_dir, @run_dir, @feature_file_path, @reopt, @extended_catalog_path, @average_peak_catalog_path)
     end
     
     it 'creates the rnm-us input files' do
@@ -93,7 +93,7 @@ RSpec.describe URBANopt::RNM do
 
       @feature_file_path2 = File.join(@root_dir, 'example_project_streets_missingfields.json')
       
-      @runner2 = URBANopt::RNM::Runner.new(@name, @root_dir, @run_dir, @feature_file_path2, @extended_catalog_path, @average_peak_catalog_path, reopt:@reopt)
+      @runner2 = URBANopt::RNM::Runner.new(@name, @root_dir, @run_dir, @feature_file_path2, @reopt, @extended_catalog_path, @average_peak_catalog_path)
       expect {  @runner2.create_simulation_files() }.to output(a_string_including("RNM-US gem WARNING: field ['project']['only_lv_consumers'] not specified in Feature File...using default value of true")).to_stdout
       expect {  @runner2.create_simulation_files() }.to output(a_string_including("RNM-US gem WARNING: field ['project']['only_lv_consumers'] not specified in Feature File...using default value of true")).to_stdout
 
@@ -143,7 +143,7 @@ RSpec.describe URBANopt::RNM do
       end
 
       FileUtils.cp_r(File.join(File.dirname(__FILE__), '..', 'files', 'example_project'), File.join(File.dirname(__FILE__), '..', 'test_reopt'))
-      @runner = URBANopt::RNM::Runner.new(@name, @root_dir, @run_dir, @feature_file_path, @extended_catalog_path, @average_peak_catalog_path, reopt:@reopt, opendss_catalog:@opendss_catalog)
+      @runner = URBANopt::RNM::Runner.new(@name, @root_dir, @run_dir, @feature_file_path, @reopt, @extended_catalog_path, @average_peak_catalog_path, opendss_catalog:@opendss_catalog)
 
     end
     

@@ -69,21 +69,27 @@ module URBANopt
 			id_dg = building_map[3] + '_DG'
 			id_batt = building_map[3] + '_battery'
 			building_map.pop #deleting the last_element of the list which represents the id
+			peak_app_power_node = 0
 			# defining the max peak in the hour with consumption max peak
 			# in the hour with generation max peak
 			#in the hour with storage max peak
-			cons_peak = ((single_values[:peak_active_power_cons] + profiles[:planning_profile_storage_active][single_values[:h_cons_max]] - profiles[:planning_profile_dg_active][single_values[:h_cons_max]])/@power_factor)
-			storage_peak = (single_values[:peak_active_power_storage] + profiles[:planning_profile_cust_active][single_values[:h_stor_max]] - profiles[:planning_profile_dg_active][single_values[:h_stor_max]])/@power_factor
-			dg_peak = (single_values[:peak_active_power_dg] - profiles[:planning_profile_storage_active][single_values[:h_dg_max]] - profiles[:planning_profile_cust_active][single_values[:h_dg_max]])/@power_factor
-			if cons_peak > storage_peak && cons_peak > dg_peak
-				peak_app_power_node = cons_peak
-			elsif storage_peak > cons_peak && storage_peak > dg_peak
-				peak_app_power_node = storage_peak
-			elsif dg_peak > cons_peak && dg_peak > storage_peak
-				peak_app_power_node = dg_peak
+			
+			for i in 0..profiles[:planning_profile_cust_active].length-1
+				hourly_app_power = ((profiles[:planning_profile_cust_active][i] + profiles[:planning_profile_storage_active][i] - profiles[:planning_profile_dg_active][i])/@power_factor).abs
+				if   hourly_app_power > peak_app_power_node
+					peak_app_power_node = hourly_app_power
+				end
 			end
 			#creating the customer text files (treating also the battery as a consumer) & the DG text file
-			voltage_default, phases = self.voltage_values(peak_app_power_node)
+			if @medium_voltage
+				voltage_default = 12.47
+				phases = 3
+			else
+				if id == '1f1b4da3-5a00-42ae-a2d0-b75b4a435ea3_3'
+					puts peak_app_power_node
+				end
+				voltage_default, phases = self.voltage_values(peak_app_power_node/0.9) #margin to consider 0.9 for safety reasons
+			end
 			@customers.push([building_map, id, voltage_default, single_values[:peak_active_power_cons],single_values[:peak_reactive_power_cons], phases])
 			@customers_ext.push([building_map, id, voltage_default, single_values[:peak_active_power_cons], single_values[:peak_reactive_power_cons], phases, area, height, (single_values[:energy]).round(2), single_values[:peak_active_power_cons], single_values[:peak_reactive_power_cons], users])
 			@profile_customer_q.push([id, 48, profiles[:planning_profile_cust_reactive]])
@@ -103,7 +109,7 @@ module URBANopt
 			@dg_profile_p.push([id_dg, 48, profiles[:planning_profile_dg_active]])
 			@dg_profile_q.push([id_dg, 48, profiles[:planning_profile_dg_reactive]])
 			@profile_dg_p_extended.push([id_dg, 8760, profiles[:yearly_profile_dg_active]])
-			@profile_dg_q_extended.push([id_dg[3], 8760, profiles[:yearly_profile_dg_reactive]])
+			@profile_dg_q_extended.push([id_dg, 8760, profiles[:yearly_profile_dg_reactive]])
 		end
 
 		# creating a method to process each building electricity consumption 
@@ -124,6 +130,7 @@ module URBANopt
 				node = closest_node
 				cont = 1
 				cont_reverse = 1
+				nodes_consumers = nodes_per_bldg -1
 				for i in 1..nodes_per_bldg
 						coordinates = building_map
 						node = closest_node + cont # to set the new nodes with enough distance among each others
@@ -140,19 +147,19 @@ module URBANopt
 						if i < nodes_per_bldg # considering the consumers nodes
 							id = coordinates[3]
 							coordinates.pop
-							peak_active_power_cons = (single_values[:peak_active_power_cons] / nodes_per_bldg).round(2)
-							peak_reactive_power_cons = (single_values[:peak_reactive_power_cons] / nodes_per_bldg).round(2)
+							peak_active_power_cons = (single_values[:peak_active_power_cons] / nodes_consumers).round(2)
+							peak_reactive_power_cons = (single_values[:peak_reactive_power_cons] / nodes_consumers).round(2)
 							voltage_default, phases = self.voltage_values(peak_active_power_cons/@power_factor)
 							for k in 0..profiles[:planning_profile_cust_active].length-1
-									planning_profile_node_active[k] = (profiles[:planning_profile_cust_active][k]/nodes_per_bldg).round(2) 
-									planning_profile_node_reactive[k] = (profiles[:planning_profile_cust_reactive][k]/nodes_per_bldg).round(2) 
+									planning_profile_node_active[k] = (profiles[:planning_profile_cust_active][k]/nodes_consumers).round(2) 
+									planning_profile_node_reactive[k] = (profiles[:planning_profile_cust_reactive][k]/nodes_consumers).round(2) 
 							end
 							for k in 0..profiles[:yearly_profile_cust_active].length-1
-								yearly_profile_node_active[k] = (profiles[:yearly_profile_cust_active][k]/nodes_per_bldg).round(2) 
-								yearly_profile_node_reactive[k] = (profiles[:yearly_profile_cust_reactive][k]/nodes_per_bldg).round(2)
+								yearly_profile_node_active[k] = (profiles[:yearly_profile_cust_active][k]/nodes_consumers).round(2) 
+								yearly_profile_node_reactive[k] = (profiles[:yearly_profile_cust_reactive][k]/nodes_consumers).round(2)
 							end
 							@customers.push([coordinates, id, voltage_default, peak_active_power_cons, peak_reactive_power_cons, phases])
-							@customers_ext.push([coordinates, id, voltage_default, peak_active_power_cons, peak_reactive_power_cons, phases, area, height, (single_values[:energy]/nodes_per_bldg).round(2), peak_active_power_cons, peak_reactive_power_cons, users])
+							@customers_ext.push([coordinates, id, voltage_default, peak_active_power_cons, peak_reactive_power_cons, phases, area, height, (single_values[:energy]/nodes_consumers).round(2), peak_active_power_cons, peak_reactive_power_cons, users])
 							@profile_customer_q.push([id, 48, planning_profile_node_reactive])
 							@profile_customer_p.push([id, 48, planning_profile_node_active])
 							@profile_customer_p_ext.push([id, 8760, yearly_profile_node_active])
@@ -167,7 +174,7 @@ module URBANopt
 							@dg_profile_p.push([id_dg, 48, profiles[:planning_profile_dg_active]])
 							@dg_profile_q.push([id_dg, 48, profiles[:planning_profile_dg_reactive]])
 							@profile_dg_p_extended.push([id_dg, 8760, profiles[:yearly_profile_dg_active]])
-							@profile_dg_q_extended.push([id_dg[3], 8760, profiles[:yearly_profile_dg_reactive]])
+							@profile_dg_q_extended.push([id_dg, 8760, profiles[:yearly_profile_dg_reactive]])
 							if  der_capacity[:storage] != nil && der_capacity[:storage] > 0
 								@customers.push([coordinates, id_batt, voltage_default, single_values[:peak_active_power_storage],single_values[:peak_reactive_power_storage], phases])
 								@customers_ext.push([coordinates, id_batt, voltage_default, single_values[:peak_active_power_storage], single_values[:peak_reactive_power_storage], phases, area, height, (single_values[:energy]).round(2), single_values[:peak_active_power_storage], single_values[:peak_reactive_power_storage], users])
@@ -225,7 +232,8 @@ module URBANopt
 			floor_area = []
 			average_peak = 5 # defining a random value first, since now the residential buildings are not considered in the catalog
 			mixed_use_av_peak = 0
-			area_mixed_use = 0        
+			area_mixed_use = 0    
+			@max_num_nodes = 1    
 			# defining a conservative factor which creates some margin with the number of nodes found using the av_peak catalog, with the
 			# actual nodes that could be found with the current buildings peak consumptions in the project     
 			conservative_factor = 0.8 # considered as a reasonable assumption, but this value could be changed
@@ -257,10 +265,13 @@ module URBANopt
 				area = area_mixed_use
 			end
 			nodes_per_bldg = ((average_peak / (@lv_limit[:three_phase]* @power_factor * conservative_factor)).to_f).ceil # computing number of nodes per building
-			if nodes_per_bldg > 4 #defined as reasonable maximum
+			if nodes_per_bldg > @max_num_nodes #defined as reasonable maximum
 				nodes_per_bldg = 1
+				@medium_voltage = true
 			end
-			nodes_per_bldg += 1 #tacking into account the extra node for distributed generation and the battery
+		
+				nodes_per_bldg += 1 #tacking into account the extra node for distributed generation and the battery
+		
 			return nodes_per_bldg, area
 		end
 		
@@ -272,17 +283,30 @@ module URBANopt
 		def prosumer_files_load(csv_feature_report, json_feature_report, building_map, building_nodes, hour)
 			profiles = Hash.new{|h, k| h[k] = []}
 			single_values = Hash.new(0)
+			@medium_voltage = false
 			hours = 23
+			feature_type = json_feature_report['program']['building_types'][0]["building_type"]
+			residential_building_types = "Single-Family Detached" #add the other types
+			# finding the index where to start computing and saving the info, from the value of the "worst-case hour" for the max peak consumption of the district
+			if residential_building_types.include? feature_type
+				profile_start_max = hour.hour_index_max_res - hour.peak_hour_max_res
+				profile_start_min = hour.hour_index_min_res - hour.peak_hour_min_res
+			else
+				profile_start_max = hour.hour_index_max_comm - hour.peak_hour_max_comm
+				profile_start_min = hour.hour_index_min_comm - hour.peak_hour_min_comm
+			end
 			# finding the index where to start computing and saving the info, from the value of the "most extreme hours" for the max peak consumption of the district
-			profile_start_max = hour.hour_index_max - hour.peak_hour_max 
-			profile_start_min = hour.hour_index_min - hour.peak_hour_min
+			#profile_start_max = hour.hour_index_max - hour.peak_hour_max 
+			#profile_start_min = hour.hour_index_min - hour.peak_hour_min
 			k = 0   # index for each hour of the year represented in the csv file 
 			i = 0 #to represent the 24 hours
 			h_cons_batt = 0
 			h_dg_max = 0 #hour with max DG generation
 			h_stor_max = 0 #hour with max storage absorption
-			content = CSV.foreach(csv_feature_report, headers: true) do |power|
-				@power_factor = power["REopt:Electricity:Load:Total(kw)"].to_f/ power["Electricity:Facility Apparent Power(kVA)"].to_f 
+			max_peak = 0
+			#content = CSV.foreach(csv_feature_report, headers: true) do |power|
+			csv_feature_report.each do |power|
+				@power_factor = power["Electricity:Facility Power(kW)"].to_f/ power["Electricity:Facility Apparent Power(kVA)"].to_f 
 				profiles[:yearly_profile_cust_active].push(power["REopt:Electricity:Load:Total(kw)"].to_f)
 				profiles[:yearly_profile_cust_reactive].push(profiles[:yearly_profile_cust_active][k] * Math.tan(Math.acos(@power_factor))) 
 				profiles[:yearly_profile_dg_active].push(power["REopt:ElectricityProduced:Total(kw)"].to_f)
@@ -314,20 +338,33 @@ module URBANopt
 					profiles[:planning_profile_cust_reactive].push(profiles[:planning_profile_cust_active][i] * Math.tan(Math.acos(power_factor)))
 					profiles[:planning_profile_storage_reactive].push(profiles[:planning_profile_storage_active][i] * Math.tan(Math.acos(power_factor)))
 					profiles[:planning_profile_dg_reactive].push(profiles[:planning_profile_dg_active][i] * Math.tan(Math.acos(power_factor)))
+					#only to check the validity of the rnm-us results
+					# if max_peak < profiles[:planning_profile_cust_active][i] + profiles[:planning_profile_storage_active][i] - profiles[:planning_profile_dg_active][i]
+					# 	max_peak = profiles[:planning_profile_cust_active][i] + profiles[:planning_profile_storage_active][i] - profiles[:planning_profile_dg_active][i]
+					# end
 					i+=1
 				end
 				k+=1
 			end 
+			#puts max_peak
 			#parsing the required information from feature.json file
-			folder =  JSON.parse(json_feature_report) 
-			height = (folder['program']['maximum_roof_height_ft']).round(2)
-			users = folder['program']['number_of_residential_units']
-			der_capacity = self.sum_dg(folder['distributed_generation'])
+			#folder =  JSON.parse(json_feature_report) 
+			height = (json_feature_report['program']['maximum_roof_height_ft']).round(2)
+			users = json_feature_report['program']['number_of_residential_units']
+			der_capacity = self.sum_dg(json_feature_report['distributed_generation'])
+			# if der_capacity[:storage] != nil && der_capacity[:storage] > 0
+			#   contatore = single_values[:h_stor_max]
+			#  puts profiles[:planning_profile_dg_active][contatore]
+			#  end
 			if @only_lv_consumers
-				nodes_per_bldg, area = self.av_peak_cons_per_building_type(folder['program']['building_types'])
-				self.construct_prosumer_lv(nodes_per_bldg, profiles, single_values, building_map, building_nodes, area, height, users, der_capacity)
+				nodes_per_bldg, area = self.av_peak_cons_per_building_type(json_feature_report['program']['building_types'])
+				if @max_num_nodes == 1
+					self.construct_prosumer_general(profiles, single_values, building_map, area, height, users, der_capacity)
+				else
+					self.construct_prosumer_lv(nodes_per_bldg, profiles, single_values, building_map, building_nodes, area, height, users, der_capacity)
+				end
 			else
-				area = (folder['program']['floor_area_sqft']).round(2)
+				area = (json_feature_report['program']['floor_area_sqft']).round(2)
 				#associating 2 nodes (consumers & DG and battery in the same node) per building considering the consumer, the battery and DG
 				self.construct_prosumer_general(profiles, single_values, building_map, area, height, users, der_capacity)
 			end	

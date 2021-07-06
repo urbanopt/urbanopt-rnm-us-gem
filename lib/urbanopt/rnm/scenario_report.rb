@@ -28,55 +28,112 @@
 # OF THE POSSIBILITY OF SUCH DAMAGE.
 # *********************************************************************************
 
-require 'json'
-require 'csv'
 module URBANopt
   module RNM
 	class Report_scenario
-		attr_accessor :hour_index_max, :hour_index_min, :peak_hour_max, :peak_hour_min
+		attr_accessor :hour_index_max_res, :hour_index_min_res, :peak_hour_max_res, :peak_hour_min_res, :hour_index_max_comm, :hour_index_min_comm, :peak_hour_max_comm, :peak_hour_min_comm
 		def initialize(reopt)
             @reopt = reopt
-			@hour_index_max = hour_index_max
-			@hour_index_min = hour_index_min
-			@peak_hour_max = peak_hour_max
-			@peak_hour_min = peak_hour_min
+			@hour_index_max_res = hour_index_max_res
+			@hour_index_min_res = hour_index_min_res
+			@peak_hour_max_res = peak_hour_max_res
+			@peak_hour_min_res = peak_hour_min_res
+			@hour_index_max_comm = hour_index_max_comm
+			@hour_index_min_comm = hour_index_min_comm
+			@peak_hour_max_comm = peak_hour_max_comm
+			@peak_hour_min_comm = peak_hour_min_comm
+			@res_consumption = Array.new()
+			@commercial_consumption = Array.new()
+			@time = Array.new()
 		end
+
 		# creating a method passing the GEOjson file from URBANopt as the argument to define streets and building (customers) coordinates
 		# and returning the street coordinates array, the building coordinates array and the tot number of buildings in the project
 		
-		def scenario_report_results(report_file)
-			max_net_load = 0
-			min_net_load = 500000
+		def scenario_report_results()
+			max_net_load_res = 0
+			max_net_load_comm = 0
+			min_net_load_res = 500000
+			min_net_load_comm = 500000
 			j = 0
 			# insert scenario path
 			#if include reopt getting 2 most-stressing days in the year (max net load & min net load)
 			if @reopt
-				CSV.foreach(report_file, headers: true) do |power|
-					net_load = power['REopt:Electricity:Load:Total(kw)'].to_i + power['REopt:Electricity:Grid:ToBattery(kw)'].to_i + power['REopt:ElectricityProduced:PV:ToBattery(kw)'].to_i + power['REopt:ElectricityProduced:Wind:ToBattery(kw)'].to_i + power['REopt:ElectricityProduced:Generator:ToBattery(kw)'].to_i - power['REopt:Electricity:Storage:ToLoad(kw)'].to_i - power['REopt:Electricity:Storage:ToGrid(kw)'].to_i - power['REopt:ElectricityProduced:Total(kw)'].to_i
-					if net_load > max_net_load
-						max_net_load = net_load
-						@peak_hour_max = (power['Datetime'].split(' ')[1]).split(':')[0].to_i # defined the most-stressing scenario
-						@hour_index_max = j
+				(0..@commercial_consumption.length-1).each do |j|
+					if @commercial_consumption[j] > max_net_load_comm
+						max_net_load_comm = @commercial_consumption[j]
+						@peak_hour_max_comm = (@time[j].split(' ')[1]).split(':')[0].to_i # defined the most-stressing scenario
+						@hour_index_max_comm = j
 					end
-					if net_load < min_net_load
-						min_net_load = net_load
-						@peak_hour_min = power['Datetime'].split(' ')[1].split(':')[0].to_i # defined the most-stressing scenario
-						@hour_index_min = j
+					if  @commercial_consumption[j] < min_net_load_comm
+						min_net_load_comm = @commercial_consumption[j]
+						@peak_hour_min_comm = (@time[j].split(' ')[1]).split(':')[0].to_i # defined the most-stressing scenario
+						@hour_index_min_comm = j
+					end
+					if @res_consumption[j] > max_net_load_res
+						max_net_load_res = @res_consumption[j]
+						@peak_hour_max_res = (@time[j].split(' ')[1]).split(':')[0].to_i # defined the most-stressing scenario
+						@hour_index_max_res = j
+					end
+					if  @res_consumption[j] < min_net_load_res
+						min_net_load_res = @res_consumption[j]
+						@peak_hour_min_res = (@time[j].split(' ')[1]).split(':')[0].to_i # defined the most-stressing scenario
+						@hour_index_min_res = j
 					end
 					j += 1
 				end
+
 			else # case when reopt is not run and there is only a consumption scenario, without DG generation
-				CSV.foreach(report_file, headers: true) do |power|
-					net_load = power['Net Power(kW)'].to_i
-					if net_load > max_net_load
-						max_net_load = net_load
-						@peak_hour_max = power['Datetime'].split(' ')[1].split(':')[0].to_i # defined the most-stressing scenario
-						@hour_index_max = j
+				(0..@commercial_consumption.length-1).each do |j|
+					if @commercial_consumption[j] > max_net_load_comm
+						max_net_load_comm = @commercial_consumption[j]
+						@peak_hour_max_comm = (@time[j].split(' ')[1]).split(':')[0].to_i # defined the most-stressing scenario
+						@hour_index_max_comm = j
+					end
+					if @res_consumption[j] > max_net_load_res
+						max_net_load_res = @res_consumption[j]
+						@peak_hour_max_res = (@time[j].split(' ')[1]).split(':')[0].to_i # defined the most-stressing scenario
+						@hour_index_max_res = j
 					end
 					j += 1
 				end
 			end
+			puts @hour_index_max_res
+			puts @hour_index_max_comm
 		end
+
+		def aggregate_consumption(file_csv, file_json, n_feature)
+			feature_type = file_json['program']['building_types'][0]["building_type"]
+			residential_building_types = "Single-Family Detached" #add the other types
+			#residential_building_types = {type_1=>"Single-Family Detached", type_2=>"Single-Family Attached", type_3=>"MultiFamily", type_4=>"Single-Family", type_5=>"Multifamily Detached (2 to 4 units)", type_5=>"Multifamily Detached (5 or more units)"} #add the other types
+			puts feature_type
+			j = 0
+			 file_csv.each do |power|
+			 	@time[j] = power['Datetime']
+			 	if n_feature == 0
+			 		@res_consumption[j] = 0
+			 		@commercial_consumption[j] = 0
+			 	end
+			 	if @reopt
+			 		if residential_building_types.include? feature_type
+			 				@res_consumption[j] += power['REopt:Electricity:Load:Total(kw)'].to_i + power['REopt:Electricity:Grid:ToBattery(kw)'].to_i + power['REopt:ElectricityProduced:PV:ToBattery(kw)'].to_i + power['REopt:ElectricityProduced:Wind:ToBattery(kw)'].to_i + power['REopt:ElectricityProduced:Generator:ToBattery(kw)'].to_i - power['REopt:Electricity:Storage:ToLoad(kw)'].to_i - power['REopt:Electricity:Storage:ToGrid(kw)'].to_i - power['REopt:ElectricityProduced:Total(kw)'].to_i
+			 				j += 1
+			 		else
+			 				@commercial_consumption[j] += power['REopt:Electricity:Load:Total(kw)'].to_i + power['REopt:Electricity:Grid:ToBattery(kw)'].to_i + power['REopt:ElectricityProduced:PV:ToBattery(kw)'].to_i + power['REopt:ElectricityProduced:Wind:ToBattery(kw)'].to_i + power['REopt:ElectricityProduced:Generator:ToBattery(kw)'].to_i - power['REopt:Electricity:Storage:ToLoad(kw)'].to_i - power['REopt:Electricity:Storage:ToGrid(kw)'].to_i - power['REopt:ElectricityProduced:Total(kw)'].to_i
+			 				j += 1
+			 		end
+			 	else
+			 		if residential_building_types.include? feature_type
+			 				@res_consumption[j] += power["Electricity:Facility Power(kW)"].to_i
+			 				j += 1
+			 		else
+			 				@commercial_consumption[j] += power["Electricity:Facility Power(kW)"].to_i
+			 				j += 1
+			 		end
+			 	end
+			 end
+		end
+
 	end
 end
 end

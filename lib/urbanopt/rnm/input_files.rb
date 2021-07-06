@@ -27,6 +27,7 @@
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
 # OF THE POSSIBILITY OF SUCH DAMAGE.
 # *********************************************************************************
+require 'csv'
 require 'json'
 require 'urbanopt/rnm/logger'
 
@@ -46,7 +47,7 @@ module URBANopt
         # * +opendss_catalog+ - _Boolean_ - Input command from the user to either run or not the opendss_conversion_script to convert the extended_catalog in OpenDSS catalog 
         # * +rnm_dirname+ - _String_ - name of RNM-US directory that will contain the input files (within the scenario directory)
         ##
-	    def initialize(run_dir, feature_file_path, extended_catalog_path, average_building_peak_catalog_path, reopt:false, opendss_catalog:true, rnm_dirname:'rnm-us')
+	    def initialize(run_dir, feature_file_path, extended_catalog_path, average_building_peak_catalog_path, reopt:false, opendss_catalog:false, rnm_dirname:'rnm-us')
 	    	@run_dir = run_dir
 	    	@feature_file_path = feature_file_path
 	    	@rnm_dirname = rnm_dirname
@@ -117,6 +118,9 @@ module URBANopt
                     end
                 end
             end
+            trafo_margin = catalog["OTHERS"]["Margin of design of new facilities LV (100.0 = designs with double so that 50% is left over)"].to_i
+            limit_trafo[:single_phase] = limit_trafo[:single_phase]/(1+(trafo_margin/100))
+            limit_trafo[:three_phase] = limit_trafo[:three_phase]/(1+(trafo_margin/100))
             # setting as the limit for single-phase and 3-phase the component with the lowest capacity
             if limit_trafo[:three_phase] < limit_lines[:three_phase]
                 limit[:three_phase] = limit_trafo[:three_phase]
@@ -128,7 +132,8 @@ module URBANopt
             else
                 limit[:single_phase] = limit_lines[:single_phase]
             end
-            return limit
+             puts limit[:single_phase]
+            return limit  
         end
 
 
@@ -165,20 +170,35 @@ module URBANopt
                     raise 'scenario_report is not found'
                 end
             end 
-             # finding the 2 most extreme hours of the year (maximum net demand and maximum net generation) the distribution network is planned
-            hours =  URBANopt::RNM::Report_scenario.new(@reopt)
-            hours.scenario_report_results(scenario_report_path + ".csv")
+            file_csv = Array.new()
+            file_json = Array.new()
+            # finding the 2 most extreme hours of the year (maximum net demand and maximum net generation) the distribution network is planned
+             hours =  URBANopt::RNM::Report_scenario.new(@reopt)
+             #hours_commercial = URBANopt::RNM::Report_scenario.new(@reopt)
+             (0..tot_buildings-1).each do |j|
+                if @reopt 
+                        file_csv[j] = CSV.parse(File.read(File.join(@run_dir, "#{building_ids[j]}", 'feature_reports', 'feature_optimization.csv')), :headers => true)
+                        file_json[j] = JSON.parse(File.read(File.join(@run_dir, "#{building_ids[j]}", 'feature_reports', 'feature_optimization.json')))
+                        hours.aggregate_consumption(file_csv[j], file_json[j], j)
+                else
+                        file_csv[j] = CSV.parse(File.read(File.join(@run_dir, "#{building_ids[j]}", '014_default_feature_reports', 'default_feature_reports.csv')), :headers => true)
+                        file_json[j] = JSON.parse(File.read(File.join(@run_dir, "#{building_ids[j]}", '014_default_feature_reports', 'default_feature_reports.json')))
+                        hours.aggregate_consumption(file_csv[j], file_json[j], j)
+                end
+               end
+                hours.scenario_report_results()
+
             # iterating over each building to define each consumer/prosumer
-            (0..tot_buildings-1).each do |j|
+            (0..tot_buildings-1).each do |j| #(0..20).each do |j|
                     # use building_ids lookup to get name of results directory
                     # reports will be in 'feature_reports' directory 
                     if @reopt 
-                        hours.hour_index_min
-                        file_path = File.join(@run_dir, "#{building_ids[j]}", 'feature_reports', 'feature_optimization')
-                        prosumers.prosumer_files_load(file_path + ".csv", File.read(file_path + ".json"), customers_coordinates[j], coordinates_buildings[j], hours)
+                        #file_path = File.join(@run_dir, "#{building_ids[j]}", 'feature_reports', 'feature_optimization')
+                        #prosumers.prosumer_files_load(file_path[j] + ".csv", File.read(file_path + ".json"), customers_coordinates[j], coordinates_buildings[j], hours)
+                        prosumers.prosumer_files_load(file_csv[j], file_json[j], customers_coordinates[j], coordinates_buildings[j], hours)
                     else
-                        file_path = File.join(@run_dir, "#{building_ids[j]}", 'feature_reports', 'default_feature_report')
-                        consumers.customer_files_load(file_path + ".csv", File.read(file_path + ".json"), customers_coordinates[j], coordinates_buildings[j], hours)
+                        #file_path = File.join(@run_dir, "#{building_ids[j]}", '014_default_feature_reports', 'default_feature_reports')
+                        consumers.customer_files_load(file_csv[j], file_json[j], customers_coordinates[j], coordinates_buildings[j], hours)
                    end
             end
             rnm_us_catalog = URBANopt::RNM::Rnm_us_catalog_conversion.new(@extended_catalog_path, @run_dir, @rnm_dirname)
@@ -227,9 +247,12 @@ module URBANopt
                 File.open(File.join(@run_dir, @rnm_dirname, "cust_profile_q.txt"), "w+") do |g|
                     g.puts(prosumers.profile_customer_q.map { |w| w.join(';') })
                 end
+                # CSV.open(File.join(@run_dir, @rnm_dirname, "cust_profile_q_extendido.csv"), "w") do |csv|
+                #             csv << [prosumers.profile_customer_q_ext] 
+                #         end
                 File.open(File.join(@run_dir, @rnm_dirname, "cust_profile_q_extendido.txt"), "w+") do |g|
-                    g.puts(prosumers.profile_customer_q_ext.map { |w| w.join(';') })
-                end
+                     g.puts(prosumers.profile_customer_q_ext.map { |w| w.join(';') })
+                 end
                 File.open(File.join(@run_dir, @rnm_dirname, "cust_profile_p_extendido.txt"), "w+") do |g|
                     g.puts(prosumers.profile_customer_p_ext.map { |w| w.join(';') })
                 end
@@ -271,9 +294,16 @@ module URBANopt
                 File.open(File.join(@run_dir, @rnm_dirname, "cust_profile_q_extendido.txt"), "w+") do |g|
                     g.puts(consumers.profile_customer_q_ext.map { |w| w.join(';') })
                 end
-                File.open(File.join(@run_dir, @rnm_dirname, "cust_profile_p_extendido.txt"), "w+") do |g|
-                    g.puts(consumers.profile_customer_p_ext.map { |w| w.join(';') })
-                end
+                 File.open(File.join(@run_dir, @rnm_dirname, "cust_profile_p_extendido.txt"), "w+") do |g|
+                     g.puts(consumers.profile_customer_p_ext.map { |w| w.join(';') })
+                 end
+                # CSV.open(File.join(@run_dir, @rnm_dirname, "cust_profile_p_extendido.csv"), "w") do |csv|
+                #     for i in 0..consumers.profile_customer_p_ext.length-1
+                #         #puts i
+                #         #puts .profile_customer_p_ext[i]
+                #             csv << consumers.profile_customer_p_ext[i][2]
+                #         end
+                #          end
                 ficheros_entrada_inc.push('CClienteGreenfield;customers_ext.txt;cust_profile_p.txt;cust_profile_q.txt;cust_profile_p_extendido.txt;cust_profile_q_extendido.txt')
                 ficheros_entrada_inc.push('END')
                 File.open(File.join(@run_dir, @rnm_dirname, "ficheros_entrada_inc.txt"), "w+") do |g|

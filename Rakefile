@@ -65,6 +65,7 @@ task :create_inputs, [:scenario_dir_path, :feature_file_path, :reopt, :opendss_c
 	opendss_catalog = args[:opendss_catalog] ? args[:opendss_catalog] : false
 	opendss_catalog = (opendss_catalog == 'true') ? true : false
 	
+
   extended_catalog_path = File.join(File.dirname(__FILE__), 'catalogs',  'extended_catalog.json')
   average_peak_catalog_path = File.join(File.dirname(__FILE__), 'catalogs',  'average_peak_per_building_type.json')
   scenario_name = Pathname.new(scenario_dir).basename 
@@ -110,17 +111,16 @@ end
 # pass in the path and filename where the OpenDSS catalog should be saved
 desc 'Create OpenDSS catalog'
 task :create_opendss_catalog, [:save_path] do |t, args|
+ 	puts "Creating OpenDSS catalog"
+ 	# if no path passed in, use default (current dir):
+ 	save_path = args[:save_path] ? args[:save_path] : "./opendss_catalog.json"
 
-	puts "Creating OpenDSS catalog"
-	# if no path passed in, use default (current dir):
-	save_path = args[:save_path] ? args[:save_path] : "./opendss_catalog.json"
+ 	extended_catalog_path = File.join(File.dirname(__FILE__), 'catalogs',  'extended_catalog.json')
+ 	opendss_catalog = URBANopt::RNM::Conversion_to_opendss_catalog.new(extended_catalog_path)
+ 	# create catalog and save to specified path
+   opendss_catalog.create_catalog(save_path)
 
-	extended_catalog_path = File.join(File.dirname(__FILE__), 'catalogs',  'extended_catalog.json')
-	opendss_catalog = URBANopt::RNM::Conversion_to_opendss_catalog.new(extended_catalog_path)
-  # create catalog and save to specified path
-  opendss_catalog.create_catalog(save_path)
-
-  puts "Catalog saved to #{save_path}"
-  puts "....done!"
+   puts "Catalog saved to #{save_path}"
+   puts "....done!"
 
 end
