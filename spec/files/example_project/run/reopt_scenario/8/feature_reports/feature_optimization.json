@@ -1,7 +1,7 @@
 {
   "id": "8",
   "name": "Hospital 1",
-  "directory_name": "C:/Users/lderosa/Desktop/run/reopt_scenario/8",
+  "directory_name": "/Users/kflemin/Downloads/uo-july-new/run/reopt_scenario/8",
   "feature_type": "Building",
   "timesteps_per_hour": 1,
   "simulation_status": "Complete",
@@ -115,8 +115,8 @@
     ]
   },
   "location": {
-    "latitude_deg": -78.8502280105868,
-    "longitude_deg": 42.81565185353204,
+    "latitude_deg": 42.81565185353203,
+    "longitude_deg": -78.8502280105868,
     "surface_elevation_ft": 215.0
   },
   "program": {
@@ -126,12 +126,13 @@
     "footprint_area_sqft": 40298.40143013619,
     "maximum_roof_height_ft": 30.0,
     "maximum_number_of_stories": 10,
+    "maximum_number_of_stories_above_ground": 10,
     "number_of_residential_units": 1,
     "building_types": [
       {
         "building_type": "Outpatient",
         "floor_area": 402984.01012219547,
-        "maximum_occupancy": 4499.70538666074
+        "maximum_occupancy": 4499.705386660741
       }
     ],
     "window_area_sqft": {
@@ -170,34 +171,34 @@
         "day_of_month": 31,
         "year": 2017
       },
-      "total_site_energy_kwh": 13095658.333333334,
-      "total_source_energy_kwh": 29960211.111111112,
-      "site_EUI_kwh_per_m2": 349.7917737313129,
-      "site_EUI_kbtu_per_ft2": 110.88340834028595,
-      "source_EUI_kwh_per_m2": 800.2526577258858,
-      "source_EUI_kbtu_per_ft2": 253.67875657984652,
-      "net_site_energy_kwh": 13095658.333333334,
-      "net_source_energy_kwh": 29960211.111111112,
-      "electricity_kwh": 7568177.777777778,
-      "natural_gas_kwh": 5527480.555555555,
+      "total_site_energy_kwh": 14117683.333333334,
+      "total_source_energy_kwh": 33504333.333333332,
+      "site_EUI_kwh_per_m2": 377.09058746393634,
+      "site_EUI_kbtu_per_ft2": 119.53708672165642,
+      "source_EUI_kwh_per_m2": 894.9179862551252,
+      "source_EUI_kbtu_per_ft2": 283.6875076919809,
+      "net_site_energy_kwh": 14117683.333333334,
+      "net_source_energy_kwh": 33504333.333333332,
+      "electricity_kwh": 8737766.666666666,
+      "natural_gas_kwh": 5379916.666666667,
       "propane_kwh": 0.0,
       "fuel_oil_kwh": 0.0,
       "other_fuels_kwh": 0.0,
       "district_cooling_kwh": 0.0,
       "district_heating_kwh": 0.0,
-      "water_qbft": 20508.95,
-      "electricity_produced_kwh": 7568178.88888889,
+      "water_qbft": 21760.95,
+      "electricity_produced_kwh": 8737765.555555556,
       "end_uses": {
         "electricity_kwh": {
           "heating": 0.0,
-          "cooling": 1456380.5555555555,
-          "interior_lighting": 1559583.3333333333,
+          "cooling": 1641947.2222222222,
+          "interior_lighting": 1732872.2222222222,
           "exterior_lighting": 549086.1111111111,
-          "interior_equipment": 2806066.6666666665,
+          "interior_equipment": 3507583.3333333335,
           "exterior_equipment": 0.0,
-          "fans": 695072.2222222222,
-          "pumps": 418597.2222222222,
-          "heat_rejection": 83391.66666666667,
+          "fans": 772827.7777777778,
+          "pumps": 445400.0,
+          "heat_rejection": 88050.0,
           "humidification": 0.0,
           "heat_recovery": 0.0,
           "water_systems": 0.0,
@@ -205,7 +206,7 @@
           "generators": 0.0
         },
         "natural_gas_kwh": {
-          "heating": 4572616.666666666,
+          "heating": 4425052.777777778,
           "cooling": 0.0,
           "interior_lighting": 0.0,
           "exterior_lighting": 0.0,
@@ -216,7 +217,7 @@
           "heat_rejection": 0.0,
           "humidification": 0.0,
           "heat_recovery": 0.0,
-          "water_systems": 386088.8888888889,
+          "water_systems": 386091.6666666667,
           "refrigeration": 0.0,
           "generators": 0.0
         },
@@ -309,7 +310,7 @@
           "exterior_equipment": 0.0,
           "fans": 0.0,
           "pumps": 0.0,
-          "heat_rejection": 4225591.666666667,
+          "heat_rejection": 4573372.222222222,
           "humidification": 0.0,
           "heat_recovery": 0.0,
           "water_systems": 1471338.8888888888,
@@ -331,36 +332,34 @@
         }
       ],
       "comfort_result": {
-        "time_setpoint_not_met_during_occupied_cooling": 1030.0,
-        "time_setpoint_not_met_during_occupied_heating": 1206.0,
-        "time_setpoint_not_met_during_occupied_hours": 2236.0,
+        "time_setpoint_not_met_during_occupied_cooling": 1148.0,
+        "time_setpoint_not_met_during_occupied_heating": 1175.0,
+        "time_setpoint_not_met_during_occupied_hours": 2323.0,
         "hours_out_of_comfort_bounds_PMV": 0.0,
         "hours_out_of_comfort_bounds_PPD": 0.0
       }
     }
   ],
   "distributed_generation": {
-    "lcc_us_dollars": 13074263.0,
-    "npv_us_dollars": 1770139.0,
-    "year_one_energy_cost_us_dollars": 944022.19,
-    "year_one_demand_cost_us_dollars": 269666.26,
-    "year_one_bill_us_dollars": 1215368.45,
-    "total_demand_cost_us_dollars": 2583986.27,
-    "total_energy_cost_us_dollars": 9045775.28,
-    "year_one_energy_cost_bau_us_dollars": 1232989.44,
-    "year_one_demand_cost_bau_us_dollars": 314419.05,
-    "year_one_bill_bau_us_dollars": 1549088.5,
-    "total_energy_cost_bau_us_dollars": 11814706.79,
-    "total_demand_cost_bau_us_dollars": 3012814.88,
-    "total_solar_pv_kw": 1213.952,
-    "total_storage_kw": 118.83267230398928,
-    "total_storage_kwh": 208.68305957524532,
+    "lcc_us_dollars": 12549531.0,
+    "npv_us_dollars": 424242.0,
+    "year_one_energy_cost_us_dollars": 939617.37,
+    "year_one_demand_cost_us_dollars": 208789.39,
+    "year_one_bill_us_dollars": 1148406.76,
+    "total_demand_cost_us_dollars": 2000654.14,
+    "total_energy_cost_us_dollars": 9003567.53,
+    "year_one_energy_cost_bau_us_dollars": 1135909.52,
+    "year_one_demand_cost_bau_us_dollars": 218040.69,
+    "year_one_bill_bau_us_dollars": 1353950.21,
+    "total_energy_cost_bau_us_dollars": 10884471.11,
+    "total_demand_cost_bau_us_dollars": 2089301.6,
+    "total_solar_pv_kw": 1421.0509,
     "solar_pv": [
       {
         "size_kw": 1208.952
       },
       {
-        "size_kw": 5.0
+        "size_kw": 212.0989
       }
     ],
     "wind": [
@@ -370,10 +369,7 @@
 
     ],
     "storage": [
-      {
-        "size_kw": 118.83267230398928,
-        "size_kwh": 208.68305957524532
-      }
+
     ]
   },
   "power_distribution": {

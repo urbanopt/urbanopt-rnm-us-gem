@@ -1,7 +1,7 @@
 {
   "id": "10",
   "name": "Mixed use 2",
-  "directory_name": "C:/Users/lderosa/Desktop/run/reopt_scenario/10",
+  "directory_name": "/Users/kflemin/Downloads/uo-july-new/run/reopt_scenario/10",
   "feature_type": "Building",
   "timesteps_per_hour": 1,
   "simulation_status": "Complete",
@@ -162,19 +162,19 @@
       "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE OFFICE WHOLEBUILDING - MD OFFICE PEOPLE 2()",
       "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE STRIPMALL STRIP MALL - TYPE 1 PEOPLE 1()",
       "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE STRIPMALL STRIP MALL - TYPE 2 PEOPLE 1()",
-      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 1 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 1 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
       "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 1 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
-      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 2 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 2 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
       "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 2 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
-      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 3 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 3 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
       "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 3 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
-      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 4 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 4 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
       "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 4 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
-      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 5 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 5 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
       "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 5 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
-      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 6 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 6 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
       "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 6 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
-      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+      "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
       "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
       "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 4 THERMALZONE 1 FULLSERVICERESTAURANT DINING PEOPLE 1()",
       "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 4 THERMALZONE 1 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
@@ -302,19 +302,19 @@
       "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE OFFICE WHOLEBUILDING - MD OFFICE PEOPLE 2()",
       "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE STRIPMALL STRIP MALL - TYPE 1 PEOPLE 1()",
       "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE STRIPMALL STRIP MALL - TYPE 2 PEOPLE 1()",
-      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 1 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 1 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
       "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 1 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
-      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 2 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 2 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
       "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 2 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
-      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 3 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 3 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
       "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 3 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
-      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 4 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 4 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
       "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 4 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
-      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 5 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 5 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
       "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 5 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
-      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 6 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 6 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
       "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 6 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
-      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+      "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
       "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
       "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 4 THERMALZONE 1 FULLSERVICERESTAURANT DINING PEOPLE 1()",
       "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 4 THERMALZONE 1 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
@@ -441,24 +441,24 @@
     "number_of_residential_units": 1,
     "building_types": [
       {
-        "building_type": "StripMall",
-        "floor_area": 319427.8575306637,
-        "maximum_occupancy": 14715.402540722638
-      },
-      {
-        "building_type": "Office",
-        "floor_area": 159713.92876533186,
-        "maximum_occupancy": 798.5696438266591
+        "building_type": "LargeHotel",
+        "floor_area": 479141.7862956226,
+        "maximum_occupancy": 7989.751268483842
       },
       {
         "building_type": "FullServiceRestaurant",
-        "floor_area": 319427.8575306637,
-        "maximum_occupancy": 7989.751268490062
+        "floor_area": 319427.85753041506,
+        "maximum_occupancy": 798.5696438260375
       },
       {
-        "building_type": "LargeHotel",
-        "floor_area": 479141.7862959956,
-        "maximum_occupancy": 2459.5945029861105
+        "building_type": "StripMall",
+        "floor_area": 319427.85753041506,
+        "maximum_occupancy": 14715.402540711179
+      },
+      {
+        "building_type": "Office",
+        "floor_area": 159713.92876520753,
+        "maximum_occupancy": 2459.594502984196
       }
     ],
     "window_area_sqft": {
@@ -476,8 +476,8 @@
       "total_wall_area_sqft": 220632.39265367418
     },
     "roof_area_sqft": {
-      "available_roof_area_sqft": 119785.44657399885,
-      "total_roof_area_sqft": 159713.9287653318
+      "available_roof_area_sqft": 119785.44657390562,
+      "total_roof_area_sqft": 159713.9287652075
     },
     "orientation_deg": 0.0,
     "aspect_ratio": 0.6551602007862734
@@ -497,42 +497,42 @@
         "day_of_month": 31,
         "year": 2017
       },
-      "total_site_energy_kwh": 54615772.222222224,
-      "total_source_energy_kwh": 116882780.55555555,
-      "site_EUI_kwh_per_m2": 460.10331157001076,
-      "site_EUI_kbtu_per_ft2": 145.85198168417722,
-      "source_EUI_kwh_per_m2": 984.6634444773182,
-      "source_EUI_kbtu_per_ft2": 312.13666812987447,
-      "net_site_energy_kwh": 54615772.222222224,
-      "net_source_energy_kwh": 116882780.55555555,
-      "electricity_kwh": 27690488.888888888,
-      "natural_gas_kwh": 26925283.333333332,
+      "total_site_energy_kwh": 54774150.0,
+      "total_source_energy_kwh": 117074083.33333333,
+      "site_EUI_kwh_per_m2": 461.43754410156146,
+      "site_EUI_kbtu_per_ft2": 146.27493116934858,
+      "source_EUI_kwh_per_m2": 986.2750492937797,
+      "source_EUI_kbtu_per_ft2": 312.6475441663251,
+      "net_site_energy_kwh": 54774150.0,
+      "net_source_energy_kwh": 117074083.33333333,
+      "electricity_kwh": 27699905.555555556,
+      "natural_gas_kwh": 27074241.666666668,
       "propane_kwh": 0.0,
       "fuel_oil_kwh": 0.0,
       "other_fuels_kwh": 0.0,
       "district_cooling_kwh": 0.0,
       "district_heating_kwh": 0.0,
-      "water_qbft": 134673.93,
-      "electricity_produced_kwh": 27690487.5,
+      "water_qbft": 134594.65,
+      "electricity_produced_kwh": 27699906.388888888,
       "end_uses": {
         "electricity_kwh": {
           "heating": 0.0,
-          "cooling": 3021408.3333333335,
+          "cooling": 3010936.111111111,
           "interior_lighting": 4768027.777777779,
           "exterior_lighting": 963358.3333333334,
           "interior_equipment": 10046147.222222222,
           "exterior_equipment": 0.0,
-          "fans": 2865133.3333333335,
-          "pumps": 1693855.5555555555,
-          "heat_rejection": 113172.22222222222,
+          "fans": 2869922.2222222225,
+          "pumps": 1701836.1111111112,
+          "heat_rejection": 113747.22222222222,
           "humidification": 0.0,
-          "heat_recovery": 389011.1111111111,
-          "water_systems": 3830375.0,
+          "heat_recovery": 395697.2222222222,
+          "water_systems": 3830236.1111111115,
           "refrigeration": 0.0,
           "generators": 0.0
         },
         "natural_gas_kwh": {
-          "heating": 6680500.0,
+          "heating": 6828916.666666667,
           "cooling": 0.0,
           "interior_lighting": 0.0,
           "exterior_lighting": 0.0,
@@ -543,7 +543,7 @@
           "heat_rejection": 0.0,
           "humidification": 0.0,
           "heat_recovery": 0.0,
-          "water_systems": 10460213.88888889,
+          "water_systems": 10460755.555555556,
           "refrigeration": 0.0,
           "generators": 0.0
         },
@@ -636,7 +636,7 @@
           "exterior_equipment": 0.0,
           "fans": 0.0,
           "pumps": 0.0,
-          "heat_rejection": 8407838.88888889,
+          "heat_rejection": 8385813.88888889,
           "humidification": 0.0,
           "heat_recovery": 0.0,
           "water_systems": 29001588.888888888,
@@ -658,11 +658,11 @@
         }
       ],
       "comfort_result": {
-        "time_setpoint_not_met_during_occupied_cooling": 357.0,
-        "time_setpoint_not_met_during_occupied_heating": 655.0,
-        "time_setpoint_not_met_during_occupied_hours": 1012.0,
-        "hours_out_of_comfort_bounds_PMV": 3458.0,
-        "hours_out_of_comfort_bounds_PPD": 499.0
+        "time_setpoint_not_met_during_occupied_cooling": 358.0,
+        "time_setpoint_not_met_during_occupied_heating": 679.0,
+        "time_setpoint_not_met_during_occupied_hours": 1037.0,
+        "hours_out_of_comfort_bounds_PMV": 3455.0,
+        "hours_out_of_comfort_bounds_PPD": 497.0
       }
     }
   ],

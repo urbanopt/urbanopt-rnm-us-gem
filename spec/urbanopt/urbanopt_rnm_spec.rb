@@ -50,18 +50,19 @@ RSpec.describe URBANopt::RNM do
     before(:all) do
       @root_dir = File.join(File.dirname(__FILE__), '..', 'test', 'example_project')
       @run_dir = File.join(@root_dir, 'run', 'baseline_scenario')
-      @feature_file_path = File.join(@root_dir,  'example_project_streets_old.json')
+      @feature_file_path = File.join(@root_dir,  'example_project_with_network_and_streets.json')
       @reopt = false
       @extended_catalog_path = File.join(File.dirname(__FILE__), '..', '..','catalogs',  'extended_catalog.json')
       @average_peak_catalog_path = File.join(File.dirname(__FILE__), '..', '..','catalogs',  'average_peak_per_building_type.json')
       @name = 'baseline_scenario' 
+      @opendss_catalog = true
       
       if !File.exists?(File.join(File.dirname(__FILE__), '..', 'test'))
         FileUtils.mkdir_p(File.join(File.dirname(__FILE__), '..', 'test'))
       end
       
       FileUtils.cp_r(File.join(File.dirname(__FILE__), '..', 'files', 'example_project'), File.join(File.dirname(__FILE__), '..', 'test'))
-      @runner = URBANopt::RNM::Runner.new(@name, @root_dir, @run_dir, @feature_file_path, @reopt, @extended_catalog_path, @average_peak_catalog_path)
+      @runner = URBANopt::RNM::Runner.new(@name, @root_dir, @run_dir, @feature_file_path, @extended_catalog_path, @average_peak_catalog_path, reopt:@reopt, opendss_catalog:@opendss_catalog)
     end
     
     it 'creates the rnm-us input files' do
@@ -93,7 +94,7 @@ RSpec.describe URBANopt::RNM do
 
       @feature_file_path2 = File.join(@root_dir, 'example_project_streets_missingfields.json')
       
-      @runner2 = URBANopt::RNM::Runner.new(@name, @root_dir, @run_dir, @feature_file_path2, @reopt, @extended_catalog_path, @average_peak_catalog_path)
+      @runner2 = URBANopt::RNM::Runner.new(@name, @root_dir, @run_dir, @feature_file_path2, @extended_catalog_path, @average_peak_catalog_path, reopt:@reopt)
       expect {  @runner2.create_simulation_files() }.to output(a_string_including("RNM-US gem WARNING: field ['project']['only_lv_consumers'] not specified in Feature File...using default value of true")).to_stdout
       expect {  @runner2.create_simulation_files() }.to output(a_string_including("RNM-US gem WARNING: field ['project']['only_lv_consumers'] not specified in Feature File...using default value of true")).to_stdout
 
@@ -131,7 +132,7 @@ RSpec.describe URBANopt::RNM do
     before(:all) do
       @root_dir = File.join(File.dirname(__FILE__), '..', 'test_reopt', 'example_project')
       @run_dir = File.join(@root_dir, 'run', 'reopt_scenario')
-      @feature_file_path = File.join(@root_dir,  'example_project_streets_old.json')
+      @feature_file_path = File.join(@root_dir,  'example_project_with_network_and_streets.json')
       @name = 'reopt_scenario' 
       @reopt = true
       @extended_catalog_path = File.join(File.dirname(__FILE__), '..', '..','catalogs',  'extended_catalog.json')
@@ -143,7 +144,7 @@ RSpec.describe URBANopt::RNM do
       end
 
       FileUtils.cp_r(File.join(File.dirname(__FILE__), '..', 'files', 'example_project'), File.join(File.dirname(__FILE__), '..', 'test_reopt'))
-      @runner = URBANopt::RNM::Runner.new(@name, @root_dir, @run_dir, @feature_file_path, @reopt, @extended_catalog_path, @average_peak_catalog_path, opendss_catalog:@opendss_catalog)
+      @runner = URBANopt::RNM::Runner.new(@name, @root_dir, @run_dir, @feature_file_path, @extended_catalog_path, @average_peak_catalog_path, reopt:@reopt, opendss_catalog:@opendss_catalog)
 
     end
     

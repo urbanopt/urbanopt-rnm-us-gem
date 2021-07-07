@@ -59,7 +59,7 @@ task :create_inputs, [:scenario_dir_path, :feature_file_path, :reopt, :opendss_c
 	root_dir = File.join(run_dir, '..', '..') # 2 levels up
 
 	# set up variables	
-	feature_file_path = args[:feature_file_path] ? args[:feature_file_path]: File.join(root_dir,  'example_project_streets_old.json')
+	feature_file_path = args[:feature_file_path] ? args[:feature_file_path]: File.join(root_dir,  'example_project_with_network_and_streets.json')
 	reopt = args[:reopt] ? args[:reopt] : false
 	reopt = (reopt == 'true') ? true : false
 	opendss_catalog = args[:opendss_catalog] ? args[:opendss_catalog] : false

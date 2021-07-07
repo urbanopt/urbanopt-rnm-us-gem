@@ -1,7 +1,7 @@
 {
   "id": "8",
   "name": "Hospital 1",
-  "directory_name": "C:/Users/lderosa/Desktop/run/reopt_scenario/8",
+  "directory_name": "/Users/kflemin/Downloads/uo-july-new/run/reopt_scenario/8",
   "feature_type": "Building",
   "timesteps_per_hour": 1,
   "simulation_status": "Complete",
@@ -96,7 +96,7 @@
     ]
   },
   "location": {
-    "latitude_deg": 42.81565185353204,
+    "latitude_deg": 42.81565185353203,
     "longitude_deg": -78.8502280105868,
     "surface_elevation_ft": 215.0
   },
@@ -113,7 +113,7 @@
       {
         "building_type": "Outpatient",
         "floor_area": 402984.01012219547,
-        "maximum_occupancy": 4499.70538666074
+        "maximum_occupancy": 4499.705386660741
       }
     ],
     "window_area_sqft": {

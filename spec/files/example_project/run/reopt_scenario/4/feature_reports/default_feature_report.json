@@ -1,7 +1,7 @@
 {
   "id": "4",
   "name": "Restaurant 12",
-  "directory_name": "C:/Users/lderosa/Desktop/run/reopt_scenario/4",
+  "directory_name": "/Users/kflemin/Downloads/uo-july-new/run/reopt_scenario/4",
   "feature_type": "Building",
   "timesteps_per_hour": 1,
   "simulation_status": "Complete",
@@ -165,8 +165,8 @@
     "building_types": [
       {
         "building_type": "FullServiceRestaurant",
-        "floor_area": 31605.9958503709,
-        "maximum_occupancy": 1651.9821911071867
+        "floor_area": 31605.995850705265,
+        "maximum_occupancy": 1651.982191124664
       }
     ],
     "window_area_sqft": {
@@ -184,8 +184,8 @@
       "total_wall_area_sqft": 14896.175625684582
     },
     "roof_area_sqft": {
-      "available_roof_area_sqft": 7901.498962592723,
-      "total_roof_area_sqft": 10535.331950123631
+      "available_roof_area_sqft": 7901.498962676316,
+      "total_roof_area_sqft": 10535.331950235088
     },
     "orientation_deg": 0.0,
     "aspect_ratio": 1.5479618514563465
@@ -205,42 +205,42 @@
         "day_of_month": 31,
         "year": 2017
       },
-      "total_site_energy_kwh": 3263077.7777777775,
-      "total_source_energy_kwh": 6366750.0,
-      "site_EUI_kwh_per_m2": 1111.2927462130026,
-      "site_EUI_kbtu_per_ft2": 352.27794538869483,
-      "source_EUI_kwh_per_m2": 2168.2974093158373,
-      "source_EUI_kbtu_per_ft2": 687.3466590584642,
-      "net_site_energy_kwh": 3263077.7777777775,
-      "net_source_energy_kwh": 6366750.0,
-      "electricity_kwh": 1358413.8888888888,
-      "natural_gas_kwh": 1904663.8888888888,
+      "total_site_energy_kwh": 3263072.2222222225,
+      "total_source_energy_kwh": 6366705.555555555,
+      "site_EUI_kwh_per_m2": 1111.2908541806914,
+      "site_EUI_kbtu_per_ft2": 352.2773456176107,
+      "source_EUI_kwh_per_m2": 2168.282273057346,
+      "source_EUI_kbtu_per_ft2": 687.3418608897906,
+      "net_site_energy_kwh": 3263072.2222222225,
+      "net_source_energy_kwh": 6366705.555555555,
+      "electricity_kwh": 1358394.4444444445,
+      "natural_gas_kwh": 1904680.5555555557,
       "propane_kwh": 0.0,
       "fuel_oil_kwh": 0.0,
       "other_fuels_kwh": 0.0,
       "district_cooling_kwh": 0.0,
       "district_heating_kwh": 0.0,
       "water_qbft": 7940.49,
-      "electricity_produced_kwh": 1358412.5,
+      "electricity_produced_kwh": 1358393.8888888888,
       "end_uses": {
         "electricity_kwh": {
           "heating": 0.0,
-          "cooling": 92430.55555555555,
-          "interior_lighting": 115888.8888888889,
+          "cooling": 92388.88888888889,
+          "interior_lighting": 115944.44444444445,
           "exterior_lighting": 50566.666666666664,
           "interior_equipment": 714975.0,
           "exterior_equipment": 0.0,
-          "fans": 246638.8888888889,
+          "fans": 246613.8888888889,
           "pumps": 0.0,
           "heat_rejection": 0.0,
           "humidification": 0.0,
-          "heat_recovery": 13436.111111111111,
+          "heat_recovery": 13430.555555555557,
           "water_systems": 124477.77777777778,
           "refrigeration": 0.0,
           "generators": 0.0
         },
         "natural_gas_kwh": {
-          "heating": 121116.66666666667,
+          "heating": 121130.55555555556,
           "cooling": 0.0,
           "interior_lighting": 0.0,
           "exterior_lighting": 0.0,
@@ -251,7 +251,7 @@
           "heat_rejection": 0.0,
           "humidification": 0.0,
           "heat_recovery": 0.0,
-          "water_systems": 1033750.0,
+          "water_systems": 1033752.7777777779,
           "refrigeration": 0.0,
           "generators": 0.0
         },
@@ -367,9 +367,9 @@
       ],
       "comfort_result": {
         "time_setpoint_not_met_during_occupied_cooling": 1.0,
-        "time_setpoint_not_met_during_occupied_heating": 7.0,
-        "time_setpoint_not_met_during_occupied_hours": 8.0,
-        "hours_out_of_comfort_bounds_PMV": 2179.0,
+        "time_setpoint_not_met_during_occupied_heating": 6.0,
+        "time_setpoint_not_met_during_occupied_hours": 7.0,
+        "hours_out_of_comfort_bounds_PMV": 2180.0,
         "hours_out_of_comfort_bounds_PPD": 134.0
       }
     }

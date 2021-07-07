@@ -65,7 +65,7 @@ module URBANopt
             end
 
 	    end
-        #finding the limits on LV defined by the equipments in the catalog
+        # finding the limits on LV defined by the equipments in the catalog
         def catalog_limits()
             catalog = JSON.parse(File.read(@extended_catalog_path))
             limit = Hash.new(0)
@@ -181,8 +181,8 @@ module URBANopt
                         file_json[j] = JSON.parse(File.read(File.join(@run_dir, "#{building_ids[j]}", 'feature_reports', 'feature_optimization.json')))
                         hours.aggregate_consumption(file_csv[j], file_json[j], j)
                 else
-                        file_csv[j] = CSV.parse(File.read(File.join(@run_dir, "#{building_ids[j]}", '014_default_feature_reports', 'default_feature_reports.csv')), :headers => true)
-                        file_json[j] = JSON.parse(File.read(File.join(@run_dir, "#{building_ids[j]}", '014_default_feature_reports', 'default_feature_reports.json')))
+                        file_csv[j] = CSV.parse(File.read(File.join(@run_dir, "#{building_ids[j]}", 'feature_reports', 'default_feature_report.csv')), :headers => true)
+                        file_json[j] = JSON.parse(File.read(File.join(@run_dir, "#{building_ids[j]}", 'feature_reports', 'default_feature_report.json')))
                         hours.aggregate_consumption(file_csv[j], file_json[j], j)
                 end
                end
@@ -193,11 +193,11 @@ module URBANopt
                     # use building_ids lookup to get name of results directory
                     # reports will be in 'feature_reports' directory 
                     if @reopt 
-                        #file_path = File.join(@run_dir, "#{building_ids[j]}", 'feature_reports', 'feature_optimization')
-                        #prosumers.prosumer_files_load(file_path[j] + ".csv", File.read(file_path + ".json"), customers_coordinates[j], coordinates_buildings[j], hours)
+                        # file_path = File.join(@run_dir, "#{building_ids[j]}", 'feature_reports', 'feature_optimization')
+                        # prosumers.prosumer_files_load(file_path[j] + ".csv", File.read(file_path + ".json"), customers_coordinates[j], coordinates_buildings[j], hours)
                         prosumers.prosumer_files_load(file_csv[j], file_json[j], customers_coordinates[j], coordinates_buildings[j], hours)
                     else
-                        #file_path = File.join(@run_dir, "#{building_ids[j]}", '014_default_feature_reports', 'default_feature_reports')
+                        # file_path = File.join(@run_dir, "#{building_ids[j]}", '014_default_feature_reports', 'default_feature_reports')
                         consumers.customer_files_load(file_csv[j], file_json[j], customers_coordinates[j], coordinates_buildings[j], hours)
                    end
             end
@@ -222,7 +222,7 @@ module URBANopt
                 ficheros_entrada.push('CSubestacionDistribucionGreenfield;primary_substations.txt')
                 ficheros_entrada.push('CPuntoCallejero;streetmapAS.txt')
                 ficheros_entrada.push('END')
-            File.open(File.join(@run_dir, @rnm_dirname, "ficheros_entrada.txt"), "w+") do |f|
+                File.open(File.join(@run_dir, @rnm_dirname, "ficheros_entrada.txt"), "w+") do |f|
                     f.puts(ficheros_entrada)
                 end
             else

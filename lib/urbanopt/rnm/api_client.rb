@@ -209,9 +209,23 @@ module URBANopt
         puts("STATUS: #{resp.status}, #{resp.body}")
 
         if resp.status == 200
-          File.open(File.join(@rnm_dir, 'results.zip'), "wb") { |f| f.write streamed.join }
+          if !Dir.exist?(File.join(@rnm_dir, 'results'))
+            Dir.mkdir(File.join(@rnm_dir, 'results'))
+          end
+
+          file_path = File.join(@rnm_dir, 'results', 'results.zip')
+
+          File.open(file_path, "wb") { |f| f.write streamed.join }
           puts "RNM-US results.zip downloaded to #{@rnm_dir}"
-          # TODO: unzip?
+          # unzip
+           Zip::File.open(file_path) do |zip_file|
+            zip_file.each do |f|
+              fpath = File.join(@rnm_dir, 'results', f.name)
+              zip_file.extract(f, fpath) unless File.exist?(fpath)
+            end
+          end
+          # delete zip
+          File.delete(file_path)
         else
           msg = "Error retrieving results for #{the_sim_id}. error code: #{resp.status}.  #{resp.body}"
           @@logger.error(msg)

@@ -1,7 +1,7 @@
 {
   "id": "3",
   "name": "Restaurant 10",
-  "directory_name": "C:/Users/lderosa/Desktop/run/reopt_scenario/3",
+  "directory_name": "/Users/kflemin/Downloads/uo-july-new/run/reopt_scenario/3",
   "feature_type": "Building",
   "timesteps_per_hour": 1,
   "simulation_status": "Complete",
@@ -52,9 +52,9 @@
       "District Heating Mass Flow Rate()",
       "District Heating Inlet Temperature()",
       "District Heating Outlet Temperature()",
-      "5 ZONE PVAV 1 2SPD DX CLG COIL 2719KBTU/HR 9.5EER(W)",
-      "5 ZONE PVAV 2 2SPD DX CLG COIL 2712KBTU/HR 9.5EER(W)",
-      "5 ZONE PVAV 2SPD DX CLG COIL 2179KBTU/HR 9.5EER(W)",
+      "5 ZONE PVAV 1 2SPD DX CLG COIL 2718KBTU/HR 9.5EER(W)",
+      "5 ZONE PVAV 2 2SPD DX CLG COIL 2711KBTU/HR 9.5EER(W)",
+      "5 ZONE PVAV 2SPD DX CLG COIL 2180KBTU/HR 9.5EER(W)",
       "5 ZONE PVAV 1 MAIN HTG COIL(W)",
       "5 ZONE PVAV 2 MAIN HTG COIL(W)",
       "5 ZONE PVAV MAIN HTG COIL(W)",
@@ -141,8 +141,8 @@
     "building_types": [
       {
         "building_type": "FullServiceRestaurant",
-        "floor_area": 125566.66718816644,
-        "maximum_occupancy": 6563.1185605910905
+        "floor_area": 125566.66718835628,
+        "maximum_occupancy": 6563.118560601013
       }
     ],
     "window_area_sqft": {
@@ -160,8 +160,8 @@
       "total_wall_area_sqft": 38913.150742968144
     },
     "roof_area_sqft": {
-      "available_roof_area_sqft": 31391.66679704161,
-      "total_roof_area_sqft": 41855.55572938881
+      "available_roof_area_sqft": 31391.666797089063,
+      "total_roof_area_sqft": 41855.555729452084
     },
     "orientation_deg": 0.0,
     "aspect_ratio": 0.19983936382765466
@@ -181,42 +181,42 @@
         "day_of_month": 31,
         "year": 2017
       },
-      "total_site_energy_kwh": 13487086.11111111,
-      "total_source_energy_kwh": 25469930.555555556,
-      "site_EUI_kwh_per_m2": 1156.1485942868528,
-      "site_EUI_kbtu_per_ft2": 366.4971743470153,
-      "source_EUI_kwh_per_m2": 2183.349625396836,
-      "source_EUI_kbtu_per_ft2": 692.1181864283949,
-      "net_site_energy_kwh": 13487086.11111111,
-      "net_source_energy_kwh": 25469930.555555556,
-      "electricity_kwh": 5208800.0,
-      "natural_gas_kwh": 8278286.111111111,
+      "total_site_energy_kwh": 13488183.333333334,
+      "total_source_energy_kwh": 25471877.77777778,
+      "site_EUI_kwh_per_m2": 1156.2426510697185,
+      "site_EUI_kbtu_per_ft2": 366.5269901901679,
+      "source_EUI_kwh_per_m2": 2183.516546421618,
+      "source_EUI_kbtu_per_ft2": 692.1711001145975,
+      "net_site_energy_kwh": 13488183.333333334,
+      "net_source_energy_kwh": 25471877.77777778,
+      "electricity_kwh": 5209163.888888889,
+      "natural_gas_kwh": 8279019.444444445,
       "propane_kwh": 0.0,
       "fuel_oil_kwh": 0.0,
       "other_fuels_kwh": 0.0,
       "district_cooling_kwh": 0.0,
       "district_heating_kwh": 0.0,
       "water_qbft": 31545.76,
-      "electricity_produced_kwh": 5208799.444444445,
+      "electricity_produced_kwh": 5209163.333333333,
       "end_uses": {
         "electricity_kwh": {
           "heating": 0.0,
-          "cooling": 540091.6666666666,
-          "interior_lighting": 495986.1111111111,
+          "cooling": 540008.3333333334,
+          "interior_lighting": 496194.44444444444,
           "exterior_lighting": 198247.22222222222,
           "interior_equipment": 2839447.2222222225,
           "exterior_equipment": 0.0,
-          "fans": 543619.4444444444,
-          "pumps": 5830.555555555556,
+          "fans": 543850.0,
+          "pumps": 5833.333333333333,
           "heat_rejection": 0.0,
           "humidification": 0.0,
-          "heat_recovery": 105463.88888888889,
-          "water_systems": 480111.1111111111,
+          "heat_recovery": 105466.66666666667,
+          "water_systems": 480113.88888888893,
           "refrigeration": 0.0,
           "generators": 0.0
         },
         "natural_gas_kwh": {
-          "heating": 1194347.222222222,
+          "heating": 1195080.5555555555,
           "cooling": 0.0,
           "interior_lighting": 0.0,
           "exterior_lighting": 0.0,
@@ -342,10 +342,10 @@
         }
       ],
       "comfort_result": {
-        "time_setpoint_not_met_during_occupied_cooling": 1.0,
-        "time_setpoint_not_met_during_occupied_heating": 20.0,
-        "time_setpoint_not_met_during_occupied_hours": 21.0,
-        "hours_out_of_comfort_bounds_PMV": 93.0,
+        "time_setpoint_not_met_during_occupied_cooling": 2.0,
+        "time_setpoint_not_met_during_occupied_heating": 17.0,
+        "time_setpoint_not_met_during_occupied_hours": 19.0,
+        "hours_out_of_comfort_bounds_PMV": 89.0,
         "hours_out_of_comfort_bounds_PPD": 0.0
       }
     }

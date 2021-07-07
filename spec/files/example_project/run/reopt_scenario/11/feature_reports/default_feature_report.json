@@ -1,7 +1,7 @@
 {
   "id": "11",
   "name": "Restaurant 13",
-  "directory_name": "C:/Users/lderosa/Desktop/run/reopt_scenario/11",
+  "directory_name": "/Users/kflemin/Downloads/uo-july-new/run/reopt_scenario/11",
   "feature_type": "Building",
   "timesteps_per_hour": 1,
   "simulation_status": "Complete",
@@ -53,17 +53,17 @@
       "District Heating Inlet Temperature()",
       "District Heating Outlet Temperature()",
       "BUILDING STORY 1 THERMALZONE 1 PSZ-AC 1SPD DX AC CLG COIL 56KBTU/HR 14.0SEER(W)",
-      "BUILDING STORY 1 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 66KBTU/HR 11.0EER(W)",
+      "BUILDING STORY 1 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 65KBTU/HR 11.0EER(W)",
       "BUILDING STORY 1 THERMALZONE 3 PSZ-AC 1SPD DX AC CLG COIL 52KBTU/HR 14.0SEER(W)",
       "BUILDING STORY 1 THERMALZONE 4 PSZ-AC 1SPD DX AC CLG COIL 78KBTU/HR 11.0EER(W)",
       "BUILDING STORY 1 THERMALZONE PSZ-AC 1SPD DX AC CLG COIL 374KBTU/HR 9.8EER(W)",
       "BUILDING STORY 2 THERMALZONE 1 PSZ-AC 1SPD DX AC CLG COIL 61KBTU/HR 14.0SEER(W)",
-      "BUILDING STORY 2 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 79KBTU/HR 11.0EER(W)",
+      "BUILDING STORY 2 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 78KBTU/HR 11.0EER(W)",
       "BUILDING STORY 2 THERMALZONE 3 PSZ-AC 1SPD DX AC CLG COIL 59KBTU/HR 14.0SEER(W)",
       "BUILDING STORY 2 THERMALZONE 4 PSZ-AC 1SPD DX AC CLG COIL 92KBTU/HR 11.0EER(W)",
       "BUILDING STORY 2 THERMALZONE PSZ-AC 1SPD DX AC CLG COIL 444KBTU/HR 9.8EER(W)",
       "BUILDING STORY 3 THERMALZONE 1 PSZ-AC 1SPD DX AC CLG COIL 64KBTU/HR 14.0SEER(W)",
-      "BUILDING STORY 3 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 80KBTU/HR 11.0EER(W)",
+      "BUILDING STORY 3 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 79KBTU/HR 11.0EER(W)",
       "BUILDING STORY 3 THERMALZONE 3 PSZ-AC 1SPD DX AC CLG COIL 60KBTU/HR 14.0SEER(W)",
       "BUILDING STORY 3 THERMALZONE 4 PSZ-AC 1SPD DX AC CLG COIL 94KBTU/HR 11.0EER(W)",
       "BUILDING STORY 3 THERMALZONE PSZ-AC 1SPD DX AC CLG COIL 439KBTU/HR 9.8EER(W)",
@@ -165,8 +165,8 @@
     "building_types": [
       {
         "building_type": "FullServiceRestaurant",
-        "floor_area": 32495.295766602852,
-        "maximum_occupancy": 1698.4641191287983
+        "floor_area": 32495.295766399813,
+        "maximum_occupancy": 1698.464119118186
       }
     ],
     "window_area_sqft": {
@@ -184,8 +184,8 @@
       "total_wall_area_sqft": 15150.957385248103
     },
     "roof_area_sqft": {
-      "available_roof_area_sqft": 8123.823941650712,
-      "total_roof_area_sqft": 10831.765255534283
+      "available_roof_area_sqft": 8123.823941599954,
+      "total_roof_area_sqft": 10831.765255466606
     },
     "orientation_deg": 0.0,
     "aspect_ratio": 1.5916187951097365
@@ -205,42 +205,42 @@
         "day_of_month": 31,
         "year": 2017
       },
-      "total_site_energy_kwh": 3353355.5555555555,
-      "total_source_energy_kwh": 6544836.111111111,
-      "site_EUI_kwh_per_m2": 1110.7835462321023,
-      "site_EUI_kbtu_per_ft2": 352.1165298447935,
-      "source_EUI_kwh_per_m2": 2167.9467460477827,
-      "source_EUI_kbtu_per_ft2": 687.2354993878782,
-      "net_site_energy_kwh": 3353355.5555555555,
-      "net_source_energy_kwh": 6544836.111111111,
-      "electricity_kwh": 1396927.7777777778,
-      "natural_gas_kwh": 1956427.7777777778,
+      "total_site_energy_kwh": 3353533.3333333335,
+      "total_source_energy_kwh": 6544913.888888889,
+      "site_EUI_kwh_per_m2": 1110.8424343002387,
+      "site_EUI_kbtu_per_ft2": 352.1351972640867,
+      "source_EUI_kwh_per_m2": 2167.9725095775925,
+      "source_EUI_kbtu_per_ft2": 687.2436663838189,
+      "net_site_energy_kwh": 3353533.3333333335,
+      "net_source_energy_kwh": 6544913.888888889,
+      "electricity_kwh": 1396872.2222222222,
+      "natural_gas_kwh": 1956661.1111111112,
       "propane_kwh": 0.0,
       "fuel_oil_kwh": 0.0,
       "other_fuels_kwh": 0.0,
       "district_cooling_kwh": 0.0,
       "district_heating_kwh": 0.0,
       "water_qbft": 8163.46,
-      "electricity_produced_kwh": 1396926.6666666667,
+      "electricity_produced_kwh": 1396871.6666666667,
       "end_uses": {
         "electricity_kwh": {
           "heating": 0.0,
-          "cooling": 95355.55555555555,
-          "interior_lighting": 119294.44444444445,
+          "cooling": 95219.44444444445,
+          "interior_lighting": 119577.77777777778,
           "exterior_lighting": 51966.666666666664,
           "interior_equipment": 735061.1111111111,
           "exterior_equipment": 0.0,
-          "fans": 253536.11111111112,
+          "fans": 253336.11111111112,
           "pumps": 0.0,
           "heat_rejection": 0.0,
           "humidification": 0.0,
-          "heat_recovery": 13872.222222222223,
+          "heat_recovery": 13869.444444444443,
           "water_systems": 127838.8888888889,
           "refrigeration": 0.0,
           "generators": 0.0
         },
         "natural_gas_kwh": {
-          "heating": 122783.33333333333,
+          "heating": 123016.66666666667,
           "cooling": 0.0,
           "interior_lighting": 0.0,
           "exterior_lighting": 0.0,
@@ -369,7 +369,7 @@
         "time_setpoint_not_met_during_occupied_cooling": 1.0,
         "time_setpoint_not_met_during_occupied_heating": 7.0,
         "time_setpoint_not_met_during_occupied_hours": 8.0,
-        "hours_out_of_comfort_bounds_PMV": 2186.0,
+        "hours_out_of_comfort_bounds_PMV": 2183.0,
         "hours_out_of_comfort_bounds_PPD": 135.0
       }
     }

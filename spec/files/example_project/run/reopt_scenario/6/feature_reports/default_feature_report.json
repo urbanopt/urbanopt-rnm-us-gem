@@ -1,7 +1,7 @@
 {
   "id": "6",
   "name": "Restaurant 15",
-  "directory_name": "C:/Users/lderosa/Desktop/run/reopt_scenario/6",
+  "directory_name": "/Users/kflemin/Downloads/uo-july-new/run/reopt_scenario/6",
   "feature_type": "Building",
   "timesteps_per_hour": 1,
   "simulation_status": "Complete",
@@ -53,7 +53,7 @@
       "District Heating Inlet Temperature()",
       "District Heating Outlet Temperature()",
       "BUILDING STORY 1 THERMALZONE 1 PSZ-AC 1SPD DX AC CLG COIL 41KBTU/HR 14.0SEER(W)",
-      "BUILDING STORY 1 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 132KBTU/HR 11.0EER(W)",
+      "BUILDING STORY 1 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 131KBTU/HR 11.0EER(W)",
       "BUILDING STORY 1 THERMALZONE 3 PSZ-AC 1SPD DX AC CLG COIL 33KBTU/HR 14.0SEER(W)",
       "BUILDING STORY 1 THERMALZONE 4 PSZ-AC 1SPD DX AC CLG COIL 117KBTU/HR 11.0EER(W)",
       "BUILDING STORY 1 THERMALZONE PSZ-AC 1SPD DX AC CLG COIL 355KBTU/HR 9.8EER(W)",
@@ -116,7 +116,7 @@
       {
         "building_type": "FullServiceRestaurant",
         "floor_area": 10683.489150681404,
-        "maximum_occupancy": 558.404610927816
+        "maximum_occupancy": 558.4046109278158
       }
     ],
     "window_area_sqft": {
@@ -155,42 +155,42 @@
         "day_of_month": 31,
         "year": 2017
       },
-      "total_site_energy_kwh": 1083194.4444444445,
-      "total_source_energy_kwh": 2095902.7777777778,
-      "site_EUI_kwh_per_m2": 1091.34680507838,
-      "site_EUI_kbtu_per_ft2": 345.95511534621204,
-      "source_EUI_kwh_per_m2": 2111.6770050051664,
-      "source_EUI_kbtu_per_ft2": 669.3980854124904,
-      "net_site_energy_kwh": 1083194.4444444445,
-      "net_source_energy_kwh": 2095902.7777777778,
-      "electricity_kwh": 442497.2222222222,
-      "natural_gas_kwh": 640697.2222222222,
+      "total_site_energy_kwh": 1083200.0,
+      "total_source_energy_kwh": 2095866.6666666667,
+      "site_EUI_kwh_per_m2": 1091.3524024462738,
+      "site_EUI_kbtu_per_ft2": 345.9568897024903,
+      "source_EUI_kwh_per_m2": 2111.6406221138573,
+      "source_EUI_kbtu_per_ft2": 669.386552096682,
+      "net_site_energy_kwh": 1083200.0,
+      "net_source_energy_kwh": 2095866.6666666667,
+      "electricity_kwh": 442477.7777777778,
+      "natural_gas_kwh": 640722.2222222222,
       "propane_kwh": 0.0,
       "fuel_oil_kwh": 0.0,
       "other_fuels_kwh": 0.0,
       "district_cooling_kwh": 0.0,
       "district_heating_kwh": 0.0,
       "water_qbft": 2683.99,
-      "electricity_produced_kwh": 442496.3888888889,
+      "electricity_produced_kwh": 442476.94444444444,
       "end_uses": {
         "electricity_kwh": {
           "heating": 0.0,
-          "cooling": 32483.333333333332,
-          "interior_lighting": 38336.11111111111,
+          "cooling": 32452.777777777777,
+          "interior_lighting": 38383.333333333336,
           "exterior_lighting": 19250.0,
           "interior_equipment": 225261.1111111111,
           "exterior_equipment": 0.0,
-          "fans": 80438.88888888889,
+          "fans": 80405.55555555555,
           "pumps": 0.0,
           "heat_rejection": 0.0,
           "humidification": 0.0,
-          "heat_recovery": 5394.444444444444,
-          "water_systems": 41333.333333333336,
+          "heat_recovery": 5391.666666666667,
+          "water_systems": 41330.555555555555,
           "refrigeration": 0.0,
           "generators": 0.0
         },
         "natural_gas_kwh": {
-          "heating": 37383.333333333336,
+          "heating": 37408.33333333333,
           "cooling": 0.0,
           "interior_lighting": 0.0,
           "exterior_lighting": 0.0,
@@ -317,8 +317,8 @@
       ],
       "comfort_result": {
         "time_setpoint_not_met_during_occupied_cooling": 0.0,
-        "time_setpoint_not_met_during_occupied_heating": 1.0,
-        "time_setpoint_not_met_during_occupied_hours": 1.0,
+        "time_setpoint_not_met_during_occupied_heating": 0.0,
+        "time_setpoint_not_met_during_occupied_hours": 0.0,
         "hours_out_of_comfort_bounds_PMV": 998.0,
         "hours_out_of_comfort_bounds_PPD": 0.0
       }

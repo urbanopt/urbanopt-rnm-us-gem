@@ -2,11 +2,11 @@
   "scenario_report": {
     "id": "reopt_scenario",
     "name": "reopt_scenario",
-    "directory_name": "C:/Users/lderosa/Desktop/run/reopt_scenario",
+    "directory_name": "/Users/kflemin/Downloads/uo-july-new/run/reopt_scenario",
     "timesteps_per_hour": 1,
     "number_of_not_started_simulations": 0,
     "number_of_started_simulations": 0,
-    "number_of_complete_simulations": 13,
+    "number_of_complete_simulations": 12,
     "number_of_failed_simulations": 0,
     "timeseries_csv": {
       "path": "/feature_optimization.csv",
@@ -65,13 +65,7 @@
         "Ice Thermal Storage End Fraction()",
         "Cooling Coil Ice Thermal Storage End Fraction()",
         "HeatRejection:Electricity()",
-        "Cooling:Electricity()",
-        "Heating:Electricity()",
         "WaterSystems:Electricity()",
-        "DistrictCooling:Facility(kWh)",
-        "DistrictHeating:Facility(kWh)",
-        "District Cooling Chilled Water Rate(W)",
-        "District Heating Hot Water Rate(W)",
         "8 ZONE VAV 1 CLG COIL(W)",
         "8 ZONE VAV 2 CLG COIL(W)",
         "8 ZONE VAV 3 CLG COIL(W)",
@@ -131,8 +125,8 @@
         "REopt:ElectricityProduced:Wind:ToBattery(kw)",
         "REopt:ElectricityProduced:Wind:ToLoad(kw)",
         "REopt:ElectricityProduced:Wind:ToGrid(kw)",
-        "BUILDING STORY 1 THERMALZONE 1 PSZ-AC 1SPD DX AC CLG COIL 169KBTU/HR 10.8EER(W)",
-        "BUILDING STORY 1 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 60KBTU/HR 14.0SEER(W)",
+        "BUILDING STORY 1 THERMALZONE 1 PSZ-AC 1SPD DX AC CLG COIL 166KBTU/HR 10.8EER(W)",
+        "BUILDING STORY 1 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 56KBTU/HR 14.0SEER(W)",
         "BUILDING STORY 1 THERMALZONE 3 PSZ-AC 1SPD DX AC CLG COIL 153KBTU/HR 10.8EER(W)",
         "BUILDING STORY 1 THERMALZONE 4 PSZ-AC 1SPD DX AC CLG COIL 71KBTU/HR 11.0EER(W)",
         "BUILDING STORY 1 THERMALZONE PSZ-AC 1SPD DX AC CLG COIL 856KBTU/HR 9.5EER(W)",
@@ -146,25 +140,24 @@
         "BUILDING STORY 1 THERMALZONE 4 PSZ-AC GAS HTG COIL(W)",
         "BUILDING STORY 1 THERMALZONE PSZ-AC ELECTRIC BACKUP HTG COIL(W)",
         "BUILDING STORY 1 THERMALZONE PSZ-AC GAS HTG COIL(W)",
-        "5 ZONE PVAV 1 2SPD DX CLG COIL 2741KBTU/HR 9.5EER(W)",
-        "5 ZONE PVAV 2 2SPD DX CLG COIL 2733KBTU/HR 9.5EER(W)",
-        "5 ZONE PVAV 2SPD DX CLG COIL 2225KBTU/HR 9.5EER(W)",
+        "5 ZONE PVAV 1 2SPD DX CLG COIL 2718KBTU/HR 9.5EER(W)",
+        "5 ZONE PVAV 2 2SPD DX CLG COIL 2711KBTU/HR 9.5EER(W)",
+        "5 ZONE PVAV 2SPD DX CLG COIL 2180KBTU/HR 9.5EER(W)",
         "5 ZONE PVAV 1 MAIN HTG COIL(W)",
         "5 ZONE PVAV 2 MAIN HTG COIL(W)",
         "5 ZONE PVAV MAIN HTG COIL(W)",
         "BUILDING STORY 1 THERMALZONE 1 PSZ-AC 1SPD DX AC CLG COIL 77KBTU/HR 11.0EER(W)",
-        "BUILDING STORY 1 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 57KBTU/HR 14.0SEER(W)",
-        "BUILDING STORY 1 THERMALZONE 3 PSZ-AC 1SPD DX AC CLG COIL 68KBTU/HR 11.0EER(W)",
-        "BUILDING STORY 1 THERMALZONE 4 PSZ-AC 1SPD DX AC CLG COIL 52KBTU/HR 14.0SEER(W)",
+        "BUILDING STORY 1 THERMALZONE 3 PSZ-AC 1SPD DX AC CLG COIL 63KBTU/HR 14.0SEER(W)",
+        "BUILDING STORY 1 THERMALZONE 4 PSZ-AC 1SPD DX AC CLG COIL 51KBTU/HR 14.0SEER(W)",
         "BUILDING STORY 1 THERMALZONE PSZ-AC 1SPD DX AC CLG COIL 363KBTU/HR 9.8EER(W)",
-        "BUILDING STORY 2 THERMALZONE 1 PSZ-AC 1SPD DX AC CLG COIL 90KBTU/HR 11.0EER(W)",
-        "BUILDING STORY 2 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 62KBTU/HR 14.0SEER(W)",
-        "BUILDING STORY 2 THERMALZONE 3 PSZ-AC 1SPD DX AC CLG COIL 81KBTU/HR 11.0EER(W)",
+        "BUILDING STORY 2 THERMALZONE 1 PSZ-AC 1SPD DX AC CLG COIL 89KBTU/HR 11.0EER(W)",
+        "BUILDING STORY 2 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 61KBTU/HR 14.0SEER(W)",
+        "BUILDING STORY 2 THERMALZONE 3 PSZ-AC 1SPD DX AC CLG COIL 77KBTU/HR 11.0EER(W)",
         "BUILDING STORY 2 THERMALZONE 4 PSZ-AC 1SPD DX AC CLG COIL 59KBTU/HR 14.0SEER(W)",
         "BUILDING STORY 2 THERMALZONE PSZ-AC 1SPD DX AC CLG COIL 430KBTU/HR 9.8EER(W)",
-        "BUILDING STORY 3 THERMALZONE 1 PSZ-AC 1SPD DX AC CLG COIL 92KBTU/HR 11.0EER(W)",
+        "BUILDING STORY 3 THERMALZONE 1 PSZ-AC 1SPD DX AC CLG COIL 91KBTU/HR 11.0EER(W)",
         "BUILDING STORY 3 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 64KBTU/HR 14.0SEER(W)",
-        "BUILDING STORY 3 THERMALZONE 3 PSZ-AC 1SPD DX AC CLG COIL 82KBTU/HR 11.0EER(W)",
+        "BUILDING STORY 3 THERMALZONE 3 PSZ-AC 1SPD DX AC CLG COIL 78KBTU/HR 11.0EER(W)",
         "BUILDING STORY 3 THERMALZONE 4 PSZ-AC 1SPD DX AC CLG COIL 60KBTU/HR 14.0SEER(W)",
         "BUILDING STORY 3 THERMALZONE PSZ-AC 1SPD DX AC CLG COIL 426KBTU/HR 9.8EER(W)",
         "BUILDING STORY 2 THERMALZONE 1 PSZ-AC ELECTRIC BACKUP HTG COIL(W)",
@@ -187,31 +180,39 @@
         "BUILDING STORY 3 THERMALZONE 4 PSZ-AC GAS HTG COIL(W)",
         "BUILDING STORY 3 THERMALZONE PSZ-AC ELECTRIC BACKUP HTG COIL(W)",
         "BUILDING STORY 3 THERMALZONE PSZ-AC GAS HTG COIL(W)",
-        "Cooling Coil Total Cooling Rate(W)",
-        "5 ZONE VAV MAIN HTG COIL(W)",
+        "BUILDING STORY 1 THERMALZONE 1 PSZ-AC 1SPD DX AC CLG COIL 60KBTU/HR 14.0SEER(W)",
+        "BUILDING STORY 1 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 60KBTU/HR 14.0SEER(W)",
+        "BUILDING STORY 1 THERMALZONE 3 PSZ-AC 1SPD DX AC CLG COIL 54KBTU/HR 14.0SEER(W)",
+        "BUILDING STORY 1 THERMALZONE 4 PSZ-AC 1SPD DX AC CLG COIL 74KBTU/HR 11.0EER(W)",
+        "BUILDING STORY 1 THERMALZONE PSZ-AC 1SPD DX AC CLG COIL 294KBTU/HR 9.8EER(W)",
+        "BUILDING STORY 1 THERMALZONE 1 PSZ-AC 1SPD DX AC CLG COIL 41KBTU/HR 14.0SEER(W)",
+        "BUILDING STORY 1 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 131KBTU/HR 11.0EER(W)",
+        "BUILDING STORY 1 THERMALZONE 3 PSZ-AC 1SPD DX AC CLG COIL 33KBTU/HR 14.0SEER(W)",
+        "BUILDING STORY 1 THERMALZONE 4 PSZ-AC 1SPD DX AC CLG COIL 117KBTU/HR 11.0EER(W)",
+        "BUILDING STORY 1 THERMALZONE PSZ-AC 1SPD DX AC CLG COIL 355KBTU/HR 9.8EER(W)",
         "1 ZONE VAV 1 CLG COIL(W)",
         "1 ZONE VAV 2 CLG COIL(W)",
         "1 ZONE VAV 3 CLG COIL(W)",
         "1 ZONE VAV 4 CLG COIL(W)",
         "1 ZONE VAV 5 CLG COIL(W)",
+        "1 ZONE VAV 6 CLG COIL(W)",
+        "1 ZONE VAV 7 CLG COIL(W)",
+        "1 ZONE VAV 8 CLG COIL(W)",
+        "1 ZONE VAV 9 CLG COIL(W)",
         "1 ZONE VAV CLG COIL(W)",
         "1 ZONE VAV 1 MAIN HTG COIL(W)",
         "1 ZONE VAV 2 MAIN HTG COIL(W)",
         "1 ZONE VAV 3 MAIN HTG COIL(W)",
         "1 ZONE VAV 4 MAIN HTG COIL(W)",
         "1 ZONE VAV 5 MAIN HTG COIL(W)",
-        "1 ZONE VAV MAIN HTG COIL(W)",
-        "BUILDING STORY 5 THERMALZONE REHEAT COIL(W)",
-        "BUILDING STORY 6 THERMALZONE REHEAT COIL(W)",
-        "1 ZONE VAV 6 CLG COIL(W)",
-        "1 ZONE VAV 7 CLG COIL(W)",
-        "1 ZONE VAV 8 CLG COIL(W)",
-        "1 ZONE VAV 9 CLG COIL(W)",
         "1 ZONE VAV 6 MAIN HTG COIL(W)",
         "1 ZONE VAV 7 MAIN HTG COIL(W)",
         "1 ZONE VAV 8 MAIN HTG COIL(W)",
         "1 ZONE VAV 9 MAIN HTG COIL(W)",
+        "1 ZONE VAV MAIN HTG COIL(W)",
         "BUILDING STORY 10 THERMALZONE REHEAT COIL(W)",
+        "BUILDING STORY 5 THERMALZONE REHEAT COIL(W)",
+        "BUILDING STORY 6 THERMALZONE REHEAT COIL(W)",
         "BUILDING STORY 7 THERMALZONE REHEAT COIL(W)",
         "BUILDING STORY 8 THERMALZONE REHEAT COIL(W)",
         "BUILDING STORY 9 THERMALZONE REHEAT COIL(W)",
@@ -223,12 +224,12 @@
         "7 ZONE VAV 4 CLG COIL(W)",
         "7 ZONE VAV 5 CLG COIL(W)",
         "7 ZONE VAV CLG COIL(W)",
-        "BUILDING STORY 7 THERMALZONE 1 PTAC 1SPD DX AC CLG COIL 503KBTU/HR 9.5EER(W)",
-        "BUILDING STORY 7 THERMALZONE 2 PTAC 1SPD DX AC CLG COIL 163KBTU/HR 9.5EER(W)",
+        "BUILDING STORY 7 THERMALZONE 1 PTAC 1SPD DX AC CLG COIL 502KBTU/HR 9.5EER(W)",
+        "BUILDING STORY 7 THERMALZONE 2 PTAC 1SPD DX AC CLG COIL 151KBTU/HR 9.5EER(W)",
         "BUILDING STORY 7 THERMALZONE 3 PTAC 1SPD DX AC CLG COIL 121KBTU/HR 9.5EER(W)",
-        "BUILDING STORY 7 THERMALZONE 4 PTAC 1SPD DX AC CLG COIL 153KBTU/HR 9.5EER(W)",
-        "BUILDING STORY 7 THERMALZONE 5 PTAC 1SPD DX AC CLG COIL 324KBTU/HR 9.5EER(W)",
-        "BUILDING STORY 7 THERMALZONE 6 PTAC 1SPD DX AC CLG COIL 65KBTU/HR 9.5EER(W)",
+        "BUILDING STORY 7 THERMALZONE 4 PTAC 1SPD DX AC CLG COIL 152KBTU/HR 9.5EER(W)",
+        "BUILDING STORY 7 THERMALZONE 5 PTAC 1SPD DX AC CLG COIL 322KBTU/HR 9.5EER(W)",
+        "BUILDING STORY 7 THERMALZONE 6 PTAC 1SPD DX AC CLG COIL 64KBTU/HR 9.5EER(W)",
         "BUILDING STORY 7 THERMALZONE PTAC 1SPD DX AC CLG COIL 1603KBTU/HR 9.5EER(W)",
         "BUILDING STORY 8 THERMALZONE 1 PTAC 1SPD DX AC CLG COIL 503KBTU/HR 9.5EER(W)",
         "BUILDING STORY 8 THERMALZONE 2 PTAC 1SPD DX AC CLG COIL 148KBTU/HR 9.5EER(W)",
@@ -268,18 +269,18 @@
         "HOT WATER LOOP WATER HTG COIL 7(W)",
         "HOT WATER LOOP WATER HTG COIL 8(W)",
         "HOT WATER LOOP WATER HTG COIL 9(W)",
-        "BUILDING STORY 1 THERMALZONE 1 PSZ-AC 1SPD DX AC CLG COIL 57KBTU/HR 14.0SEER(W)",
-        "BUILDING STORY 1 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 66KBTU/HR 11.0EER(W)",
+        "BUILDING STORY 1 THERMALZONE 1 PSZ-AC 1SPD DX AC CLG COIL 56KBTU/HR 14.0SEER(W)",
+        "BUILDING STORY 1 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 65KBTU/HR 11.0EER(W)",
         "BUILDING STORY 1 THERMALZONE 3 PSZ-AC 1SPD DX AC CLG COIL 52KBTU/HR 14.0SEER(W)",
-        "BUILDING STORY 1 THERMALZONE 4 PSZ-AC 1SPD DX AC CLG COIL 79KBTU/HR 11.0EER(W)",
+        "BUILDING STORY 1 THERMALZONE 4 PSZ-AC 1SPD DX AC CLG COIL 78KBTU/HR 11.0EER(W)",
         "BUILDING STORY 1 THERMALZONE PSZ-AC 1SPD DX AC CLG COIL 374KBTU/HR 9.8EER(W)",
-        "BUILDING STORY 2 THERMALZONE 1 PSZ-AC 1SPD DX AC CLG COIL 63KBTU/HR 14.0SEER(W)",
-        "BUILDING STORY 2 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 79KBTU/HR 11.0EER(W)",
+        "BUILDING STORY 2 THERMALZONE 1 PSZ-AC 1SPD DX AC CLG COIL 61KBTU/HR 14.0SEER(W)",
+        "BUILDING STORY 2 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 78KBTU/HR 11.0EER(W)",
         "BUILDING STORY 2 THERMALZONE 3 PSZ-AC 1SPD DX AC CLG COIL 59KBTU/HR 14.0SEER(W)",
-        "BUILDING STORY 2 THERMALZONE 4 PSZ-AC 1SPD DX AC CLG COIL 93KBTU/HR 11.0EER(W)",
+        "BUILDING STORY 2 THERMALZONE 4 PSZ-AC 1SPD DX AC CLG COIL 92KBTU/HR 11.0EER(W)",
         "BUILDING STORY 2 THERMALZONE PSZ-AC 1SPD DX AC CLG COIL 444KBTU/HR 9.8EER(W)",
-        "BUILDING STORY 3 THERMALZONE 1 PSZ-AC 1SPD DX AC CLG COIL 65KBTU/HR 14.0SEER(W)",
-        "BUILDING STORY 3 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 80KBTU/HR 11.0EER(W)",
+        "BUILDING STORY 3 THERMALZONE 1 PSZ-AC 1SPD DX AC CLG COIL 64KBTU/HR 14.0SEER(W)",
+        "BUILDING STORY 3 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 79KBTU/HR 11.0EER(W)",
         "BUILDING STORY 3 THERMALZONE 3 PSZ-AC 1SPD DX AC CLG COIL 60KBTU/HR 14.0SEER(W)",
         "BUILDING STORY 3 THERMALZONE 4 PSZ-AC 1SPD DX AC CLG COIL 94KBTU/HR 11.0EER(W)",
         "BUILDING STORY 3 THERMALZONE PSZ-AC 1SPD DX AC CLG COIL 439KBTU/HR 9.8EER(W)",
@@ -288,41 +289,42 @@
         "5 ZONE VAV CLG COIL(W)",
         "5 ZONE VAV 1 MAIN HTG COIL(W)",
         "5 ZONE VAV 2 MAIN HTG COIL(W)",
-        "5 ZONE PVAV 1 2SPD DX CLG COIL 1481KBTU/HR 9.5EER(W)",
-        "5 ZONE PVAV 2 2SPD DX CLG COIL 999KBTU/HR 9.5EER(W)",
-        "5 ZONE PVAV 2SPD DX CLG COIL 1818KBTU/HR 9.5EER(W)",
+        "5 ZONE VAV MAIN HTG COIL(W)",
+        "5 ZONE PVAV 1 2SPD DX CLG COIL 1457KBTU/HR 9.5EER(W)",
+        "5 ZONE PVAV 2 2SPD DX CLG COIL 990KBTU/HR 9.5EER(W)",
+        "5 ZONE PVAV 2SPD DX CLG COIL 1792KBTU/HR 9.5EER(W)",
         "BUILDING STORY 10 THERMALZONE 1 PTAC 1SPD DX AC CLG COIL 79KBTU/HR 9.5EER(W)",
         "BUILDING STORY 10 THERMALZONE 2 PTAC 1SPD DX AC CLG COIL 136KBTU/HR 9.5EER(W)",
         "BUILDING STORY 10 THERMALZONE 3 PTAC 1SPD DX AC CLG COIL 54KBTU/HR 9.5EER(W)",
         "BUILDING STORY 10 THERMALZONE 4 PTAC 1SPD DX AC CLG COIL 119KBTU/HR 9.5EER(W)",
         "BUILDING STORY 10 THERMALZONE PTAC 1SPD DX AC CLG COIL 371KBTU/HR 9.5EER(W)",
-        "BUILDING STORY 4 THERMALZONE 1 PTAC 1SPD DX AC CLG COIL 79KBTU/HR 9.5EER(W)",
+        "BUILDING STORY 4 THERMALZONE 1 PTAC 1SPD DX AC CLG COIL 78KBTU/HR 9.5EER(W)",
         "BUILDING STORY 4 THERMALZONE 2 PTAC 1SPD DX AC CLG COIL 123KBTU/HR 9.5EER(W)",
-        "BUILDING STORY 4 THERMALZONE 3 PTAC 1SPD DX AC CLG COIL 51KBTU/HR 9.5EER(W)",
+        "BUILDING STORY 4 THERMALZONE 3 PTAC 1SPD DX AC CLG COIL 50KBTU/HR 9.5EER(W)",
         "BUILDING STORY 4 THERMALZONE 4 PTAC 1SPD DX AC CLG COIL 107KBTU/HR 9.5EER(W)",
         "BUILDING STORY 4 THERMALZONE PTAC 1SPD DX AC CLG COIL 282KBTU/HR 9.5EER(W)",
-        "BUILDING STORY 5 THERMALZONE 1 PTAC 1SPD DX AC CLG COIL 79KBTU/HR 9.5EER(W)",
+        "BUILDING STORY 5 THERMALZONE 1 PTAC 1SPD DX AC CLG COIL 78KBTU/HR 9.5EER(W)",
         "BUILDING STORY 5 THERMALZONE 2 PTAC 1SPD DX AC CLG COIL 135KBTU/HR 9.5EER(W)",
-        "BUILDING STORY 5 THERMALZONE 3 PTAC 1SPD DX AC CLG COIL 54KBTU/HR 9.5EER(W)",
+        "BUILDING STORY 5 THERMALZONE 3 PTAC 1SPD DX AC CLG COIL 53KBTU/HR 9.5EER(W)",
         "BUILDING STORY 5 THERMALZONE 4 PTAC 1SPD DX AC CLG COIL 119KBTU/HR 9.5EER(W)",
         "BUILDING STORY 5 THERMALZONE PTAC 1SPD DX AC CLG COIL 283KBTU/HR 9.5EER(W)",
-        "BUILDING STORY 6 THERMALZONE 1 PTAC 1SPD DX AC CLG COIL 79KBTU/HR 9.5EER(W)",
+        "BUILDING STORY 6 THERMALZONE 1 PTAC 1SPD DX AC CLG COIL 78KBTU/HR 9.5EER(W)",
         "BUILDING STORY 6 THERMALZONE 2 PTAC 1SPD DX AC CLG COIL 135KBTU/HR 9.5EER(W)",
         "BUILDING STORY 6 THERMALZONE 3 PTAC 1SPD DX AC CLG COIL 54KBTU/HR 9.5EER(W)",
         "BUILDING STORY 6 THERMALZONE 4 PTAC 1SPD DX AC CLG COIL 118KBTU/HR 9.5EER(W)",
         "BUILDING STORY 6 THERMALZONE PTAC 1SPD DX AC CLG COIL 282KBTU/HR 9.5EER(W)",
-        "BUILDING STORY 7 THERMALZONE 1 PTAC 1SPD DX AC CLG COIL 79KBTU/HR 9.5EER(W)",
+        "BUILDING STORY 7 THERMALZONE 1 PTAC 1SPD DX AC CLG COIL 78KBTU/HR 9.5EER(W)",
         "BUILDING STORY 7 THERMALZONE 2 PTAC 1SPD DX AC CLG COIL 135KBTU/HR 9.5EER(W)",
         "BUILDING STORY 7 THERMALZONE 3 PTAC 1SPD DX AC CLG COIL 54KBTU/HR 9.5EER(W)",
         "BUILDING STORY 7 THERMALZONE 4 PTAC 1SPD DX AC CLG COIL 118KBTU/HR 9.5EER(W)",
         "BUILDING STORY 7 THERMALZONE PTAC 1SPD DX AC CLG COIL 282KBTU/HR 9.5EER(W)",
-        "BUILDING STORY 8 THERMALZONE 1 PTAC 1SPD DX AC CLG COIL 79KBTU/HR 9.5EER(W)",
+        "BUILDING STORY 8 THERMALZONE 1 PTAC 1SPD DX AC CLG COIL 78KBTU/HR 9.5EER(W)",
         "BUILDING STORY 8 THERMALZONE 2 PTAC 1SPD DX AC CLG COIL 135KBTU/HR 9.5EER(W)",
         "BUILDING STORY 8 THERMALZONE 3 PTAC 1SPD DX AC CLG COIL 54KBTU/HR 9.5EER(W)",
         "BUILDING STORY 8 THERMALZONE 4 PTAC 1SPD DX AC CLG COIL 118KBTU/HR 9.5EER(W)",
         "BUILDING STORY 8 THERMALZONE PTAC 1SPD DX AC CLG COIL 282KBTU/HR 9.5EER(W)",
         "BUILDING STORY 9 THERMALZONE 1 PTAC 1SPD DX AC CLG COIL 78KBTU/HR 9.5EER(W)",
-        "BUILDING STORY 9 THERMALZONE 2 PTAC 1SPD DX AC CLG COIL 135KBTU/HR 9.5EER(W)",
+        "BUILDING STORY 9 THERMALZONE 2 PTAC 1SPD DX AC CLG COIL 134KBTU/HR 9.5EER(W)",
         "BUILDING STORY 9 THERMALZONE 3 PTAC 1SPD DX AC CLG COIL 54KBTU/HR 9.5EER(W)",
         "BUILDING STORY 9 THERMALZONE 4 PTAC 1SPD DX AC CLG COIL 118KBTU/HR 9.5EER(W)",
         "BUILDING STORY 9 THERMALZONE PTAC 1SPD DX AC CLG COIL 282KBTU/HR 9.5EER(W)",
@@ -350,138 +352,133 @@
       ]
     },
     "location": {
-      "latitude_deg": -78.84701778930912,
-      "longitude_deg": 42.81428490645775,
+      "latitude_deg": 42.81428490645774,
+      "longitude_deg": -78.84701778930912,
       "surface_elevation_ft": 215.0
     },
     "program": {
-      "floor_area_sqft": 3966501.3114748453,
-      "conditioned_area_sqft": 3966501.3114748453,
+      "floor_area_sqft": 3640964.6013736473,
+      "conditioned_area_sqft": 3640964.6013736473,
       "unconditioned_area_sqft": 0.0,
-      "footprint_area_sqft": 799166.988148791,
+      "footprint_area_sqft": 744910.8697985914,
       "maximum_roof_height_ft": 14.4,
       "maximum_number_of_stories": 4,
-      "number_of_residential_units": 13,
+      "maximum_number_of_stories_above_ground": 4,
+      "number_of_residential_units": 12,
       "building_types": [
         {
           "building_type": "LargeHotel",
-          "floor_area": 315994.20322880516,
-          "maximum_occupancy": 4065.647786710365
+          "floor_area": 315994.2032268508,
+          "maximum_occupancy": 4065.6477866852215
         }
       ],
       "window_area_sqft": {
-        "north_window_area_sqft": 46845.18396814571,
-        "south_window_area_sqft": 44464.74517949036,
-        "east_window_area_sqft": 67122.2384111435,
-        "west_window_area_sqft": 66744.10223820448,
-        "total_window_area_sqft": 225176.26979698404
+        "north_window_area_sqft": 40822.776089996616,
+        "south_window_area_sqft": 38442.337301341264,
+        "east_window_area_sqft": 64294.559144673854,
+        "west_window_area_sqft": 63916.422971734835,
+        "total_window_area_sqft": 207476.09550774656
       },
       "wall_area_sqft": {
-        "north_wall_area_sqft": 156150.00327222876,
-        "south_wall_area_sqft": 148215.60198675952,
-        "east_wall_area_sqft": 223740.68706470742,
-        "west_wall_area_sqft": 222480.12551580652,
-        "total_wall_area_sqft": 750586.4178395025
+        "north_wall_area_sqft": 136075.31034506514,
+        "south_wall_area_sqft": 128140.69378138756,
+        "east_wall_area_sqft": 214315.05363010723,
+        "west_wall_area_sqft": 213054.3844421022,
+        "total_wall_area_sqft": 691585.4421986622
       },
       "roof_area_sqft": {
-        "available_roof_area_sqft": 771430.7876484394,
-        "total_roof_area_sqft": 1028574.3835312526
+        "available_roof_area_sqft": 649354.5408645816,
+        "total_roof_area_sqft": 865806.0544861086
       }
     },
     "distributed_generation": {
-      "lcc_us_dollars": 131965361.0,
-      "npv_us_dollars": 11120627.0,
-      "year_one_energy_cost_us_dollars": 10139613.73,
-      "year_one_demand_cost_us_dollars": 2654404.6999999997,
-      "year_one_bill_us_dollars": 12815858.450000001,
-      "total_demand_cost_us_dollars": 25434940.610000003,
-      "total_energy_cost_us_dollars": 97159439.83,
-      "year_one_energy_cost_bau_us_dollars": 11923437.120000001,
-      "year_one_demand_cost_bau_us_dollars": 2986196.05,
-      "year_one_bill_bau_us_dollars": 14931473.200000001,
-      "total_energy_cost_bau_us_dollars": 114252327.63,
-      "total_demand_cost_bau_us_dollars": 28614219.81,
-      "total_solar_pv_kw": 7678.045700000001,
-      "total_storage_kw": 57.592685361574986,
-      "total_storage_kwh": 131.70791772448362,
+      "lcc_us_dollars": 119775946.0,
+      "npv_us_dollars": 3473423.0,
+      "year_one_energy_cost_us_dollars": 8435390.020000001,
+      "year_one_demand_cost_us_dollars": 1899738.57,
+      "year_one_bill_us_dollars": 10335128.580000002,
+      "total_demand_cost_us_dollars": 18203606.049999997,
+      "total_energy_cost_us_dollars": 80829288.97,
+      "year_one_energy_cost_bau_us_dollars": 10860002.140000002,
+      "year_one_demand_cost_bau_us_dollars": 2002371.23,
+      "year_one_bill_bau_us_dollars": 12862373.370000001,
+      "total_energy_cost_bau_us_dollars": 104062319.44,
+      "total_demand_cost_bau_us_dollars": 19187049.14,
+      "total_solar_pv_kw": 16716.9488,
+      "total_storage_kw": 7.076685267198172,
+      "total_storage_kwh": 9.331819998115346,
       "solar_pv": [
         {
           "size_kw": 1409.6015
         },
         {
-          "size_kw": 5.0
+          "size_kw": 3337.6123
         },
         {
           "size_kw": 167.2598
         },
         {
-          "size_kw": 5.0
+          "size_kw": 47.0188
         },
         {
           "size_kw": 313.9167
         },
         {
-          "size_kw": 5.0
+          "size_kw": 821.5445
         },
         {
           "size_kw": 79.015
         },
         {
-          "size_kw": 5.0
+          "size_kw": 217.1191
         },
         {
-          "size_kw": 20.1857
+          "size_kw": 65.9988
         },
         {
-          "size_kw": 5.0
+          "size_kw": 12.9349
         },
         {
-          "size_kw": 24.677
+          "size_kw": 80.1262
         },
         {
-          "size_kw": 5.0
-        },
-        {
-          "size_kw": 1220.7625
-        },
-        {
-          "size_kw": 5.0
+          "size_kw": 21.6407
         },
         {
           "size_kw": 1208.952
         },
         {
-          "size_kw": 5.0
+          "size_kw": 212.0989
         },
         {
           "size_kw": 717.0502
         },
         {
-          "size_kw": 5.0
+          "size_kw": 598.0032
         },
         {
           "size_kw": 1197.8545
         },
         {
-          "size_kw": 5.0
+          "size_kw": 4163.9779
         },
         {
           "size_kw": 81.2382
         },
         {
-          "size_kw": 5.0
+          "size_kw": 222.374
         },
         {
           "size_kw": 935.5369
         },
         {
-          "size_kw": 5.0
+          "size_kw": 286.6441
         },
         {
           "size_kw": 236.9957
         },
         {
-          "size_kw": 5.0
+          "size_kw": 282.4349
         }
       ],
       "wind": [
@@ -492,56 +489,8 @@
       ],
       "storage": [
         {
-          "size_kw": 164.36329543170268,
-          "size_kwh": 216.7411195146983
-        },
-        {
-          "size_kw": 8.74916578854021,
-          "size_kwh": 14.829181175102615
-        },
-        {
-          "size_kw": 28.194894834336424,
-          "size_kwh": 37.17979160093279
-        },
-        {
-          "size_kw": 12.068134544542662,
-          "size_kwh": 15.91389966213629
-        },
-        {
-          "size_kw": 3.7088961486968435,
-          "size_kwh": 13.116691793671478
-        },
-        {
-          "size_kw": 4.5669313040067445,
-          "size_kwh": 15.881638978910946
-        },
-        {
-          "size_kw": 160.83323394895058,
-          "size_kwh": 621.8427354197902
-        },
-        {
-          "size_kw": 118.83267230398928,
-          "size_kwh": 208.68305957524532
-        },
-        {
-          "size_kw": 38.605010413102605,
-          "size_kwh": 51.95116498562016
-        },
-        {
-          "size_kw": 117.59477014656892,
-          "size_kwh": 155.0688191283665
-        },
-        {
-          "size_kw": 11.843322975770718,
-          "size_kwh": 15.847360004616391
-        },
-        {
-          "size_kw": 76.90421733886592,
-          "size_kwh": 122.31921339708606
-        },
-        {
-          "size_kw": 57.592685361574986,
-          "size_kwh": 131.70791772448362
+          "size_kw": 7.076685267198172,
+          "size_kwh": 9.331819998115346
         }
       ]
     },
@@ -560,53 +509,53 @@
           "day_of_month": 31,
           "year": 2017
         },
-        "total_site_energy_kwh": 154359352.7777778,
-        "total_source_energy_kwh": 320141700.0,
-        "site_EUI_kwh_per_m2": 621.8309035939894,
-        "site_EUI_kbtu_per_ft2": 197.11935837228907,
-        "source_EUI_kwh_per_m2": 1230.1716956835112,
-        "source_EUI_kbtu_per_ft2": 389.96237391767426,
-        "net_site_energy_kwh": 43430747.222222224,
-        "net_source_energy_kwh": 320141700.0,
-        "electricity_kwh": 73290200.0,
-        "natural_gas_kwh": 80988425.0,
+        "total_site_energy_kwh": 163366427.7777778,
+        "total_source_energy_kwh": 351099858.3333334,
+        "site_EUI_kwh_per_m2": 663.7865463542328,
+        "site_EUI_kbtu_per_ft2": 210.41922708771727,
+        "source_EUI_kwh_per_m2": 1366.3809764984196,
+        "source_EUI_kbtu_per_ft2": 433.1404885520612,
+        "net_site_energy_kwh": 46361069.44444444,
+        "net_source_energy_kwh": 351099858.3333334,
+        "electricity_kwh": 83538480.55555554,
+        "natural_gas_kwh": 79827947.22222221,
         "propane_kwh": 0.0,
         "fuel_oil_kwh": 0.0,
         "other_fuels_kwh": 0.0,
-        "district_cooling_kwh": 20150.0,
-        "district_heating_kwh": 60586.11111111111,
-        "water_qbft": 364090.02,
-        "electricity_produced_kwh": 73290200.55555555,
+        "district_cooling_kwh": 0.0,
+        "district_heating_kwh": 0.0,
+        "water_qbft": 367803.12,
+        "electricity_produced_kwh": 83538478.05555554,
         "end_uses": {
           "electricity_kwh": {
             "heating": 0.0,
-            "cooling": 9053019.444444444,
-            "interior_lighting": 13433952.777777778,
-            "exterior_lighting": 3257813.888888889,
-            "interior_equipment": 28674013.888888888,
+            "cooling": 9592922.222222222,
+            "interior_lighting": 14313113.888888892,
+            "exterior_lighting": 3119780.555555556,
+            "interior_equipment": 35079025.00000001,
             "exterior_equipment": 0.0,
-            "fans": 7968980.555555557,
-            "pumps": 3127852.777777778,
-            "heat_rejection": 364761.1111111112,
+            "fans": 9039533.333333336,
+            "pumps": 3539569.4444444445,
+            "heat_rejection": 347636.1111111111,
             "humidification": 0.0,
-            "heat_recovery": 1125780.5555555553,
-            "water_systems": 6284022.222222222,
+            "heat_recovery": 974752.7777777778,
+            "water_systems": 7532141.666666668,
             "refrigeration": 0.0,
             "generators": 0.0
           },
           "natural_gas_kwh": {
-            "heating": 22654274.999999996,
+            "heating": 20536477.77777778,
             "cooling": 0.0,
             "interior_lighting": 0.0,
             "exterior_lighting": 0.0,
-            "interior_equipment": 26870480.555555552,
+            "interior_equipment": 27332688.888888884,
             "exterior_equipment": 0.0,
             "fans": 0.0,
             "pumps": 0.0,
             "heat_rejection": 0.0,
             "humidification": 0.0,
             "heat_recovery": 0.0,
-            "water_systems": 31463666.666666668,
+            "water_systems": 31958783.333333332,
             "refrigeration": 0.0,
             "generators": 0.0
           },
@@ -660,7 +609,7 @@
           },
           "district_cooling_kwh": {
             "heating": 0.0,
-            "cooling": 20150.0,
+            "cooling": 0.0,
             "interior_lighting": 0.0,
             "exterior_lighting": 0.0,
             "interior_equipment": 0.0,
@@ -675,7 +624,7 @@
             "generators": 0.0
           },
           "district_heating_kwh": {
-            "heating": 60586.11111111111,
+            "heating": 0.0,
             "cooling": 0.0,
             "interior_lighting": 0.0,
             "exterior_lighting": 0.0,
@@ -699,7 +648,7 @@
             "exterior_equipment": 0.0,
             "fans": 0.0,
             "pumps": 0.0,
-            "heat_rejection": 6075463.888888889,
+            "heat_rejection": 6243366.666666667,
             "humidification": 0.0,
             "heat_recovery": 0.0,
             "water_systems": 26525441.666666668,
@@ -721,11 +670,11 @@
           }
         ],
         "comfort_result": {
-          "time_setpoint_not_met_during_occupied_cooling": 5793.0,
-          "time_setpoint_not_met_during_occupied_heating": 7517.0,
-          "time_setpoint_not_met_during_occupied_hours": 13310.0,
-          "hours_out_of_comfort_bounds_PMV": 24984.0,
-          "hours_out_of_comfort_bounds_PPD": 4806.0
+          "time_setpoint_not_met_during_occupied_cooling": 3851.0,
+          "time_setpoint_not_met_during_occupied_heating": 2851.0,
+          "time_setpoint_not_met_during_occupied_hours": 6702.0,
+          "hours_out_of_comfort_bounds_PMV": 16963.0,
+          "hours_out_of_comfort_bounds_PPD": 985.0
         }
       }
     ]
@@ -734,7 +683,7 @@
     {
       "id": "1",
       "name": "Mixed_use 1",
-      "directory_name": "C:/Users/lderosa/Desktop/run/reopt_scenario/1",
+      "directory_name": "/Users/kflemin/Downloads/uo-july-new/run/reopt_scenario/1",
       "feature_type": "Building",
       "timesteps_per_hour": 1,
       "simulation_status": "Complete",
@@ -825,86 +774,86 @@
           "BUILDING STORY 4 THERMALZONE 6 REHEAT COIL(W)",
           "BUILDING STORY 4 THERMALZONE 7 REHEAT COIL(W)",
           "BUILDING STORY 4 THERMALZONE REHEAT COIL(W)",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 1 FULLSERVICERESTAURANT DINING PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 1 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 2 FULLSERVICERESTAURANT DINING PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 2 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 3 FULLSERVICERESTAURANT DINING PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 3 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 4 FULLSERVICERESTAURANT DINING PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 4 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 5 FULLSERVICERESTAURANT DINING PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 5 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 6 FULLSERVICERESTAURANT DINING PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 6 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 7 FULLSERVICERESTAURANT DINING PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 7 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE FULLSERVICERESTAURANT DINING PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE 1 FULLSERVICERESTAURANT DINING PEOPLE 2()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE 2 FULLSERVICERESTAURANT DINING PEOPLE 2()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE 3 FULLSERVICERESTAURANT DINING PEOPLE 2()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE 4 FULLSERVICERESTAURANT DINING PEOPLE 2()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE 5 FULLSERVICERESTAURANT DINING PEOPLE 2()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE 6 FULLSERVICERESTAURANT DINING PEOPLE 2()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE 7 FULLSERVICERESTAURANT DINING PEOPLE 2()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE FULLSERVICERESTAURANT DINING PEOPLE 2()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 1 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 2 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 3 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 4 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 5 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 6 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 7 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 4 THERMALZONE 1 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 2()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 4 THERMALZONE 2 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 2()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 4 THERMALZONE 3 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 2()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 4 THERMALZONE 4 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 2()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 4 THERMALZONE 5 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 2()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 4 THERMALZONE 6 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 2()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 4 THERMALZONE 7 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 2()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 4 THERMALZONE OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 2()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 1 FULLSERVICERESTAURANT DINING PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 1 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 2 FULLSERVICERESTAURANT DINING PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 2 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 3 FULLSERVICERESTAURANT DINING PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 3 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 4 FULLSERVICERESTAURANT DINING PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 4 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 5 FULLSERVICERESTAURANT DINING PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 5 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 6 FULLSERVICERESTAURANT DINING PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 6 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 7 FULLSERVICERESTAURANT DINING PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 7 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE FULLSERVICERESTAURANT DINING PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE 1 FULLSERVICERESTAURANT DINING PEOPLE 2()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE 2 FULLSERVICERESTAURANT DINING PEOPLE 2()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE 3 FULLSERVICERESTAURANT DINING PEOPLE 2()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE 4 FULLSERVICERESTAURANT DINING PEOPLE 2()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE 5 FULLSERVICERESTAURANT DINING PEOPLE 2()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE 6 FULLSERVICERESTAURANT DINING PEOPLE 2()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE 7 FULLSERVICERESTAURANT DINING PEOPLE 2()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE FULLSERVICERESTAURANT DINING PEOPLE 2()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 1 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 2 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 3 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 4 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 5 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 6 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 7 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 4 THERMALZONE 1 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 2()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 4 THERMALZONE 2 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 2()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 4 THERMALZONE 3 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 2()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 4 THERMALZONE 4 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 2()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 4 THERMALZONE 5 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 2()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 4 THERMALZONE 6 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 2()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 4 THERMALZONE 7 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 2()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 4 THERMALZONE OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 1 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 2 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 3 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 4 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 5 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 6 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 7 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE 1 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE 2 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE 3 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE 4 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE 5 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE 6 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE 7 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 1 FULLSERVICERESTAURANT DINING PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 1 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 2 FULLSERVICERESTAURANT DINING PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 2 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 3 FULLSERVICERESTAURANT DINING PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 3 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 4 FULLSERVICERESTAURANT DINING PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 4 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 5 FULLSERVICERESTAURANT DINING PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 5 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 6 FULLSERVICERESTAURANT DINING PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 6 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 7 FULLSERVICERESTAURANT DINING PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 7 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE FULLSERVICERESTAURANT DINING PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 4 THERMALZONE 1 FULLSERVICERESTAURANT DINING PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 4 THERMALZONE 2 FULLSERVICERESTAURANT DINING PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 4 THERMALZONE 3 FULLSERVICERESTAURANT DINING PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 4 THERMALZONE 4 FULLSERVICERESTAURANT DINING PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 4 THERMALZONE 5 FULLSERVICERESTAURANT DINING PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 4 THERMALZONE 6 FULLSERVICERESTAURANT DINING PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 4 THERMALZONE 7 FULLSERVICERESTAURANT DINING PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 4 THERMALZONE FULLSERVICERESTAURANT DINING PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 1 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 2 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 3 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 4 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 5 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 6 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 7 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE 1 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE 2 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE 3 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE 4 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE 5 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE 6 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE 7 OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE OFFICE WHOLEBUILDING - LG OFFICE PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 1 FULLSERVICERESTAURANT DINING PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 1 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 2 FULLSERVICERESTAURANT DINING PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 2 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 3 FULLSERVICERESTAURANT DINING PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 3 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 4 FULLSERVICERESTAURANT DINING PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 4 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 5 FULLSERVICERESTAURANT DINING PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 5 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 6 FULLSERVICERESTAURANT DINING PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 6 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 7 FULLSERVICERESTAURANT DINING PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 7 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE FULLSERVICERESTAURANT DINING PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 4 THERMALZONE 1 FULLSERVICERESTAURANT DINING PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 4 THERMALZONE 2 FULLSERVICERESTAURANT DINING PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 4 THERMALZONE 3 FULLSERVICERESTAURANT DINING PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 4 THERMALZONE 4 FULLSERVICERESTAURANT DINING PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 4 THERMALZONE 5 FULLSERVICERESTAURANT DINING PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 4 THERMALZONE 6 FULLSERVICERESTAURANT DINING PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 4 THERMALZONE 7 FULLSERVICERESTAURANT DINING PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 4 THERMALZONE FULLSERVICERESTAURANT DINING PEOPLE 2()",
           "Net Electric Energy(kWh)",
           "Electricity:Facility Power(kW)",
           "ElectricityProduced:Facility Power(kW)",
@@ -936,8 +885,8 @@
         ]
       },
       "location": {
-        "latitude_deg": -78.84701778930912,
-        "longitude_deg": 42.81428490645775,
+        "latitude_deg": 42.81428490645774,
+        "longitude_deg": -78.84701778930912,
         "surface_elevation_ft": 215.0
       },
       "program": {
@@ -947,17 +896,18 @@
         "footprint_area_sqft": 187946.8637409497,
         "maximum_roof_height_ft": 14.4,
         "maximum_number_of_stories": 4,
+        "maximum_number_of_stories_above_ground": 4,
         "number_of_residential_units": 1,
         "building_types": [
           {
             "building_type": "FullServiceRestaurant",
-            "floor_area": 375893.7463427365,
-            "maximum_occupancy": 1830.0387040696125
+            "floor_area": 375893.74634283234,
+            "maximum_occupancy": 19647.214333847172
           },
           {
             "building_type": "Office",
-            "floor_area": 375893.74634273653,
-            "maximum_occupancy": 19647.214333842163
+            "floor_area": 375893.74634283234,
+            "maximum_occupancy": 1830.0387040700787
           }
         ],
         "window_area_sqft": {
@@ -975,8 +925,8 @@
           "total_wall_area_sqft": 93822.87167352112
         },
         "roof_area_sqft": {
-          "available_roof_area_sqft": 140960.15487852617,
-          "total_roof_area_sqft": 187946.87317136824
+          "available_roof_area_sqft": 140960.15487856214,
+          "total_roof_area_sqft": 187946.87317141617
         },
         "orientation_deg": 0.0,
         "aspect_ratio": 0.47098396007730986
@@ -996,42 +946,42 @@
             "day_of_month": 31,
             "year": 2017
           },
-          "total_site_energy_kwh": 43430747.222222224,
-          "total_source_energy_kwh": 85919300.0,
-          "site_EUI_kwh_per_m2": 621.8309035939894,
-          "site_EUI_kbtu_per_ft2": 197.11935837228907,
-          "source_EUI_kwh_per_m2": 1230.1716956835112,
-          "source_EUI_kbtu_per_ft2": 389.96237391767426,
-          "net_site_energy_kwh": 43430747.222222224,
-          "net_source_energy_kwh": 85919300.0,
-          "electricity_kwh": 18646361.111111112,
-          "natural_gas_kwh": 24784388.888888888,
+          "total_site_energy_kwh": 46361069.44444444,
+          "total_source_energy_kwh": 95432611.11111112,
+          "site_EUI_kwh_per_m2": 663.7865463542328,
+          "site_EUI_kbtu_per_ft2": 210.41922708771727,
+          "source_EUI_kwh_per_m2": 1366.3809764984196,
+          "source_EUI_kbtu_per_ft2": 433.1404885520612,
+          "net_site_energy_kwh": 46361069.44444444,
+          "net_source_energy_kwh": 95432611.11111112,
+          "electricity_kwh": 21688530.555555556,
+          "natural_gas_kwh": 24672538.888888888,
           "propane_kwh": 0.0,
           "fuel_oil_kwh": 0.0,
           "other_fuels_kwh": 0.0,
           "district_cooling_kwh": 0.0,
           "district_heating_kwh": 0.0,
-          "water_qbft": 117363.27,
-          "electricity_produced_kwh": 18646360.555555556,
+          "water_qbft": 117967.71,
+          "electricity_produced_kwh": 21688531.388888888,
           "end_uses": {
             "electricity_kwh": {
               "heating": 0.0,
-              "cooling": 1874372.2222222225,
-              "interior_lighting": 2204916.6666666665,
+              "cooling": 1967541.6666666667,
+              "interior_lighting": 2392522.2222222225,
               "exterior_lighting": 684902.7777777778,
-              "interior_equipment": 9442244.444444444,
+              "interior_equipment": 11802591.666666666,
               "exterior_equipment": 0.0,
-              "fans": 1682666.6666666667,
-              "pumps": 754527.7777777778,
-              "heat_rejection": 93363.88888888889,
+              "fans": 1882155.5555555557,
+              "pumps": 1004797.2222222222,
+              "heat_rejection": 85741.66666666667,
               "humidification": 0.0,
-              "heat_recovery": 388597.2222222222,
-              "water_systems": 1520766.6666666667,
+              "heat_recovery": 296719.44444444444,
+              "water_systems": 1571561.1111111112,
               "refrigeration": 0.0,
               "generators": 0.0
             },
             "natural_gas_kwh": {
-              "heating": 3542897.2222222225,
+              "heating": 3436561.111111111,
               "cooling": 0.0,
               "interior_lighting": 0.0,
               "exterior_lighting": 0.0,
@@ -1042,7 +992,7 @@
               "heat_rejection": 0.0,
               "humidification": 0.0,
               "heat_recovery": 0.0,
-              "water_systems": 12324080.555555556,
+              "water_systems": 12318566.666666666,
               "refrigeration": 0.0,
               "generators": 0.0
             },
@@ -1135,7 +1085,7 @@
               "exterior_equipment": 0.0,
               "fans": 0.0,
               "pumps": 0.0,
-              "heat_rejection": 6075463.888888889,
+              "heat_rejection": 6243366.666666667,
               "humidification": 0.0,
               "heat_recovery": 0.0,
               "water_systems": 26525441.666666668,
@@ -1157,36 +1107,34 @@
             }
           ],
           "comfort_result": {
-            "time_setpoint_not_met_during_occupied_cooling": 1217.0,
-            "time_setpoint_not_met_during_occupied_heating": 656.0,
-            "time_setpoint_not_met_during_occupied_hours": 1873.0,
-            "hours_out_of_comfort_bounds_PMV": 2196.0,
-            "hours_out_of_comfort_bounds_PPD": 244.0
+            "time_setpoint_not_met_during_occupied_cooling": 637.0,
+            "time_setpoint_not_met_during_occupied_heating": 411.0,
+            "time_setpoint_not_met_during_occupied_hours": 1048.0,
+            "hours_out_of_comfort_bounds_PMV": 129.0,
+            "hours_out_of_comfort_bounds_PPD": 0.0
           }
         }
       ],
       "distributed_generation": {
-        "lcc_us_dollars": 33519386.0,
-        "npv_us_dollars": 2573008.0,
-        "year_one_energy_cost_us_dollars": 2688366.39,
-        "year_one_demand_cost_us_dollars": 633242.0,
-        "year_one_bill_us_dollars": 3323288.39,
-        "total_demand_cost_us_dollars": 6067828.58,
-        "total_energy_cost_us_dollars": 25760367.07,
-        "year_one_energy_cost_bau_us_dollars": 3032651.56,
-        "year_one_demand_cost_bau_us_dollars": 732209.39,
-        "year_one_bill_bau_us_dollars": 3766540.95,
-        "total_energy_cost_bau_us_dollars": 29059363.99,
-        "total_demand_cost_bau_us_dollars": 7016150.31,
-        "total_solar_pv_kw": 1414.6015,
-        "total_storage_kw": 164.36329543170268,
-        "total_storage_kwh": 216.7411195146983,
+        "lcc_us_dollars": 30877302.0,
+        "npv_us_dollars": 1098392.0,
+        "year_one_energy_cost_us_dollars": 2125929.45,
+        "year_one_demand_cost_us_dollars": 466983.81,
+        "year_one_bill_us_dollars": 2592913.26,
+        "total_demand_cost_us_dollars": 4474715.37,
+        "total_energy_cost_us_dollars": 20371004.21,
+        "year_one_energy_cost_bau_us_dollars": 2819509.06,
+        "year_one_demand_cost_bau_us_dollars": 517492.32,
+        "year_one_bill_bau_us_dollars": 3337001.38,
+        "total_energy_cost_bau_us_dollars": 27016997.69,
+        "total_demand_cost_bau_us_dollars": 4958696.16,
+        "total_solar_pv_kw": 4747.2137999999995,
         "solar_pv": [
           {
             "size_kw": 1409.6015
           },
           {
-            "size_kw": 5.0
+            "size_kw": 3337.6123
           }
         ],
         "wind": [
@@ -1196,10 +1144,7 @@
 
         ],
         "storage": [
-          {
-            "size_kw": 164.36329543170268,
-            "size_kwh": 216.7411195146983
-          }
+
         ]
       },
       "power_distribution": {
@@ -1210,7 +1155,7 @@
     {
       "id": "2",
       "name": "Restaurant 1",
-      "directory_name": "C:/Users/lderosa/Desktop/run/reopt_scenario/2",
+      "directory_name": "/Users/kflemin/Downloads/uo-july-new/run/reopt_scenario/2",
       "feature_type": "Building",
       "timesteps_per_hour": 1,
       "simulation_status": "Complete",
@@ -1261,8 +1206,8 @@
           "District Heating Mass Flow Rate()",
           "District Heating Inlet Temperature()",
           "District Heating Outlet Temperature()",
-          "BUILDING STORY 1 THERMALZONE 1 PSZ-AC 1SPD DX AC CLG COIL 169KBTU/HR 10.8EER(W)",
-          "BUILDING STORY 1 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 60KBTU/HR 14.0SEER(W)",
+          "BUILDING STORY 1 THERMALZONE 1 PSZ-AC 1SPD DX AC CLG COIL 166KBTU/HR 10.8EER(W)",
+          "BUILDING STORY 1 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 56KBTU/HR 14.0SEER(W)",
           "BUILDING STORY 1 THERMALZONE 3 PSZ-AC 1SPD DX AC CLG COIL 153KBTU/HR 10.8EER(W)",
           "BUILDING STORY 1 THERMALZONE 4 PSZ-AC 1SPD DX AC CLG COIL 71KBTU/HR 11.0EER(W)",
           "BUILDING STORY 1 THERMALZONE PSZ-AC 1SPD DX AC CLG COIL 856KBTU/HR 9.5EER(W)",
@@ -1327,8 +1272,8 @@
         ]
       },
       "location": {
-        "latitude_deg": -78.85025951649325,
-        "longitude_deg": 42.81830466777026,
+        "latitude_deg": 42.81830466777026,
+        "longitude_deg": -78.85025951649325,
         "surface_elevation_ft": 215.0
       },
       "program": {
@@ -1338,12 +1283,13 @@
         "footprint_area_sqft": 22301.315435964207,
         "maximum_roof_height_ft": 3.6,
         "maximum_number_of_stories": 1,
+        "maximum_number_of_stories_above_ground": 1,
         "number_of_residential_units": 1,
         "building_types": [
           {
             "building_type": "FullServiceRestaurant",
-            "floor_area": 22301.30110174577,
-            "maximum_occupancy": 1165.644405986047
+            "floor_area": 22301.301101745776,
+            "maximum_occupancy": 1165.6444059860473
           }
         ],
         "window_area_sqft": {
@@ -1361,8 +1307,8 @@
           "total_wall_area_sqft": 7462.834370113185
         },
         "roof_area_sqft": {
-          "available_roof_area_sqft": 16725.97582630933,
-          "total_roof_area_sqft": 22301.301101745776
+          "available_roof_area_sqft": 16725.975826309324,
+          "total_roof_area_sqft": 22301.30110174577
         },
         "orientation_deg": 0.0,
         "aspect_ratio": 0.5083322455728146
@@ -1382,42 +1328,42 @@
             "day_of_month": 31,
             "year": 2017
           },
-          "total_site_energy_kwh": 2111775.0,
-          "total_source_energy_kwh": 3991591.6666666665,
-          "site_EUI_kwh_per_m2": 1019.2652978483102,
-          "site_EUI_kbtu_per_ft2": 323.1053978851189,
-          "source_EUI_kwh_per_m2": 1926.5740284896983,
-          "source_EUI_kbtu_per_ft2": 610.7207508627853,
-          "net_site_energy_kwh": 2111775.0,
-          "net_source_energy_kwh": 3991591.6666666665,
-          "electricity_kwh": 817297.2222222222,
-          "natural_gas_kwh": 1294477.7777777778,
+          "total_site_energy_kwh": 2241741.6666666665,
+          "total_source_energy_kwh": 4364691.666666667,
+          "site_EUI_kwh_per_m2": 1081.9947615508124,
+          "site_EUI_kbtu_per_ft2": 342.9905331600114,
+          "source_EUI_kwh_per_m2": 2106.653763606936,
+          "source_EUI_kbtu_per_ft2": 667.8057262749093,
+          "net_site_energy_kwh": 2241741.6666666665,
+          "net_source_energy_kwh": 4364691.666666667,
+          "electricity_kwh": 928777.7777777779,
+          "natural_gas_kwh": 1312966.6666666667,
           "propane_kwh": 0.0,
           "fuel_oil_kwh": 0.0,
           "other_fuels_kwh": 0.0,
           "district_cooling_kwh": 0.0,
           "district_heating_kwh": 0.0,
           "water_qbft": 5602.76,
-          "electricity_produced_kwh": 817296.6666666666,
+          "electricity_produced_kwh": 928776.9444444444,
           "end_uses": {
             "electricity_kwh": {
               "heating": 0.0,
-              "cooling": 60761.11111111112,
-              "interior_lighting": 83577.77777777778,
+              "cooling": 67650.0,
+              "interior_lighting": 87180.55555555555,
               "exterior_lighting": 39319.444444444445,
-              "interior_equipment": 376180.55555555556,
+              "interior_equipment": 470225.0,
               "exterior_equipment": 0.0,
-              "fans": 154283.33333333334,
+              "fans": 162216.66666666666,
               "pumps": 0.0,
               "heat_rejection": 0.0,
               "humidification": 0.0,
-              "heat_recovery": 17616.666666666668,
-              "water_systems": 85558.33333333333,
+              "heat_recovery": 12938.888888888889,
+              "water_systems": 89247.22222222222,
               "refrigeration": 0.0,
               "generators": 0.0
             },
             "natural_gas_kwh": {
-              "heating": 35769.444444444445,
+              "heating": 54258.333333333336,
               "cooling": 0.0,
               "interior_lighting": 0.0,
               "exterior_lighting": 0.0,
@@ -1543,36 +1489,34 @@
             }
           ],
           "comfort_result": {
-            "time_setpoint_not_met_during_occupied_cooling": 22.0,
-            "time_setpoint_not_met_during_occupied_heating": 190.0,
-            "time_setpoint_not_met_during_occupied_hours": 212.0,
-            "hours_out_of_comfort_bounds_PMV": 1234.0,
-            "hours_out_of_comfort_bounds_PPD": 36.0
+            "time_setpoint_not_met_during_occupied_cooling": 2.0,
+            "time_setpoint_not_met_during_occupied_heating": 0.0,
+            "time_setpoint_not_met_during_occupied_hours": 2.0,
+            "hours_out_of_comfort_bounds_PMV": 1461.0,
+            "hours_out_of_comfort_bounds_PPD": 34.0
           }
         }
       ],
       "distributed_generation": {
-        "lcc_us_dollars": 1365816.0,
-        "npv_us_dollars": 241949.0,
-        "year_one_energy_cost_us_dollars": 91271.48,
-        "year_one_demand_cost_us_dollars": 30079.2,
-        "year_one_bill_us_dollars": 123030.68,
-        "total_demand_cost_us_dollars": 288223.83,
-        "total_energy_cost_us_dollars": 874578.3,
-        "year_one_energy_cost_bau_us_dollars": 132123.99,
-        "year_one_demand_cost_bau_us_dollars": 33901.63,
-        "year_one_bill_bau_us_dollars": 167705.62,
-        "total_energy_cost_bau_us_dollars": 1266033.74,
-        "total_demand_cost_bau_us_dollars": 324850.98,
-        "total_solar_pv_kw": 172.2598,
-        "total_storage_kw": 8.74916578854021,
-        "total_storage_kwh": 14.829181175102615,
+        "lcc_us_dollars": 1310842.0,
+        "npv_us_dollars": 65911.0,
+        "year_one_energy_cost_us_dollars": 90420.58,
+        "year_one_demand_cost_us_dollars": 21543.14,
+        "year_one_bill_us_dollars": 111963.72,
+        "total_demand_cost_us_dollars": 206429.86,
+        "total_energy_cost_us_dollars": 866424.83,
+        "year_one_energy_cost_bau_us_dollars": 120741.0,
+        "year_one_demand_cost_bau_us_dollars": 22937.69,
+        "year_one_bill_bau_us_dollars": 143678.7,
+        "total_energy_cost_bau_us_dollars": 1156960.05,
+        "total_demand_cost_bau_us_dollars": 219792.74,
+        "total_solar_pv_kw": 214.2786,
         "solar_pv": [
           {
             "size_kw": 167.2598
           },
           {
-            "size_kw": 5.0
+            "size_kw": 47.0188
           }
         ],
         "wind": [
@@ -1582,10 +1526,7 @@
 
         ],
         "storage": [
-          {
-            "size_kw": 8.74916578854021,
-            "size_kwh": 14.829181175102615
-          }
+
         ]
       },
       "power_distribution": {
@@ -1596,7 +1537,7 @@
     {
       "id": "3",
       "name": "Restaurant 10",
-      "directory_name": "C:/Users/lderosa/Desktop/run/reopt_scenario/3",
+      "directory_name": "/Users/kflemin/Downloads/uo-july-new/run/reopt_scenario/3",
       "feature_type": "Building",
       "timesteps_per_hour": 1,
       "simulation_status": "Complete",
@@ -1647,9 +1588,9 @@
           "District Heating Mass Flow Rate()",
           "District Heating Inlet Temperature()",
           "District Heating Outlet Temperature()",
-          "5 ZONE PVAV 1 2SPD DX CLG COIL 2741KBTU/HR 9.5EER(W)",
-          "5 ZONE PVAV 2 2SPD DX CLG COIL 2733KBTU/HR 9.5EER(W)",
-          "5 ZONE PVAV 2SPD DX CLG COIL 2225KBTU/HR 9.5EER(W)",
+          "5 ZONE PVAV 1 2SPD DX CLG COIL 2718KBTU/HR 9.5EER(W)",
+          "5 ZONE PVAV 2 2SPD DX CLG COIL 2711KBTU/HR 9.5EER(W)",
+          "5 ZONE PVAV 2SPD DX CLG COIL 2180KBTU/HR 9.5EER(W)",
           "5 ZONE PVAV 1 MAIN HTG COIL(W)",
           "5 ZONE PVAV 2 MAIN HTG COIL(W)",
           "5 ZONE PVAV MAIN HTG COIL(W)",
@@ -1739,8 +1680,8 @@
         ]
       },
       "location": {
-        "latitude_deg": -78.84970640997895,
-        "longitude_deg": 42.81380096113034,
+        "latitude_deg": 42.81380096113034,
+        "longitude_deg": -78.84970640997895,
         "surface_elevation_ft": 215.0
       },
       "program": {
@@ -1750,12 +1691,13 @@
         "footprint_area_sqft": 41855.573294479924,
         "maximum_roof_height_ft": 10.8,
         "maximum_number_of_stories": 3,
+        "maximum_number_of_stories_above_ground": 3,
         "number_of_residential_units": 1,
         "building_types": [
           {
             "building_type": "FullServiceRestaurant",
-            "floor_area": 125566.66718816644,
-            "maximum_occupancy": 6563.118560591086
+            "floor_area": 125566.66718835628,
+            "maximum_occupancy": 6563.118560601013
           }
         ],
         "window_area_sqft": {
@@ -1773,8 +1715,8 @@
           "total_wall_area_sqft": 38913.150742968144
         },
         "roof_area_sqft": {
-          "available_roof_area_sqft": 31391.66679704161,
-          "total_roof_area_sqft": 41855.55572938881
+          "available_roof_area_sqft": 31391.666797089063,
+          "total_roof_area_sqft": 41855.555729452084
         },
         "orientation_deg": 0.0,
         "aspect_ratio": 0.19983936382765466
@@ -1794,42 +1736,42 @@
             "day_of_month": 31,
             "year": 2017
           },
-          "total_site_energy_kwh": 12904488.88888889,
-          "total_source_energy_kwh": 23459530.555555556,
-          "site_EUI_kwh_per_m2": 1106.2068237695921,
-          "site_EUI_kbtu_per_ft2": 350.6657164644294,
-          "source_EUI_kwh_per_m2": 2011.0128348695305,
-          "source_EUI_kbtu_per_ft2": 637.4877115254258,
-          "net_site_energy_kwh": 12904488.88888889,
-          "net_source_energy_kwh": 23459530.555555556,
-          "electricity_kwh": 4546838.888888889,
-          "natural_gas_kwh": 8357652.777777778,
+          "total_site_energy_kwh": 13488183.333333334,
+          "total_source_energy_kwh": 25471877.77777778,
+          "site_EUI_kwh_per_m2": 1156.2426510697185,
+          "site_EUI_kbtu_per_ft2": 366.5269901901679,
+          "source_EUI_kwh_per_m2": 2183.516546421618,
+          "source_EUI_kbtu_per_ft2": 692.1711001145975,
+          "net_site_energy_kwh": 13488183.333333334,
+          "net_source_energy_kwh": 25471877.77777778,
+          "electricity_kwh": 5209163.888888889,
+          "natural_gas_kwh": 8279019.444444445,
           "propane_kwh": 0.0,
           "fuel_oil_kwh": 0.0,
           "other_fuels_kwh": 0.0,
           "district_cooling_kwh": 0.0,
           "district_heating_kwh": 0.0,
           "water_qbft": 31545.76,
-          "electricity_produced_kwh": 4546838.055555555,
+          "electricity_produced_kwh": 5209163.333333333,
           "end_uses": {
             "electricity_kwh": {
               "heating": 0.0,
-              "cooling": 501822.22222222225,
-              "interior_lighting": 483591.6666666667,
+              "cooling": 540008.3333333334,
+              "interior_lighting": 496194.44444444444,
               "exterior_lighting": 198247.22222222222,
-              "interior_equipment": 2271558.3333333335,
+              "interior_equipment": 2839447.2222222225,
               "exterior_equipment": 0.0,
-              "fans": 503358.3333333333,
-              "pumps": 2241.6666666666665,
+              "fans": 543850.0,
+              "pumps": 5833.333333333333,
               "heat_rejection": 0.0,
               "humidification": 0.0,
-              "heat_recovery": 109602.77777777778,
-              "water_systems": 476416.6666666667,
+              "heat_recovery": 105466.66666666667,
+              "water_systems": 480113.88888888893,
               "refrigeration": 0.0,
               "generators": 0.0
             },
             "natural_gas_kwh": {
-              "heating": 1273713.8888888888,
+              "heating": 1195080.5555555555,
               "cooling": 0.0,
               "interior_lighting": 0.0,
               "exterior_lighting": 0.0,
@@ -1955,36 +1897,34 @@
             }
           ],
           "comfort_result": {
-            "time_setpoint_not_met_during_occupied_cooling": 11.0,
-            "time_setpoint_not_met_during_occupied_heating": 83.0,
-            "time_setpoint_not_met_during_occupied_hours": 94.0,
-            "hours_out_of_comfort_bounds_PMV": 93.0,
+            "time_setpoint_not_met_during_occupied_cooling": 2.0,
+            "time_setpoint_not_met_during_occupied_heating": 17.0,
+            "time_setpoint_not_met_during_occupied_hours": 19.0,
+            "hours_out_of_comfort_bounds_PMV": 89.0,
             "hours_out_of_comfort_bounds_PPD": 0.0
           }
         }
       ],
       "distributed_generation": {
-        "lcc_us_dollars": 8324908.0,
-        "npv_us_dollars": 521282.0,
-        "year_one_energy_cost_us_dollars": 661621.15,
-        "year_one_demand_cost_us_dollars": 167623.26,
-        "year_one_bill_us_dollars": 830924.41,
-        "total_demand_cost_us_dollars": 1606193.54,
-        "total_energy_cost_us_dollars": 6339762.27,
-        "year_one_energy_cost_bau_us_dollars": 738294.75,
-        "year_one_demand_cost_bau_us_dollars": 183137.06,
-        "year_one_bill_bau_us_dollars": 923111.8,
-        "total_energy_cost_bau_us_dollars": 7074461.19,
-        "total_demand_cost_bau_us_dollars": 1754849.29,
-        "total_solar_pv_kw": 318.9167,
-        "total_storage_kw": 28.194894834336424,
-        "total_storage_kwh": 37.17979160093279,
+        "lcc_us_dollars": 7479268.0,
+        "npv_us_dollars": 222203.0,
+        "year_one_energy_cost_us_dollars": 510649.71,
+        "year_one_demand_cost_us_dollars": 118532.02,
+        "year_one_bill_us_dollars": 629181.72,
+        "total_demand_cost_us_dollars": 1135793.2,
+        "total_energy_cost_us_dollars": 4893129.12,
+        "year_one_energy_cost_bau_us_dollars": 677191.23,
+        "year_one_demand_cost_bau_us_dollars": 126538.6,
+        "year_one_bill_bau_us_dollars": 803729.83,
+        "total_energy_cost_bau_us_dollars": 6488957.29,
+        "total_demand_cost_bau_us_dollars": 1212513.55,
+        "total_solar_pv_kw": 1135.4612,
         "solar_pv": [
           {
             "size_kw": 313.9167
           },
           {
-            "size_kw": 5.0
+            "size_kw": 821.5445
           }
         ],
         "wind": [
@@ -1994,10 +1934,7 @@
 
         ],
         "storage": [
-          {
-            "size_kw": 28.194894834336424,
-            "size_kwh": 37.17979160093279
-          }
+
         ]
       },
       "power_distribution": {
@@ -2008,7 +1945,7 @@
     {
       "id": "4",
       "name": "Restaurant 12",
-      "directory_name": "C:/Users/lderosa/Desktop/run/reopt_scenario/4",
+      "directory_name": "/Users/kflemin/Downloads/uo-july-new/run/reopt_scenario/4",
       "feature_type": "Building",
       "timesteps_per_hour": 1,
       "simulation_status": "Complete",
@@ -2060,18 +1997,18 @@
           "District Heating Inlet Temperature()",
           "District Heating Outlet Temperature()",
           "BUILDING STORY 1 THERMALZONE 1 PSZ-AC 1SPD DX AC CLG COIL 77KBTU/HR 11.0EER(W)",
-          "BUILDING STORY 1 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 57KBTU/HR 14.0SEER(W)",
-          "BUILDING STORY 1 THERMALZONE 3 PSZ-AC 1SPD DX AC CLG COIL 68KBTU/HR 11.0EER(W)",
-          "BUILDING STORY 1 THERMALZONE 4 PSZ-AC 1SPD DX AC CLG COIL 52KBTU/HR 14.0SEER(W)",
+          "BUILDING STORY 1 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 56KBTU/HR 14.0SEER(W)",
+          "BUILDING STORY 1 THERMALZONE 3 PSZ-AC 1SPD DX AC CLG COIL 63KBTU/HR 14.0SEER(W)",
+          "BUILDING STORY 1 THERMALZONE 4 PSZ-AC 1SPD DX AC CLG COIL 51KBTU/HR 14.0SEER(W)",
           "BUILDING STORY 1 THERMALZONE PSZ-AC 1SPD DX AC CLG COIL 363KBTU/HR 9.8EER(W)",
-          "BUILDING STORY 2 THERMALZONE 1 PSZ-AC 1SPD DX AC CLG COIL 90KBTU/HR 11.0EER(W)",
-          "BUILDING STORY 2 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 62KBTU/HR 14.0SEER(W)",
-          "BUILDING STORY 2 THERMALZONE 3 PSZ-AC 1SPD DX AC CLG COIL 81KBTU/HR 11.0EER(W)",
+          "BUILDING STORY 2 THERMALZONE 1 PSZ-AC 1SPD DX AC CLG COIL 89KBTU/HR 11.0EER(W)",
+          "BUILDING STORY 2 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 61KBTU/HR 14.0SEER(W)",
+          "BUILDING STORY 2 THERMALZONE 3 PSZ-AC 1SPD DX AC CLG COIL 77KBTU/HR 11.0EER(W)",
           "BUILDING STORY 2 THERMALZONE 4 PSZ-AC 1SPD DX AC CLG COIL 59KBTU/HR 14.0SEER(W)",
           "BUILDING STORY 2 THERMALZONE PSZ-AC 1SPD DX AC CLG COIL 430KBTU/HR 9.8EER(W)",
-          "BUILDING STORY 3 THERMALZONE 1 PSZ-AC 1SPD DX AC CLG COIL 92KBTU/HR 11.0EER(W)",
+          "BUILDING STORY 3 THERMALZONE 1 PSZ-AC 1SPD DX AC CLG COIL 91KBTU/HR 11.0EER(W)",
           "BUILDING STORY 3 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 64KBTU/HR 14.0SEER(W)",
-          "BUILDING STORY 3 THERMALZONE 3 PSZ-AC 1SPD DX AC CLG COIL 82KBTU/HR 11.0EER(W)",
+          "BUILDING STORY 3 THERMALZONE 3 PSZ-AC 1SPD DX AC CLG COIL 78KBTU/HR 11.0EER(W)",
           "BUILDING STORY 3 THERMALZONE 4 PSZ-AC 1SPD DX AC CLG COIL 60KBTU/HR 14.0SEER(W)",
           "BUILDING STORY 3 THERMALZONE PSZ-AC 1SPD DX AC CLG COIL 426KBTU/HR 9.8EER(W)",
           "BUILDING STORY 1 THERMALZONE 1 PSZ-AC ELECTRIC BACKUP HTG COIL(W)",
@@ -2175,8 +2112,8 @@
         ]
       },
       "location": {
-        "latitude_deg": -78.84893079942063,
-        "longitude_deg": 42.81355680265908,
+        "latitude_deg": 42.81355680265908,
+        "longitude_deg": -78.84893079942063,
         "surface_elevation_ft": 215.0
       },
       "program": {
@@ -2186,12 +2123,13 @@
         "footprint_area_sqft": 10535.320839160197,
         "maximum_roof_height_ft": 10.8,
         "maximum_number_of_stories": 3,
+        "maximum_number_of_stories_above_ground": 3,
         "number_of_residential_units": 1,
         "building_types": [
           {
             "building_type": "FullServiceRestaurant",
-            "floor_area": 31605.9958503709,
-            "maximum_occupancy": 1651.9821911071867
+            "floor_area": 31605.995850705265,
+            "maximum_occupancy": 1651.982191124664
           }
         ],
         "window_area_sqft": {
@@ -2209,8 +2147,8 @@
           "total_wall_area_sqft": 14896.175625684582
         },
         "roof_area_sqft": {
-          "available_roof_area_sqft": 7901.498962592723,
-          "total_roof_area_sqft": 10535.331950123631
+          "available_roof_area_sqft": 7901.498962676316,
+          "total_roof_area_sqft": 10535.331950235088
         },
         "orientation_deg": 0.0,
         "aspect_ratio": 1.5479618514563465
@@ -2230,42 +2168,42 @@
             "day_of_month": 31,
             "year": 2017
           },
-          "total_site_energy_kwh": 3079188.888888889,
-          "total_source_energy_kwh": 5888555.555555555,
-          "site_EUI_kwh_per_m2": 1048.6664767066227,
-          "site_EUI_kbtu_per_ft2": 332.4255225017037,
-          "source_EUI_kwh_per_m2": 2005.4407281145784,
-          "source_EUI_kbtu_per_ft2": 635.7213629860241,
-          "net_site_energy_kwh": 3079188.888888889,
-          "net_source_energy_kwh": 5888555.555555555,
-          "electricity_kwh": 1224538.8888888888,
-          "natural_gas_kwh": 1854650.0,
+          "total_site_energy_kwh": 3263072.2222222225,
+          "total_source_energy_kwh": 6366705.555555555,
+          "site_EUI_kwh_per_m2": 1111.2908541806914,
+          "site_EUI_kbtu_per_ft2": 352.2773456176107,
+          "source_EUI_kwh_per_m2": 2168.282273057346,
+          "source_EUI_kbtu_per_ft2": 687.3418608897906,
+          "net_site_energy_kwh": 3263072.2222222225,
+          "net_source_energy_kwh": 6366705.555555555,
+          "electricity_kwh": 1358394.4444444445,
+          "natural_gas_kwh": 1904680.5555555557,
           "propane_kwh": 0.0,
           "fuel_oil_kwh": 0.0,
           "other_fuels_kwh": 0.0,
           "district_cooling_kwh": 0.0,
           "district_heating_kwh": 0.0,
           "water_qbft": 7940.49,
-          "electricity_produced_kwh": 1224539.7222222222,
+          "electricity_produced_kwh": 1358393.8888888888,
           "end_uses": {
             "electricity_kwh": {
               "heating": 0.0,
-              "cooling": 94936.11111111111,
-              "interior_lighting": 116077.77777777778,
+              "cooling": 92388.88888888889,
+              "interior_lighting": 115944.44444444445,
               "exterior_lighting": 50566.666666666664,
-              "interior_equipment": 571980.5555555556,
+              "interior_equipment": 714975.0,
               "exterior_equipment": 0.0,
-              "fans": 245827.7777777778,
+              "fans": 246613.8888888889,
               "pumps": 0.0,
               "heat_rejection": 0.0,
               "humidification": 0.0,
-              "heat_recovery": 24363.888888888887,
-              "water_systems": 120786.11111111111,
+              "heat_recovery": 13430.555555555557,
+              "water_systems": 124477.77777777778,
               "refrigeration": 0.0,
               "generators": 0.0
             },
             "natural_gas_kwh": {
-              "heating": 71097.22222222222,
+              "heating": 121130.55555555556,
               "cooling": 0.0,
               "interior_lighting": 0.0,
               "exterior_lighting": 0.0,
@@ -2391,36 +2329,34 @@
             }
           ],
           "comfort_result": {
-            "time_setpoint_not_met_during_occupied_cooling": 417.0,
-            "time_setpoint_not_met_during_occupied_heating": 118.0,
-            "time_setpoint_not_met_during_occupied_hours": 535.0,
-            "hours_out_of_comfort_bounds_PMV": 2393.0,
-            "hours_out_of_comfort_bounds_PPD": 152.0
+            "time_setpoint_not_met_during_occupied_cooling": 1.0,
+            "time_setpoint_not_met_during_occupied_heating": 6.0,
+            "time_setpoint_not_met_during_occupied_hours": 7.0,
+            "hours_out_of_comfort_bounds_PMV": 2180.0,
+            "hours_out_of_comfort_bounds_PPD": 134.0
           }
         }
       ],
       "distributed_generation": {
-        "lcc_us_dollars": 2258277.0,
-        "npv_us_dollars": 132828.0,
-        "year_one_energy_cost_us_dollars": 178736.16,
-        "year_one_demand_cost_us_dollars": 45000.28,
-        "year_one_bill_us_dollars": 225416.44,
-        "total_demand_cost_us_dollars": 431200.04,
-        "total_energy_cost_us_dollars": 1712679.19,
-        "year_one_energy_cost_bau_us_dollars": 198031.73,
-        "year_one_demand_cost_bau_us_dollars": 49743.67,
-        "year_one_bill_bau_us_dollars": 249455.41,
-        "total_energy_cost_bau_us_dollars": 1897572.5,
-        "total_demand_cost_bau_us_dollars": 476652.04,
-        "total_solar_pv_kw": 84.015,
-        "total_storage_kw": 12.068134544542662,
-        "total_storage_kwh": 15.91389966213629,
+        "lcc_us_dollars": 1955090.0,
+        "npv_us_dollars": 55398.0,
+        "year_one_energy_cost_us_dollars": 133114.93,
+        "year_one_demand_cost_us_dollars": 31345.6,
+        "year_one_bill_us_dollars": 164460.53,
+        "total_demand_cost_us_dollars": 300358.68,
+        "total_energy_cost_us_dollars": 1275529.06,
+        "year_one_energy_cost_bau_us_dollars": 176591.2,
+        "year_one_demand_cost_bau_us_dollars": 33224.51,
+        "year_one_bill_bau_us_dollars": 209815.7,
+        "total_energy_cost_bau_us_dollars": 1692125.78,
+        "total_demand_cost_bau_us_dollars": 318362.67,
+        "total_solar_pv_kw": 296.1341,
         "solar_pv": [
           {
             "size_kw": 79.015
           },
           {
-            "size_kw": 5.0
+            "size_kw": 217.1191
           }
         ],
         "wind": [
@@ -2430,10 +2366,7 @@
 
         ],
         "storage": [
-          {
-            "size_kw": 12.068134544542662,
-            "size_kwh": 15.91389966213629
-          }
+
         ]
       },
       "power_distribution": {
@@ -2443,8 +2376,8 @@
     },
     {
       "id": "5",
-      "name": "District Office 1",
-      "directory_name": "C:/Users/lderosa/Desktop/run/reopt_scenario/5",
+      "name": "Restaurant 14",
+      "directory_name": "/Users/kflemin/Downloads/uo-july-new/run/reopt_scenario/5",
       "feature_type": "Building",
       "timesteps_per_hour": 1,
       "simulation_status": "Complete",
@@ -2459,15 +2392,15 @@
           "Propane:Facility(kBtu)",
           "FuelOilNo2:Facility(kBtu)",
           "OtherFuels:Facility(kBtu)",
-          "Cooling:Electricity()",
-          "Heating:Electricity()",
+          "Cooling:Electricity(kWh)",
+          "Heating:Electricity(kWh)",
           "InteriorLights:Electricity(kWh)",
           "ExteriorLights:Electricity(kWh)",
           "InteriorEquipment:Electricity(kWh)",
           "ExteriorEquipment:Electricity()",
           "Fans:Electricity(kWh)",
           "Pumps:Electricity(kWh)",
-          "WaterSystems:Electricity()",
+          "WaterSystems:Electricity(kWh)",
           "HeatRejection:Electricity()",
           "HeatRejection:NaturalGas(kBtu)",
           "Heating:NaturalGas(kBtu)",
@@ -2485,33 +2418,51 @@
           "Heating:OtherFuels(kBtu)",
           "WaterSystems:OtherFuels(kBtu)",
           "InteriorEquipment:OtherFuels(kBtu)",
-          "DistrictCooling:Facility(kWh)",
-          "DistrictHeating:Facility(kWh)",
-          "District Cooling Chilled Water Rate(W)",
+          "DistrictCooling:Facility()",
+          "DistrictHeating:Facility()",
+          "District Cooling Chilled Water Rate()",
           "District Cooling Mass Flow Rate()",
           "District Cooling Inlet Temperature()",
           "District Cooling Outlet Temperature()",
-          "District Heating Hot Water Rate(W)",
+          "District Heating Hot Water Rate()",
           "District Heating Mass Flow Rate()",
           "District Heating Inlet Temperature()",
           "District Heating Outlet Temperature()",
-          "Cooling Coil Total Cooling Rate(W)",
-          "5 ZONE VAV MAIN HTG COIL(W)",
-          "BUILDING STORY 1 THERMALZONE 1 REHEAT COIL(W)",
-          "BUILDING STORY 1 THERMALZONE 2 REHEAT COIL(W)",
-          "BUILDING STORY 1 THERMALZONE 3 REHEAT COIL(W)",
-          "BUILDING STORY 1 THERMALZONE 4 REHEAT COIL(W)",
-          "BUILDING STORY 1 THERMALZONE REHEAT COIL(W)",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 1 OFFICE WHOLEBUILDING - SM OFFICE PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 2 OFFICE WHOLEBUILDING - SM OFFICE PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 3 OFFICE WHOLEBUILDING - SM OFFICE PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 4 OFFICE WHOLEBUILDING - SM OFFICE PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE OFFICE WHOLEBUILDING - SM OFFICE PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 1 OFFICE WHOLEBUILDING - SM OFFICE PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 2 OFFICE WHOLEBUILDING - SM OFFICE PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 3 OFFICE WHOLEBUILDING - SM OFFICE PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 4 OFFICE WHOLEBUILDING - SM OFFICE PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE OFFICE WHOLEBUILDING - SM OFFICE PEOPLE 1()",
+          "BUILDING STORY 1 THERMALZONE 1 PSZ-AC 1SPD DX AC CLG COIL 60KBTU/HR 14.0SEER(W)",
+          "BUILDING STORY 1 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 60KBTU/HR 14.0SEER(W)",
+          "BUILDING STORY 1 THERMALZONE 3 PSZ-AC 1SPD DX AC CLG COIL 54KBTU/HR 14.0SEER(W)",
+          "BUILDING STORY 1 THERMALZONE 4 PSZ-AC 1SPD DX AC CLG COIL 74KBTU/HR 11.0EER(W)",
+          "BUILDING STORY 1 THERMALZONE PSZ-AC 1SPD DX AC CLG COIL 294KBTU/HR 9.8EER(W)",
+          "BUILDING STORY 1 THERMALZONE 1 PSZ-AC ELECTRIC BACKUP HTG COIL(W)",
+          "BUILDING STORY 1 THERMALZONE 1 PSZ-AC GAS HTG COIL(W)",
+          "BUILDING STORY 1 THERMALZONE 2 PSZ-AC ELECTRIC BACKUP HTG COIL(W)",
+          "BUILDING STORY 1 THERMALZONE 2 PSZ-AC GAS HTG COIL(W)",
+          "BUILDING STORY 1 THERMALZONE 3 PSZ-AC ELECTRIC BACKUP HTG COIL(W)",
+          "BUILDING STORY 1 THERMALZONE 3 PSZ-AC GAS HTG COIL(W)",
+          "BUILDING STORY 1 THERMALZONE 4 PSZ-AC ELECTRIC BACKUP HTG COIL(W)",
+          "BUILDING STORY 1 THERMALZONE 4 PSZ-AC GAS HTG COIL(W)",
+          "BUILDING STORY 1 THERMALZONE PSZ-AC ELECTRIC BACKUP HTG COIL(W)",
+          "BUILDING STORY 1 THERMALZONE PSZ-AC GAS HTG COIL(W)",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 1 FULLSERVICERESTAURANT DINING PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 1 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 2 FULLSERVICERESTAURANT DINING PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 2 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 3 FULLSERVICERESTAURANT DINING PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 3 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 4 FULLSERVICERESTAURANT DINING PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 4 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE FULLSERVICERESTAURANT DINING PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 1 FULLSERVICERESTAURANT DINING PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 1 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 2 FULLSERVICERESTAURANT DINING PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 2 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 3 FULLSERVICERESTAURANT DINING PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 3 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 4 FULLSERVICERESTAURANT DINING PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 4 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE FULLSERVICERESTAURANT DINING PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
           "Net Electric Energy(kWh)",
           "Electricity:Facility Power(kW)",
           "ElectricityProduced:Facility Power(kW)",
@@ -2543,8 +2494,8 @@
         ]
       },
       "location": {
-        "latitude_deg": -78.84828658807396,
-        "longitude_deg": 42.81371454166144,
+        "latitude_deg": 42.81371454166145,
+        "longitude_deg": -78.84828658807395,
         "surface_elevation_ft": 215.0
       },
       "program": {
@@ -2554,12 +2505,13 @@
         "footprint_area_sqft": 8799.819682972699,
         "maximum_roof_height_ft": 3.6,
         "maximum_number_of_stories": 1,
+        "maximum_number_of_stories_above_ground": 1,
         "number_of_residential_units": 1,
         "building_types": [
           {
-            "building_type": "Office",
-            "floor_area": 8799.83457434412,
-            "maximum_occupancy": 49.27907361632705
+            "building_type": "FullServiceRestaurant",
+            "floor_area": 8799.834574439663,
+            "maximum_occupancy": 459.9497535368126
           }
         ],
         "window_area_sqft": {
@@ -2577,8 +2529,8 @@
           "total_wall_area_sqft": 4498.3458022471605
         },
         "roof_area_sqft": {
-          "available_roof_area_sqft": 6599.875930758089,
-          "total_roof_area_sqft": 8799.834574344119
+          "available_roof_area_sqft": 6599.8759308297485,
+          "total_roof_area_sqft": 8799.834574439665
         },
         "orientation_deg": 0.0,
         "aspect_ratio": 1.4130962004850445
@@ -2598,53 +2550,53 @@
             "day_of_month": 31,
             "year": 2017
           },
-          "total_site_energy_kwh": 87766.66666666667,
-          "total_source_energy_kwh": 263386.1111111111,
-          "site_EUI_kwh_per_m2": 107.35589723516773,
-          "site_EUI_kbtu_per_ft2": 34.03164020663546,
-          "source_EUI_kwh_per_m2": 322.1730225326424,
-          "source_EUI_kbtu_per_ft2": 102.12831031627316,
-          "net_site_energy_kwh": 87766.66666666667,
-          "net_source_energy_kwh": 263386.1111111111,
-          "electricity_kwh": 47608.333333333336,
-          "natural_gas_kwh": 3955.5555555555557,
+          "total_site_energy_kwh": 893716.6666666666,
+          "total_source_energy_kwh": 1686205.5555555555,
+          "site_EUI_kwh_per_m2": 1093.1912794229772,
+          "site_EUI_kbtu_per_ft2": 346.53981063433594,
+          "source_EUI_kwh_per_m2": 2062.5610748908975,
+          "source_EUI_kbtu_per_ft2": 653.8284175590185,
+          "net_site_energy_kwh": 893716.6666666666,
+          "net_source_energy_kwh": 1686205.5555555555,
+          "electricity_kwh": 344413.8888888889,
+          "natural_gas_kwh": 549300.0,
           "propane_kwh": 0.0,
           "fuel_oil_kwh": 0.0,
           "other_fuels_kwh": 0.0,
-          "district_cooling_kwh": 8794.444444444443,
-          "district_heating_kwh": 27411.111111111113,
-          "water_qbft": 37.51,
-          "electricity_produced_kwh": 47608.055555555555,
+          "district_cooling_kwh": 0.0,
+          "district_heating_kwh": 0.0,
+          "water_qbft": 2210.67,
+          "electricity_produced_kwh": 344415.2777777778,
           "end_uses": {
             "electricity_kwh": {
               "heating": 0.0,
-              "cooling": 0.0,
-              "interior_lighting": 19166.666666666668,
-              "exterior_lighting": 8602.777777777777,
-              "interior_equipment": 17511.111111111113,
+              "cooling": 22630.555555555555,
+              "interior_lighting": 32011.111111111113,
+              "exterior_lighting": 16072.222222222223,
+              "interior_equipment": 185544.44444444444,
               "exterior_equipment": 0.0,
-              "fans": 1416.6666666666667,
-              "pumps": 158.33333333333334,
+              "fans": 49252.777777777774,
+              "pumps": 0.0,
               "heat_rejection": 0.0,
               "humidification": 0.0,
-              "heat_recovery": 752.7777777777777,
-              "water_systems": 0.0,
+              "heat_recovery": 4708.333333333333,
+              "water_systems": 34191.666666666664,
               "refrigeration": 0.0,
               "generators": 0.0
             },
             "natural_gas_kwh": {
-              "heating": 0.0,
+              "heating": 52241.666666666664,
               "cooling": 0.0,
               "interior_lighting": 0.0,
               "exterior_lighting": 0.0,
-              "interior_equipment": 0.0,
+              "interior_equipment": 208761.1111111111,
               "exterior_equipment": 0.0,
               "fans": 0.0,
               "pumps": 0.0,
               "heat_rejection": 0.0,
               "humidification": 0.0,
               "heat_recovery": 0.0,
-              "water_systems": 3955.5555555555557,
+              "water_systems": 288297.2222222222,
               "refrigeration": 0.0,
               "generators": 0.0
             },
@@ -2698,7 +2650,7 @@
             },
             "district_cooling_kwh": {
               "heating": 0.0,
-              "cooling": 8794.444444444443,
+              "cooling": 0.0,
               "interior_lighting": 0.0,
               "exterior_lighting": 0.0,
               "interior_equipment": 0.0,
@@ -2713,7 +2665,7 @@
               "generators": 0.0
             },
             "district_heating_kwh": {
-              "heating": 27411.111111111113,
+              "heating": 0.0,
               "cooling": 0.0,
               "interior_lighting": 0.0,
               "exterior_lighting": 0.0,
@@ -2740,7 +2692,7 @@
               "heat_rejection": 0.0,
               "humidification": 0.0,
               "heat_recovery": 0.0,
-              "water_systems": 10419.444444444443,
+              "water_systems": 614075.0,
               "refrigeration": 0.0,
               "generators": 0.0
             }
@@ -2759,36 +2711,34 @@
             }
           ],
           "comfort_result": {
-            "time_setpoint_not_met_during_occupied_cooling": 4.0,
-            "time_setpoint_not_met_during_occupied_heating": 597.0,
-            "time_setpoint_not_met_during_occupied_hours": 601.0,
-            "hours_out_of_comfort_bounds_PMV": 4726.0,
-            "hours_out_of_comfort_bounds_PPD": 1988.0
+            "time_setpoint_not_met_during_occupied_cooling": 0.0,
+            "time_setpoint_not_met_during_occupied_heating": 1.0,
+            "time_setpoint_not_met_during_occupied_hours": 1.0,
+            "hours_out_of_comfort_bounds_PMV": 1115.0,
+            "hours_out_of_comfort_bounds_PPD": 0.0
           }
         }
       ],
       "distributed_generation": {
-        "lcc_us_dollars": 91776.0,
-        "npv_us_dollars": 16967.0,
-        "year_one_energy_cost_us_dollars": 3737.22,
-        "year_one_demand_cost_us_dollars": 1063.95,
-        "year_one_bill_us_dollars": 6481.18,
-        "total_demand_cost_us_dollars": 10194.95,
-        "total_energy_cost_us_dollars": 35810.7,
-        "year_one_energy_cost_bau_us_dollars": 7632.2,
-        "year_one_demand_cost_bau_us_dollars": 1954.63,
-        "year_one_bill_bau_us_dollars": 11266.83,
-        "total_energy_cost_bau_us_dollars": 73133.0,
-        "total_demand_cost_bau_us_dollars": 18729.55,
-        "total_solar_pv_kw": 25.1857,
-        "total_storage_kw": 3.7088961486968435,
-        "total_storage_kwh": 13.116691793671478,
+        "lcc_us_dollars": 485353.0,
+        "npv_us_dollars": 25347.0,
+        "year_one_energy_cost_us_dollars": 33650.21,
+        "year_one_demand_cost_us_dollars": 8003.81,
+        "year_one_bill_us_dollars": 41654.02,
+        "total_demand_cost_us_dollars": 76693.81,
+        "total_energy_cost_us_dollars": 322441.79,
+        "year_one_energy_cost_bau_us_dollars": 44773.98,
+        "year_one_demand_cost_bau_us_dollars": 8522.93,
+        "year_one_bill_bau_us_dollars": 53296.91,
+        "total_energy_cost_bau_us_dollars": 429031.61,
+        "total_demand_cost_bau_us_dollars": 81668.12,
+        "total_solar_pv_kw": 78.9337,
         "solar_pv": [
           {
-            "size_kw": 20.1857
+            "size_kw": 65.9988
           },
           {
-            "size_kw": 5.0
+            "size_kw": 12.9349
           }
         ],
         "wind": [
@@ -2798,10 +2748,7 @@
 
         ],
         "storage": [
-          {
-            "size_kw": 3.7088961486968435,
-            "size_kwh": 13.116691793671478
-          }
+
         ]
       },
       "power_distribution": {
@@ -2811,8 +2758,8 @@
     },
     {
       "id": "6",
-      "name": "District Office 2",
-      "directory_name": "C:/Users/lderosa/Desktop/run/reopt_scenario/6",
+      "name": "Restaurant 15",
+      "directory_name": "/Users/kflemin/Downloads/uo-july-new/run/reopt_scenario/6",
       "feature_type": "Building",
       "timesteps_per_hour": 1,
       "simulation_status": "Complete",
@@ -2827,15 +2774,15 @@
           "Propane:Facility(kBtu)",
           "FuelOilNo2:Facility(kBtu)",
           "OtherFuels:Facility(kBtu)",
-          "Cooling:Electricity()",
-          "Heating:Electricity()",
+          "Cooling:Electricity(kWh)",
+          "Heating:Electricity(kWh)",
           "InteriorLights:Electricity(kWh)",
           "ExteriorLights:Electricity(kWh)",
           "InteriorEquipment:Electricity(kWh)",
           "ExteriorEquipment:Electricity()",
           "Fans:Electricity(kWh)",
           "Pumps:Electricity(kWh)",
-          "WaterSystems:Electricity()",
+          "WaterSystems:Electricity(kWh)",
           "HeatRejection:Electricity()",
           "HeatRejection:NaturalGas(kBtu)",
           "Heating:NaturalGas(kBtu)",
@@ -2853,33 +2800,51 @@
           "Heating:OtherFuels(kBtu)",
           "WaterSystems:OtherFuels(kBtu)",
           "InteriorEquipment:OtherFuels(kBtu)",
-          "DistrictCooling:Facility(kWh)",
-          "DistrictHeating:Facility(kWh)",
-          "District Cooling Chilled Water Rate(W)",
+          "DistrictCooling:Facility()",
+          "DistrictHeating:Facility()",
+          "District Cooling Chilled Water Rate()",
           "District Cooling Mass Flow Rate()",
           "District Cooling Inlet Temperature()",
           "District Cooling Outlet Temperature()",
-          "District Heating Hot Water Rate(W)",
+          "District Heating Hot Water Rate()",
           "District Heating Mass Flow Rate()",
           "District Heating Inlet Temperature()",
           "District Heating Outlet Temperature()",
-          "Cooling Coil Total Cooling Rate(W)",
-          "5 ZONE VAV MAIN HTG COIL(W)",
-          "BUILDING STORY 1 THERMALZONE 1 REHEAT COIL(W)",
-          "BUILDING STORY 1 THERMALZONE 2 REHEAT COIL(W)",
-          "BUILDING STORY 1 THERMALZONE 3 REHEAT COIL(W)",
-          "BUILDING STORY 1 THERMALZONE 4 REHEAT COIL(W)",
-          "BUILDING STORY 1 THERMALZONE REHEAT COIL(W)",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 1 OFFICE WHOLEBUILDING - SM OFFICE PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 2 OFFICE WHOLEBUILDING - SM OFFICE PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 3 OFFICE WHOLEBUILDING - SM OFFICE PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 4 OFFICE WHOLEBUILDING - SM OFFICE PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE OFFICE WHOLEBUILDING - SM OFFICE PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 1 OFFICE WHOLEBUILDING - SM OFFICE PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 2 OFFICE WHOLEBUILDING - SM OFFICE PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 3 OFFICE WHOLEBUILDING - SM OFFICE PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 4 OFFICE WHOLEBUILDING - SM OFFICE PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE OFFICE WHOLEBUILDING - SM OFFICE PEOPLE 1()",
+          "BUILDING STORY 1 THERMALZONE 1 PSZ-AC 1SPD DX AC CLG COIL 41KBTU/HR 14.0SEER(W)",
+          "BUILDING STORY 1 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 131KBTU/HR 11.0EER(W)",
+          "BUILDING STORY 1 THERMALZONE 3 PSZ-AC 1SPD DX AC CLG COIL 33KBTU/HR 14.0SEER(W)",
+          "BUILDING STORY 1 THERMALZONE 4 PSZ-AC 1SPD DX AC CLG COIL 117KBTU/HR 11.0EER(W)",
+          "BUILDING STORY 1 THERMALZONE PSZ-AC 1SPD DX AC CLG COIL 355KBTU/HR 9.8EER(W)",
+          "BUILDING STORY 1 THERMALZONE 1 PSZ-AC ELECTRIC BACKUP HTG COIL(W)",
+          "BUILDING STORY 1 THERMALZONE 1 PSZ-AC GAS HTG COIL(W)",
+          "BUILDING STORY 1 THERMALZONE 2 PSZ-AC ELECTRIC BACKUP HTG COIL(W)",
+          "BUILDING STORY 1 THERMALZONE 2 PSZ-AC GAS HTG COIL(W)",
+          "BUILDING STORY 1 THERMALZONE 3 PSZ-AC ELECTRIC BACKUP HTG COIL(W)",
+          "BUILDING STORY 1 THERMALZONE 3 PSZ-AC GAS HTG COIL(W)",
+          "BUILDING STORY 1 THERMALZONE 4 PSZ-AC ELECTRIC BACKUP HTG COIL(W)",
+          "BUILDING STORY 1 THERMALZONE 4 PSZ-AC GAS HTG COIL(W)",
+          "BUILDING STORY 1 THERMALZONE PSZ-AC ELECTRIC BACKUP HTG COIL(W)",
+          "BUILDING STORY 1 THERMALZONE PSZ-AC GAS HTG COIL(W)",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 1 FULLSERVICERESTAURANT DINING PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 1 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 2 FULLSERVICERESTAURANT DINING PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 2 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 3 FULLSERVICERESTAURANT DINING PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 3 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 4 FULLSERVICERESTAURANT DINING PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 4 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE FULLSERVICERESTAURANT DINING PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 1 FULLSERVICERESTAURANT DINING PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 1 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 2 FULLSERVICERESTAURANT DINING PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 2 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 3 FULLSERVICERESTAURANT DINING PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 3 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 4 FULLSERVICERESTAURANT DINING PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 4 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE FULLSERVICERESTAURANT DINING PEOPLE 1()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
           "Net Electric Energy(kWh)",
           "Electricity:Facility Power(kW)",
           "ElectricityProduced:Facility Power(kW)",
@@ -2911,8 +2876,8 @@
         ]
       },
       "location": {
-        "latitude_deg": -78.84847574334984,
-        "longitude_deg": 42.814301720668325,
+        "latitude_deg": 42.814301720668325,
+        "longitude_deg": -78.84847574334984,
         "surface_elevation_ft": 215.0
       },
       "program": {
@@ -2922,12 +2887,13 @@
         "footprint_area_sqft": 10683.5040058969,
         "maximum_roof_height_ft": 3.6,
         "maximum_number_of_stories": 1,
+        "maximum_number_of_stories_above_ground": 1,
         "number_of_residential_units": 1,
         "building_types": [
           {
-            "building_type": "Office",
+            "building_type": "FullServiceRestaurant",
             "floor_area": 10683.489150681404,
-            "maximum_occupancy": 59.82753924381583
+            "maximum_occupancy": 558.4046109278158
           }
         ],
         "window_area_sqft": {
@@ -2966,424 +2932,53 @@
             "day_of_month": 31,
             "year": 2017
           },
-          "total_site_energy_kwh": 107344.44444444445,
-          "total_source_energy_kwh": 320933.3333333333,
-          "site_EUI_kwh_per_m2": 108.15234244248985,
-          "site_EUI_kbtu_per_ft2": 34.284112007793354,
-          "source_EUI_kwh_per_m2": 323.3487484845126,
-          "source_EUI_kbtu_per_ft2": 102.50101348029224,
-          "net_site_energy_kwh": 107344.44444444445,
-          "net_source_energy_kwh": 320933.3333333333,
-          "electricity_kwh": 58080.555555555555,
-          "natural_gas_kwh": 4733.333333333333,
-          "propane_kwh": 0.0,
-          "fuel_oil_kwh": 0.0,
-          "other_fuels_kwh": 0.0,
-          "district_cooling_kwh": 11355.555555555557,
-          "district_heating_kwh": 33175.0,
-          "water_qbft": 45.55,
-          "electricity_produced_kwh": 58079.44444444445,
-          "end_uses": {
-            "electricity_kwh": {
-              "heating": 0.0,
-              "cooling": 0.0,
-              "interior_lighting": 23127.777777777777,
-              "exterior_lighting": 10302.777777777777,
-              "interior_equipment": 21258.333333333332,
-              "exterior_equipment": 0.0,
-              "fans": 2308.3333333333335,
-              "pumps": 197.22222222222223,
-              "heat_rejection": 0.0,
-              "humidification": 0.0,
-              "heat_recovery": 880.5555555555555,
-              "water_systems": 0.0,
-              "refrigeration": 0.0,
-              "generators": 0.0
-            },
-            "natural_gas_kwh": {
-              "heating": 0.0,
-              "cooling": 0.0,
-              "interior_lighting": 0.0,
-              "exterior_lighting": 0.0,
-              "interior_equipment": 0.0,
-              "exterior_equipment": 0.0,
-              "fans": 0.0,
-              "pumps": 0.0,
-              "heat_rejection": 0.0,
-              "humidification": 0.0,
-              "heat_recovery": 0.0,
-              "water_systems": 4733.333333333333,
-              "refrigeration": 0.0,
-              "generators": 0.0
-            },
-            "propane_kwh": {
-              "heating": 0.0,
-              "cooling": 0.0,
-              "interior_lighting": 0.0,
-              "exterior_lighting": 0.0,
-              "interior_equipment": 0.0,
-              "exterior_equipment": 0.0,
-              "fans": 0.0,
-              "pumps": 0.0,
-              "heat_rejection": 0.0,
-              "humidification": 0.0,
-              "heat_recovery": 0.0,
-              "water_systems": 0.0,
-              "refrigeration": 0.0,
-              "generators": 0.0
-            },
-            "fuel_oil_kwh": {
-              "heating": 0.0,
-              "cooling": 0.0,
-              "interior_lighting": 0.0,
-              "exterior_lighting": 0.0,
-              "interior_equipment": 0.0,
-              "exterior_equipment": 0.0,
-              "fans": 0.0,
-              "pumps": 0.0,
-              "heat_rejection": 0.0,
-              "humidification": 0.0,
-              "heat_recovery": 0.0,
-              "water_systems": 0.0,
-              "refrigeration": 0.0,
-              "generators": 0.0
-            },
-            "other_fuels_kwh": {
-              "heating": 0.0,
-              "cooling": 0.0,
-              "interior_lighting": 0.0,
-              "exterior_lighting": 0.0,
-              "interior_equipment": 0.0,
-              "exterior_equipment": 0.0,
-              "fans": 0.0,
-              "pumps": 0.0,
-              "heat_rejection": 0.0,
-              "humidification": 0.0,
-              "heat_recovery": 0.0,
-              "water_systems": 0.0,
-              "refrigeration": 0.0,
-              "generators": 0.0
-            },
-            "district_cooling_kwh": {
-              "heating": 0.0,
-              "cooling": 11355.555555555557,
-              "interior_lighting": 0.0,
-              "exterior_lighting": 0.0,
-              "interior_equipment": 0.0,
-              "exterior_equipment": 0.0,
-              "fans": 0.0,
-              "pumps": 0.0,
-              "heat_rejection": 0.0,
-              "humidification": 0.0,
-              "heat_recovery": 0.0,
-              "water_systems": 0.0,
-              "refrigeration": 0.0,
-              "generators": 0.0
-            },
-            "district_heating_kwh": {
-              "heating": 33175.0,
-              "cooling": 0.0,
-              "interior_lighting": 0.0,
-              "exterior_lighting": 0.0,
-              "interior_equipment": 0.0,
-              "exterior_equipment": 0.0,
-              "fans": 0.0,
-              "pumps": 0.0,
-              "heat_rejection": 0.0,
-              "humidification": 0.0,
-              "heat_recovery": 0.0,
-              "water_systems": 0.0,
-              "refrigeration": 0.0,
-              "generators": 0.0
-            },
-            "water_qbft": {
-              "heating": 0.0,
-              "cooling": 0.0,
-              "interior_lighting": 0.0,
-              "exterior_lighting": 0.0,
-              "interior_equipment": 0.0,
-              "exterior_equipment": 0.0,
-              "fans": 0.0,
-              "pumps": 0.0,
-              "heat_rejection": 0.0,
-              "humidification": 0.0,
-              "heat_recovery": 0.0,
-              "water_systems": 12652.777777777777,
-              "refrigeration": 0.0,
-              "generators": 0.0
-            }
-          },
-          "energy_production_kwh": {
-            "electricity_produced": {
-              "photovoltaic": 0.0
-            }
-          },
-          "utility_costs_dollar": [
-            {
-              "fuel_type": "Electricity"
-            },
-            {
-              "fuel_type": "Natural Gas"
-            }
-          ],
-          "comfort_result": {
-            "time_setpoint_not_met_during_occupied_cooling": 6.0,
-            "time_setpoint_not_met_during_occupied_heating": 614.0,
-            "time_setpoint_not_met_during_occupied_hours": 620.0,
-            "hours_out_of_comfort_bounds_PMV": 4626.0,
-            "hours_out_of_comfort_bounds_PPD": 1919.0
-          }
-        }
-      ],
-      "distributed_generation": {
-        "lcc_us_dollars": 108337.0,
-        "npv_us_dollars": 21578.0,
-        "year_one_energy_cost_us_dollars": 4555.68,
-        "year_one_demand_cost_us_dollars": 1306.47,
-        "year_one_bill_us_dollars": 7542.16,
-        "total_demand_cost_us_dollars": 12518.82,
-        "total_energy_cost_us_dollars": 43653.31,
-        "year_one_energy_cost_bau_us_dollars": 9310.2,
-        "year_one_demand_cost_bau_us_dollars": 2486.19,
-        "year_one_bill_bau_us_dollars": 13476.4,
-        "total_energy_cost_bau_us_dollars": 89211.89,
-        "total_demand_cost_bau_us_dollars": 23823.13,
-        "total_solar_pv_kw": 29.677,
-        "total_storage_kw": 4.5669313040067445,
-        "total_storage_kwh": 15.881638978910946,
-        "solar_pv": [
-          {
-            "size_kw": 24.677
-          },
-          {
-            "size_kw": 5.0
-          }
-        ],
-        "wind": [
-
-        ],
-        "generator": [
-
-        ],
-        "storage": [
-          {
-            "size_kw": 4.5669313040067445,
-            "size_kwh": 15.881638978910946
-          }
-        ]
-      },
-      "power_distribution": {
-      },
-      "thermal_storage": {
-      }
-    },
-    {
-      "id": "7",
-      "name": "Office 1",
-      "directory_name": "C:/Users/lderosa/Desktop/run/reopt_scenario/7",
-      "feature_type": "Building",
-      "timesteps_per_hour": 1,
-      "simulation_status": "Complete",
-      "timeseries_csv": {
-        "path": "/017_default_feature_reports/default_feature_reports.csv",
-        "first_report_datetime": "0",
-        "column_names": [
-          "Datetime",
-          "Electricity:Facility(kWh)",
-          "ElectricityProduced:Facility()",
-          "NaturalGas:Facility(kBtu)",
-          "Propane:Facility(kBtu)",
-          "FuelOilNo2:Facility(kBtu)",
-          "OtherFuels:Facility(kBtu)",
-          "Cooling:Electricity(kWh)",
-          "Heating:Electricity(kWh)",
-          "InteriorLights:Electricity(kWh)",
-          "ExteriorLights:Electricity(kWh)",
-          "InteriorEquipment:Electricity(kWh)",
-          "ExteriorEquipment:Electricity()",
-          "Fans:Electricity(kWh)",
-          "Pumps:Electricity(kWh)",
-          "WaterSystems:Electricity()",
-          "HeatRejection:Electricity(kWh)",
-          "HeatRejection:NaturalGas(kBtu)",
-          "Heating:NaturalGas(kBtu)",
-          "WaterSystems:NaturalGas(kBtu)",
-          "InteriorEquipment:NaturalGas(kBtu)",
-          "HeatRejection:Propane(kBtu)",
-          "Heating:Propane(kBtu)",
-          "WaterSystems:Propane(kBtu)",
-          "InteriorEquipment:Propane(kBtu)",
-          "HeatRejection:FuelOilNo2(kBtu)",
-          "Heating:FuelOilNo2(kBtu)",
-          "WaterSystems:FuelOilNo2(kBtu)",
-          "InteriorEquipment:FuelOilNo2(kBtu)",
-          "HeatRejection:OtherFuels(kBtu)",
-          "Heating:OtherFuels(kBtu)",
-          "WaterSystems:OtherFuels(kBtu)",
-          "InteriorEquipment:OtherFuels(kBtu)",
-          "DistrictCooling:Facility()",
-          "DistrictHeating:Facility()",
-          "District Cooling Chilled Water Rate()",
-          "District Cooling Mass Flow Rate()",
-          "District Cooling Inlet Temperature()",
-          "District Cooling Outlet Temperature()",
-          "District Heating Hot Water Rate()",
-          "District Heating Mass Flow Rate()",
-          "District Heating Inlet Temperature()",
-          "District Heating Outlet Temperature()",
-          "1 ZONE VAV 1 CLG COIL(W)",
-          "1 ZONE VAV 2 CLG COIL(W)",
-          "1 ZONE VAV 3 CLG COIL(W)",
-          "1 ZONE VAV 4 CLG COIL(W)",
-          "1 ZONE VAV 5 CLG COIL(W)",
-          "1 ZONE VAV CLG COIL(W)",
-          "1 ZONE VAV 1 MAIN HTG COIL(W)",
-          "1 ZONE VAV 2 MAIN HTG COIL(W)",
-          "1 ZONE VAV 3 MAIN HTG COIL(W)",
-          "1 ZONE VAV 4 MAIN HTG COIL(W)",
-          "1 ZONE VAV 5 MAIN HTG COIL(W)",
-          "1 ZONE VAV MAIN HTG COIL(W)",
-          "BUILDING STORY 1 THERMALZONE REHEAT COIL(W)",
-          "BUILDING STORY 2 THERMALZONE REHEAT COIL(W)",
-          "BUILDING STORY 3 THERMALZONE REHEAT COIL(W)",
-          "BUILDING STORY 4 THERMALZONE REHEAT COIL(W)",
-          "BUILDING STORY 5 THERMALZONE REHEAT COIL(W)",
-          "BUILDING STORY 6 THERMALZONE REHEAT COIL(W)",
-          "Zone Thermal Comfort Fanger Model PMV()",
-          "Zone Thermal Comfort Fanger Model PPD()",
-          "Net Electric Energy(kWh)",
-          "Electricity:Facility Power(kW)",
-          "ElectricityProduced:Facility Power(kW)",
-          "Electricity:Facility Apparent Power(kVA)",
-          "ElectricityProduced:Facility Apparent Power(kVA)",
-          "Net Power(kW)",
-          "Net Apparent Power(kVA)",
-          "Ice Thermal Storage End Fraction()",
-          "Cooling Coil Ice Thermal Storage End Fraction()",
-          "REopt:ElectricityProduced:Total(kw)",
-          "REopt:Electricity:Load:Total(kw)",
-          "REopt:Electricity:Grid:ToLoad(kw)",
-          "REopt:Electricity:Grid:ToBattery(kw)",
-          "REopt:Electricity:Storage:ToLoad(kw)",
-          "REopt:Electricity:Storage:ToGrid(kw)",
-          "REopt:Electricity:Storage:StateOfCharge(pct)",
-          "REopt:ElectricityProduced:Generator:Total(kw)",
-          "REopt:ElectricityProduced:Generator:ToBattery(kw)",
-          "REopt:ElectricityProduced:Generator:ToLoad(kw)",
-          "REopt:ElectricityProduced:Generator:ToGrid(kw)",
-          "REopt:ElectricityProduced:PV:Total(kw)",
-          "REopt:ElectricityProduced:PV:ToBattery(kw)",
-          "REopt:ElectricityProduced:PV:ToLoad(kw)",
-          "REopt:ElectricityProduced:PV:ToGrid(kw)",
-          "REopt:ElectricityProduced:Wind:Total(kw)",
-          "REopt:ElectricityProduced:Wind:ToBattery(kw)",
-          "REopt:ElectricityProduced:Wind:ToLoad(kw)",
-          "REopt:ElectricityProduced:Wind:ToGrid(kw)"
-        ]
-      },
-      "location": {
-        "latitude_deg": -78.84774582760372,
-        "longitude_deg": 42.81618451565706,
-        "surface_elevation_ft": 215.0
-      },
-      "program": {
-        "floor_area_sqft": 325536.71010119794,
-        "conditioned_area_sqft": 325536.71010119794,
-        "unconditioned_area_sqft": 0.0,
-        "footprint_area_sqft": 54256.11835019966,
-        "maximum_roof_height_ft": 18.0,
-        "maximum_number_of_stories": 6,
-        "number_of_residential_units": 1,
-        "building_types": [
-          {
-            "building_type": "Office",
-            "floor_area": 325536.65809111745,
-            "maximum_occupancy": 1627.6832904555872
-          }
-        ],
-        "window_area_sqft": {
-          "north_window_area_sqft": 6022.40787814909,
-          "south_window_area_sqft": 6022.40787814909,
-          "east_window_area_sqft": 2827.6792664696436,
-          "west_window_area_sqft": 2827.6792664696436,
-          "total_window_area_sqft": 17700.174289237468
-        },
-        "wall_area_sqft": {
-          "north_wall_area_sqft": 20074.692927163633,
-          "south_wall_area_sqft": 20074.908205371965,
-          "east_wall_area_sqft": 9425.633434600202,
-          "west_wall_area_sqft": 9425.741073704368,
-          "total_wall_area_sqft": 59000.975640840166
-        },
-        "roof_area_sqft": {
-          "available_roof_area_sqft": 122076.24678416907,
-          "total_roof_area_sqft": 162768.32904555876
-        },
-        "orientation_deg": 0.0,
-        "aspect_ratio": 2.1297977548619915
-      },
-      "construction_costs": [
-
-      ],
-      "reporting_periods": [
-        {
-          "start_date": {
-            "month": 1,
-            "day_of_month": 1,
-            "year": 2017
-          },
-          "end_date": {
-            "month": 12,
-            "day_of_month": 31,
-            "year": 2017
-          },
-          "total_site_energy_kwh": 4299508.333333333,
-          "total_source_energy_kwh": 9809061.11111111,
-          "site_EUI_kwh_per_m2": 142.16375941598181,
-          "site_EUI_kbtu_per_ft2": 45.06567441068825,
-          "source_EUI_kwh_per_m2": 324.3377837148038,
-          "source_EUI_kbtu_per_ft2": 102.81453599722697,
-          "net_site_energy_kwh": 4299508.333333333,
-          "net_source_energy_kwh": 9809061.11111111,
-          "electricity_kwh": 2471625.0,
-          "natural_gas_kwh": 1827883.3333333333,
+          "total_site_energy_kwh": 1083200.0,
+          "total_source_energy_kwh": 2095866.6666666667,
+          "site_EUI_kwh_per_m2": 1091.3524024462738,
+          "site_EUI_kbtu_per_ft2": 345.9568897024903,
+          "source_EUI_kwh_per_m2": 2111.6406221138573,
+          "source_EUI_kbtu_per_ft2": 669.386552096682,
+          "net_site_energy_kwh": 1083200.0,
+          "net_source_energy_kwh": 2095866.6666666667,
+          "electricity_kwh": 442477.7777777778,
+          "natural_gas_kwh": 640722.2222222222,
           "propane_kwh": 0.0,
           "fuel_oil_kwh": 0.0,
           "other_fuels_kwh": 0.0,
           "district_cooling_kwh": 0.0,
           "district_heating_kwh": 0.0,
-          "water_qbft": 5720.15,
-          "electricity_produced_kwh": 2471625.2777777775,
+          "water_qbft": 2683.99,
+          "electricity_produced_kwh": 442476.94444444444,
           "end_uses": {
             "electricity_kwh": {
               "heating": 0.0,
-              "cooling": 346166.6666666667,
-              "interior_lighting": 861136.1111111111,
-              "exterior_lighting": 154450.0,
-              "interior_equipment": 903497.2222222222,
+              "cooling": 32452.777777777777,
+              "interior_lighting": 38383.333333333336,
+              "exterior_lighting": 19250.0,
+              "interior_equipment": 225261.1111111111,
               "exterior_equipment": 0.0,
-              "fans": 56819.44444444445,
-              "pumps": 130922.22222222223,
-              "heat_rejection": 18636.111111111113,
+              "fans": 80405.55555555555,
+              "pumps": 0.0,
+              "heat_rejection": 0.0,
               "humidification": 0.0,
-              "heat_recovery": 0.0,
-              "water_systems": 0.0,
+              "heat_recovery": 5391.666666666667,
+              "water_systems": 41330.555555555555,
               "refrigeration": 0.0,
               "generators": 0.0
             },
             "natural_gas_kwh": {
-              "heating": 1692911.1111111112,
+              "heating": 37408.33333333333,
               "cooling": 0.0,
               "interior_lighting": 0.0,
               "exterior_lighting": 0.0,
-              "interior_equipment": 0.0,
+              "interior_equipment": 253447.22222222222,
               "exterior_equipment": 0.0,
               "fans": 0.0,
               "pumps": 0.0,
               "heat_rejection": 0.0,
               "humidification": 0.0,
               "heat_recovery": 0.0,
-              "water_systems": 134972.22222222222,
+              "water_systems": 349866.6666666667,
               "refrigeration": 0.0,
               "generators": 0.0
             },
@@ -3476,10 +3071,10 @@
               "exterior_equipment": 0.0,
               "fans": 0.0,
               "pumps": 0.0,
-              "heat_rejection": 1119605.5555555555,
+              "heat_rejection": 0.0,
               "humidification": 0.0,
               "heat_recovery": 0.0,
-              "water_systems": 469325.0,
+              "water_systems": 745552.7777777778,
               "refrigeration": 0.0,
               "generators": 0.0
             }
@@ -3498,36 +3093,34 @@
             }
           ],
           "comfort_result": {
-            "time_setpoint_not_met_during_occupied_cooling": 731.0,
-            "time_setpoint_not_met_during_occupied_heating": 1975.0,
-            "time_setpoint_not_met_during_occupied_hours": 2706.0,
-            "hours_out_of_comfort_bounds_PMV": 0.0,
+            "time_setpoint_not_met_during_occupied_cooling": 0.0,
+            "time_setpoint_not_met_during_occupied_heating": 0.0,
+            "time_setpoint_not_met_during_occupied_hours": 0.0,
+            "hours_out_of_comfort_bounds_PMV": 998.0,
             "hours_out_of_comfort_bounds_PPD": 0.0
           }
         }
       ],
       "distributed_generation": {
-        "lcc_us_dollars": 4023359.0,
-        "npv_us_dollars": 1159412.0,
-        "year_one_energy_cost_us_dollars": 170411.92,
-        "year_one_demand_cost_us_dollars": 77405.77,
-        "year_one_bill_us_dollars": 249497.69,
-        "total_demand_cost_us_dollars": 741714.72,
-        "total_energy_cost_us_dollars": 1632914.94,
-        "year_one_energy_cost_bau_us_dollars": 402430.24,
-        "year_one_demand_cost_bau_us_dollars": 136685.04,
-        "year_one_bill_bau_us_dollars": 540795.28,
-        "total_energy_cost_bau_us_dollars": 3856152.43,
-        "total_demand_cost_bau_us_dollars": 1309738.48,
-        "total_solar_pv_kw": 1225.7625,
-        "total_storage_kw": 160.83323394895058,
-        "total_storage_kwh": 621.8427354197902,
+        "lcc_us_dollars": 623805.0,
+        "npv_us_dollars": 31068.0,
+        "year_one_energy_cost_us_dollars": 43130.37,
+        "year_one_demand_cost_us_dollars": 10198.6,
+        "year_one_bill_us_dollars": 53328.97,
+        "total_demand_cost_us_dollars": 97724.64,
+        "total_energy_cost_us_dollars": 413282.26,
+        "year_one_energy_cost_bau_us_dollars": 57521.99,
+        "year_one_demand_cost_bau_us_dollars": 10820.96,
+        "year_one_bill_bau_us_dollars": 68342.95,
+        "total_energy_cost_bau_us_dollars": 551185.11,
+        "total_demand_cost_bau_us_dollars": 103688.25,
+        "total_solar_pv_kw": 101.76689999999999,
         "solar_pv": [
           {
-            "size_kw": 1220.7625
+            "size_kw": 80.1262
           },
           {
-            "size_kw": 5.0
+            "size_kw": 21.6407
           }
         ],
         "wind": [
@@ -3537,10 +3130,7 @@
 
         ],
         "storage": [
-          {
-            "size_kw": 160.83323394895058,
-            "size_kwh": 621.8427354197902
-          }
+
         ]
       },
       "power_distribution": {
@@ -3551,7 +3141,7 @@
     {
       "id": "8",
       "name": "Hospital 1",
-      "directory_name": "C:/Users/lderosa/Desktop/run/reopt_scenario/8",
+      "directory_name": "/Users/kflemin/Downloads/uo-july-new/run/reopt_scenario/8",
       "feature_type": "Building",
       "timesteps_per_hour": 1,
       "simulation_status": "Complete",
@@ -3665,8 +3255,8 @@
         ]
       },
       "location": {
-        "latitude_deg": -78.8502280105868,
-        "longitude_deg": 42.81565185353204,
+        "latitude_deg": 42.81565185353203,
+        "longitude_deg": -78.8502280105868,
         "surface_elevation_ft": 215.0
       },
       "program": {
@@ -3676,12 +3266,13 @@
         "footprint_area_sqft": 40298.40143013619,
         "maximum_roof_height_ft": 30.0,
         "maximum_number_of_stories": 10,
+        "maximum_number_of_stories_above_ground": 10,
         "number_of_residential_units": 1,
         "building_types": [
           {
             "building_type": "Outpatient",
             "floor_area": 402984.01012219547,
-            "maximum_occupancy": 4499.70538666074
+            "maximum_occupancy": 4499.705386660741
           }
         ],
         "window_area_sqft": {
@@ -3720,34 +3311,34 @@
             "day_of_month": 31,
             "year": 2017
           },
-          "total_site_energy_kwh": 13095658.333333334,
-          "total_source_energy_kwh": 29960211.111111112,
-          "site_EUI_kwh_per_m2": 349.7917737313129,
-          "site_EUI_kbtu_per_ft2": 110.88340834028595,
-          "source_EUI_kwh_per_m2": 800.2526577258858,
-          "source_EUI_kbtu_per_ft2": 253.67875657984652,
-          "net_site_energy_kwh": 13095658.333333334,
-          "net_source_energy_kwh": 29960211.111111112,
-          "electricity_kwh": 7568177.777777778,
-          "natural_gas_kwh": 5527480.555555555,
+          "total_site_energy_kwh": 14117683.333333334,
+          "total_source_energy_kwh": 33504333.333333332,
+          "site_EUI_kwh_per_m2": 377.09058746393634,
+          "site_EUI_kbtu_per_ft2": 119.53708672165642,
+          "source_EUI_kwh_per_m2": 894.9179862551252,
+          "source_EUI_kbtu_per_ft2": 283.6875076919809,
+          "net_site_energy_kwh": 14117683.333333334,
+          "net_source_energy_kwh": 33504333.333333332,
+          "electricity_kwh": 8737766.666666666,
+          "natural_gas_kwh": 5379916.666666667,
           "propane_kwh": 0.0,
           "fuel_oil_kwh": 0.0,
           "other_fuels_kwh": 0.0,
           "district_cooling_kwh": 0.0,
           "district_heating_kwh": 0.0,
-          "water_qbft": 20508.95,
-          "electricity_produced_kwh": 7568178.88888889,
+          "water_qbft": 21760.95,
+          "electricity_produced_kwh": 8737765.555555556,
           "end_uses": {
             "electricity_kwh": {
               "heating": 0.0,
-              "cooling": 1456380.5555555555,
-              "interior_lighting": 1559583.3333333333,
+              "cooling": 1641947.2222222222,
+              "interior_lighting": 1732872.2222222222,
               "exterior_lighting": 549086.1111111111,
-              "interior_equipment": 2806066.6666666665,
+              "interior_equipment": 3507583.3333333335,
               "exterior_equipment": 0.0,
-              "fans": 695072.2222222222,
-              "pumps": 418597.2222222222,
-              "heat_rejection": 83391.66666666667,
+              "fans": 772827.7777777778,
+              "pumps": 445400.0,
+              "heat_rejection": 88050.0,
               "humidification": 0.0,
               "heat_recovery": 0.0,
               "water_systems": 0.0,
@@ -3755,7 +3346,7 @@
               "generators": 0.0
             },
             "natural_gas_kwh": {
-              "heating": 4572616.666666666,
+              "heating": 4425052.777777778,
               "cooling": 0.0,
               "interior_lighting": 0.0,
               "exterior_lighting": 0.0,
@@ -3766,7 +3357,7 @@
               "heat_rejection": 0.0,
               "humidification": 0.0,
               "heat_recovery": 0.0,
-              "water_systems": 386088.8888888889,
+              "water_systems": 386091.6666666667,
               "refrigeration": 0.0,
               "generators": 0.0
             },
@@ -3859,7 +3450,7 @@
               "exterior_equipment": 0.0,
               "fans": 0.0,
               "pumps": 0.0,
-              "heat_rejection": 4225591.666666667,
+              "heat_rejection": 4573372.222222222,
               "humidification": 0.0,
               "heat_recovery": 0.0,
               "water_systems": 1471338.8888888888,
@@ -3881,36 +3472,34 @@
             }
           ],
           "comfort_result": {
-            "time_setpoint_not_met_during_occupied_cooling": 1030.0,
-            "time_setpoint_not_met_during_occupied_heating": 1206.0,
-            "time_setpoint_not_met_during_occupied_hours": 2236.0,
+            "time_setpoint_not_met_during_occupied_cooling": 1148.0,
+            "time_setpoint_not_met_during_occupied_heating": 1175.0,
+            "time_setpoint_not_met_during_occupied_hours": 2323.0,
             "hours_out_of_comfort_bounds_PMV": 0.0,
             "hours_out_of_comfort_bounds_PPD": 0.0
           }
         }
       ],
       "distributed_generation": {
-        "lcc_us_dollars": 13074263.0,
-        "npv_us_dollars": 1770139.0,
-        "year_one_energy_cost_us_dollars": 944022.19,
-        "year_one_demand_cost_us_dollars": 269666.26,
-        "year_one_bill_us_dollars": 1215368.45,
-        "total_demand_cost_us_dollars": 2583986.27,
-        "total_energy_cost_us_dollars": 9045775.28,
-        "year_one_energy_cost_bau_us_dollars": 1232989.44,
-        "year_one_demand_cost_bau_us_dollars": 314419.05,
-        "year_one_bill_bau_us_dollars": 1549088.5,
-        "total_energy_cost_bau_us_dollars": 11814706.79,
-        "total_demand_cost_bau_us_dollars": 3012814.88,
-        "total_solar_pv_kw": 1213.952,
-        "total_storage_kw": 118.83267230398928,
-        "total_storage_kwh": 208.68305957524532,
+        "lcc_us_dollars": 12549531.0,
+        "npv_us_dollars": 424242.0,
+        "year_one_energy_cost_us_dollars": 939617.37,
+        "year_one_demand_cost_us_dollars": 208789.39,
+        "year_one_bill_us_dollars": 1148406.76,
+        "total_demand_cost_us_dollars": 2000654.14,
+        "total_energy_cost_us_dollars": 9003567.53,
+        "year_one_energy_cost_bau_us_dollars": 1135909.52,
+        "year_one_demand_cost_bau_us_dollars": 218040.69,
+        "year_one_bill_bau_us_dollars": 1353950.21,
+        "total_energy_cost_bau_us_dollars": 10884471.11,
+        "total_demand_cost_bau_us_dollars": 2089301.6,
+        "total_solar_pv_kw": 1421.0509,
         "solar_pv": [
           {
             "size_kw": 1208.952
           },
           {
-            "size_kw": 5.0
+            "size_kw": 212.0989
           }
         ],
         "wind": [
@@ -3920,10 +3509,7 @@
 
         ],
         "storage": [
-          {
-            "size_kw": 118.83267230398928,
-            "size_kwh": 208.68305957524532
-          }
+
         ]
       },
       "power_distribution": {
@@ -3934,7 +3520,7 @@
     {
       "id": "9",
       "name": "Hospital 2",
-      "directory_name": "C:/Users/lderosa/Desktop/run/reopt_scenario/9",
+      "directory_name": "/Users/kflemin/Downloads/uo-july-new/run/reopt_scenario/9",
       "feature_type": "Building",
       "timesteps_per_hour": 1,
       "simulation_status": "Complete",
@@ -4026,8 +3612,8 @@
         ]
       },
       "location": {
-        "latitude_deg": -78.85053825417417,
-        "longitude_deg": 42.8166278532704,
+        "latitude_deg": 42.81662785327041,
+        "longitude_deg": -78.85053825417417,
         "surface_elevation_ft": 215.0
       },
       "program": {
@@ -4037,12 +3623,13 @@
         "footprint_area_sqft": 95606.70278747963,
         "maximum_roof_height_ft": 9.0,
         "maximum_number_of_stories": 3,
+        "maximum_number_of_stories_above_ground": 3,
         "number_of_residential_units": 1,
         "building_types": [
           {
             "building_type": "Hospital",
             "floor_area": 286820.073738364,
-            "maximum_occupancy": 902.5644649377572
+            "maximum_occupancy": 902.5644649377571
           }
         ],
         "window_area_sqft": {
@@ -4081,34 +3668,34 @@
             "day_of_month": 31,
             "year": 2017
           },
-          "total_site_energy_kwh": 8095166.666666667,
-          "total_source_energy_kwh": 20258463.888888888,
-          "site_EUI_kwh_per_m2": 303.7989536571337,
-          "site_EUI_kbtu_per_ft2": 96.30376115589026,
-          "source_EUI_kwh_per_m2": 760.2684892810861,
-          "source_EUI_kbtu_per_ft2": 241.0038419312903,
-          "net_site_energy_kwh": 8095166.666666667,
-          "net_source_energy_kwh": 20258463.888888888,
-          "electricity_kwh": 5512866.666666667,
-          "natural_gas_kwh": 2582300.0,
+          "total_site_energy_kwh": 9097938.88888889,
+          "total_source_energy_kwh": 23339244.444444444,
+          "site_EUI_kwh_per_m2": 341.43142799789877,
+          "site_EUI_kbtu_per_ft2": 108.2331926993195,
+          "source_EUI_kwh_per_m2": 875.8853688048786,
+          "source_EUI_kbtu_per_ft2": 277.6541997327685,
+          "net_site_energy_kwh": 9097938.88888889,
+          "net_source_energy_kwh": 23339244.444444444,
+          "electricity_kwh": 6470033.333333333,
+          "natural_gas_kwh": 2627905.5555555555,
           "propane_kwh": 0.0,
           "fuel_oil_kwh": 0.0,
           "other_fuels_kwh": 0.0,
           "district_cooling_kwh": 0.0,
           "district_heating_kwh": 0.0,
-          "water_qbft": 11772.99,
-          "electricity_produced_kwh": 5512867.777777778,
+          "water_qbft": 12518.1,
+          "electricity_produced_kwh": 6470033.055555555,
           "end_uses": {
             "electricity_kwh": {
               "heating": 0.0,
-              "cooling": 886308.3333333334,
-              "interior_lighting": 1225227.7777777778,
+              "cooling": 1046908.3333333334,
+              "interior_lighting": 1361366.6666666667,
               "exterior_lighting": 92330.55555555555,
-              "interior_equipment": 2129638.888888889,
+              "interior_equipment": 2662050.0,
               "exterior_equipment": 0.0,
-              "fans": 804497.2222222222,
-              "pumps": 137602.77777777778,
-              "heat_rejection": 35905.555555555555,
+              "fans": 913850.0,
+              "pumps": 154052.77777777778,
+              "heat_rejection": 38116.666666666664,
               "humidification": 0.0,
               "heat_recovery": 0.0,
               "water_systems": 201355.55555555556,
@@ -4116,7 +3703,7 @@
               "generators": 0.0
             },
             "natural_gas_kwh": {
-              "heating": 1192266.6666666667,
+              "heating": 1237872.2222222222,
               "cooling": 0.0,
               "interior_lighting": 0.0,
               "exterior_lighting": 0.0,
@@ -4220,7 +3807,7 @@
               "exterior_equipment": 0.0,
               "fans": 0.0,
               "pumps": 0.0,
-              "heat_rejection": 1752013.8888888888,
+              "heat_rejection": 1958988.888888889,
               "humidification": 0.0,
               "heat_recovery": 0.0,
               "water_systems": 1518261.1111111112,
@@ -4242,36 +3829,34 @@
             }
           ],
           "comfort_result": {
-            "time_setpoint_not_met_during_occupied_cooling": 1293.0,
-            "time_setpoint_not_met_during_occupied_heating": 200.0,
-            "time_setpoint_not_met_during_occupied_hours": 1493.0,
+            "time_setpoint_not_met_during_occupied_cooling": 1525.0,
+            "time_setpoint_not_met_during_occupied_heating": 172.0,
+            "time_setpoint_not_met_during_occupied_hours": 1697.0,
             "hours_out_of_comfort_bounds_PMV": 0.0,
             "hours_out_of_comfort_bounds_PPD": 0.0
           }
         }
       ],
       "distributed_generation": {
-        "lcc_us_dollars": 9395465.0,
-        "npv_us_dollars": 1138245.0,
-        "year_one_energy_cost_us_dollars": 719691.21,
-        "year_one_demand_cost_us_dollars": 176166.55,
-        "year_one_bill_us_dollars": 897537.76,
-        "total_demand_cost_us_dollars": 1688056.77,
-        "total_energy_cost_us_dollars": 6896199.02,
-        "year_one_energy_cost_bau_us_dollars": 894834.99,
-        "year_one_demand_cost_bau_us_dollars": 202707.27,
-        "year_one_bill_bau_us_dollars": 1099222.26,
-        "total_energy_cost_bau_us_dollars": 8574455.43,
-        "total_demand_cost_bau_us_dollars": 1942374.24,
-        "total_solar_pv_kw": 722.0502,
-        "total_storage_kw": 38.605010413102605,
-        "total_storage_kwh": 51.95116498562016,
+        "lcc_us_dollars": 9097248.0,
+        "npv_us_dollars": 328299.0,
+        "year_one_energy_cost_us_dollars": 652674.7,
+        "year_one_demand_cost_us_dollars": 133617.36,
+        "year_one_bill_us_dollars": 786292.06,
+        "total_demand_cost_us_dollars": 1280343.4,
+        "total_energy_cost_us_dollars": 6254035.93,
+        "year_one_energy_cost_bau_us_dollars": 841104.31,
+        "year_one_demand_cost_bau_us_dollars": 142551.06,
+        "year_one_bill_bau_us_dollars": 983655.37,
+        "total_energy_cost_bau_us_dollars": 8059599.28,
+        "total_demand_cost_bau_us_dollars": 1365947.63,
+        "total_solar_pv_kw": 1315.0534,
         "solar_pv": [
           {
             "size_kw": 717.0502
           },
           {
-            "size_kw": 5.0
+            "size_kw": 598.0032
           }
         ],
         "wind": [
@@ -4281,10 +3866,7 @@
 
         ],
         "storage": [
-          {
-            "size_kw": 38.605010413102605,
-            "size_kwh": 51.95116498562016
-          }
+
         ]
       },
       "power_distribution": {
@@ -4295,7 +3877,7 @@
     {
       "id": "10",
       "name": "Mixed use 2",
-      "directory_name": "C:/Users/lderosa/Desktop/run/reopt_scenario/10",
+      "directory_name": "/Users/kflemin/Downloads/uo-july-new/run/reopt_scenario/10",
       "feature_type": "Building",
       "timesteps_per_hour": 1,
       "simulation_status": "Complete",
@@ -4352,12 +3934,12 @@
           "7 ZONE VAV 4 CLG COIL(W)",
           "7 ZONE VAV 5 CLG COIL(W)",
           "7 ZONE VAV CLG COIL(W)",
-          "BUILDING STORY 7 THERMALZONE 1 PTAC 1SPD DX AC CLG COIL 503KBTU/HR 9.5EER(W)",
-          "BUILDING STORY 7 THERMALZONE 2 PTAC 1SPD DX AC CLG COIL 163KBTU/HR 9.5EER(W)",
+          "BUILDING STORY 7 THERMALZONE 1 PTAC 1SPD DX AC CLG COIL 502KBTU/HR 9.5EER(W)",
+          "BUILDING STORY 7 THERMALZONE 2 PTAC 1SPD DX AC CLG COIL 151KBTU/HR 9.5EER(W)",
           "BUILDING STORY 7 THERMALZONE 3 PTAC 1SPD DX AC CLG COIL 121KBTU/HR 9.5EER(W)",
-          "BUILDING STORY 7 THERMALZONE 4 PTAC 1SPD DX AC CLG COIL 153KBTU/HR 9.5EER(W)",
-          "BUILDING STORY 7 THERMALZONE 5 PTAC 1SPD DX AC CLG COIL 324KBTU/HR 9.5EER(W)",
-          "BUILDING STORY 7 THERMALZONE 6 PTAC 1SPD DX AC CLG COIL 65KBTU/HR 9.5EER(W)",
+          "BUILDING STORY 7 THERMALZONE 4 PTAC 1SPD DX AC CLG COIL 152KBTU/HR 9.5EER(W)",
+          "BUILDING STORY 7 THERMALZONE 5 PTAC 1SPD DX AC CLG COIL 322KBTU/HR 9.5EER(W)",
+          "BUILDING STORY 7 THERMALZONE 6 PTAC 1SPD DX AC CLG COIL 64KBTU/HR 9.5EER(W)",
           "BUILDING STORY 7 THERMALZONE PTAC 1SPD DX AC CLG COIL 1603KBTU/HR 9.5EER(W)",
           "BUILDING STORY 8 THERMALZONE 1 PTAC 1SPD DX AC CLG COIL 503KBTU/HR 9.5EER(W)",
           "BUILDING STORY 8 THERMALZONE 2 PTAC 1SPD DX AC CLG COIL 148KBTU/HR 9.5EER(W)",
@@ -4456,19 +4038,19 @@
           "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE OFFICE WHOLEBUILDING - MD OFFICE PEOPLE 2()",
           "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE STRIPMALL STRIP MALL - TYPE 1 PEOPLE 1()",
           "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE STRIPMALL STRIP MALL - TYPE 2 PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 1 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 1 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
           "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 1 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 2 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 2 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
           "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 2 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 3 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 3 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
           "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 3 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 4 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 4 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
           "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 4 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 5 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 5 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
           "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 5 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 6 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 6 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
           "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 6 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
           "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
           "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 4 THERMALZONE 1 FULLSERVICERESTAURANT DINING PEOPLE 1()",
           "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 4 THERMALZONE 1 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
@@ -4596,19 +4178,19 @@
           "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE OFFICE WHOLEBUILDING - MD OFFICE PEOPLE 2()",
           "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE STRIPMALL STRIP MALL - TYPE 1 PEOPLE 1()",
           "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE STRIPMALL STRIP MALL - TYPE 2 PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 1 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 1 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
           "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 1 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 2 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 2 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
           "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 2 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 3 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 3 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
           "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 3 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 4 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 4 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
           "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 4 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 5 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 5 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
           "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 5 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 6 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 6 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
           "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 6 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
           "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
           "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 4 THERMALZONE 1 FULLSERVICERESTAURANT DINING PEOPLE 1()",
           "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 4 THERMALZONE 1 FULLSERVICERESTAURANT KITCHEN PEOPLE 1()",
@@ -4739,8 +4321,8 @@
         ]
       },
       "location": {
-        "latitude_deg": -78.85136873854009,
-        "longitude_deg": 42.81881564816119,
+        "latitude_deg": 42.81881564816119,
+        "longitude_deg": -78.85136873854009,
         "surface_elevation_ft": 215.0
       },
       "program": {
@@ -4750,27 +4332,28 @@
         "footprint_area_sqft": 159713.93401120135,
         "maximum_roof_height_ft": 28.8,
         "maximum_number_of_stories": 8,
+        "maximum_number_of_stories_above_ground": 8,
         "number_of_residential_units": 1,
         "building_types": [
           {
-            "building_type": "Office",
-            "floor_area": 159713.92876533186,
-            "maximum_occupancy": 798.5696438266591
-          },
-          {
-            "building_type": "StripMall",
-            "floor_area": 319427.8575306637,
-            "maximum_occupancy": 2459.594502986111
+            "building_type": "LargeHotel",
+            "floor_area": 479141.7862956226,
+            "maximum_occupancy": 7989.751268483842
           },
           {
             "building_type": "FullServiceRestaurant",
-            "floor_area": 319427.8575306637,
-            "maximum_occupancy": 7989.751268490063
+            "floor_area": 319427.85753041506,
+            "maximum_occupancy": 798.5696438260375
           },
           {
-            "building_type": "LargeHotel",
-            "floor_area": 479141.7862959956,
-            "maximum_occupancy": 14715.402540722635
+            "building_type": "StripMall",
+            "floor_area": 319427.85753041506,
+            "maximum_occupancy": 14715.402540711179
+          },
+          {
+            "building_type": "Office",
+            "floor_area": 159713.92876520753,
+            "maximum_occupancy": 2459.594502984196
           }
         ],
         "window_area_sqft": {
@@ -4788,8 +4371,8 @@
           "total_wall_area_sqft": 220632.39265367418
         },
         "roof_area_sqft": {
-          "available_roof_area_sqft": 119785.44657399885,
-          "total_roof_area_sqft": 159713.9287653318
+          "available_roof_area_sqft": 119785.44657390562,
+          "total_roof_area_sqft": 159713.9287652075
         },
         "orientation_deg": 0.0,
         "aspect_ratio": 0.6551602007862734
@@ -4809,42 +4392,42 @@
             "day_of_month": 31,
             "year": 2017
           },
-          "total_site_energy_kwh": 50717938.88888889,
-          "total_source_energy_kwh": 103906883.33333333,
-          "site_EUI_kwh_per_m2": 427.26653289520635,
-          "site_EUI_kbtu_per_ft2": 135.4427776610582,
-          "source_EUI_kwh_per_m2": 875.3497235572036,
-          "source_EUI_kbtu_per_ft2": 277.48440108344664,
-          "net_site_energy_kwh": 50717938.88888889,
-          "net_source_energy_kwh": 103906883.33333333,
-          "electricity_kwh": 23489505.555555556,
-          "natural_gas_kwh": 27228433.333333332,
+          "total_site_energy_kwh": 54774150.0,
+          "total_source_energy_kwh": 117074083.33333333,
+          "site_EUI_kwh_per_m2": 461.43754410156146,
+          "site_EUI_kbtu_per_ft2": 146.27493116934858,
+          "source_EUI_kwh_per_m2": 986.2750492937797,
+          "source_EUI_kbtu_per_ft2": 312.6475441663251,
+          "net_site_energy_kwh": 54774150.0,
+          "net_source_energy_kwh": 117074083.33333333,
+          "electricity_kwh": 27699905.555555556,
+          "natural_gas_kwh": 27074241.666666668,
           "propane_kwh": 0.0,
           "fuel_oil_kwh": 0.0,
           "other_fuels_kwh": 0.0,
           "district_cooling_kwh": 0.0,
           "district_heating_kwh": 0.0,
-          "water_qbft": 132823.69,
-          "electricity_produced_kwh": 23489504.444444444,
+          "water_qbft": 134594.65,
+          "electricity_produced_kwh": 27699906.388888888,
           "end_uses": {
             "electricity_kwh": {
               "heating": 0.0,
-              "cooling": 2743591.6666666665,
-              "interior_lighting": 4141369.444444445,
+              "cooling": 3010936.111111111,
+              "interior_lighting": 4768027.777777779,
               "exterior_lighting": 963358.3333333334,
-              "interior_equipment": 8037002.777777778,
+              "interior_equipment": 10046147.222222222,
               "exterior_equipment": 0.0,
-              "fans": 2470530.5555555555,
-              "pumps": 1498041.6666666667,
-              "heat_rejection": 111391.66666666667,
+              "fans": 2869922.2222222225,
+              "pumps": 1701836.1111111112,
+              "heat_rejection": 113747.22222222222,
               "humidification": 0.0,
-              "heat_recovery": 415088.8888888889,
-              "water_systems": 3109127.7777777775,
+              "heat_recovery": 395697.2222222222,
+              "water_systems": 3830236.1111111115,
               "refrigeration": 0.0,
               "generators": 0.0
             },
             "natural_gas_kwh": {
-              "heating": 6989230.555555555,
+              "heating": 6828916.666666667,
               "cooling": 0.0,
               "interior_lighting": 0.0,
               "exterior_lighting": 0.0,
@@ -4855,7 +4438,7 @@
               "heat_rejection": 0.0,
               "humidification": 0.0,
               "heat_recovery": 0.0,
-              "water_systems": 10454633.333333334,
+              "water_systems": 10460755.555555556,
               "refrigeration": 0.0,
               "generators": 0.0
             },
@@ -4948,7 +4531,7 @@
               "exterior_equipment": 0.0,
               "fans": 0.0,
               "pumps": 0.0,
-              "heat_rejection": 7893880.555555556,
+              "heat_rejection": 8385813.88888889,
               "humidification": 0.0,
               "heat_recovery": 0.0,
               "water_systems": 29001588.888888888,
@@ -4970,36 +4553,34 @@
             }
           ],
           "comfort_result": {
-            "time_setpoint_not_met_during_occupied_cooling": 416.0,
-            "time_setpoint_not_met_during_occupied_heating": 1090.0,
-            "time_setpoint_not_met_during_occupied_hours": 1506.0,
-            "hours_out_of_comfort_bounds_PMV": 3438.0,
-            "hours_out_of_comfort_bounds_PPD": 288.0
+            "time_setpoint_not_met_during_occupied_cooling": 358.0,
+            "time_setpoint_not_met_during_occupied_heating": 679.0,
+            "time_setpoint_not_met_during_occupied_hours": 1037.0,
+            "hours_out_of_comfort_bounds_PMV": 3455.0,
+            "hours_out_of_comfort_bounds_PPD": 497.0
           }
         }
       ],
       "distributed_generation": {
-        "lcc_us_dollars": 43570616.0,
-        "npv_us_dollars": 1759162.0,
-        "year_one_energy_cost_us_dollars": 3532672.47,
-        "year_one_demand_cost_us_dollars": 867093.84,
-        "year_one_bill_us_dollars": 4401446.31,
-        "total_demand_cost_us_dollars": 8308635.18,
-        "total_energy_cost_us_dollars": 33850646.3,
-        "year_one_energy_cost_bau_us_dollars": 3825240.39,
-        "year_one_demand_cost_bau_us_dollars": 903639.15,
-        "year_one_bill_bau_us_dollars": 4730559.55,
-        "total_energy_cost_bau_us_dollars": 36654080.04,
-        "total_demand_cost_bau_us_dollars": 8658818.37,
-        "total_solar_pv_kw": 1202.8545,
-        "total_storage_kw": 117.59477014656892,
-        "total_storage_kwh": 155.0688191283665,
+        "lcc_us_dollars": 39764728.0,
+        "npv_us_dollars": 745353.0,
+        "year_one_energy_cost_us_dollars": 2811124.83,
+        "year_one_demand_cost_us_dollars": 614185.81,
+        "year_one_bill_us_dollars": 3425310.64,
+        "total_demand_cost_us_dollars": 5885229.03,
+        "total_energy_cost_us_dollars": 26936658.6,
+        "year_one_energy_cost_bau_us_dollars": 3600987.84,
+        "year_one_demand_cost_bau_us_dollars": 626667.01,
+        "year_one_bill_bau_us_dollars": 4227654.85,
+        "total_energy_cost_bau_us_dollars": 34505255.3,
+        "total_demand_cost_bau_us_dollars": 6004825.97,
+        "total_solar_pv_kw": 5361.832399999999,
         "solar_pv": [
           {
             "size_kw": 1197.8545
           },
           {
-            "size_kw": 5.0
+            "size_kw": 4163.9779
           }
         ],
         "wind": [
@@ -5009,10 +4590,7 @@
 
         ],
         "storage": [
-          {
-            "size_kw": 117.59477014656892,
-            "size_kwh": 155.0688191283665
-          }
+
         ]
       },
       "power_distribution": {
@@ -5023,7 +4601,7 @@
     {
       "id": "11",
       "name": "Restaurant 13",
-      "directory_name": "C:/Users/lderosa/Desktop/run/reopt_scenario/11",
+      "directory_name": "/Users/kflemin/Downloads/uo-july-new/run/reopt_scenario/11",
       "feature_type": "Building",
       "timesteps_per_hour": 1,
       "simulation_status": "Complete",
@@ -5074,18 +4652,18 @@
           "District Heating Mass Flow Rate()",
           "District Heating Inlet Temperature()",
           "District Heating Outlet Temperature()",
-          "BUILDING STORY 1 THERMALZONE 1 PSZ-AC 1SPD DX AC CLG COIL 57KBTU/HR 14.0SEER(W)",
-          "BUILDING STORY 1 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 66KBTU/HR 11.0EER(W)",
+          "BUILDING STORY 1 THERMALZONE 1 PSZ-AC 1SPD DX AC CLG COIL 56KBTU/HR 14.0SEER(W)",
+          "BUILDING STORY 1 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 65KBTU/HR 11.0EER(W)",
           "BUILDING STORY 1 THERMALZONE 3 PSZ-AC 1SPD DX AC CLG COIL 52KBTU/HR 14.0SEER(W)",
-          "BUILDING STORY 1 THERMALZONE 4 PSZ-AC 1SPD DX AC CLG COIL 79KBTU/HR 11.0EER(W)",
+          "BUILDING STORY 1 THERMALZONE 4 PSZ-AC 1SPD DX AC CLG COIL 78KBTU/HR 11.0EER(W)",
           "BUILDING STORY 1 THERMALZONE PSZ-AC 1SPD DX AC CLG COIL 374KBTU/HR 9.8EER(W)",
-          "BUILDING STORY 2 THERMALZONE 1 PSZ-AC 1SPD DX AC CLG COIL 63KBTU/HR 14.0SEER(W)",
-          "BUILDING STORY 2 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 79KBTU/HR 11.0EER(W)",
+          "BUILDING STORY 2 THERMALZONE 1 PSZ-AC 1SPD DX AC CLG COIL 61KBTU/HR 14.0SEER(W)",
+          "BUILDING STORY 2 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 78KBTU/HR 11.0EER(W)",
           "BUILDING STORY 2 THERMALZONE 3 PSZ-AC 1SPD DX AC CLG COIL 59KBTU/HR 14.0SEER(W)",
-          "BUILDING STORY 2 THERMALZONE 4 PSZ-AC 1SPD DX AC CLG COIL 93KBTU/HR 11.0EER(W)",
+          "BUILDING STORY 2 THERMALZONE 4 PSZ-AC 1SPD DX AC CLG COIL 92KBTU/HR 11.0EER(W)",
           "BUILDING STORY 2 THERMALZONE PSZ-AC 1SPD DX AC CLG COIL 444KBTU/HR 9.8EER(W)",
-          "BUILDING STORY 3 THERMALZONE 1 PSZ-AC 1SPD DX AC CLG COIL 65KBTU/HR 14.0SEER(W)",
-          "BUILDING STORY 3 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 80KBTU/HR 11.0EER(W)",
+          "BUILDING STORY 3 THERMALZONE 1 PSZ-AC 1SPD DX AC CLG COIL 64KBTU/HR 14.0SEER(W)",
+          "BUILDING STORY 3 THERMALZONE 2 PSZ-AC 1SPD DX AC CLG COIL 79KBTU/HR 11.0EER(W)",
           "BUILDING STORY 3 THERMALZONE 3 PSZ-AC 1SPD DX AC CLG COIL 60KBTU/HR 14.0SEER(W)",
           "BUILDING STORY 3 THERMALZONE 4 PSZ-AC 1SPD DX AC CLG COIL 94KBTU/HR 11.0EER(W)",
           "BUILDING STORY 3 THERMALZONE PSZ-AC 1SPD DX AC CLG COIL 439KBTU/HR 9.8EER(W)",
@@ -5190,8 +4768,8 @@
         ]
       },
       "location": {
-        "latitude_deg": -78.84938709862115,
-        "longitude_deg": 42.81456738755389,
+        "latitude_deg": 42.81456738755389,
+        "longitude_deg": -78.84938709862115,
         "surface_elevation_ft": 215.0
       },
       "program": {
@@ -5201,12 +4779,13 @@
         "footprint_area_sqft": 10831.758932036382,
         "maximum_roof_height_ft": 10.8,
         "maximum_number_of_stories": 3,
+        "maximum_number_of_stories_above_ground": 3,
         "number_of_residential_units": 1,
         "building_types": [
           {
             "building_type": "FullServiceRestaurant",
-            "floor_area": 32495.295766602852,
-            "maximum_occupancy": 1698.4641191287983
+            "floor_area": 32495.295766399813,
+            "maximum_occupancy": 1698.464119118186
           }
         ],
         "window_area_sqft": {
@@ -5224,8 +4803,8 @@
           "total_wall_area_sqft": 15150.957385248103
         },
         "roof_area_sqft": {
-          "available_roof_area_sqft": 8123.823941650712,
-          "total_roof_area_sqft": 10831.765255534283
+          "available_roof_area_sqft": 8123.823941599954,
+          "total_roof_area_sqft": 10831.765255466606
         },
         "orientation_deg": 0.0,
         "aspect_ratio": 1.5916187951097365
@@ -5245,42 +4824,42 @@
             "day_of_month": 31,
             "year": 2017
           },
-          "total_site_energy_kwh": 3161886.111111111,
-          "total_source_energy_kwh": 6041375.0,
-          "site_EUI_kwh_per_m2": 1047.3601767230925,
-          "site_EUI_kbtu_per_ft2": 332.0114275876251,
-          "source_EUI_kwh_per_m2": 2001.177577337516,
-          "source_EUI_kbtu_per_ft2": 634.3699513064792,
-          "net_site_energy_kwh": 3161886.111111111,
-          "net_source_energy_kwh": 6041375.0,
-          "electricity_kwh": 1254866.6666666667,
-          "natural_gas_kwh": 1907019.4444444445,
+          "total_site_energy_kwh": 3353533.3333333335,
+          "total_source_energy_kwh": 6544913.888888889,
+          "site_EUI_kwh_per_m2": 1110.8424343002387,
+          "site_EUI_kbtu_per_ft2": 352.1351972640867,
+          "source_EUI_kwh_per_m2": 2167.9725095775925,
+          "source_EUI_kbtu_per_ft2": 687.2436663838189,
+          "net_site_energy_kwh": 3353533.3333333335,
+          "net_source_energy_kwh": 6544913.888888889,
+          "electricity_kwh": 1396872.2222222222,
+          "natural_gas_kwh": 1956661.1111111112,
           "propane_kwh": 0.0,
           "fuel_oil_kwh": 0.0,
           "other_fuels_kwh": 0.0,
           "district_cooling_kwh": 0.0,
           "district_heating_kwh": 0.0,
           "water_qbft": 8163.46,
-          "electricity_produced_kwh": 1254867.5,
+          "electricity_produced_kwh": 1396871.6666666667,
           "end_uses": {
             "electricity_kwh": {
               "heating": 0.0,
-              "cooling": 97322.22222222222,
-              "interior_lighting": 116683.33333333333,
+              "cooling": 95219.44444444445,
+              "interior_lighting": 119577.77777777778,
               "exterior_lighting": 51966.666666666664,
-              "interior_equipment": 588050.0,
+              "interior_equipment": 735061.1111111111,
               "exterior_equipment": 0.0,
-              "fans": 251680.55555555556,
+              "fans": 253336.11111111112,
               "pumps": 0.0,
               "heat_rejection": 0.0,
               "humidification": 0.0,
-              "heat_recovery": 25016.666666666668,
-              "water_systems": 124150.0,
+              "heat_recovery": 13869.444444444443,
+              "water_systems": 127838.8888888889,
               "refrigeration": 0.0,
               "generators": 0.0
             },
             "natural_gas_kwh": {
-              "heating": 73377.7777777778,
+              "heating": 123016.66666666667,
               "cooling": 0.0,
               "interior_lighting": 0.0,
               "exterior_lighting": 0.0,
@@ -5291,7 +4870,7 @@
               "heat_rejection": 0.0,
               "humidification": 0.0,
               "heat_recovery": 0.0,
-              "water_systems": 1062747.2222222222,
+              "water_systems": 1062752.7777777778,
               "refrigeration": 0.0,
               "generators": 0.0
             },
@@ -5406,36 +4985,34 @@
             }
           ],
           "comfort_result": {
-            "time_setpoint_not_met_during_occupied_cooling": 421.0,
-            "time_setpoint_not_met_during_occupied_heating": 120.0,
-            "time_setpoint_not_met_during_occupied_hours": 541.0,
-            "hours_out_of_comfort_bounds_PMV": 2398.0,
-            "hours_out_of_comfort_bounds_PPD": 154.0
+            "time_setpoint_not_met_during_occupied_cooling": 1.0,
+            "time_setpoint_not_met_during_occupied_heating": 7.0,
+            "time_setpoint_not_met_during_occupied_hours": 8.0,
+            "hours_out_of_comfort_bounds_PMV": 2183.0,
+            "hours_out_of_comfort_bounds_PPD": 135.0
           }
         }
       ],
       "distributed_generation": {
-        "lcc_us_dollars": 2313245.0,
-        "npv_us_dollars": 135789.0,
-        "year_one_energy_cost_us_dollars": 183075.65,
-        "year_one_demand_cost_us_dollars": 46177.26,
-        "year_one_bill_us_dollars": 230932.91,
-        "total_demand_cost_us_dollars": 442478.05,
-        "total_energy_cost_us_dollars": 1754260.87,
-        "year_one_energy_cost_bau_us_dollars": 202914.48,
-        "year_one_demand_cost_bau_us_dollars": 50906.44,
-        "year_one_bill_bau_us_dollars": 255500.92,
-        "total_energy_cost_bau_us_dollars": 1944359.82,
-        "total_demand_cost_bau_us_dollars": 487793.82,
-        "total_solar_pv_kw": 86.2382,
-        "total_storage_kw": 11.843322975770718,
-        "total_storage_kwh": 15.847360004616391,
+        "lcc_us_dollars": 2010431.0,
+        "npv_us_dollars": 57058.0,
+        "year_one_energy_cost_us_dollars": 137012.7,
+        "year_one_demand_cost_us_dollars": 32231.79,
+        "year_one_bill_us_dollars": 169244.49,
+        "total_demand_cost_us_dollars": 308850.28,
+        "total_energy_cost_us_dollars": 1312878.18,
+        "year_one_energy_cost_bau_us_dollars": 181593.31,
+        "year_one_demand_cost_bau_us_dollars": 34171.01,
+        "year_one_bill_bau_us_dollars": 215764.32,
+        "total_energy_cost_bau_us_dollars": 1740056.88,
+        "total_demand_cost_bau_us_dollars": 327432.21,
+        "total_solar_pv_kw": 303.61220000000003,
         "solar_pv": [
           {
             "size_kw": 81.2382
           },
           {
-            "size_kw": 5.0
+            "size_kw": 222.374
           }
         ],
         "wind": [
@@ -5445,10 +5022,7 @@
 
         ],
         "storage": [
-          {
-            "size_kw": 11.843322975770718,
-            "size_kwh": 15.847360004616391
-          }
+
         ]
       },
       "power_distribution": {
@@ -5459,7 +5033,7 @@
     {
       "id": "12",
       "name": "Mall 1",
-      "directory_name": "C:/Users/lderosa/Desktop/run/reopt_scenario/12",
+      "directory_name": "/Users/kflemin/Downloads/uo-july-new/run/reopt_scenario/12",
       "feature_type": "Building",
       "timesteps_per_hour": 1,
       "simulation_status": "Complete",
@@ -5541,15 +5115,15 @@
           "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE 4 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 1()",
           "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE STRIPMALL STRIP MALL - TYPE 1 PEOPLE 1()",
           "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 1 THERMALZONE STRIPMALL STRIP MALL - TYPE 2 PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE 1 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE 1 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
           "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE 1 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE 2 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE 2 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
           "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE 2 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE 3 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE 3 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
           "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE 3 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE 4 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE 4 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
           "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE 4 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
           "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 2 THERMALZONE STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
           "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 1 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 2()",
           "Zone Thermal Comfort Fanger Model PMV BUILDING STORY 3 THERMALZONE 2 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 2()",
@@ -5566,15 +5140,15 @@
           "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE 4 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 1()",
           "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE STRIPMALL STRIP MALL - TYPE 1 PEOPLE 1()",
           "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 1 THERMALZONE STRIPMALL STRIP MALL - TYPE 2 PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE 1 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE 1 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
           "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE 1 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE 2 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE 2 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
           "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE 2 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE 3 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE 3 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
           "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE 3 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE 4 STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE 4 STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
           "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE 4 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
-          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE STRIPMALL STRIP MALL - TYPE 1 PEOPLE 2()",
+          "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE STRIPMALL STRIP MALL - TYPE 2 PEOPLE 2()",
           "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 2 THERMALZONE STRIPMALL STRIP MALL - TYPE 3 PEOPLE 1()",
           "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 1 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 2()",
           "Zone Thermal Comfort Fanger Model PPD BUILDING STORY 3 THERMALZONE 2 STRIPMALL STRIP MALL - TYPE 3 PEOPLE 2()",
@@ -5612,8 +5186,8 @@
         ]
       },
       "location": {
-        "latitude_deg": -78.84827120955761,
-        "longitude_deg": 42.817900101570714,
+        "latitude_deg": 42.817900101570714,
+        "longitude_deg": -78.84827120955761,
         "surface_elevation_ft": 215.0
       },
       "program": {
@@ -5623,12 +5197,13 @@
         "footprint_area_sqft": 124738.25757836702,
         "maximum_roof_height_ft": 10.8,
         "maximum_number_of_stories": 3,
+        "maximum_number_of_stories_above_ground": 3,
         "number_of_residential_units": 1,
         "building_types": [
           {
             "building_type": "StripMall",
-            "floor_area": 374214.7775078872,
-            "maximum_occupancy": 2993.7182200630996
+            "floor_area": 374214.7775093396,
+            "maximum_occupancy": 2993.718220074718
           }
         ],
         "window_area_sqft": {
@@ -5646,8 +5221,8 @@
           "total_wall_area_sqft": 65609.04788476245
         },
         "roof_area_sqft": {
-          "available_roof_area_sqft": 93553.6943769718,
-          "total_roof_area_sqft": 124738.25916929574
+          "available_roof_area_sqft": 93553.6943773349,
+          "total_roof_area_sqft": 124738.25916977988
         },
         "orientation_deg": 0.0,
         "aspect_ratio": 0.21473725327636234
@@ -5667,42 +5242,42 @@
             "day_of_month": 31,
             "year": 2017
           },
-          "total_site_energy_kwh": 5779680.555555555,
-          "total_source_energy_kwh": 14560077.77777778,
-          "site_EUI_kwh_per_m2": 166.24668043566962,
-          "site_EUI_kbtu_per_ft2": 52.69992017057889,
-          "source_EUI_kwh_per_m2": 418.80594855956485,
-          "source_EUI_kbtu_per_ft2": 132.76078655052112,
-          "net_site_energy_kwh": 5779680.555555555,
-          "net_source_energy_kwh": 14560077.77777778,
-          "electricity_kwh": 3982191.6666666665,
-          "natural_gas_kwh": 1797488.8888888888,
+          "total_site_energy_kwh": 6322886.111111111,
+          "total_source_energy_kwh": 16673711.111111112,
+          "site_EUI_kwh_per_m2": 181.87144023636841,
+          "site_EUI_kbtu_per_ft2": 57.652942943866236,
+          "source_EUI_kwh_per_m2": 479.6024790853025,
+          "source_EUI_kbtu_per_ft2": 152.0331852351634,
+          "net_site_energy_kwh": 6322886.111111111,
+          "net_source_energy_kwh": 16673711.111111112,
+          "electricity_kwh": 4714211.111111111,
+          "natural_gas_kwh": 1608675.0,
           "propane_kwh": 0.0,
           "fuel_oil_kwh": 0.0,
           "other_fuels_kwh": 0.0,
           "district_cooling_kwh": 0.0,
           "district_heating_kwh": 0.0,
-          "water_qbft": 7466.96,
-          "electricity_produced_kwh": 3982191.1111111115,
+          "water_qbft": 7716.1,
+          "electricity_produced_kwh": 4714211.111111111,
           "end_uses": {
             "electricity_kwh": {
               "heating": 0.0,
-              "cooling": 435155.55555555556,
-              "interior_lighting": 2023675.0,
+              "cooling": 457808.3333333333,
+              "interior_lighting": 2572102.7777777775,
               "exterior_lighting": 357377.7777777778,
-              "interior_equipment": 517272.22222222225,
+              "interior_equipment": 646594.4444444444,
               "exterior_equipment": 0.0,
-              "fans": 359055.55555555556,
-              "pumps": 183125.0,
-              "heat_rejection": 22072.222222222223,
+              "fans": 367605.55555555556,
+              "pumps": 222016.66666666666,
+              "heat_rejection": 21980.555555555555,
               "humidification": 0.0,
-              "heat_recovery": 84458.33333333333,
+              "heat_recovery": 68725.0,
               "water_systems": 0.0,
               "refrigeration": 0.0,
               "generators": 0.0
             },
             "natural_gas_kwh": {
-              "heating": 1656158.3333333333,
+              "heating": 1467344.4444444445,
               "cooling": 0.0,
               "interior_lighting": 0.0,
               "exterior_lighting": 0.0,
@@ -5806,7 +5381,7 @@
               "exterior_equipment": 0.0,
               "fans": 0.0,
               "pumps": 0.0,
-              "heat_rejection": 1492447.2222222222,
+              "heat_rejection": 1561652.7777777778,
               "humidification": 0.0,
               "heat_recovery": 0.0,
               "water_systems": 581708.3333333334,
@@ -5828,36 +5403,36 @@
             }
           ],
           "comfort_result": {
-            "time_setpoint_not_met_during_occupied_cooling": 211.0,
-            "time_setpoint_not_met_during_occupied_heating": 668.0,
-            "time_setpoint_not_met_during_occupied_hours": 879.0,
-            "hours_out_of_comfort_bounds_PMV": 2187.0,
-            "hours_out_of_comfort_bounds_PPD": 10.0
+            "time_setpoint_not_met_during_occupied_cooling": 161.0,
+            "time_setpoint_not_met_during_occupied_heating": 383.0,
+            "time_setpoint_not_met_during_occupied_hours": 544.0,
+            "hours_out_of_comfort_bounds_PMV": 3138.0,
+            "hours_out_of_comfort_bounds_PPD": 137.0
           }
         }
       ],
       "distributed_generation": {
-        "lcc_us_dollars": 6845150.0,
-        "npv_us_dollars": 1333927.0,
-        "year_one_energy_cost_us_dollars": 421493.78,
-        "year_one_demand_cost_us_dollars": 178610.46,
-        "year_one_bill_us_dollars": 601784.24,
-        "total_demand_cost_us_dollars": 1711474.67,
-        "total_energy_cost_us_dollars": 4038822.47,
-        "year_one_energy_cost_bau_us_dollars": 649243.74,
-        "year_one_demand_cost_bau_us_dollars": 202567.75,
-        "year_one_bill_bau_us_dollars": 853491.49,
-        "total_energy_cost_bau_us_dollars": 6221159.87,
-        "total_demand_cost_bau_us_dollars": 1941037.34,
-        "total_solar_pv_kw": 940.5369,
-        "total_storage_kw": 76.90421733886592,
-        "total_storage_kwh": 122.31921339708606,
+        "lcc_us_dollars": 6909742.0,
+        "npv_us_dollars": 331121.0,
+        "year_one_energy_cost_us_dollars": 442114.49,
+        "year_one_demand_cost_us_dollars": 135745.09,
+        "year_one_bill_us_dollars": 577859.58,
+        "total_demand_cost_us_dollars": 1300731.69,
+        "total_energy_cost_us_dollars": 4236413.5,
+        "year_one_energy_cost_bau_us_dollars": 612847.46,
+        "year_one_demand_cost_bau_us_dollars": 142813.05,
+        "year_one_bill_bau_us_dollars": 755660.51,
+        "total_energy_cost_bau_us_dollars": 5872404.77,
+        "total_demand_cost_bau_us_dollars": 1368458.05,
+        "total_solar_pv_kw": 1222.181,
+        "total_storage_kw": 7.076685267198172,
+        "total_storage_kwh": 9.331819998115346,
         "solar_pv": [
           {
             "size_kw": 935.5369
           },
           {
-            "size_kw": 5.0
+            "size_kw": 286.6441
           }
         ],
         "wind": [
@@ -5868,8 +5443,8 @@
         ],
         "storage": [
           {
-            "size_kw": 76.90421733886592,
-            "size_kwh": 122.31921339708606
+            "size_kw": 7.076685267198172,
+            "size_kwh": 9.331819998115346
           }
         ]
       },
@@ -5881,7 +5456,7 @@
     {
       "id": "13",
       "name": "Hotel 1",
-      "directory_name": "C:/Users/lderosa/Desktop/run/reopt_scenario/13",
+      "directory_name": "/Users/kflemin/Downloads/uo-july-new/run/reopt_scenario/13",
       "feature_type": "Building",
       "timesteps_per_hour": 1,
       "simulation_status": "Complete",
@@ -5932,41 +5507,41 @@
           "District Heating Mass Flow Rate()",
           "District Heating Inlet Temperature()",
           "District Heating Outlet Temperature()",
-          "5 ZONE PVAV 1 2SPD DX CLG COIL 1481KBTU/HR 9.5EER(W)",
-          "5 ZONE PVAV 2 2SPD DX CLG COIL 999KBTU/HR 9.5EER(W)",
-          "5 ZONE PVAV 2SPD DX CLG COIL 1818KBTU/HR 9.5EER(W)",
+          "5 ZONE PVAV 1 2SPD DX CLG COIL 1457KBTU/HR 9.5EER(W)",
+          "5 ZONE PVAV 2 2SPD DX CLG COIL 990KBTU/HR 9.5EER(W)",
+          "5 ZONE PVAV 2SPD DX CLG COIL 1792KBTU/HR 9.5EER(W)",
           "BUILDING STORY 10 THERMALZONE 1 PTAC 1SPD DX AC CLG COIL 79KBTU/HR 9.5EER(W)",
           "BUILDING STORY 10 THERMALZONE 2 PTAC 1SPD DX AC CLG COIL 136KBTU/HR 9.5EER(W)",
           "BUILDING STORY 10 THERMALZONE 3 PTAC 1SPD DX AC CLG COIL 54KBTU/HR 9.5EER(W)",
           "BUILDING STORY 10 THERMALZONE 4 PTAC 1SPD DX AC CLG COIL 119KBTU/HR 9.5EER(W)",
           "BUILDING STORY 10 THERMALZONE PTAC 1SPD DX AC CLG COIL 371KBTU/HR 9.5EER(W)",
-          "BUILDING STORY 4 THERMALZONE 1 PTAC 1SPD DX AC CLG COIL 79KBTU/HR 9.5EER(W)",
+          "BUILDING STORY 4 THERMALZONE 1 PTAC 1SPD DX AC CLG COIL 78KBTU/HR 9.5EER(W)",
           "BUILDING STORY 4 THERMALZONE 2 PTAC 1SPD DX AC CLG COIL 123KBTU/HR 9.5EER(W)",
-          "BUILDING STORY 4 THERMALZONE 3 PTAC 1SPD DX AC CLG COIL 51KBTU/HR 9.5EER(W)",
+          "BUILDING STORY 4 THERMALZONE 3 PTAC 1SPD DX AC CLG COIL 50KBTU/HR 9.5EER(W)",
           "BUILDING STORY 4 THERMALZONE 4 PTAC 1SPD DX AC CLG COIL 107KBTU/HR 9.5EER(W)",
           "BUILDING STORY 4 THERMALZONE PTAC 1SPD DX AC CLG COIL 282KBTU/HR 9.5EER(W)",
-          "BUILDING STORY 5 THERMALZONE 1 PTAC 1SPD DX AC CLG COIL 79KBTU/HR 9.5EER(W)",
+          "BUILDING STORY 5 THERMALZONE 1 PTAC 1SPD DX AC CLG COIL 78KBTU/HR 9.5EER(W)",
           "BUILDING STORY 5 THERMALZONE 2 PTAC 1SPD DX AC CLG COIL 135KBTU/HR 9.5EER(W)",
-          "BUILDING STORY 5 THERMALZONE 3 PTAC 1SPD DX AC CLG COIL 54KBTU/HR 9.5EER(W)",
+          "BUILDING STORY 5 THERMALZONE 3 PTAC 1SPD DX AC CLG COIL 53KBTU/HR 9.5EER(W)",
           "BUILDING STORY 5 THERMALZONE 4 PTAC 1SPD DX AC CLG COIL 119KBTU/HR 9.5EER(W)",
           "BUILDING STORY 5 THERMALZONE PTAC 1SPD DX AC CLG COIL 283KBTU/HR 9.5EER(W)",
-          "BUILDING STORY 6 THERMALZONE 1 PTAC 1SPD DX AC CLG COIL 79KBTU/HR 9.5EER(W)",
+          "BUILDING STORY 6 THERMALZONE 1 PTAC 1SPD DX AC CLG COIL 78KBTU/HR 9.5EER(W)",
           "BUILDING STORY 6 THERMALZONE 2 PTAC 1SPD DX AC CLG COIL 135KBTU/HR 9.5EER(W)",
           "BUILDING STORY 6 THERMALZONE 3 PTAC 1SPD DX AC CLG COIL 54KBTU/HR 9.5EER(W)",
           "BUILDING STORY 6 THERMALZONE 4 PTAC 1SPD DX AC CLG COIL 118KBTU/HR 9.5EER(W)",
           "BUILDING STORY 6 THERMALZONE PTAC 1SPD DX AC CLG COIL 282KBTU/HR 9.5EER(W)",
-          "BUILDING STORY 7 THERMALZONE 1 PTAC 1SPD DX AC CLG COIL 79KBTU/HR 9.5EER(W)",
+          "BUILDING STORY 7 THERMALZONE 1 PTAC 1SPD DX AC CLG COIL 78KBTU/HR 9.5EER(W)",
           "BUILDING STORY 7 THERMALZONE 2 PTAC 1SPD DX AC CLG COIL 135KBTU/HR 9.5EER(W)",
           "BUILDING STORY 7 THERMALZONE 3 PTAC 1SPD DX AC CLG COIL 54KBTU/HR 9.5EER(W)",
           "BUILDING STORY 7 THERMALZONE 4 PTAC 1SPD DX AC CLG COIL 118KBTU/HR 9.5EER(W)",
           "BUILDING STORY 7 THERMALZONE PTAC 1SPD DX AC CLG COIL 282KBTU/HR 9.5EER(W)",
-          "BUILDING STORY 8 THERMALZONE 1 PTAC 1SPD DX AC CLG COIL 79KBTU/HR 9.5EER(W)",
+          "BUILDING STORY 8 THERMALZONE 1 PTAC 1SPD DX AC CLG COIL 78KBTU/HR 9.5EER(W)",
           "BUILDING STORY 8 THERMALZONE 2 PTAC 1SPD DX AC CLG COIL 135KBTU/HR 9.5EER(W)",
           "BUILDING STORY 8 THERMALZONE 3 PTAC 1SPD DX AC CLG COIL 54KBTU/HR 9.5EER(W)",
           "BUILDING STORY 8 THERMALZONE 4 PTAC 1SPD DX AC CLG COIL 118KBTU/HR 9.5EER(W)",
           "BUILDING STORY 8 THERMALZONE PTAC 1SPD DX AC CLG COIL 282KBTU/HR 9.5EER(W)",
           "BUILDING STORY 9 THERMALZONE 1 PTAC 1SPD DX AC CLG COIL 78KBTU/HR 9.5EER(W)",
-          "BUILDING STORY 9 THERMALZONE 2 PTAC 1SPD DX AC CLG COIL 135KBTU/HR 9.5EER(W)",
+          "BUILDING STORY 9 THERMALZONE 2 PTAC 1SPD DX AC CLG COIL 134KBTU/HR 9.5EER(W)",
           "BUILDING STORY 9 THERMALZONE 3 PTAC 1SPD DX AC CLG COIL 54KBTU/HR 9.5EER(W)",
           "BUILDING STORY 9 THERMALZONE 4 PTAC 1SPD DX AC CLG COIL 118KBTU/HR 9.5EER(W)",
           "BUILDING STORY 9 THERMALZONE PTAC 1SPD DX AC CLG COIL 282KBTU/HR 9.5EER(W)",
@@ -6214,8 +5789,8 @@
         ]
       },
       "location": {
-        "latitude_deg": -78.8493528748247,
-        "longitude_deg": 42.820005143225536,
+        "latitude_deg": 42.820005143225536,
+        "longitude_deg": -78.8493528748247,
         "surface_elevation_ft": 215.0
       },
       "program": {
@@ -6225,12 +5800,13 @@
         "footprint_area_sqft": 31599.41805994723,
         "maximum_roof_height_ft": 36.0,
         "maximum_number_of_stories": 10,
+        "maximum_number_of_stories_above_ground": 10,
         "number_of_residential_units": 1,
         "building_types": [
           {
             "building_type": "LargeHotel",
-            "floor_area": 315994.20322880516,
-            "maximum_occupancy": 4065.647786710365
+            "floor_area": 315994.2032268508,
+            "maximum_occupancy": 4065.6477866852215
           }
         ],
         "window_area_sqft": {
@@ -6248,8 +5824,8 @@
           "total_wall_area_sqft": 84198.4288135243
         },
         "roof_area_sqft": {
-          "available_roof_area_sqft": 23699.56524216039,
-          "total_roof_area_sqft": 31599.420322880524
+          "available_roof_area_sqft": 23699.565242013807,
+          "total_roof_area_sqft": 31599.420322685077
         },
         "orientation_deg": 0.0,
         "aspect_ratio": 0.8663402716141285
@@ -6269,42 +5845,42 @@
             "day_of_month": 31,
             "year": 2017
           },
-          "total_site_energy_kwh": 7488202.777777778,
-          "total_source_energy_kwh": 15762330.555555556,
-          "site_EUI_kwh_per_m2": 255.07540591173628,
-          "site_EUI_kbtu_per_ft2": 80.85847785831828,
-          "source_EUI_kwh_per_m2": 536.9222741276322,
-          "source_EUI_kbtu_per_ft2": 170.20346457552964,
-          "net_site_energy_kwh": 7488202.777777778,
-          "net_source_energy_kwh": 15762330.555555556,
-          "electricity_kwh": 3670241.6666666665,
-          "natural_gas_kwh": 3817961.1111111115,
+          "total_site_energy_kwh": 8369252.777777778,
+          "total_source_energy_kwh": 18545613.888888888,
+          "site_EUI_kwh_per_m2": 285.0871714912507,
+          "site_EUI_kbtu_per_ft2": 90.37215744622773,
+          "source_EUI_kwh_per_m2": 631.7310215782529,
+          "source_EUI_kbtu_per_ft2": 200.25767924632237,
+          "net_site_energy_kwh": 8369252.777777778,
+          "net_source_energy_kwh": 18545613.888888888,
+          "electricity_kwh": 4547933.333333333,
+          "natural_gas_kwh": 3821319.444444445,
           "propane_kwh": 0.0,
           "fuel_oil_kwh": 0.0,
           "other_fuels_kwh": 0.0,
           "district_cooling_kwh": 0.0,
           "district_heating_kwh": 0.0,
           "water_qbft": 15098.48,
-          "electricity_produced_kwh": 3670243.0555555555,
+          "electricity_produced_kwh": 4547932.5,
           "end_uses": {
             "electricity_kwh": {
               "heating": 0.0,
-              "cooling": 556202.7777777778,
-              "interior_lighting": 575819.4444444444,
+              "cooling": 617430.5555555556,
+              "interior_lighting": 596930.5555555555,
               "exterior_lighting": 97302.77777777778,
-              "interior_equipment": 991752.7777777779,
+              "interior_equipment": 1243544.4444444445,
               "exterior_equipment": 0.0,
-              "fans": 741463.8888888889,
-              "pumps": 2438.888888888889,
+              "fans": 897497.2222222222,
+              "pumps": 5633.333333333333,
               "heat_rejection": 0.0,
               "humidification": 0.0,
-              "heat_recovery": 59402.777777777774,
-              "water_systems": 645861.1111111111,
+              "heat_recovery": 57805.555555555555,
+              "water_systems": 1031788.8888888889,
               "refrigeration": 0.0,
               "generators": 0.0
             },
             "natural_gas_kwh": {
-              "heating": 1554236.1111111112,
+              "heating": 1557594.4444444445,
               "cooling": 0.0,
               "interior_lighting": 0.0,
               "exterior_lighting": 0.0,
@@ -6315,7 +5891,7 @@
               "heat_rejection": 0.0,
               "humidification": 0.0,
               "heat_recovery": 0.0,
-              "water_systems": 704447.2222222222,
+              "water_systems": 704444.4444444444,
               "refrigeration": 0.0,
               "generators": 0.0
             },
@@ -6430,36 +6006,34 @@
             }
           ],
           "comfort_result": {
-            "time_setpoint_not_met_during_occupied_cooling": 14.0,
+            "time_setpoint_not_met_during_occupied_cooling": 16.0,
             "time_setpoint_not_met_during_occupied_heating": 0.0,
-            "time_setpoint_not_met_during_occupied_hours": 14.0,
-            "hours_out_of_comfort_bounds_PMV": 1693.0,
-            "hours_out_of_comfort_bounds_PPD": 15.0
+            "time_setpoint_not_met_during_occupied_hours": 16.0,
+            "hours_out_of_comfort_bounds_PMV": 2215.0,
+            "hours_out_of_comfort_bounds_PPD": 48.0
           }
         }
       ],
       "distributed_generation": {
-        "lcc_us_dollars": 7074763.0,
-        "npv_us_dollars": 316341.0,
-        "year_one_energy_cost_us_dollars": 539958.43,
-        "year_one_demand_cost_us_dollars": 160969.4,
-        "year_one_bill_us_dollars": 702607.83,
-        "total_demand_cost_us_dollars": 1542435.19,
-        "total_energy_cost_us_dollars": 5173970.11,
-        "year_one_energy_cost_bau_us_dollars": 597739.41,
-        "year_one_demand_cost_bau_us_dollars": 171838.78,
-        "year_one_bill_bau_us_dollars": 771258.19,
-        "total_energy_cost_bau_us_dollars": 5727636.94,
-        "total_demand_cost_bau_us_dollars": 1646587.38,
-        "total_solar_pv_kw": 241.9957,
-        "total_storage_kw": 57.592685361574986,
-        "total_storage_kwh": 131.70791772448362,
+        "lcc_us_dollars": 6712606.0,
+        "npv_us_dollars": 89031.0,
+        "year_one_energy_cost_us_dollars": 515950.68,
+        "year_one_demand_cost_us_dollars": 118562.15,
+        "year_one_bill_us_dollars": 634512.83,
+        "total_demand_cost_us_dollars": 1136081.95,
+        "total_energy_cost_us_dollars": 4943923.96,
+        "year_one_energy_cost_bau_us_dollars": 591231.24,
+        "year_one_demand_cost_bau_us_dollars": 118591.4,
+        "year_one_bill_bau_us_dollars": 709822.64,
+        "total_energy_cost_bau_us_dollars": 5665274.57,
+        "total_demand_cost_bau_us_dollars": 1136362.19,
+        "total_solar_pv_kw": 519.4306,
         "solar_pv": [
           {
             "size_kw": 236.9957
           },
           {
-            "size_kw": 5.0
+            "size_kw": 282.4349
           }
         ],
         "wind": [
@@ -6469,10 +6043,7 @@
 
         ],
         "storage": [
-          {
-            "size_kw": 57.592685361574986,
-            "size_kwh": 131.70791772448362
-          }
+
         ]
       },
       "power_distribution": {

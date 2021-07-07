@@ -232,8 +232,8 @@ module URBANopt
                 end
                 k += 1
             end 
-			#parsing the required information from feature.json file
-			#folder =  JSON.parse(json_feature_report) 
+			# parsing the required information from feature.json file
+			# folder =  JSON.parse(json_feature_report) 
 			height = (json_feature_report['program']['maximum_roof_height_ft']).round(2) #here depends on the feature version
 			users = json_feature_report['program']['number_of_residential_units']
 			self.construct_consumer(profiles, single_values, building_map, building_nodes, height, users, json_feature_report['program'])

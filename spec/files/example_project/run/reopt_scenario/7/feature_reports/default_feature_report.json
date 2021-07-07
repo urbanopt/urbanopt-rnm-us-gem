@@ -1,7 +1,7 @@
 {
   "id": "7",
   "name": "Office 1",
-  "directory_name": "C:/Users/lderosa/Desktop/run/reopt_scenario/7",
+  "directory_name": "/Users/kflemin/Downloads/uo-july-new/run/reopt_scenario/7",
   "feature_type": "Building",
   "timesteps_per_hour": 1,
   "simulation_status": "Complete",
