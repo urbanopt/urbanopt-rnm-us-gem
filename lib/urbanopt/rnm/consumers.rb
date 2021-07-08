@@ -114,8 +114,8 @@ module URBANopt
 			# 2nd option run in case the building consumption is represented by a single node
             else
                 id = building_map[3]
-				area = (folder['floor_area_sqft']).round(2)
-                voltage_default, phases = self.voltage_values(single_values[:peak_active_power_cons]/@power_factor)
+				area = (folder['floor_area']).round(2)
+                voltage_default, phases = self.voltage_values(single_values[:peak_active_power_cons]/@power_factor*0.9) #applying safety factor
                 @customers.push([building_map, voltage_default, single_values[:peak_active_power_cons],single_values[:peak_reactive_power_cons], phases])
                 @customers_ext.push([building_map, voltage_default, single_values[:peak_active_power_cons], single_values[:peak_reactive_power_cons], phases, area, height, (single_values[:energy]).round(2), single_values[:peak_active_power_cons], single_values[:peak_reactive_power_cons], users])
                 @profile_customer_q.push([id, 24, profiles[:planning_profile_cust_reactive]])
@@ -216,7 +216,7 @@ module URBANopt
 			k = 0   # index for each hour of the year represented in the csv file 
 			i = 0 # to represent the 24 hours of a day
             #content = CSV.foreach(csv_feature_report, headers: true) do |power|
-            csv_feature_report.each do |power|
+            CSV.foreach(csv_feature_report, headers: true) do |power|
                 @power_factor = power["Electricity:Facility Power(kW)"].to_f/ power["Electricity:Facility Apparent Power(kVA)"].to_f
                 profiles[:yearly_profile_cust_active].push(power["Electricity:Facility Power(kW)"].to_f)
                 profiles[:yearly_profile_cust_reactive].push(profiles[:yearly_profile_cust_active][k] * Math.tan(Math.acos(@power_factor)))
