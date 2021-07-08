@@ -70,6 +70,7 @@ module URBANopt
 						@peak_hour_min_comm = (@time[j].split(' ')[1]).split(':')[0].to_i # defined the most-stressing scenario
 						@hour_index_min_comm = j
 					end
+					
 					if @res_consumption[j] > max_net_load_res
 						max_net_load_res = @res_consumption[j]
 						@peak_hour_max_res = (@time[j].split(' ')[1]).split(':')[0].to_i # defined the most-stressing scenario
@@ -104,11 +105,11 @@ module URBANopt
 
 		def aggregate_consumption(file_csv, file_json, n_feature)
 			feature_type = file_json['program']['building_types'][0]["building_type"]
-			residential_building_types = "Single-Family Detached" #add the other types
-			#residential_building_types = {type_1=>"Single-Family Detached", type_2=>"Single-Family Attached", type_3=>"MultiFamily", type_4=>"Single-Family", type_5=>"Multifamily Detached (2 to 4 units)", type_5=>"Multifamily Detached (5 or more units)"} #add the other types
-			puts feature_type
+			#residential_building_types = "Single-Family Detached" #add the other types
+			residential_building_types = ["Single-Family Detached", "Single-Family Attached", "MultiFamily", "Single-Family", "Multifamily Detached (2 to 4 units)", "Multifamily Detached (5 or more units)"] #add the other types
+			puts feature_type 
 			j = 0
-			 file_csv.each do |power|
+			CSV.foreach(file_csv, headers: true) do |power|
 			 	@time[j] = power['Datetime']
 			 	if n_feature == 0
 			 		@res_consumption[j] = 0
@@ -117,7 +118,7 @@ module URBANopt
 			 	if @reopt
 			 		if residential_building_types.include? feature_type
 			 				@res_consumption[j] += power['REopt:Electricity:Load:Total(kw)'].to_i + power['REopt:Electricity:Grid:ToBattery(kw)'].to_i + power['REopt:ElectricityProduced:PV:ToBattery(kw)'].to_i + power['REopt:ElectricityProduced:Wind:ToBattery(kw)'].to_i + power['REopt:ElectricityProduced:Generator:ToBattery(kw)'].to_i - power['REopt:Electricity:Storage:ToLoad(kw)'].to_i - power['REopt:Electricity:Storage:ToGrid(kw)'].to_i - power['REopt:ElectricityProduced:Total(kw)'].to_i
-			 				j += 1
+			 				j+=1
 			 		else
 			 				@commercial_consumption[j] += power['REopt:Electricity:Load:Total(kw)'].to_i + power['REopt:Electricity:Grid:ToBattery(kw)'].to_i + power['REopt:ElectricityProduced:PV:ToBattery(kw)'].to_i + power['REopt:ElectricityProduced:Wind:ToBattery(kw)'].to_i + power['REopt:ElectricityProduced:Generator:ToBattery(kw)'].to_i - power['REopt:Electricity:Storage:ToLoad(kw)'].to_i - power['REopt:Electricity:Storage:ToGrid(kw)'].to_i - power['REopt:ElectricityProduced:Total(kw)'].to_i
 			 				j += 1
