@@ -132,7 +132,6 @@ module URBANopt
             else
                 limit[:single_phase] = limit_lines[:single_phase]
             end
-             puts limit[:single_phase]
             return limit  
         end
 
@@ -170,18 +169,18 @@ module URBANopt
                     raise 'scenario_report is not found'
                 end
             end 
-            file_csv = Array.new()
+            file_csv = Array.new(){Array.new()}
             file_json = Array.new()
             # finding the 2 most extreme hours of the year (maximum net demand and maximum net generation) the distribution network is planned
              hours =  URBANopt::RNM::Report_scenario.new(@reopt)
              #hours_commercial = URBANopt::RNM::Report_scenario.new(@reopt)
              (0..tot_buildings-1).each do |j|
                 if @reopt 
-                        file_csv[j] = CSV.parse(File.read(File.join(@run_dir, "#{building_ids[j]}", 'feature_reports', 'feature_optimization.csv')), :headers => true)
+                        file_csv[j] = File.join(@run_dir, "#{building_ids[j]}", 'feature_reports', 'feature_optimization.csv')
                         file_json[j] = JSON.parse(File.read(File.join(@run_dir, "#{building_ids[j]}", 'feature_reports', 'feature_optimization.json')))
                         hours.aggregate_consumption(file_csv[j], file_json[j], j)
                 else
-                        file_csv[j] = CSV.parse(File.read(File.join(@run_dir, "#{building_ids[j]}", '014_default_feature_reports', 'default_feature_reports.csv')), :headers => true)
+                        file_csv[j] = File.join(@run_dir, "#{building_ids[j]}", 'feature_reports', 'default_feature_report.csv')
                         file_json[j] = JSON.parse(File.read(File.join(@run_dir, "#{building_ids[j]}", '014_default_feature_reports', 'default_feature_reports.json')))
                         hours.aggregate_consumption(file_csv[j], file_json[j], j)
                 end
@@ -297,13 +296,6 @@ module URBANopt
                  File.open(File.join(@run_dir, @rnm_dirname, "cust_profile_p_extendido.txt"), "w+") do |g|
                      g.puts(consumers.profile_customer_p_ext.map { |w| w.join(';') })
                  end
-                # CSV.open(File.join(@run_dir, @rnm_dirname, "cust_profile_p_extendido.csv"), "w") do |csv|
-                #     for i in 0..consumers.profile_customer_p_ext.length-1
-                #         #puts i
-                #         #puts .profile_customer_p_ext[i]
-                #             csv << consumers.profile_customer_p_ext[i][2]
-                #         end
-                #          end
                 ficheros_entrada_inc.push('CClienteGreenfield;customers_ext.txt;cust_profile_p.txt;cust_profile_q.txt;cust_profile_p_extendido.txt;cust_profile_q_extendido.txt')
                 ficheros_entrada_inc.push('END')
                 File.open(File.join(@run_dir, @rnm_dirname, "ficheros_entrada_inc.txt"), "w+") do |g|
