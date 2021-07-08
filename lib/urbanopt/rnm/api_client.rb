@@ -159,11 +159,19 @@ module URBANopt
             if data['status'] && ['failed', 'completed'].include?(data['status'])
               # done
               done = true
-              # get results
-              @results = data['results']
-              # download results
-              download_results
-              return
+              if data['status'] == 'failed'
+                if data['results'] && data['results']['message']
+                  puts "Simulation Error: #{data['results']['message']}"
+                else
+                  puts "Simulation Error!"
+                end
+              else
+                # get results
+                @results = data['results']
+                # download results
+                download_results
+                return
+              end
             else
               tries += 1
               sleep(1)
@@ -218,14 +226,17 @@ module URBANopt
           File.open(file_path, "wb") { |f| f.write streamed.join }
           puts "RNM-US results.zip downloaded to #{@rnm_dir}"
           # unzip
-           Zip::File.open(file_path) do |zip_file|
+          Zip::File.open(file_path) do |zip_file|
             zip_file.each do |f|
-              fpath = File.join(@rnm_dir, 'results', f.name)
-              zip_file.extract(f, fpath) unless File.exist?(fpath)
+              f_path = File.join(@rnm_dir, 'results', f.name)
+              FileUtils.mkdir_p(File.dirname(f_path))
+              zip_file.extract(f, f_path) unless File.exist?(f_path)
             end
           end
+
           # delete zip
           File.delete(file_path)
+          
         else
           msg = "Error retrieving results for #{the_sim_id}. error code: #{resp.status}.  #{resp.body}"
           @@logger.error(msg)
