@@ -29,9 +29,11 @@
 # *********************************************************************************
 
 require 'faraday'
+require 'fileutils'
 require 'json'
 require 'urbanopt/rnm/logger'
 require 'zip'
+
 
 module URBANopt
   module RNM
@@ -47,12 +49,16 @@ module URBANopt
       # * +use_localhost+ - _Bool_ - Flag to use localhost API vs production API
   	  def initialize(name, rnm_dir, use_localhost=false, reopt=false)
   	  	# todo: add NREL developer api key support
+        puts "USE LOCALHOST: #{use_localhost}"
+        puts "REOPT: #{reopt}"
   	  	@use_localhost = use_localhost
   	  	if @use_localhost
   	  		@base_api = "http://0.0.0.0:8080/api/v1/"
   	  	else
-  	  		@base_api = "http://0.0.0.0:8080/api/v1/"
+  	  		@base_api = "https://rnm.urbanopt.net/api/v1/"
         end
+
+        puts "Running RNM-US at #{@base_api}"
 
         # params
         @name = name
@@ -129,6 +135,7 @@ module URBANopt
   	  	end
 
   			resp = conn.post('simulations', payload)
+        data = JSON.parse(resp.body)
         
         if resp.status != 200
           msg = "Error submitting simulation to RNM-US API: status code #{resp.status} #{data['status']} - #{data['message']}"
@@ -136,7 +143,6 @@ module URBANopt
           raise msg
         end
 
-        data = JSON.parse(resp.body)
         @sim_id = data['simulation_id']
   	  end
 
@@ -148,6 +154,9 @@ module URBANopt
   	  	# poll until results are returned
         done = false
         conn = Faraday.new(url: @base_api)
+
+        # prepare results directory
+        prepare_results_dir
 
         max_tries = 10
         tries = 0
@@ -217,9 +226,7 @@ module URBANopt
         puts("STATUS: #{resp.status}, #{resp.body}")
 
         if resp.status == 200
-          if !Dir.exist?(File.join(@rnm_dir, 'results'))
-            Dir.mkdir(File.join(@rnm_dir, 'results'))
-          end
+         
 
           file_path = File.join(@rnm_dir, 'results', 'results.zip')
 
@@ -236,13 +243,26 @@ module URBANopt
 
           # delete zip
           File.delete(file_path)
-          
+
         else
           msg = "Error retrieving results for #{the_sim_id}. error code: #{resp.status}.  #{resp.body}"
           @@logger.error(msg)
           raise msg
         end
   	  end
+
+      ## 
+      # Prepare results directory
+      # Delete existing results
+      ## 
+      def prepare_results_dir()
+        if !Dir.exist?(File.join(@rnm_dir, 'results'))
+          Dir.mkdir(File.join(@rnm_dir, 'results'))
+        else
+          del_path = File.join(@rnm_dir, 'results', '*')
+          FileUtils.rm_rf Dir.glob(del_path)
+        end
+      end
 
   	end
   end

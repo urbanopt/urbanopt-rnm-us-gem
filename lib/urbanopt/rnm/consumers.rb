@@ -53,7 +53,7 @@ module URBANopt
 		end
 
 		# creating a method to process each building electricity consumption 
-		# the method receives as argument the required data obtined from each feature csv and json urbanopt output files
+		# the method receives as argument the required data obtained from each feature csv and json urbanopt output files
 		# and returns the customer_ext array for each feature, with the required customer data needed for RNM-US
 		# and the profiles consumers files
 		
@@ -73,79 +73,80 @@ module URBANopt
 				cont = 1
 				cont_reverse = 1
 				for i in 1..nodes_per_bldg
-						coordinates = building_map
-						node = closest_node + cont # to set the new nodes with enough distance among each others
-						node_reverse = closest_node - cont_reverse
-						if i > 1 && node <= building_nodes.length-1
-							coordinates = building_nodes[node] # take the closest building node index to the street and pass the nodes after it
-							cont += 1
-						elsif i > 1 
-							coordinates = building_nodes[node_reverse]
-							cont_reverse += 1
-						end 
-						# creating the lists for the customers text files required by the model
-							id = coordinates[3]
-							peak_active_power_cons = ((single_values[:peak_active_power_cons] ) / nodes_per_bldg).round(2)
-							peak_reactive_power_cons = ((single_values[:peak_reactive_power_cons] ) / nodes_per_bldg).round(2)
-							#introducing this for consistency
-							if medium_voltage
-								voltage_default = 12.47
-								phases = 3
-							else
-								voltage_default, phases = self.voltage_values(peak_active_power_cons/@power_factor)
-							end
-							
-							for k in 0..profiles[:planning_profile_cust_active].length-1
-									planning_profile_node_active[k] = ((profiles[:planning_profile_cust_active][k])/nodes_per_bldg).round(2) 
-									planning_profile_node_reactive[k] = ((profiles[:planning_profile_cust_reactive][k])/nodes_per_bldg).round(2) 
-							end
-							for k in 0..profiles[:yearly_profile_cust_active].length-1
-								yearly_profile_node_active[k] = ((profiles[:yearly_profile_cust_active][k])/nodes_per_bldg).round(2) 
-								yearly_profile_node_reactive[k] = ((profiles[:yearly_profile_cust_reactive][k])/nodes_per_bldg).round(2)
-							end
-							@customers.push([coordinates, voltage_default, peak_active_power_cons, peak_reactive_power_cons, phases])
-							@customers_ext.push([coordinates, voltage_default, peak_active_power_cons, peak_reactive_power_cons, phases, area, height, (single_values[:energy]/nodes_per_bldg).round(2), peak_active_power_cons, peak_reactive_power_cons, users])
-							@profile_customer_q.push([id, 24, planning_profile_node_reactive])
-							@profile_customer_p.push([id, 24, planning_profile_node_active])
-							@profile_customer_p_ext.push([id, 8760, yearly_profile_node_active])
-							@profile_customer_q_ext.push([id, 8760, yearly_profile_node_reactive])
+					coordinates = building_map
+					node = closest_node + cont # to set the new nodes with enough distance among each others
+					node_reverse = closest_node - cont_reverse
+					if i > 1 && node <= building_nodes.length-1
+						coordinates = building_nodes[node] # take the closest building node index to the street and pass the nodes after it
+						cont += 1
+					elsif i > 1 
+						coordinates = building_nodes[node_reverse]
+						cont_reverse += 1
+					end 
+					# creating the lists for the customers text files required by the model
+					id = coordinates[3]
+					peak_active_power_cons = ((single_values[:peak_active_power_cons] ) / nodes_per_bldg).round(2)
+					peak_reactive_power_cons = ((single_values[:peak_reactive_power_cons] ) / nodes_per_bldg).round(2)
+					#introducing this for consistency
+					if medium_voltage
+						voltage_default = 12.47
+						phases = 3
+					else
+						voltage_default, phases = self.voltage_values(peak_active_power_cons/@power_factor)
+					end
+					
+					for k in 0..profiles[:planning_profile_cust_active].length-1
+							planning_profile_node_active[k] = ((profiles[:planning_profile_cust_active][k])/nodes_per_bldg).round(2) 
+							planning_profile_node_reactive[k] = ((profiles[:planning_profile_cust_reactive][k])/nodes_per_bldg).round(2) 
+					end
+					for k in 0..profiles[:yearly_profile_cust_active].length-1
+						yearly_profile_node_active[k] = ((profiles[:yearly_profile_cust_active][k])/nodes_per_bldg).round(2) 
+						yearly_profile_node_reactive[k] = ((profiles[:yearly_profile_cust_reactive][k])/nodes_per_bldg).round(2)
+					end
+					@customers.push([coordinates, voltage_default, peak_active_power_cons, peak_reactive_power_cons, phases])
+					@customers_ext.push([coordinates, voltage_default, peak_active_power_cons, peak_reactive_power_cons, phases, area, height, (single_values[:energy]/nodes_per_bldg).round(2), peak_active_power_cons, peak_reactive_power_cons, users])
+					@profile_customer_q.push([id, 24, planning_profile_node_reactive])
+					@profile_customer_p.push([id, 24, planning_profile_node_active])
+					@profile_customer_p_ext.push([id, 8760, yearly_profile_node_active])
+					@profile_customer_q_ext.push([id, 8760, yearly_profile_node_reactive])
 			
 				end
 			# 2nd option run in case the building consumption is represented by a single node
-            else
-                id = building_map[3]
-				area = (folder['floor_area']).round(2)
-                voltage_default, phases = self.voltage_values(single_values[:peak_active_power_cons]/@power_factor*0.9) #applying safety factor
-                @customers.push([building_map, voltage_default, single_values[:peak_active_power_cons],single_values[:peak_reactive_power_cons], phases])
-                @customers_ext.push([building_map, voltage_default, single_values[:peak_active_power_cons], single_values[:peak_reactive_power_cons], phases, area, height, (single_values[:energy]).round(2), single_values[:peak_active_power_cons], single_values[:peak_reactive_power_cons], users])
-                @profile_customer_q.push([id, 24, profiles[:planning_profile_cust_reactive]])
-                @profile_customer_p.push([id, 24, profiles[:planning_profile_cust_active]])
-                @profile_customer_p_ext.push([id, 8760, profiles[:yearly_profile_cust_active]])
-                @profile_customer_q_ext.push([id, 8760, profiles[:yearly_profile_cust_reactive]])
+			else
+        id = building_map[3]
+        # this key seems to change between floor_area or floor_area_ft
+				area = folder.has_key?('floor_area') ? (folder['floor_area']).round(2) : (folder['floor_area_sqft']).round(2)
+        voltage_default, phases = self.voltage_values(single_values[:peak_active_power_cons]/@power_factor*0.9) #applying safety factor
+        @customers.push([building_map, voltage_default, single_values[:peak_active_power_cons],single_values[:peak_reactive_power_cons], phases])
+        @customers_ext.push([building_map, voltage_default, single_values[:peak_active_power_cons], single_values[:peak_reactive_power_cons], phases, area, height, (single_values[:energy]).round(2), single_values[:peak_active_power_cons], single_values[:peak_reactive_power_cons], users])
+        @profile_customer_q.push([id, 24, profiles[:planning_profile_cust_reactive]])
+        @profile_customer_p.push([id, 24, profiles[:planning_profile_cust_active]])
+        @profile_customer_p_ext.push([id, 8760, profiles[:yearly_profile_cust_active]])
+        @profile_customer_q_ext.push([id, 8760, profiles[:yearly_profile_cust_reactive]])
 			end
-        end
+    end
 
-			# creating a function that for each  node defines the connection (e.g LV, MV, single-phase, 3-phase)
-			# according to the catalog limits previously calculated
-			def voltage_values(peak_apparent_power)
-				case peak_apparent_power 
-					when 0..@lv_limit[:single_phase] # set by the catalog limits
-						phases = 1
-						voltage_default = 0.416
-					when @lv_limit[:single_phase]..@lv_limit[:three_phase] # defined from the catalog (from the wires)
-						phases = 3
-						voltage_default = 0.416
-						# MV and 3 phases untill 16 MVA, defined by the SMART-DS project
-					when @lv_limit[:three_phase]..16000
-						phases = 3
-						voltage_default = 12.47
-					else
-						# HV and 3 phases for over 16 MVA
-						phases = 3
-						voltage_default = 69
-				end
-				return voltage_default, phases
+		# creating a function that for each  node defines the connection (e.g LV, MV, single-phase, 3-phase)
+		# according to the catalog limits previously calculated
+		def voltage_values(peak_apparent_power)
+			case peak_apparent_power 
+				when 0..@lv_limit[:single_phase] # set by the catalog limits
+					phases = 1
+					voltage_default = 0.416
+				when @lv_limit[:single_phase]..@lv_limit[:three_phase] # defined from the catalog (from the wires)
+					phases = 3
+					voltage_default = 0.416
+					# MV and 3 phases untill 16 MVA, defined by the SMART-DS project
+				when @lv_limit[:three_phase]..16000
+					phases = 3
+					voltage_default = 12.47
+				else
+					# HV and 3 phases for over 16 MVA
+					phases = 3
+					voltage_default = 69
 			end
+			return voltage_default, phases
+		end
 
 		# creating a method to define the number of nodes for each building in case the user set the option "only LV" to true.
 		# this method calculates the number of nodes for each building in the project and in case the numb of nodes is higher than 4

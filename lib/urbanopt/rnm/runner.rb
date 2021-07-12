@@ -46,7 +46,7 @@ module URBANopt
       # * +average_peak_catalog_path+ - _String_ - Full path to average peak catalog
       # * +reopt+ - _Boolean_ - Use REopt results to generate inputs? Defaults to false
       # * +opendss_catalog+ - _Boolean_ - Generate OpenDSS catalog? Defaults to true
-      def initialize(name, root_dir, run_dir, feature_file_path, extended_catalog_path, average_peak_catalog_path, reopt:false, opendss_catalog:true)
+      def initialize(name, root_dir, run_dir, feature_file_path, extended_catalog_path:nil, average_peak_catalog_path:nil, reopt:false, opendss_catalog:true)
         @name = name
         # these are all absolute paths
         @root_dir = root_dir
@@ -59,6 +59,15 @@ module URBANopt
         @extended_catalog_path = extended_catalog_path
         @average_peak_catalog_path = average_peak_catalog_path
         @opendss_catalog = opendss_catalog
+
+        # set default catalog paths if they are nil
+        if @extended_catalog_path.nil?
+          @extended_catalog_path = File.join(File.dirname(__FILE__), '..', '..', '..', 'catalogs', 'extended_catalog.json')
+        end
+        if @average_peak_catalog_path.nil?
+          @average_peak_catalog_path = File.join(File.dirname(__FILE__), '..', '..', '..', 'catalogs', 'average_peak_per_building_type.json')
+        end
+
         # initialize @@logger
         @@logger ||= URBANopt::RNM.logger
 
@@ -110,7 +119,7 @@ module URBANopt
       def run()
         # start client
         # TODO: fix this!
-        @api_client = URBANopt::RNM::ApiClient.new(@name, @rnm_dir, use_localhost:true, reopt:@reopt)
+        @api_client = URBANopt::RNM::ApiClient.new(@name, @rnm_dir, use_localhost=true, reopt=@reopt)
         @api_client.submit_simulation()
         
       end

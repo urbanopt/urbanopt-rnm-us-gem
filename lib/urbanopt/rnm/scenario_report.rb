@@ -33,7 +33,7 @@ module URBANopt
 	class Report_scenario
 		attr_accessor :hour_index_max_res, :hour_index_min_res, :peak_hour_max_res, :peak_hour_min_res, :hour_index_max_comm, :hour_index_min_comm, :peak_hour_max_comm, :peak_hour_min_comm
 		def initialize(reopt)
-            @reopt = reopt
+      @reopt = reopt
 			@hour_index_max_res = hour_index_max_res
 			@hour_index_min_res = hour_index_min_res
 			@peak_hour_max_res = peak_hour_max_res

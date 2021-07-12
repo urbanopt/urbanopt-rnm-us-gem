@@ -75,7 +75,33 @@ task :create_inputs, [:scenario_dir_path, :feature_file_path, :reopt, :opendss_c
   end
 	
 	# generate inputs     
-  runner = URBANopt::RNM::Runner.new(scenario_name, root_dir, run_dir, feature_file_path, extended_catalog_path, average_peak_catalog_path, reopt:reopt, opendss_catalog:opendss_catalog)
+  runner = URBANopt::RNM::Runner.new(scenario_name, root_dir, run_dir, feature_file_path, extended_catalog_path:extended_catalog_path, average_peak_catalog_path:average_peak_catalog_path, reopt:reopt, opendss_catalog:opendss_catalog)
+  runner.create_simulation_files
+  puts "....done!"
+end
+
+# create input files for a project
+# pass in the path to the scenario directory, the path to the json feature file, and whether this a reopt analysis (true/false)
+desc 'Create input files'
+task :create_inputs_default, [:scenario_dir_path, :feature_file_path] do |t, args|
+	puts "Creating input files with defaulted settings"
+	# if no path passed in, use default:
+	scenario_dir = args[:scenario_dir_path] ? args[:scenario_dir_path] : "spec/test/example_project/run/baseline_scenario"
+	
+	run_dir = scenario_dir
+	root_dir = File.join(run_dir, '..', '..') # 2 levels up
+
+	# set up variables	
+	feature_file_path = args[:feature_file_path] ? args[:feature_file_path]: File.join(root_dir,  'example_project_with_network_and_streets.json')
+  
+  scenario_name = Pathname.new(scenario_dir).basename 
+      
+  if !File.exists?(File.join(File.dirname(__FILE__), '..', 'test'))
+    FileUtils.mkdir_p(File.join(File.dirname(__FILE__), '..', 'test'))
+  end
+	
+	# generate inputs     
+  runner = URBANopt::RNM::Runner.new(scenario_name, root_dir, run_dir, feature_file_path)
   runner.create_simulation_files
   puts "....done!"
 end
@@ -99,7 +125,10 @@ task :run_simulation, [:scenario_dir_path, :reopt, :use_localhost] do |t, args|
 		raise "No rnm-us directory found for this scenario...run the create_inputs rake task first."
 	end
 
-	api_client = URBANopt::RNM::ApiClient.new(scenario_name, rnm_dir, use_localhost, reopt:reopt)
+	puts "scenario dir path: #{run_dir}"
+	puts "reopt: #{reopt}"
+	puts "use_localhost: #{use_localhost}"
+	api_client = URBANopt::RNM::ApiClient.new(scenario_name, rnm_dir, use_localhost=use_localhost, reopt=reopt)
 	api_client.submit_simulation
 	api_client.get_results
 

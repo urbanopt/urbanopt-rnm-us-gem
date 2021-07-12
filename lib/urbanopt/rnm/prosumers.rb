@@ -350,7 +350,8 @@ module URBANopt
 					self.construct_prosumer_lv(nodes_per_bldg, profiles, single_values, building_map, building_nodes, area, height, users, der_capacity)
 				end
 			else
-				area = (json_feature_report['program']['floor_area']).round(2)
+				# this key seems to change between floor_area or floor_area_ft
+				area = json_feature_report['program'].has_key?('floor_area') ? (json_feature_report['program']['floor_area']).round(2) : (json_feature_report['program']['floor_area_sqft']).round(2)
 				#associating 2 nodes (consumers & DG and battery in the same node) per building considering the consumer, the battery and DG
 				self.construct_prosumer_general(profiles, single_values, building_map, area, height, users, der_capacity)
 			end	

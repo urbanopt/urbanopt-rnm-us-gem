@@ -169,7 +169,7 @@ module URBANopt
                     raise 'scenario_report is not found'
                 end
             end 
-            file_csv = Array.new(){Array.new()}
+            file_csv = Array.new()
             file_json = Array.new()
             # finding the 2 most extreme hours of the year (maximum net demand and maximum net generation) the distribution network is planned
              hours =  URBANopt::RNM::Report_scenario.new(@reopt)
@@ -181,7 +181,7 @@ module URBANopt
                         hours.aggregate_consumption(file_csv[j], file_json[j], j)
                 else
 
-                        file_csv[j] = CSV.parse(File.read(File.join(@run_dir, "#{building_ids[j]}", 'feature_reports', 'default_feature_report.csv')), :headers => true)
+                        file_csv[j] = File.join(@run_dir, "#{building_ids[j]}", 'feature_reports', 'default_feature_report.csv')
                         file_json[j] = JSON.parse(File.read(File.join(@run_dir, "#{building_ids[j]}", 'feature_reports', 'default_feature_report.json')))
 
                         hours.aggregate_consumption(file_csv[j], file_json[j], j)
@@ -191,16 +191,16 @@ module URBANopt
 
             # iterating over each building to define each consumer/prosumer
             (0..tot_buildings-1).each do |j| #(0..20).each do |j|
-                    # use building_ids lookup to get name of results directory
-                    # reports will be in 'feature_reports' directory 
-                    if @reopt 
-                        # file_path = File.join(@run_dir, "#{building_ids[j]}", 'feature_reports', 'feature_optimization')
-                        # prosumers.prosumer_files_load(file_path[j] + ".csv", File.read(file_path + ".json"), customers_coordinates[j], coordinates_buildings[j], hours)
-                        prosumers.prosumer_files_load(file_csv[j], file_json[j], customers_coordinates[j], coordinates_buildings[j], hours)
-                    else
-                        # file_path = File.join(@run_dir, "#{building_ids[j]}", '014_default_feature_reports', 'default_feature_reports')
-                        consumers.customer_files_load(file_csv[j], file_json[j], customers_coordinates[j], coordinates_buildings[j], hours)
-                   end
+                # use building_ids lookup to get name of results directory
+                # reports will be in 'feature_reports' directory 
+                if @reopt 
+                    # file_path = File.join(@run_dir, "#{building_ids[j]}", 'feature_reports', 'feature_optimization')
+                    # prosumers.prosumer_files_load(file_path[j] + ".csv", File.read(file_path + ".json"), customers_coordinates[j], coordinates_buildings[j], hours)
+                    prosumers.prosumer_files_load(file_csv[j], file_json[j], customers_coordinates[j], coordinates_buildings[j], hours)
+                else
+                    # file_path = File.join(@run_dir, "#{building_ids[j]}", '014_default_feature_reports', 'default_feature_reports')
+                    consumers.customer_files_load(file_csv[j], file_json[j], customers_coordinates[j], coordinates_buildings[j], hours)
+               end
             end
             rnm_us_catalog = URBANopt::RNM::Rnm_us_catalog_conversion.new(@extended_catalog_path, @run_dir, @rnm_dirname)
             rnm_us_catalog.processing_data
