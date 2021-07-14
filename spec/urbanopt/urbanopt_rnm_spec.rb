@@ -1,5 +1,5 @@
 # *********************************************************************************
-# URBANopt™, Copyright (c) 2019-2021, Alliance for Sustainable Energy, LLC, and other
+# URBANopt (tm), Copyright (c) 2019-2021, Alliance for Sustainable Energy, LLC, and other
 # contributors. All rights reserved.
 
 # Redistribution and use in source and binary forms, with or without modification,
@@ -43,7 +43,6 @@ require 'fileutils'
 require_relative '../spec_helper'
 
 RSpec.describe URBANopt::RNM do
-
   it 'has a version number' do
     expect(URBANopt::RNM::VERSION).not_to be nil
   end
@@ -60,82 +59,78 @@ RSpec.describe URBANopt::RNM do
     before(:all) do
       @root_dir = File.join(File.dirname(__FILE__), '..', 'test', 'example_project')
       @run_dir = File.join(@root_dir, 'run', 'baseline_scenario')
-      @feature_file_path = File.join(@root_dir,  'example_project_with_network_and_streets.json')
+      @feature_file_path = File.join(@root_dir, 'example_project_with_network_and_streets.json')
       @reopt = false
-      @extended_catalog_path = File.join(File.dirname(__FILE__), '..', '..','catalogs',  'extended_catalog.json')
-      @average_peak_catalog_path = File.join(File.dirname(__FILE__), '..', '..','catalogs',  'average_peak_per_building_type.json')
-      @name = 'baseline_scenario' 
+      @extended_catalog_path = File.join(File.dirname(__FILE__), '..', '..', 'catalogs',  'extended_catalog.json')
+      @average_peak_catalog_path = File.join(File.dirname(__FILE__), '..', '..', 'catalogs', 'average_peak_per_building_type.json')
+      @name = 'baseline_scenario'
       @opendss_catalog = true
-      
-      if !File.exists?(File.join(File.dirname(__FILE__), '..', 'test'))
+
+      if !File.exist?(File.join(File.dirname(__FILE__), '..', 'test'))
         FileUtils.mkdir_p(File.join(File.dirname(__FILE__), '..', 'test'))
       end
-      
-      FileUtils.cp_r(File.join(File.dirname(__FILE__), '..', 'files', 'example_project'), File.join(File.dirname(__FILE__), '..', 'test'))
-      @runner = URBANopt::RNM::Runner.new(@name, @root_dir, @run_dir, @feature_file_path, extended_catalog_path:@extended_catalog_path, average_peak_catalog_path:@average_peak_catalog_path, reopt:@reopt, opendss_catalog:@opendss_catalog)
-    end
-    
-    it 'creates the rnm-us input files' do
 
+      FileUtils.cp_r(File.join(File.dirname(__FILE__), '..', 'files', 'example_project'), File.join(File.dirname(__FILE__), '..', 'test'))
+      @runner = URBANopt::RNM::Runner.new(@name, @root_dir, @run_dir, @feature_file_path, extended_catalog_path: @extended_catalog_path, average_peak_catalog_path: @average_peak_catalog_path, reopt: @reopt, opendss_catalog: @opendss_catalog)
+    end
+
+    it 'creates the rnm-us input files' do
       # check that example project directory was created
-      expect(File.exists?(@root_dir)).to be true
-      
+      expect(File.exist?(@root_dir)).to be true
+
       # create sim files
-      @runner.create_simulation_files()
+      @runner.create_simulation_files
 
       # check that input files were created
-      expect(File.exists?(File.join(@run_dir, 'rnm-us'))).to be true
-      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'customers.txt'))).to be true
-      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'customers_ext.txt'))).to be true
-      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'streetmapAS.txt'))).to be true
-      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'cust_profile_p.txt'))).to be true
-      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'cust_profile_q.txt'))).to be true
-      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'cust_profile_q_extendido.txt'))).to be true
-      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'cust_profile_p_extendido.txt'))).to be true
-      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'ficheros_entrada.txt'))).to be true
-      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'ficheros_entrada_inc.txt'))).to be true
+      expect(File.exist?(File.join(@run_dir, 'rnm-us'))).to be true
+      expect(File.exist?(File.join(@run_dir, 'rnm-us', 'customers.txt'))).to be true
+      expect(File.exist?(File.join(@run_dir, 'rnm-us', 'customers_ext.txt'))).to be true
+      expect(File.exist?(File.join(@run_dir, 'rnm-us', 'streetmapAS.txt'))).to be true
+      expect(File.exist?(File.join(@run_dir, 'rnm-us', 'cust_profile_p.txt'))).to be true
+      expect(File.exist?(File.join(@run_dir, 'rnm-us', 'cust_profile_q.txt'))).to be true
+      expect(File.exist?(File.join(@run_dir, 'rnm-us', 'cust_profile_q_extendido.txt'))).to be true
+      expect(File.exist?(File.join(@run_dir, 'rnm-us', 'cust_profile_p_extendido.txt'))).to be true
+      expect(File.exist?(File.join(@run_dir, 'rnm-us', 'ficheros_entrada.txt'))).to be true
+      expect(File.exist?(File.join(@run_dir, 'rnm-us', 'ficheros_entrada_inc.txt'))).to be true
 
       # check that opendss catalog was created (default is to create it)
-      expect(File.exists?(File.join(@run_dir, 'opendss_catalog.json'))).to be true
-
+      expect(File.exist?(File.join(@run_dir, 'opendss_catalog.json'))).to be true
     end
 
     it 'uses default field values when none are specified in feature file' do
-
       @feature_file_path2 = File.join(@root_dir, 'example_project_streets_missingfields.json')
-      
-      # also attempt to use default catalogs
-      @runner2 = URBANopt::RNM::Runner.new(@name, @root_dir, @run_dir, @feature_file_path2, reopt:@reopt)
-      expect {  @runner2.create_simulation_files() }.to output(a_string_including("RNM-US gem WARNING: field ['project']['only_lv_consumers'] not specified in Feature File...using default value of true")).to_stdout
-      expect {  @runner2.create_simulation_files() }.to output(a_string_including("RNM-US gem WARNING: field ['project']['underground_cables_ratio'] not specified in Feature File...using default value of 0.9")).to_stdout
 
+      # also attempt to use default catalogs
+      @runner2 = URBANopt::RNM::Runner.new(@name, @root_dir, @run_dir, @feature_file_path2, reopt: @reopt)
+      expect {  @runner2.create_simulation_files }.to output(a_string_including("RNM-US gem WARNING: field ['project']['only_lv_consumers'] not specified in Feature File...using default value of true")).to_stdout
+      expect {  @runner2.create_simulation_files }.to output(a_string_including("RNM-US gem WARNING: field ['project']['underground_cables_ratio'] not specified in Feature File...using default value of 0.9")).to_stdout
     end
 
     it 'zips input files' do
       @rnm_dir = File.join(@run_dir, 'rnm-us')
 
-      if File.exists?(File.join(@rnm_dir, 'inputs.zip'))
+      if File.exist?(File.join(@rnm_dir, 'inputs.zip'))
         FileUtils.rm_r(File.join(@rnm_dir, 'inputs.zip'))
       end
 
       use_local = true
       @api_client = URBANopt::RNM::ApiClient.new(@name, @rnm_dir, use_local, @reopt)
-      @api_client.zip_input_files()
+      @api_client.zip_input_files
 
-      expect(File.exists?(File.join(@rnm_dir, 'inputs.zip'))).to be true
+      expect(File.exist?(File.join(@rnm_dir, 'inputs.zip'))).to be true
     end
 
-    #it 'runs and gets results' do
-      # depends on files created in previous test
-     # @runner.run()
-     # @runner.get_results()
-      # begin
-      #   @runner.get_results()
-      # rescue
-        # test download with a valid simulation (just for quick testing)
-        # @runner.download_results('344c0187-47ae-4fff-9bb1-a98030ca255b')
-      # end
-    #end
+    # it 'runs and gets results' do
+    # depends on files created in previous test
+    # @runner.run()
+    # @runner.get_results()
+    # begin
+    #   @runner.get_results()
+    # rescue
+    # test download with a valid simulation (just for quick testing)
+    # @runner.download_results('344c0187-47ae-4fff-9bb1-a98030ca255b')
+    # end
+    # end
   end
 
   # modify this according to reopt
@@ -143,73 +138,71 @@ RSpec.describe URBANopt::RNM do
     before(:all) do
       @root_dir = File.join(File.dirname(__FILE__), '..', 'test_reopt', 'example_project')
       @run_dir = File.join(@root_dir, 'run', 'reopt_scenario')
-      @feature_file_path = File.join(@root_dir,  'example_project_with_network_and_streets.json')
-      @name = 'reopt_scenario' 
+      @feature_file_path = File.join(@root_dir, 'example_project_with_network_and_streets.json')
+      @name = 'reopt_scenario'
       @reopt = true
-      @extended_catalog_path = File.join(File.dirname(__FILE__), '..', '..','catalogs',  'extended_catalog.json')
-      @average_peak_catalog_path = File.join(File.dirname(__FILE__), '..', '..','catalogs',  'average_peak_per_building_type.json')
+      @extended_catalog_path = File.join(File.dirname(__FILE__), '..', '..', 'catalogs',  'extended_catalog.json')
+      @average_peak_catalog_path = File.join(File.dirname(__FILE__), '..', '..', 'catalogs', 'average_peak_per_building_type.json')
       @opendss_catalog = false
 
-      if !File.exists?(File.join(File.dirname(__FILE__), '..', 'test_reopt'))
+      if !File.exist?(File.join(File.dirname(__FILE__), '..', 'test_reopt'))
         FileUtils.mkdir_p(File.join(File.dirname(__FILE__), '..', 'test_reopt'))
       end
 
       FileUtils.cp_r(File.join(File.dirname(__FILE__), '..', 'files', 'example_project'), File.join(File.dirname(__FILE__), '..', 'test_reopt'))
-      @runner = URBANopt::RNM::Runner.new(@name, @root_dir, @run_dir, @feature_file_path, extended_catalog_path:@extended_catalog_path, average_peak_catalog_path:@average_peak_catalog_path, reopt:@reopt, opendss_catalog:@opendss_catalog)
-
+      @runner = URBANopt::RNM::Runner.new(@name, @root_dir, @run_dir, @feature_file_path, extended_catalog_path: @extended_catalog_path, average_peak_catalog_path: @average_peak_catalog_path, reopt: @reopt, opendss_catalog: @opendss_catalog)
     end
-    
+
     it 'creates the rnm-us input files' do
       # check that example project directory was created
-      expect(File.exists?(@root_dir)).to be true
+      expect(File.exist?(@root_dir)).to be true
 
       # create sim files
-      @runner.create_simulation_files()
- 
+      @runner.create_simulation_files
+
       # check that input files were created
-      expect(File.exists?(File.join(@run_dir, 'rnm-us'))).to be true
-      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'customers.txt'))).to be true
-      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'customers_ext.txt'))).to be true
-      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'streetmapAS.txt'))).to be true
-      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'cust_profile_p.txt'))).to be true
-      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'cust_profile_q.txt'))).to be true
-      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'cust_profile_q_extendido.txt'))).to be true
-      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'cust_profile_p_extendido.txt'))).to be true
-      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'ficheros_entrada.txt'))).to be true
-      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'ficheros_entrada_inc.txt'))).to be true
-      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'gen_profile_p_extendido.txt'))).to be true
-      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'gen_profile_q_extendido.txt'))).to be true
-      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'gen_profile_q.txt'))).to be true
-      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'gen_profile_p.txt'))).to be true
-      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'generators.txt'))).to be true
-      expect(File.exists?(File.join(@run_dir, 'rnm-us', 'ficheros_entrada_inc.txt'))).to be true
+      expect(File.exist?(File.join(@run_dir, 'rnm-us'))).to be true
+      expect(File.exist?(File.join(@run_dir, 'rnm-us', 'customers.txt'))).to be true
+      expect(File.exist?(File.join(@run_dir, 'rnm-us', 'customers_ext.txt'))).to be true
+      expect(File.exist?(File.join(@run_dir, 'rnm-us', 'streetmapAS.txt'))).to be true
+      expect(File.exist?(File.join(@run_dir, 'rnm-us', 'cust_profile_p.txt'))).to be true
+      expect(File.exist?(File.join(@run_dir, 'rnm-us', 'cust_profile_q.txt'))).to be true
+      expect(File.exist?(File.join(@run_dir, 'rnm-us', 'cust_profile_q_extendido.txt'))).to be true
+      expect(File.exist?(File.join(@run_dir, 'rnm-us', 'cust_profile_p_extendido.txt'))).to be true
+      expect(File.exist?(File.join(@run_dir, 'rnm-us', 'ficheros_entrada.txt'))).to be true
+      expect(File.exist?(File.join(@run_dir, 'rnm-us', 'ficheros_entrada_inc.txt'))).to be true
+      expect(File.exist?(File.join(@run_dir, 'rnm-us', 'gen_profile_p_extendido.txt'))).to be true
+      expect(File.exist?(File.join(@run_dir, 'rnm-us', 'gen_profile_q_extendido.txt'))).to be true
+      expect(File.exist?(File.join(@run_dir, 'rnm-us', 'gen_profile_q.txt'))).to be true
+      expect(File.exist?(File.join(@run_dir, 'rnm-us', 'gen_profile_p.txt'))).to be true
+      expect(File.exist?(File.join(@run_dir, 'rnm-us', 'generators.txt'))).to be true
+      expect(File.exist?(File.join(@run_dir, 'rnm-us', 'ficheros_entrada_inc.txt'))).to be true
 
       # check that opendss catalog was not created
-      expect(File.exists?(File.join(@run_dir, 'opendss_catalog.json'))).to be false 
+      expect(File.exist?(File.join(@run_dir, 'opendss_catalog.json'))).to be false
     end
 
     it 'zips input files including reopt files' do
       @rnm_dir = File.join(@run_dir, 'rnm-us')
 
-      if File.exists?(File.join(@rnm_dir, 'inputs.zip'))
+      if File.exist?(File.join(@rnm_dir, 'inputs.zip'))
         FileUtils.rm_r(File.join(@rnm_dir, 'inputs.zip'))
       end
-      
+
       use_local = true
       @api_client = URBANopt::RNM::ApiClient.new(@name, @rnm_dir, use_local, @reopt)
-      @api_client.zip_input_files()
+      @api_client.zip_input_files
 
-      expect(File.exists?(File.join(@rnm_dir, 'inputs.zip'))).to be true
+      expect(File.exist?(File.join(@rnm_dir, 'inputs.zip'))).to be true
     end
   end
 
   context 'save opendss catalog' do
     it 'saves the opendss catalog' do
-
-      @extended_catalog_path = File.join(File.dirname(__FILE__), '..', '..','catalogs',  'extended_catalog.json')
+      @extended_catalog_path = File.join(File.dirname(__FILE__), '..', '..', 'catalogs', 'extended_catalog.json')
       @save_path = File.join(File.dirname(__FILE__), '..', 'test_opendss_catalog.json')
 
-      if File.exists?(@save_path)
+      if File.exist?(@save_path)
         FileUtils.rm_r(@save_path)
       end
 
@@ -217,8 +210,7 @@ RSpec.describe URBANopt::RNM do
       @opendss_catalog = URBANopt::RNM::Conversion_to_opendss_catalog.new(@extended_catalog_path)
       @opendss_catalog.create_catalog(@save_path)
 
-      expect(File.exists?(@save_path)).to be true 
+      expect(File.exist?(@save_path)).to be true
     end
   end
-
 end

@@ -1,5 +1,5 @@
 # *********************************************************************************
-# URBANopt™, Copyright (c) 2019-2021, Alliance for Sustainable Energy, LLC, and other
+# URBANopt (tm), Copyright (c) 2019-2021, Alliance for Sustainable Energy, LLC, and other
 # contributors. All rights reserved.
 
 # Redistribution and use in source and binary forms, with or without modification,
@@ -39,19 +39,19 @@
 # *********************************************************************************
 
 module URBANopt
-    module RNM
-        # creating the Capacitor class with required parameters by the OpenDSS catalog
-        class Capacitor
-            def create(capacitor)
-                hash = {}
-                hash[:nameclass] = capacitor[" Name"]
-                hash[:kvar] = capacitor[" size (kVA)"]
-                hash[:resistance] = capacitor["resistance(Ohm)"]
-                hash[:phases] = capacitor[" number of phases"]
-                hash[:connection] = capacitor["connection"]
-                hash[:control_type] = capacitor["control_type"]
-                return hash
-            end
-        end
+  module RNM
+    # creating the Capacitor class with required parameters by the OpenDSS catalog
+    class Capacitor
+      def create(capacitor)
+        hash = {}
+        hash[:nameclass] = capacitor[' Name']
+        hash[:kvar] = capacitor[' size (kVA)']
+        hash[:resistance] = capacitor['resistance(Ohm)']
+        hash[:phases] = capacitor[' number of phases']
+        hash[:connection] = capacitor['connection']
+        hash[:control_type] = capacitor['control_type']
+        return hash
+      end
     end
+  end
 end

@@ -1,5 +1,5 @@
 # *********************************************************************************
-# URBANopt™, Copyright (c) 2019-2021, Alliance for Sustainable Energy, LLC, and other
+# URBANopt (tm), Copyright (c) 2019-2021, Alliance for Sustainable Energy, LLC, and other
 # contributors. All rights reserved.
 
 # Redistribution and use in source and binary forms, with or without modification,
@@ -54,114 +54,111 @@ task default: :spec
 # example rake task
 desc 'Return gem version number'
 task :version_number do
-	puts "Version is: #{URBANopt::RNM::VERSION}"
+  puts "Version is: #{URBANopt::RNM::VERSION}"
 end
 
 # create input files for a project
 # pass in the path to the scenario directory, the path to the json feature file, and whether this a reopt analysis (true/false)
 desc 'Create input files'
 task :create_inputs, [:scenario_dir_path, :feature_file_path, :reopt, :opendss_catalog] do |t, args|
-	puts "Creating input files"
-	# if no path passed in, use default:
-	scenario_dir = args[:scenario_dir_path] ? args[:scenario_dir_path] : "spec/test/example_project/run/baseline_scenario"
-	
-	run_dir = scenario_dir
-	root_dir = File.join(run_dir, '..', '..') # 2 levels up
+  puts 'Creating input files'
+  # if no path passed in, use default:
+  scenario_dir = args[:scenario_dir_path] || 'spec/test/example_project/run/baseline_scenario'
 
-	# set up variables	
-	feature_file_path = args[:feature_file_path] ? args[:feature_file_path]: File.join(root_dir,  'example_project_with_network_and_streets.json')
-	reopt = args[:reopt] ? args[:reopt] : false
-	reopt = (reopt == 'true') ? true : false
-	opendss_catalog = args[:opendss_catalog] ? args[:opendss_catalog] : false
-	opendss_catalog = (opendss_catalog == 'true') ? true : false
-	
+  run_dir = scenario_dir
+  root_dir = File.join(run_dir, '..', '..') # 2 levels up
+
+  # set up variables
+  feature_file_path = args[:feature_file_path] || File.join(root_dir, 'example_project_with_network_and_streets.json')
+  reopt = args[:reopt] || false
+  reopt = reopt == 'true'
+  opendss_catalog = args[:opendss_catalog] || false
+  opendss_catalog = opendss_catalog == 'true'
 
   extended_catalog_path = File.join(File.dirname(__FILE__), 'catalogs',  'extended_catalog.json')
-  average_peak_catalog_path = File.join(File.dirname(__FILE__), 'catalogs',  'average_peak_per_building_type.json')
-  scenario_name = Pathname.new(scenario_dir).basename 
-      
-  if !File.exists?(File.join(File.dirname(__FILE__), '..', 'test'))
+  average_peak_catalog_path = File.join(File.dirname(__FILE__), 'catalogs', 'average_peak_per_building_type.json')
+  scenario_name = Pathname.new(scenario_dir).basename
+
+  if !File.exist?(File.join(File.dirname(__FILE__), '..', 'test'))
     FileUtils.mkdir_p(File.join(File.dirname(__FILE__), '..', 'test'))
   end
-	
-	# generate inputs     
-  runner = URBANopt::RNM::Runner.new(scenario_name, root_dir, run_dir, feature_file_path, extended_catalog_path:extended_catalog_path, average_peak_catalog_path:average_peak_catalog_path, reopt:reopt, opendss_catalog:opendss_catalog)
+
+  # generate inputs
+  runner = URBANopt::RNM::Runner.new(scenario_name, root_dir, run_dir, feature_file_path, extended_catalog_path: extended_catalog_path, average_peak_catalog_path: average_peak_catalog_path, reopt: reopt, opendss_catalog: opendss_catalog)
   runner.create_simulation_files
-  puts "....done!"
+  puts '....done!'
 end
 
 # create input files for a project
 # pass in the path to the scenario directory, the path to the json feature file, and whether this a reopt analysis (true/false)
 desc 'Create input files'
 task :create_inputs_default, [:scenario_dir_path, :feature_file_path] do |t, args|
-	puts "Creating input files with defaulted settings"
-	# if no path passed in, use default:
-	scenario_dir = args[:scenario_dir_path] ? args[:scenario_dir_path] : "spec/test/example_project/run/baseline_scenario"
-	
-	run_dir = scenario_dir
-	root_dir = File.join(run_dir, '..', '..') # 2 levels up
+  puts 'Creating input files with defaulted settings'
+  # if no path passed in, use default:
+  scenario_dir = args[:scenario_dir_path] || 'spec/test/example_project/run/baseline_scenario'
 
-	# set up variables	
-	feature_file_path = args[:feature_file_path] ? args[:feature_file_path]: File.join(root_dir,  'example_project_with_network_and_streets.json')
-  
-  scenario_name = Pathname.new(scenario_dir).basename 
-      
-  if !File.exists?(File.join(File.dirname(__FILE__), '..', 'test'))
+  run_dir = scenario_dir
+  root_dir = File.join(run_dir, '..', '..') # 2 levels up
+
+  # set up variables
+  feature_file_path = args[:feature_file_path] || File.join(root_dir, 'example_project_with_network_and_streets.json')
+
+  scenario_name = Pathname.new(scenario_dir).basename
+
+  if !File.exist?(File.join(File.dirname(__FILE__), '..', 'test'))
     FileUtils.mkdir_p(File.join(File.dirname(__FILE__), '..', 'test'))
   end
-	
-	# generate inputs     
+
+  # generate inputs
   runner = URBANopt::RNM::Runner.new(scenario_name, root_dir, run_dir, feature_file_path)
   runner.create_simulation_files
-  puts "....done!"
+  puts '....done!'
 end
 
 # run simulation and retrieve results
 # pass in the path to the scenario directory, whether this is a reopt analysis (true/false), and whether to use localhost RNM API (true/false)
 desc 'Run Simulation'
 task :run_simulation, [:scenario_dir_path, :reopt, :use_localhost] do |t, args|
-	puts "Running simulation"
-	# if no path passed in, use default:
-	run_dir = args[:scenario_dir_path] ? args[:scenario_dir_path] : "spec/test/example_project/run/baseline_scenario"
-	scenario_name = Pathname.new(run_dir).basename 
-	rnm_dir = File.join(run_dir, 'rnm-us')
-	reopt = args[:reopt] ? args[:reopt] : false
-	reopt = (reopt == 'true') ? true : false
+  puts 'Running simulation'
+  # if no path passed in, use default:
+  run_dir = args[:scenario_dir_path] || 'spec/test/example_project/run/baseline_scenario'
+  scenario_name = Pathname.new(run_dir).basename
+  rnm_dir = File.join(run_dir, 'rnm-us')
+  reopt = args[:reopt] || false
+  reopt = reopt == 'true'
 
-	use_localhost = args[:use_localhost] ? args[:use_localhost] : false
-	use_localhost = (use_localhost == 'true') ? true : false
+  use_localhost = args[:use_localhost] || false
+  use_localhost = use_localhost == 'true'
 
-	if !File.exist?(rnm_dir)
-		raise "No rnm-us directory found for this scenario...run the create_inputs rake task first."
-	end
+  if !File.exist?(rnm_dir)
+    raise 'No rnm-us directory found for this scenario...run the create_inputs rake task first.'
+  end
 
-	puts "scenario dir path: #{run_dir}"
-	puts "reopt: #{reopt}"
-	puts "use_localhost: #{use_localhost}"
-	api_client = URBANopt::RNM::ApiClient.new(scenario_name, rnm_dir, use_localhost=use_localhost, reopt=reopt)
-	# zip inputs
-	api_client.zip_input_files
-	api_client.submit_simulation
-	api_client.get_results
+  puts "scenario dir path: #{run_dir}"
+  puts "reopt: #{reopt}"
+  puts "use_localhost: #{use_localhost}"
+  api_client = URBANopt::RNM::ApiClient.new(scenario_name, rnm_dir, use_localhost = use_localhost, reopt = reopt)
+  # zip inputs
+  api_client.zip_input_files
+  api_client.submit_simulation
+  api_client.get_results
 
-	puts "...done!"
-
+  puts '...done!'
 end
 
 # Create opendss catalog from extended catalog
 # pass in the path and filename where the OpenDSS catalog should be saved
 desc 'Create OpenDSS catalog'
 task :create_opendss_catalog, [:save_path] do |t, args|
- 	puts "Creating OpenDSS catalog"
- 	# if no path passed in, use default (current dir):
- 	save_path = args[:save_path] ? args[:save_path] : "./opendss_catalog.json"
+  puts 'Creating OpenDSS catalog'
+  # if no path passed in, use default (current dir):
+  save_path = args[:save_path] || './opendss_catalog.json'
 
- 	extended_catalog_path = File.join(File.dirname(__FILE__), 'catalogs',  'extended_catalog.json')
- 	opendss_catalog = URBANopt::RNM::Conversion_to_opendss_catalog.new(extended_catalog_path)
- 	# create catalog and save to specified path
-   opendss_catalog.create_catalog(save_path)
+  extended_catalog_path = File.join(File.dirname(__FILE__), 'catalogs', 'extended_catalog.json')
+  opendss_catalog = URBANopt::RNM::Conversion_to_opendss_catalog.new(extended_catalog_path)
+  # create catalog and save to specified path
+  opendss_catalog.create_catalog(save_path)
 
-   puts "Catalog saved to #{save_path}"
-   puts "....done!"
-
+  puts "Catalog saved to #{save_path}"
+  puts '....done!'
 end

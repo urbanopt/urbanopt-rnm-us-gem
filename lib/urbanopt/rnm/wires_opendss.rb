@@ -1,5 +1,5 @@
 # *********************************************************************************
-# URBANopt™, Copyright (c) 2019-2021, Alliance for Sustainable Energy, LLC, and other
+# URBANopt (tm), Copyright (c) 2019-2021, Alliance for Sustainable Energy, LLC, and other
 # contributors. All rights reserved.
 
 # Redistribution and use in source and binary forms, with or without modification,
@@ -38,41 +38,43 @@
 # OF THE POSSIBILITY OF SUCH DAMAGE.
 # *********************************************************************************
 module URBANopt
-    module RNM
-           # creating the Wires_opendss class with required parameters by the OpenDSS catalog
-        class Wires_opendss
-            attr_accessor :fields, :value
-            def initialize
-                self.value = []
-                self.fields = []
-            end
-            def create(line_geometry, conductor)
-                # providing all info in ft
-                hash = {}               
-                conductor.each do |k, v| 
-                    if k.include? "(mm)"
-                        new_key =  k.sub("(mm)", "") + '(ft)'
-                        hash[new_key] = v
-                    elsif k.include? '(ohm/km)'
-                        new_key = k.sub("(ohm/km)", "") + '(ohm/mi)'
-                        hash[new_key] = v
-                    elsif k != 'voltage level' && k != "type"
-                        hash[k] = v
-                    end
-                end
-                line_geometry.each do |k,v|
-                    hash[k] = v
-                    if k.include? 'wire'
-                        hash.delete(k)
-                       
-                    elsif k.include? '(m)'
-                        hash.delete(k)
-                        k = k.split(' ')[0]
-                        hash[k] = v
-                    end
-                end
-                return hash
-            end
+  module RNM
+    # creating the Wires_opendss class with required parameters by the OpenDSS catalog
+    class Wires_opendss
+      attr_accessor :fields, :value
+
+      def initialize
+        self.value = []
+        self.fields = []
+      end
+
+      def create(line_geometry, conductor)
+        # providing all info in ft
+        hash = {}
+        conductor.each do |k, v|
+          if k.include? '(mm)'
+            new_key = "#{k.sub('(mm)', '')}(ft)"
+            hash[new_key] = v
+          elsif k.include? '(ohm/km)'
+            new_key = "#{k.sub('(ohm/km)', '')}(ohm/mi)"
+            hash[new_key] = v
+          elsif k != 'voltage level' && k != 'type'
+            hash[k] = v
+          end
         end
+        line_geometry.each do |k, v|
+          hash[k] = v
+          if k.include? 'wire'
+            hash.delete(k)
+
+          elsif k.include? '(m)'
+            hash.delete(k)
+            k = k.split(' ')[0]
+            hash[k] = v
+          end
+        end
+        return hash
+      end
     end
+  end
 end

@@ -1,5 +1,5 @@
 # *********************************************************************************
-# URBANopt™, Copyright (c) 2019-2021, Alliance for Sustainable Energy, LLC, and other
+# URBANopt (tm), Copyright (c) 2019-2021, Alliance for Sustainable Energy, LLC, and other
 # contributors. All rights reserved.
 
 # Redistribution and use in source and binary forms, with or without modification,
@@ -41,29 +41,30 @@
 require 'urbanopt/rnm/logger'
 require 'json'
 require 'csv'
-require "set"
-require "matrix"
+require 'set'
+require 'matrix'
 
 module URBANopt
   module RNM
     class Wires_extended_catalog
-        attr_accessor :x, :height, :gmr, :r, :ampacity, :diameter, :phase, :name, :type, :r_neutral, :gmr_neutral, :neutral_strands, :diameter_n_strand, :outside_diamater_neutral
-        def initialize
-            self.x = []
-            self.height = []
-            self.gmr = []
-            self.r = []
-            self.ampacity = []
-            self.diameter = []
-            self.phase = []
-            self.name = []
-            self.type = []
-            self.r_neutral= []
-            self.gmr_neutral= []
-            self.neutral_strands= []
-            self.diameter_n_strand= []
-            self.outside_diamater_neutral=[]
-        end
+      attr_accessor :x, :height, :gmr, :r, :ampacity, :diameter, :phase, :name, :type, :r_neutral, :gmr_neutral, :neutral_strands, :diameter_n_strand, :outside_diamater_neutral
+
+      def initialize
+        self.x = []
+        self.height = []
+        self.gmr = []
+        self.r = []
+        self.ampacity = []
+        self.diameter = []
+        self.phase = []
+        self.name = []
+        self.type = []
+        self.r_neutral = []
+        self.gmr_neutral = []
+        self.neutral_strands = []
+        self.diameter_n_strand = []
+        self.outside_diamater_neutral = []
+      end
     end
-end
+  end
 end

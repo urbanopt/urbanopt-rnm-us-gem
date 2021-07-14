@@ -1,5 +1,5 @@
 # *********************************************************************************
-# URBANopt™, Copyright (c) 2019-2021, Alliance for Sustainable Energy, LLC, and other
+# URBANopt (tm), Copyright (c) 2019-2021, Alliance for Sustainable Energy, LLC, and other
 # contributors. All rights reserved.
 
 # Redistribution and use in source and binary forms, with or without modification,
@@ -56,7 +56,7 @@ module URBANopt
       # * +average_peak_catalog_path+ - _String_ - Full path to average peak catalog
       # * +reopt+ - _Boolean_ - Use REopt results to generate inputs? Defaults to false
       # * +opendss_catalog+ - _Boolean_ - Generate OpenDSS catalog? Defaults to true
-      def initialize(name, root_dir, run_dir, feature_file_path, extended_catalog_path:nil, average_peak_catalog_path:nil, reopt:false, opendss_catalog:true)
+      def initialize(name, root_dir, run_dir, feature_file_path, extended_catalog_path: nil, average_peak_catalog_path: nil, reopt: false, opendss_catalog: true)
         @name = name
         # these are all absolute paths
         @root_dir = root_dir
@@ -83,7 +83,6 @@ module URBANopt
         @@logger ||= URBANopt::RNM.logger
 
         # puts "REOPT: #{@reopt}, OPENDSS_CATALOG: #{@opendss_catalog}"
-      
       end
 
       ##
@@ -113,15 +112,14 @@ module URBANopt
       ##
       # Feature file path associated with this Scenario.
       attr_reader :extended_catalog_path #:nodoc:
+
       ##
       # Create RNM-US Input Files
       ##
-      def create_simulation_files()
-        
+      def create_simulation_files
         # generate RNM-US input files
-        in_files = URBANopt::RNM::InputFiles.new(@run_dir, @feature_file_path, @extended_catalog_path, @average_peak_catalog_path, reopt:@reopt, opendss_catalog:@opendss_catalog)
-        in_files.create()
-
+        in_files = URBANopt::RNM::InputFiles.new(@run_dir, @feature_file_path, @extended_catalog_path, @average_peak_catalog_path, reopt: @reopt, opendss_catalog: @opendss_catalog)
+        in_files.create
       end
 
       ##
@@ -129,30 +127,28 @@ module URBANopt
       ##
       # [parameters:]
       # * +use_localhost+ - _Boolean_ - Flag to use localhost API vs production API
-      def run(use_localhost=false)
+      def run(use_localhost = false)
         # start client
-        @api_client = URBANopt::RNM::ApiClient.new(@name, @rnm_dir, use_localhost=use_localhost, reopt=@reopt)
+        @api_client = URBANopt::RNM::ApiClient.new(@name, @rnm_dir, use_localhost = use_localhost, reopt = @reopt)
         @api_client.zip_input_files
         @api_client.submit_simulation
         @results = @api_client.get_results
-        
-      end
-      
-      ## 
-      # Download results for a simulation separately
-      ##
-      def download_results(sim_id=nil)
-        @api_client.download_results(sim_id)
       end
 
+      ##
+      # Download results for a simulation separately
+      ##
+      def download_results(sim_id = nil)
+        @api_client.download_results(sim_id)
+      end
 
       ##
       # Post-process results back into scenario json file
       ##
-      def post_process()
+      def post_process
         @pp = URBANopt::RNM::PostProcessor.new(@results, 'test_for_now')
         res = @pp.calculate_stats
-        puts "HEY HEY RES:"
+        puts 'HEY HEY RES:'
         puts JSON.pretty_generate(res)
       end
     end

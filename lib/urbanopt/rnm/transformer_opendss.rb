@@ -1,5 +1,5 @@
 # *********************************************************************************
-# URBANopt™, Copyright (c) 2019-2021, Alliance for Sustainable Energy, LLC, and other
+# URBANopt (tm), Copyright (c) 2019-2021, Alliance for Sustainable Energy, LLC, and other
 # contributors. All rights reserved.
 
 # Redistribution and use in source and binary forms, with or without modification,
@@ -38,30 +38,30 @@
 # OF THE POSSIBILITY OF SUCH DAMAGE.
 # *********************************************************************************
 module URBANopt
-    module RNM
-           # creating the Transformers class with required parameters by the OpenDSS catalog
-        class Transformers
-            def create(trafo)
-                hash = {}
-                hash[:nameclass] = trafo["Name"]
-                if trafo.include? "Installed Power(MVA)"
-                    hash[:kva] = (trafo["Installed Power(MVA)"].to_i * 1000).to_i #converting to kVA
-                else #trafo.include? "kVA"
-                    hash[:kva] = trafo["Installed Power(kVA)"]
-                end
-                hash[:resistance] = trafo["Low-voltage-side short-circuit resistance (ohms)"].to_f.round(2)
-                hash[:reactance] = trafo["Reactance (p.u. transf)"].to_f.round(2)
-                hash[:phases] = trafo["Nphases"]
-                if trafo["Nphases"] == "3"
-                    hash[:is_center_tap] = false
-                else
-                    hash[:is_center_tap] = true
-                end
-                hash[:high_voltage] = trafo["Primary Voltage (kV)"]
-                hash[:lov_voltage] = trafo["Secondary Voltage (kV)"]
-                hash[:conncection] = trafo["connection"]
-                return hash
-            end
+  module RNM
+    # creating the Transformers class with required parameters by the OpenDSS catalog
+    class Transformers
+      def create(trafo)
+        hash = {}
+        hash[:nameclass] = trafo['Name']
+        if trafo.include? 'Installed Power(MVA)'
+          hash[:kva] = (trafo['Installed Power(MVA)'].to_i * 1000).to_i # converting to kVA
+        else # trafo.include? "kVA"
+          hash[:kva] = trafo['Installed Power(kVA)']
         end
+        hash[:resistance] = trafo['Low-voltage-side short-circuit resistance (ohms)'].to_f.round(2)
+        hash[:reactance] = trafo['Reactance (p.u. transf)'].to_f.round(2)
+        hash[:phases] = trafo['Nphases']
+        if trafo['Nphases'] == '3'
+          hash[:is_center_tap] = false
+        else
+          hash[:is_center_tap] = true
+        end
+        hash[:high_voltage] = trafo['Primary Voltage (kV)']
+        hash[:lov_voltage] = trafo['Secondary Voltage (kV)']
+        hash[:conncection] = trafo['connection']
+        return hash
+      end
     end
+  end
 end

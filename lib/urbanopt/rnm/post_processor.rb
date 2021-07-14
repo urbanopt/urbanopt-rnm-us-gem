@@ -1,5 +1,5 @@
 # *********************************************************************************
-# URBANopt™, Copyright (c) 2019-2021, Alliance for Sustainable Energy, LLC, and other
+# URBANopt (tm), Copyright (c) 2019-2021, Alliance for Sustainable Energy, LLC, and other
 # contributors. All rights reserved.
 
 # Redistribution and use in source and binary forms, with or without modification,
@@ -43,120 +43,120 @@ require 'urbanopt/rnm/logger'
 
 module URBANopt
   module RNM
-  	class PostProcessor
-  	
+    class PostProcessor
       ##
       # Initialize Post-Processor
       ##
       # [parameters:]
       # * +results+ - _Hash_ - Hash of RNM-US results returned from the API
       # * +scenario+ - _String_ - Path to scenario_dir
-  		def initialize(results, scenario_dir)
-  			@results = results
-  			@scenario_dir = scenario_dir
-  		end
+      def initialize(results, scenario_dir)
+        @results = results
+        @scenario_dir = scenario_dir
+      end
 
-  		##
+      ##
       # Calculate report statistics from raw results
       ##
-  		def calculate_stats()
-  			# calculate statistics and append to scenario report
-  			stats = {}
-  			# demand generation planning
-  			stats['demand_generation_planning'] = []
-  			@results['Demand/generation and number of consumers/distributed generators'].each do |item|
-  				rec = {}
-  				if item['Voltage level'] == 'LV'
-  					rec['type'] = 'Low Voltage (LV) ' + item['Type'].strip()
-  				elsif item['Voltage level'] == 'MV'
-  					rec['type'] = 'Medium Voltage (MV) ' + item['Type'].strip()
-  				else
-						rec['type'] = item['Voltage level']  + item['Type'].strip()
-  				end
-  				if item['Type'].strip() == 'Consumers'
-  					# consumers
-  					rec['peak_demand_kw'] = item['Peak demand/generation (kW)']
-  				elsif item['Type'].include? 'generators'
-  					# generators
-  					rec['max_generation_kw'] = item['Peak demand/generation (kW)']
-  				else
-  					rec['peak_demand_generation_kw'] = item['Peak demand/generation (kW)']
-  				end
-  				rec['number_of_nodes_in_network'] = item['Number']
-  				stats['demand_generation_planning'] << rec
-  			end
+      def calculate_stats
+        # calculate statistics and append to scenario report
+        stats = {}
+        # demand generation planning
+        stats['demand_generation_planning'] = []
+        @results['Demand/generation and number of consumers/distributed generators'].each do |item|
+          rec = {}
+          case item['Voltage level']
+     when 'LV'
+       rec['type'] = "Low Voltage (LV) #{item['Type'].strip}"
+          when 'MV'
+            rec['type'] = "Medium Voltage (MV) #{item['Type'].strip}"
+          else
+            rec['type'] = item['Voltage level'] + item['Type'].strip
+          end
+          if item['Type'].strip == 'Consumers'
+            # consumers
+            rec['peak_demand_kw'] = item['Peak demand/generation (kW)']
+          elsif item['Type'].include? 'generators'
+            # generators
+            rec['max_generation_kw'] = item['Peak demand/generation (kW)']
+          else
+            rec['peak_demand_generation_kw'] = item['Peak demand/generation (kW)']
+          end
+          rec['number_of_nodes_in_network'] = item['Number']
+          stats['demand_generation_planning'] << rec
+        end
 
-  			# lines LV and MV
-  			stats['electrical_lines_length'] = {}
-  			@results['Length of overhead and underground electrical lines'].each do |item|
-  				if item['Voltage level'] == 'Lines LV'
-  					stats['electrical_lines_length']['low_voltage'] = {}
-  					stats['electrical_lines_length']['low_voltage']['overhead_km'] = item['Overhead (km)']
-  					stats['electrical_lines_length']['low_voltage']['underground_km'] = item['Underground (km)']
-  				elsif item['Voltage level'] == 'Lines MV'
-  					stats['electrical_lines_length']['medium_voltage'] = {}
-  					stats['electrical_lines_length']['medium_voltage']['overhead_km'] = item['Overhead (km)']
-  					stats['electrical_lines_length']['medium_voltage']['underground_km'] = item['Underground (km)']
-  				end
-  			end
-  			transformer_capacity = 0
-  			@results['Substations and distribution transformers'].each do |item|
-  				transformer_capacity += item['Size (kVA)'] * item['Number']
-  			end	
-  			stats['distribution_transformers_capacity_kva'] = transformer_capacity
+        # lines LV and MV
+        stats['electrical_lines_length'] = {}
+        @results['Length of overhead and underground electrical lines'].each do |item|
+          case item['Voltage level']
+     when 'Lines LV'
+       stats['electrical_lines_length']['low_voltage'] = {}
+       stats['electrical_lines_length']['low_voltage']['overhead_km'] = item['Overhead (km)']
+       stats['electrical_lines_length']['low_voltage']['underground_km'] = item['Underground (km)']
+          when 'Lines MV'
+            stats['electrical_lines_length']['medium_voltage'] = {}
+            stats['electrical_lines_length']['medium_voltage']['overhead_km'] = item['Overhead (km)']
+            stats['electrical_lines_length']['medium_voltage']['underground_km'] = item['Underground (km)']
+          end
+        end
+        transformer_capacity = 0
+        @results['Substations and distribution transformers'].each do |item|
+          transformer_capacity += item['Size (kVA)'] * item['Number']
+        end
+        stats['distribution_transformers_capacity_kva'] = transformer_capacity
 
-  			# costs
-  			stats['costs'] = {}
-  			stats['costs']['investment'] = {}
-  			stats['costs']['maintenance_yr'] = {}
-  			@results["Summary"].each do |item|
-  				if item['Level'] == 'LV'
-  					stats['costs']['investment']['low_voltage_network'] = item['Investment cost']
-  					stats['costs']['maintenance_yr']['low_voltage_network'] = item['Preventive maintenance (yearly)']
-  				elsif item['Level'] == 'MV'
-  					stats['costs']['investment']['medium_voltage_network'] = item['Investment cost']
-  					stats['costs']['maintenance_yr']['medium_voltage_network'] = item['Preventive maintenance (yearly)']
-  				elsif item['Level'] == 'Dist.Transf.'
-  					stats['costs']['investment']['distribution_transformers'] = item['Investment cost']
-  					stats['costs']['maintenance_yr']['distribution_transformers'] = item['Preventive maintenance (yearly)']
-  				elsif item['Level'] == 'HV/MV Subest.'
-  					stats['costs']['investment']['primary_substations'] = item['Investment cost']
-  					stats['costs']['maintenance_yr']['primary_substations'] = item['Preventive maintenance (yearly)']
-  				end
-  			end
-  			# cost totals
-  			inv_tot = 0
-  			stats['costs']['investment'].each do |key, val|
-  				inv_tot += val
-  			end
-  			stats['costs']['investment']['total'] = inv_tot
-  			maint_tot = 0
-  			stats['costs']['maintenance_yr'].each do |key, val|
-  				maint_tot += val
-  			end
-  			stats['costs']['maintenance_yr']['total'] = maint_tot
+        # costs
+        stats['costs'] = {}
+        stats['costs']['investment'] = {}
+        stats['costs']['maintenance_yr'] = {}
+        @results['Summary'].each do |item|
+          case item['Level']
+     when 'LV'
+       stats['costs']['investment']['low_voltage_network'] = item['Investment cost']
+       stats['costs']['maintenance_yr']['low_voltage_network'] = item['Preventive maintenance (yearly)']
+          when 'MV'
+            stats['costs']['investment']['medium_voltage_network'] = item['Investment cost']
+            stats['costs']['maintenance_yr']['medium_voltage_network'] = item['Preventive maintenance (yearly)']
+          when 'Dist.Transf.'
+            stats['costs']['investment']['distribution_transformers'] = item['Investment cost']
+            stats['costs']['maintenance_yr']['distribution_transformers'] = item['Preventive maintenance (yearly)']
+          when 'HV/MV Subest.'
+            stats['costs']['investment']['primary_substations'] = item['Investment cost']
+            stats['costs']['maintenance_yr']['primary_substations'] = item['Preventive maintenance (yearly)']
+          end
+        end
+        # cost totals
+        inv_tot = 0
+        stats['costs']['investment'].each do |key, val|
+          inv_tot += val
+        end
+        stats['costs']['investment']['total'] = inv_tot
+        maint_tot = 0
+        stats['costs']['maintenance_yr'].each do |key, val|
+          maint_tot += val
+        end
+        stats['costs']['maintenance_yr']['total'] = maint_tot
 
-  			# reliability indexes
-	  		stats['reliability_indexes'] = {}
-	  		# sum of interruptions duration / num customers.  6 would be too high
-	  		stats['reliability_indexes']['SAIDI'] = @results['Reliability indexes'][0]['ASIDI'] 
-	  		# num interruptions / num customers.  should be < 1
-	  		stats['reliability_indexes']['SAIFI'] = @results['Reliability indexes'][0]['ASIFI'] 
+        # reliability indexes
+        stats['reliability_indexes'] = {}
+        # sum of interruptions duration / num customers.  6 would be too high
+        stats['reliability_indexes']['SAIDI'] = @results['Reliability indexes'][0]['ASIDI']
+        # num interruptions / num customers.  should be < 1
+        stats['reliability_indexes']['SAIFI'] = @results['Reliability indexes'][0]['ASIFI']
 
-	  		return stats
+        return stats
+      end
 
-  		end
-
-  		
-  		##
+      ##
       # Save results back
       ##
-  		def save()
-  			# TODO: save back to report
-  			# open file and read in
-  			# append
-  			# save back
-  		end
-  	end
+      def save
+        # TODO: save back to report
+        # open file and read in
+        # append
+        # save back
+      end
+    end
   end
 end
