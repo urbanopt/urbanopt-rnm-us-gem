@@ -1,21 +1,31 @@
 # *********************************************************************************
-# URBANopt (tm), Copyright (c) 2019-2020, Alliance for Sustainable Energy, LLC, and other
+# URBANopt™, Copyright (c) 2019-2021, Alliance for Sustainable Energy, LLC, and other
 # contributors. All rights reserved.
-#
+
 # Redistribution and use in source and binary forms, with or without modification,
 # are permitted provided that the following conditions are met:
-#
+
 # Redistributions of source code must retain the above copyright notice, this list
 # of conditions and the following disclaimer.
-#
+
 # Redistributions in binary form must reproduce the above copyright notice, this
 # list of conditions and the following disclaimer in the documentation and/or other
 # materials provided with the distribution.
-#
+
 # Neither the name of the copyright holder nor the names of its contributors may be
 # used to endorse or promote products derived from this software without specific
 # prior written permission.
-#
+
+# Redistribution of this software, without modification, must refer to the software
+# by the same designation. Redistribution of a modified version of this software
+# (i) may not refer to the modified version by the same designation, or by any
+# confusingly similar designation, and (ii) must refer to the underlying software
+# originally provided by Alliance as “URBANopt”. Except to comply with the foregoing,
+# the term “URBANopt”, or any confusingly similar designation may not be used to
+# refer to any modified version of this software or any modified version of the
+# underlying software originally provided by Alliance without the prior written
+# consent of Alliance.
+
 # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
 # ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
 # WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
@@ -48,10 +58,10 @@ module URBANopt
       # * +template_inputs+ - _String_ - Location of template inputs for the RNM-US simulation (unused)
       # * +use_localhost+ - _Bool_ - Flag to use localhost API vs production API
   	  def initialize(name, rnm_dir, use_localhost=false, reopt=false)
-  	  	# todo: add NREL developer api key support
-        puts "USE LOCALHOST: #{use_localhost}"
-        puts "REOPT: #{reopt}"
-  	  	@use_localhost = use_localhost
+  	  	
+        # TODO: eventually add NREL developer api key support
+  	  	
+        @use_localhost = use_localhost
   	  	if @use_localhost
   	  		@base_api = "http://0.0.0.0:8080/api/v1/"
   	  	else
@@ -65,7 +75,16 @@ module URBANopt
         @rnm_dir = rnm_dir
         @reopt = reopt
 
-        # double check files exist
+        # default input files for generic and reopt simulations
+        @input_files = ['cust_profile_p.txt', 'cust_profile_p_extendido.txt', 'cust_profile_q.txt', 'cust_profile_q_extendido.txt',
+                      'customers.txt', 'customers_ext.txt', 'ficheros_entrada.txt', 'ficheros_entrada_inc.txt',
+                      'primary_substations.txt', 'streetmapAS.txt', 'udcons.csv']
+        @reopt_files = ['gen_profile_p.txt', 'gen_profile_p_extendido.txt', 'gen_profile_q.txt', 
+                       'gen_profile_q_extendido.txt', 'generators.txt']
+
+        if @reopt
+          @input_files += @reopt_files
+        end
   	  		
         # initialize @@logger
         @@logger ||= URBANopt::RNM.logger
@@ -81,22 +100,12 @@ module URBANopt
       # Check and Zip files
       ##
       def zip_input_files()
-
-        input_files = ['cust_profile_p.txt', 'cust_profile_p_extendido.txt', 'cust_profile_q.txt', 'cust_profile_q_extendido.txt',
-                      'customers.txt', 'customers_ext.txt', 'ficheros_entrada.txt', 'ficheros_entrada_inc.txt',
-                      'primary_substations.txt', 'streetmapAS.txt', 'udcons.csv']
-        reopt_files = ['gen_profile_p.txt', 'gen_profile_p_extendido.txt', 'gen_profile_q.txt', 
-                       'gen_profile_q_extendido.txt', 'generators.txt']
     
-        if @reopt
-          input_files += reopt_files
-        end
-
-        puts "INPUT FILES: #{input_files}"
+        # puts "INPUT FILES: #{input_files}"
 
         # check that all files exist in folder
         missing_files = []
-        input_files.each do |f|
+        @input_files.each do |f|
           if !File.exists?(File.join(@rnm_dir, f))
             missing_files << f
           end
@@ -106,15 +115,30 @@ module URBANopt
           raise "Input Files missing in directory: #{missing_files.join(',')}"
         end           
 
-        # zip up
-        Zip::File.open(File.join(@rnm_dir, 'inputs.zip'), Zip::File::CREATE) do |zipfile|
-          input_files.each do |filename|
+        # delete zip only if already exists AND input files also exist
+        inputs_zip = File.join(@rnm_dir, 'inputs.zip')
+        if File.exist?(inputs_zip)
+          if File.exist?(File.join(@rnm_dir, @input_files[0]))
+            File.delete(inputs_zip)
+          else
+            # inputs.zip exists but input files do not. keep existing and do nothing else
+            puts "inputs.zip already exists...keeping existing file"
+            return
+          end
+        end
+ 
+        # zip up      
+        Zip::File.open(inputs_zip, Zip::File::CREATE) do |zipfile|
+          @input_files.each do |filename|
             # Two arguments:
             # - The name of the file as it will appear in the archive
             # - The original file, including the path to find it
             zipfile.add(filename, File.join(@rnm_dir, filename))
           end
         end
+
+        # delete input files now that they are zipped up
+        delete_inputs
 
       end
 
@@ -176,10 +200,12 @@ module URBANopt
                 end
               else
                 # get results
-                @results = data['results']
+                @results = data['results'] ? data['results'] : []
+                
                 # download results
                 download_results
-                return
+                
+                return @results
               end
             else
               tries += 1
@@ -219,19 +245,18 @@ module URBANopt
 
         resp = conn.get("download/#{the_sim_id}") do |req|  
           req.options.on_data = Proc.new do |chunk, overall_received_bytes|
-            puts "Received #{overall_received_bytes} characters"
+            # puts "Received #{overall_received_bytes} characters"
             streamed << chunk
           end
         end
-        puts("STATUS: #{resp.status}, #{resp.body}")
+        # puts("STATUS: #{resp.status}, #{resp.body}")
 
         if resp.status == 200
          
-
           file_path = File.join(@rnm_dir, 'results', 'results.zip')
 
           File.open(file_path, "wb") { |f| f.write streamed.join }
-          puts "RNM-US results.zip downloaded to #{@rnm_dir}"
+          # puts "RNM-US results.zip downloaded to #{@rnm_dir}"
           # unzip
           Zip::File.open(file_path) do |zip_file|
             zip_file.each do |f|
@@ -261,6 +286,15 @@ module URBANopt
         else
           del_path = File.join(@rnm_dir, 'results', '*')
           FileUtils.rm_rf Dir.glob(del_path)
+        end
+      end
+
+      ## 
+      # Delete input files once they are zipped up
+      ##
+      def delete_inputs()
+        @input_files.each do |filename|
+          File.delete(File.join(@rnm_dir, filename)) if File.exist?(File.join(@rnm_dir, filename))
         end
       end
 

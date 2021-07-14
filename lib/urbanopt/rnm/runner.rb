@@ -1,21 +1,31 @@
 # *********************************************************************************
-# URBANopt (tm), Copyright (c) 2019-2020, Alliance for Sustainable Energy, LLC, and other
+# URBANopt™, Copyright (c) 2019-2021, Alliance for Sustainable Energy, LLC, and other
 # contributors. All rights reserved.
-#
+
 # Redistribution and use in source and binary forms, with or without modification,
 # are permitted provided that the following conditions are met:
-#
+
 # Redistributions of source code must retain the above copyright notice, this list
 # of conditions and the following disclaimer.
-#
+
 # Redistributions in binary form must reproduce the above copyright notice, this
 # list of conditions and the following disclaimer in the documentation and/or other
 # materials provided with the distribution.
-#
+
 # Neither the name of the copyright holder nor the names of its contributors may be
 # used to endorse or promote products derived from this software without specific
 # prior written permission.
-#
+
+# Redistribution of this software, without modification, must refer to the software
+# by the same designation. Redistribution of a modified version of this software
+# (i) may not refer to the modified version by the same designation, or by any
+# confusingly similar designation, and (ii) must refer to the underlying software
+# originally provided by Alliance as “URBANopt”. Except to comply with the foregoing,
+# the term “URBANopt”, or any confusingly similar designation may not be used to
+# refer to any modified version of this software or any modified version of the
+# underlying software originally provided by Alliance without the prior written
+# consent of Alliance.
+
 # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
 # ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
 # WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
@@ -59,6 +69,7 @@ module URBANopt
         @extended_catalog_path = extended_catalog_path
         @average_peak_catalog_path = average_peak_catalog_path
         @opendss_catalog = opendss_catalog
+        @results = []
 
         # set default catalog paths if they are nil
         if @extended_catalog_path.nil?
@@ -71,7 +82,7 @@ module URBANopt
         # initialize @@logger
         @@logger ||= URBANopt::RNM.logger
 
-        puts "REOPT: #{@reopt}, OPENDSS_CATALOG: #{@opendss_catalog}"
+        # puts "REOPT: #{@reopt}, OPENDSS_CATALOG: #{@opendss_catalog}"
       
       end
 
@@ -114,29 +125,35 @@ module URBANopt
       end
 
       ##
-      # Run RNM-US Simulation (via RNM-US api)
+      # Run RNM-US Simulation (via RNM-US api) and get results
       ##
-      def run()
+      # [parameters:]
+      # * +use_localhost+ - _Boolean_ - Flag to use localhost API vs production API
+      def run(use_localhost=false)
         # start client
-        # TODO: fix this!
-        @api_client = URBANopt::RNM::ApiClient.new(@name, @rnm_dir, use_localhost=true, reopt=@reopt)
-        @api_client.submit_simulation()
+        @api_client = URBANopt::RNM::ApiClient.new(@name, @rnm_dir, use_localhost=use_localhost, reopt=@reopt)
+        @api_client.zip_input_files
+        @api_client.submit_simulation
+        @results = @api_client.get_results
         
       end
       
-      ##
-      # Retrieve RNM-US results (via RNM-US api)
-      ##
-      def get_results()
-        # ping for results and download when ready
-        @api_client.get_results()
-      end
-
       ## 
       # Download results for a simulation separately
       ##
       def download_results(sim_id=nil)
         @api_client.download_results(sim_id)
+      end
+
+
+      ##
+      # Post-process results back into scenario json file
+      ##
+      def post_process()
+        @pp = URBANopt::RNM::PostProcessor.new(@results, 'test_for_now')
+        res = @pp.calculate_stats
+        puts "HEY HEY RES:"
+        puts JSON.pretty_generate(res)
       end
     end
   end
