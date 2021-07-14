@@ -20,8 +20,8 @@
 # by the same designation. Redistribution of a modified version of this software
 # (i) may not refer to the modified version by the same designation, or by any
 # confusingly similar designation, and (ii) must refer to the underlying software
-# originally provided by Alliance as “URBANopt”. Except to comply with the foregoing,
-# the term “URBANopt”, or any confusingly similar designation may not be used to
+# originally provided by Alliance as "URBANopt". Except to comply with the foregoing,
+# the term "URBANopt", or any confusingly similar designation may not be used to
 # refer to any modified version of this software or any modified version of the
 # underlying software originally provided by Alliance without the prior written
 # consent of Alliance.
@@ -49,7 +49,7 @@ module URBANopt
     # creating a class which is able to convert the line-geometry information for each power line and the
     # conductors information, into power lines information, obtaining their impedances and capacitance
     # applying carsons equations
-    class Carson_eq
+    class CarsonEq
       def initialize(hash)
         @power_line = hash
       end
@@ -162,9 +162,9 @@ module URBANopt
         for i in 0..n_rows - 1
           for j in 0..n_cols - 1
             if i == j
-              primitive_potential_coeff_matrix[i][j] = 11.17689 * Math.log(images_matrix[i][j] / (diamaters[i] / 2)) # assuming relative permittivity of air of 1.4240 × 10 mF/mile
+              primitive_potential_coeff_matrix[i][j] = 11.17689 * Math.log(images_matrix[i][j] / (diamaters[i] / 2)) # assuming relative permittivity of air of 1.4240 x 10 mF/mile
             else
-              primitive_potential_coeff_matrix[i][j] = 11.17689 * Math.log(images_matrix[i][j] / dist_matrix[i][j]) # assuming relative permittivity of air of 1.4240 × 10 mF/mile
+              primitive_potential_coeff_matrix[i][j] = 11.17689 * Math.log(images_matrix[i][j] / dist_matrix[i][j]) # assuming relative permittivity of air of 1.4240 x 10 mF/mile
             end
           end
         end
@@ -318,7 +318,7 @@ module URBANopt
         wire_list = []
         hash = {}
         jj = 0
-        wire_list = URBANopt::RNM::Wires_extended_catalog.new
+        wire_list = URBANopt::RNM::WiresExtendedCatalog.new
         # puts wire_list
         for j in 0..@power_line['Line geometry'].length - 1
           for k in 0..wires['WIRES CATALOG'].length - 1

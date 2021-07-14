@@ -20,8 +20,8 @@
 # by the same designation. Redistribution of a modified version of this software
 # (i) may not refer to the modified version by the same designation, or by any
 # confusingly similar designation, and (ii) must refer to the underlying software
-# originally provided by Alliance as “URBANopt”. Except to comply with the foregoing,
-# the term “URBANopt”, or any confusingly similar designation may not be used to
+# originally provided by Alliance as "URBANopt". Except to comply with the foregoing,
+# the term "URBANopt", or any confusingly similar designation may not be used to
 # refer to any modified version of this software or any modified version of the
 # underlying software originally provided by Alliance without the prior written
 # consent of Alliance.
@@ -43,9 +43,9 @@ require 'geoutm'
 require 'json'
 module URBANopt
   module RNM
-    class Primary_substation
+    class PrimarySubstation
       # attr_accessor :x, :y, :id
-      # choose the closes coord to the street or the one in the midle of the polygon since the sub is far away from district and streets
+      # choose the closest coord to the street or the one in the midle of the polygon since the sub is far away from district and streets
       def coordinates(points_coord, id)
         x_utm = []
         y_utm = []

@@ -20,8 +20,8 @@
 # by the same designation. Redistribution of a modified version of this software
 # (i) may not refer to the modified version by the same designation, or by any
 # confusingly similar designation, and (ii) must refer to the underlying software
-# originally provided by Alliance as “URBANopt”. Except to comply with the foregoing,
-# the term “URBANopt”, or any confusingly similar designation may not be used to
+# originally provided by Alliance as "URBANopt". Except to comply with the foregoing,
+# the term "URBANopt", or any confusingly similar designation may not be used to
 # refer to any modified version of this software or any modified version of the
 # underlying software originally provided by Alliance without the prior written
 # consent of Alliance.
@@ -40,7 +40,7 @@
 
 module URBANopt
   module RNM
-    class Report_scenario
+    class ReportScenario
       attr_accessor :hour_index_max_res, :hour_index_min_res, :peak_hour_max_res, :peak_hour_min_res, :hour_index_max_comm, :hour_index_min_comm, :peak_hour_max_comm, :peak_hour_min_comm
 
       def initialize(reopt)
@@ -66,7 +66,7 @@ module URBANopt
         max_net_load_comm = 0
         min_net_load_res = 500000
         min_net_load_comm = 500000
-        j = 0
+        # j = 0
         # insert scenario path
         # if include reopt getting 2 most-stressing days in the year (max net load & min net load)
         if @reopt
@@ -92,7 +92,7 @@ module URBANopt
               @peak_hour_min_res = (@time[j].split(' ')[1]).split(':')[0].to_i # defined the most-stressing scenario
               @hour_index_min_res = j
             end
-            j += 1
+            # j += 1
           end
 
         else # case when reopt is not run and there is only a consumption scenario, without DG generation
@@ -107,7 +107,7 @@ module URBANopt
               @peak_hour_max_res = (@time[j].split(' ')[1]).split(':')[0].to_i # defined the most-stressing scenario
               @hour_index_max_res = j
             end
-            j += 1
+            # j += 1
           end
         end
         puts @hour_index_max_res

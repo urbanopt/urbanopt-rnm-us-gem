@@ -20,8 +20,8 @@
 # by the same designation. Redistribution of a modified version of this software
 # (i) may not refer to the modified version by the same designation, or by any
 # confusingly similar designation, and (ii) must refer to the underlying software
-# originally provided by Alliance as “URBANopt”. Except to comply with the foregoing,
-# the term “URBANopt”, or any confusingly similar designation may not be used to
+# originally provided by Alliance as "URBANopt". Except to comply with the foregoing,
+# the term "URBANopt", or any confusingly similar designation may not be used to
 # refer to any modified version of this software or any modified version of the
 # underlying software originally provided by Alliance without the prior written
 # consent of Alliance.
@@ -44,7 +44,7 @@ require 'urbanopt/rnm/logger'
 module URBANopt
   module RNM
     # creating a class to convert the extended catalog into the RNM-US catalog which is needed by the model
-    class Rnm_us_catalog_conversion
+    class RnmUsCatalogConversion
       def initialize(extended_catalog_path, run_dir, rnm_dirname)
         @extended_catalog_path = extended_catalog_path
         @run_dir = run_dir
@@ -58,7 +58,7 @@ module URBANopt
           for j in 0..matrix.length - 1
             if section == 'LINES'
               if matrix[j]['Line geometry'].is_a? Array
-                line_creation = URBANopt::RNM::Carson_eq.new(matrix[j])
+                line_creation = URBANopt::RNM::CarsonEq.new(matrix[j])
                 matrix[j] = line_creation.creation(wires) # passing the info about each power line
               else
                 matrix[j].delete('Line geometry')

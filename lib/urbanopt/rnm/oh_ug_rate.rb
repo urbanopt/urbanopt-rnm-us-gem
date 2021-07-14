@@ -20,8 +20,8 @@
 # by the same designation. Redistribution of a modified version of this software
 # (i) may not refer to the modified version by the same designation, or by any
 # confusingly similar designation, and (ii) must refer to the underlying software
-# originally provided by Alliance as “URBANopt”. Except to comply with the foregoing,
-# the term “URBANopt”, or any confusingly similar designation may not be used to
+# originally provided by Alliance as "URBANopt". Except to comply with the foregoing,
+# the term "URBANopt", or any confusingly similar designation may not be used to
 # refer to any modified version of this software or any modified version of the
 # underlying software originally provided by Alliance without the prior written
 # consent of Alliance.
@@ -42,7 +42,7 @@
 # according to a threshold height obtained from the %UG defined by the user
 module URBANopt
   module RNM
-    class Oh_ug_rate
+    class OhUgRate
       attr_accessor :av_height, :type, :n_buildings_street
 
       def initialize

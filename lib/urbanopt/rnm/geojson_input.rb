@@ -20,8 +20,8 @@
 # by the same designation. Redistribution of a modified version of this software
 # (i) may not refer to the modified version by the same designation, or by any
 # confusingly similar designation, and (ii) must refer to the underlying software
-# originally provided by Alliance as “URBANopt”. Except to comply with the foregoing,
-# the term “URBANopt”, or any confusingly similar designation may not be used to
+# originally provided by Alliance as "URBANopt". Except to comply with the foregoing,
+# the term "URBANopt", or any confusingly similar designation may not be used to
 # refer to any modified version of this software or any modified version of the
 # underlying software originally provided by Alliance without the prior written
 # consent of Alliance.
@@ -44,7 +44,7 @@ require 'json'
 module URBANopt
   module RNM
     # creating a class to process parse and process the geographic information for buildings, streets and substations
-    class Geojson_input
+    class GeojsonInput
       # Set constants
       UG_RATIO_DEFAULT = 0.9
       ONLY_LV_CONSUMERS_DEFAULT = true
@@ -204,7 +204,7 @@ module URBANopt
               h = 0 # index representing number of nodes for each single building
               building = [] # array containing every building node coordinates and id of 1 building
               for j in 0..street['geometry']['coordinates'][k].length - 1
-                building, h = URBANopt::RNM::Geojson_input.new.coordinates(street, street['geometry']['coordinates'][k][j][1], street['geometry']['coordinates'][k][j][0], building, j, h)
+                building, h = URBANopt::RNM::GeojsonInput.new.coordinates(street, street['geometry']['coordinates'][k][j][1], street['geometry']['coordinates'][k][j][0], building, j, h)
               end
               coordinates_buildings[building_number] = building # inserting in each index the nodes coordinates and id of each building
               building_ids[building_number] = street['properties']['id']
@@ -216,7 +216,7 @@ module URBANopt
         street_type = []
         for i in 0..street_number - 1
           # creating a class to define when the lines in each street have to be considered OH or UG
-          street_type[i] = URBANopt::RNM::Oh_ug_rate.new
+          street_type[i] = URBANopt::RNM::OhUgRate.new
           # obtaining the average height for each street and numb of buildings in each street
           street_type[i].height_building(coordinates_buildings, street_coordinates[i], building_floors)
         end

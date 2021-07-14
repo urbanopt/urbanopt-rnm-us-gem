@@ -20,8 +20,8 @@
 # by the same designation. Redistribution of a modified version of this software
 # (i) may not refer to the modified version by the same designation, or by any
 # confusingly similar designation, and (ii) must refer to the underlying software
-# originally provided by Alliance as “URBANopt”. Except to comply with the foregoing,
-# the term “URBANopt”, or any confusingly similar designation may not be used to
+# originally provided by Alliance as "URBANopt". Except to comply with the foregoing,
+# the term "URBANopt", or any confusingly similar designation may not be used to
 # refer to any modified version of this software or any modified version of the
 # underlying software originally provided by Alliance without the prior written
 # consent of Alliance.
@@ -42,7 +42,7 @@ require 'json'
 module URBANopt
   module RNM
     # class created to convert the extended catalog into the OpenDSS catalog to be used by the OpenDSS Gem
-    class Conversion_to_opendss_catalog
+    class ConversionToOpendssCatalog
       attr_accessor :hash
 
       def initialize(extended_catalog_path)
@@ -80,7 +80,7 @@ module URBANopt
         catalog.each do |key, value|
           case key
           when 'SUBSTATIONS AND DISTRIBUTION TRANSFORMERS'
-            transformers = URBANopt::RNM::Processor_opendss.new
+            transformers = URBANopt::RNM::ProcessorOpendss.new
             component = []
             for ii in 0..catalog[key].length - 1 # assessing each type of transformer (Urban, Inter)
               catalog[key][ii].each do |k, v|
@@ -94,7 +94,7 @@ module URBANopt
             end
             @hash['transformers_properties'] = component
           when 'CAPACITORS'
-            capacitors = URBANopt::RNM::Processor_opendss.new
+            capacitors = URBANopt::RNM::ProcessorOpendss.new
             component = []
             catalog[key].each do |k, v|
               # calling a method to verify that the same capacitors are not repeated in the OpenDSS catalog
@@ -106,7 +106,7 @@ module URBANopt
             end
             @hash['capacitor_properties'] = component
           when 'LINES'
-            @conductors = URBANopt::RNM::Processor_opendss.new
+            @conductors = URBANopt::RNM::ProcessorOpendss.new
             component = []
             for ii in 1..catalog[key].length - 1
               catalog[key][ii].each do |k, v| # assessing if interurban section, urban section, etc.
@@ -133,7 +133,7 @@ module URBANopt
               if @conductors.list[jj]['wire'] == catalog[key][k][ii]['nameclass']
                 @conductors.list[jj] = convert_to_imperial_units(@conductors.list[jj])
                 updated_value = convert_to_imperial_units(catalog[key][k][ii])
-                wire = URBANopt::RNM::Wires_opendss.new
+                wire = URBANopt::RNM::WiresOpendss.new
                 component.push(wire.create(@conductors.list[jj], updated_value))
                 i += 1
               end

@@ -20,8 +20,8 @@
 # by the same designation. Redistribution of a modified version of this software
 # (i) may not refer to the modified version by the same designation, or by any
 # confusingly similar designation, and (ii) must refer to the underlying software
-# originally provided by Alliance as “URBANopt”. Except to comply with the foregoing,
-# the term “URBANopt”, or any confusingly similar designation may not be used to
+# originally provided by Alliance as "URBANopt". Except to comply with the foregoing,
+# the term "URBANopt", or any confusingly similar designation may not be used to
 # refer to any modified version of this software or any modified version of the
 # underlying software originally provided by Alliance without the prior written
 # consent of Alliance.
@@ -46,7 +46,7 @@ require 'matrix'
 
 module URBANopt
   module RNM
-    class Wires_extended_catalog
+    class WiresExtendedCatalog
       attr_accessor :x, :height, :gmr, :r, :ampacity, :diameter, :phase, :name, :type, :r_neutral, :gmr_neutral, :neutral_strands, :diameter_n_strand, :outside_diamater_neutral
 
       def initialize

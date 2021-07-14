@@ -20,8 +20,8 @@
 # by the same designation. Redistribution of a modified version of this software
 # (i) may not refer to the modified version by the same designation, or by any
 # confusingly similar designation, and (ii) must refer to the underlying software
-# originally provided by Alliance as “URBANopt”. Except to comply with the foregoing,
-# the term “URBANopt”, or any confusingly similar designation may not be used to
+# originally provided by Alliance as "URBANopt". Except to comply with the foregoing,
+# the term "URBANopt", or any confusingly similar designation may not be used to
 # refer to any modified version of this software or any modified version of the
 # underlying software originally provided by Alliance without the prior written
 # consent of Alliance.
@@ -178,8 +178,8 @@ module URBANopt
         file_csv = []
         file_json = []
         # finding the 2 most extreme hours of the year (maximum net demand and maximum net generation) the distribution network is planned
-        hours = URBANopt::RNM::Report_scenario.new(@reopt)
-        # hours_commercial = URBANopt::RNM::Report_scenario.new(@reopt)
+        hours = URBANopt::RNM::ReportScenario.new(@reopt)
+        # hours_commercial = URBANopt::RNM::ReportScenario.new(@reopt)
         (0..tot_buildings - 1).each do |j|
           if @reopt
             file_csv[j] = File.join(@run_dir, (building_ids[j]).to_s, 'feature_reports', 'feature_optimization.csv')
@@ -208,11 +208,11 @@ module URBANopt
             consumers.customer_files_load(file_csv[j], file_json[j], customers_coordinates[j], coordinates_buildings[j], hours)
           end
         end
-        rnm_us_catalog = URBANopt::RNM::Rnm_us_catalog_conversion.new(@extended_catalog_path, @run_dir, @rnm_dirname)
+        rnm_us_catalog = URBANopt::RNM::RnmUsCatalogConversion.new(@extended_catalog_path, @run_dir, @rnm_dirname)
         rnm_us_catalog.processing_data
         # call and create the opendss_catalog class if the user wants to convert the extended catalog into OpenDSS catalog
         if @opendss_catalog
-          @opendss_catalog = URBANopt::RNM::Conversion_to_opendss_catalog.new(@extended_catalog_path)
+          @opendss_catalog = URBANopt::RNM::ConversionToOpendssCatalog.new(@extended_catalog_path)
           # create catalog and save to specified path
           @opendss_catalog.create_catalog(File.join(@run_dir, 'opendss_catalog.json'))
         end
