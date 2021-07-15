@@ -50,9 +50,74 @@ module URBANopt
       # [parameters:]
       # * +results+ - _Hash_ - Hash of RNM-US results returned from the API
       # * +scenario+ - _String_ - Path to scenario_dir
-      def initialize(results, scenario_dir)
+      def initialize(results, scenario_dir, feature_file_path, reopt: false)
         @results = results
         @scenario_dir = scenario_dir
+        @results_dir = File.join(@scenario_dir, 'rnm-us', 'results')
+        @report_filename = 'scenario_report_rnm.json'
+        @feature_file_path = feature_file_path
+        @reopt = reopt
+      end
+
+      ## 
+      # Post Process report and feature file
+      ##
+      def post_process
+        generate_report
+        generate_feature_file
+        puts "RNM results were added to scenario report and feature file. New files can be found in #{@results_dir}"
+      end
+
+      ## 
+      # Generate Scenario report
+      ##
+      def generate_report
+
+        # calculate rnm statistics
+        rnm_stats = calculate_stats
+
+        # get scenario
+        scenario = get_scenario
+
+        # merge stats with scenario report (before feature_reports section)
+        
+        scenario['scenario_report']['rnm_results'] = rnm_stats
+       
+        # save back to rnm-us/results directory as scenario_report_rnm.json
+        File.open(File.join(@results_dir, @report_filename), "w") do |f|
+          f.write(JSON.pretty_generate(scenario))
+        end
+
+      end
+
+      ## 
+      # Load Scenario Report
+      ##
+      def get_scenario
+        if @reopt
+          # get reopt scenario report
+          return JSON.parse(File.read(File.join(@scenario_dir, 'feature_optimization.json')))
+        else
+          # get default scenario report 
+          return JSON.parse(File.read(File.join(@scenario_dir, 'default_scenario_report.json')))
+        end
+      end
+
+      ## 
+      # Generate new GeoJSON file
+      ##
+      def generate_feature_file
+        # get feature file and read in
+        # TODO
+
+        # get results GeoJSON file and read in
+        # TODO
+
+        # merge the two files a
+        # TODO
+
+        # save back to rnm-us/results directory as <feature-file_name>_rnm.json
+        # TODO
       end
 
       ##
@@ -109,21 +174,21 @@ module URBANopt
         # costs
         stats['costs'] = {}
         stats['costs']['investment'] = {}
-        stats['costs']['maintenance_yr'] = {}
+        stats['costs']['yearly_maintenance'] = {}
         @results['Summary'].each do |item|
           case item['Level']
      when 'LV'
        stats['costs']['investment']['low_voltage_network'] = item['Investment cost']
-       stats['costs']['maintenance_yr']['low_voltage_network'] = item['Preventive maintenance (yearly)']
+       stats['costs']['yearly_maintenance']['low_voltage_network'] = item['Preventive maintenance (yearly)']
           when 'MV'
             stats['costs']['investment']['medium_voltage_network'] = item['Investment cost']
-            stats['costs']['maintenance_yr']['medium_voltage_network'] = item['Preventive maintenance (yearly)']
+            stats['costs']['yearly_maintenance']['medium_voltage_network'] = item['Preventive maintenance (yearly)']
           when 'Dist.Transf.'
             stats['costs']['investment']['distribution_transformers'] = item['Investment cost']
-            stats['costs']['maintenance_yr']['distribution_transformers'] = item['Preventive maintenance (yearly)']
+            stats['costs']['yearly_maintenance']['distribution_transformers'] = item['Preventive maintenance (yearly)']
           when 'HV/MV Subest.'
             stats['costs']['investment']['primary_substations'] = item['Investment cost']
-            stats['costs']['maintenance_yr']['primary_substations'] = item['Preventive maintenance (yearly)']
+            stats['costs']['yearly_maintenance']['primary_substations'] = item['Preventive maintenance (yearly)']
           end
         end
         # cost totals
@@ -133,10 +198,10 @@ module URBANopt
         end
         stats['costs']['investment']['total'] = inv_tot
         maint_tot = 0
-        stats['costs']['maintenance_yr'].each do |key, val|
+        stats['costs']['yearly_maintenance'].each do |key, val|
           maint_tot += val
         end
-        stats['costs']['maintenance_yr']['total'] = maint_tot
+        stats['costs']['yearly_maintenance']['total'] = maint_tot
 
         # reliability indexes
         stats['reliability_indexes'] = {}
@@ -146,16 +211,6 @@ module URBANopt
         stats['reliability_indexes']['SAIFI'] = @results['Reliability indexes'][0]['ASIFI']
 
         return stats
-      end
-
-      ##
-      # Save results back
-      ##
-      def save
-        # TODO: save back to report
-        # open file and read in
-        # append
-        # save back
       end
     end
   end

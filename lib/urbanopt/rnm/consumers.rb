@@ -230,7 +230,7 @@ module URBANopt
         i = 0 # to represent the 24 hours of a day
         # content = CSV.foreach(csv_feature_report, headers: true) do |power|
         CSV.foreach(csv_feature_report, headers: true) do |power|
-          @power_factor = power['Electricity:Facility Power(kW)'].to_f / power['Electricity:Facility Apparent Power(kVA)']
+          @power_factor = power['Electricity:Facility Power(kW)'].to_f / power['Electricity:Facility Apparent Power(kVA)'].to_f
           profiles[:yearly_profile_cust_active].push(power['Electricity:Facility Power(kW)'].to_f)
           profiles[:yearly_profile_cust_reactive].push(profiles[:yearly_profile_cust_active][k] * Math.tan(Math.acos(@power_factor)))
           single_values[:energy] += power['REopt:Electricity:Load:Total(kw)'].to_f # calculating the yearly energy consumed by each feature

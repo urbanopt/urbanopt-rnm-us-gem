@@ -146,10 +146,8 @@ module URBANopt
       # Post-process results back into scenario json file
       ##
       def post_process
-        @pp = URBANopt::RNM::PostProcessor.new(@results, 'test_for_now')
-        res = @pp.calculate_stats
-        puts 'HEY HEY RES:'
-        puts JSON.pretty_generate(res)
+        @rnm_pp = URBANopt::RNM::PostProcessor.new(@results, @run_dir, @feature_file_path)
+        @rnm_pp.post_process
       end
     end
   end

@@ -151,7 +151,7 @@ module URBANopt
       ##
       def create
         # the GEOjson file is loaded and a method is called to extract the required information regarding the street, building and substation location
-        street_coordinates, customers_coordinates, coordinates_buildings, tot_buildings, building_ids, substation_location, only_lv_consumers = URBANopt::RNM::Geojson_input.new.coordinates_file_load(File.read(@feature_file_path))
+        street_coordinates, customers_coordinates, coordinates_buildings, tot_buildings, building_ids, substation_location, only_lv_consumers = URBANopt::RNM::GeojsonInput.new.coordinates_file_load(File.read(@feature_file_path))
         # puts("BUILDING IDS: #{building_ids}")
         # define the LV/MV limit imposed by the components of the catalog: distr.transformers and power lines
         lv_limit = catalog_limits

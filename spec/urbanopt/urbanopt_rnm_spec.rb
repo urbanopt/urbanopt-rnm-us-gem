@@ -195,6 +195,14 @@ RSpec.describe URBANopt::RNM do
 
       expect(File.exist?(File.join(@rnm_dir, 'inputs.zip'))).to be true
     end
+
+    # it 'runs simulation' do
+    # TODO
+    # end
+
+    # it 'post processes results' do
+    # TODO
+    # end
   end
 
   context 'save opendss catalog' do
@@ -207,7 +215,7 @@ RSpec.describe URBANopt::RNM do
       end
 
       # create catalog and save to specified path
-      @opendss_catalog = URBANopt::RNM::Conversion_to_opendss_catalog.new(@extended_catalog_path)
+      @opendss_catalog = URBANopt::RNM::ConversionToOpendssCatalog.new(@extended_catalog_path)
       @opendss_catalog.create_catalog(@save_path)
 
       expect(File.exist?(@save_path)).to be true
