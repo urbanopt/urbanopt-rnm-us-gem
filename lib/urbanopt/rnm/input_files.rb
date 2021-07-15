@@ -41,6 +41,7 @@
 require 'csv'
 require 'json'
 require 'urbanopt/rnm/logger'
+require 'urbanopt/geojson'
 
 module URBANopt
   module RNM
@@ -57,9 +58,9 @@ module URBANopt
       # * +opendss_catalog+ - _Boolean_ - Input command from the user to either run or not the opendss_conversion_script to convert the extended_catalog in OpenDSS catalog
       # * +rnm_dirname+ - _String_ - name of RNM-US directory that will contain the input files (within the scenario directory)
       ##
-      def initialize(run_dir, feature_file_path, extended_catalog_path, average_building_peak_catalog_path, reopt: false, opendss_catalog: true, rnm_dirname: 'rnm-us')
+      def initialize(run_dir, feature_file, extended_catalog_path, average_building_peak_catalog_path, reopt: false, opendss_catalog: true, rnm_dirname: 'rnm-us')
         @run_dir = run_dir
-        @feature_file_path = feature_file_path
+        @feature_file = feature_file
         @rnm_dirname = rnm_dirname
         @extended_catalog_path = extended_catalog_path
         @average_building_peak_catalog_path = average_building_peak_catalog_path
@@ -151,11 +152,11 @@ module URBANopt
       ##
       def create
         # the GEOjson file is loaded and a method is called to extract the required information regarding the street, building and substation location
-        street_coordinates, customers_coordinates, coordinates_buildings, tot_buildings, building_ids, substation_location, only_lv_consumers = URBANopt::RNM::GeojsonInput.new.coordinates_file_load(File.read(@feature_file_path))
+        street_coordinates, customers_coordinates, coordinates_buildings, tot_buildings, building_ids, substation_location, only_lv_consumers = URBANopt::RNM::GeojsonInput.new.coordinates_feature_hash(@feature_file)
         # puts("BUILDING IDS: #{building_ids}")
         # define the LV/MV limit imposed by the components of the catalog: distr.transformers and power lines
         lv_limit = catalog_limits
-        # veryfying if running RNM-US with REopt option
+        # verifying if running RNM-US with REopt option
 
         if @reopt
           if !File.join(@run_dir, 'feature_optimization').nil?

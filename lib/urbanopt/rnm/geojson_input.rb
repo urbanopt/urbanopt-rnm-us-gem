@@ -142,7 +142,7 @@ module URBANopt
       # creating a method passing the GeoJSON file from URBANopt as the argument to define options that can be modified by the user
       # streets and building and primary substation coordinates
       # and returning the street coordinates array, the building coordinates array and the tot number of buildings in the project
-      def coordinates_file_load(geojson_file)
+      def coordinates_feature_hash(geojson_hash)
         i = 0 # index representing the number of street_nodes
         building_number = 0 # variable created to keep track the number of buildings in the project
         street_number = 0 # variable created to keep track the number of streets in the project
@@ -153,7 +153,7 @@ module URBANopt
         building_ids = [] # array containing building_ids to retrieve urbanopt results later
         building_floors = [] # array containing numb of floors for each building
         substation_location = []
-        streets = JSON.parse(geojson_file)
+        streets = geojson_hash
         # parsing the options defined by the user to run the RNM-US with a certain % of UG cables and designing the network with only LV nodes
         # to be consistent in case several case-studies are run to have an homogenous parameter on how to compare the same buildings with different energy consumption
         # Use defaults and warn user if these fields are unset

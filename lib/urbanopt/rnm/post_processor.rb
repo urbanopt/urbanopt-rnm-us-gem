@@ -39,7 +39,6 @@
 # *********************************************************************************
 
 require 'urbanopt/rnm/logger'
-# require 'urbanopt/reporting/default_reports'
 
 module URBANopt
   module RNM
@@ -50,12 +49,13 @@ module URBANopt
       # [parameters:]
       # * +results+ - _Hash_ - Hash of RNM-US results returned from the API
       # * +scenario+ - _String_ - Path to scenario_dir
-      def initialize(results, scenario_dir, feature_file_path, reopt: false)
+      def initialize(results, scenario_dir, feature_file, reopt: false)
         @results = results
         @scenario_dir = scenario_dir
         @results_dir = File.join(@scenario_dir, 'rnm-us', 'results')
         @report_filename = 'scenario_report_rnm.json'
-        @feature_file_path = feature_file_path
+        @geojson_filename = 'feature_file_rnm.json'
+        @feature_file = feature_file
         @reopt = reopt
       end
 
@@ -83,8 +83,8 @@ module URBANopt
         
         scenario['scenario_report']['rnm_results'] = rnm_stats
        
-        # save back to rnm-us/results directory as scenario_report_rnm.json
-        File.open(File.join(@results_dir, @report_filename), "w") do |f|
+        # save back to scenario directory as scenario_report_rnm.json
+        File.open(File.join(@scenario_dir, @report_filename), "w") do |f|
           f.write(JSON.pretty_generate(scenario))
         end
 
@@ -107,17 +107,19 @@ module URBANopt
       # Generate new GeoJSON file
       ##
       def generate_feature_file
-        # get feature file and read in
-        # TODO
 
         # get results GeoJSON file and read in
-        # TODO
+        results = JSON.parse(File.read(File.join(@results_dir, 'GeoJSON', 'Distribution_system.json')))
 
-        # merge the two files a
-        # TODO
+        # merge the two files
+        results['features'].each do |feature|
+          @feature_file['features'].append(feature)
+        end
 
-        # save back to rnm-us/results directory as <feature-file_name>_rnm.json
-        # TODO
+        # save back to scenario directory as features_and_rnm.json
+         File.open(File.join(@scenario_dir, @geojson_filename), "w") do |f|
+          f.write(JSON.pretty_generate(@feature_file))
+        end
       end
 
       ##

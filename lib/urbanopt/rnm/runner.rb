@@ -71,6 +71,9 @@ module URBANopt
         @opendss_catalog = opendss_catalog
         @results = []
 
+        # load feature file
+        @feature_file = JSON.parse(File.read(@feature_file_path))
+
         # set default catalog paths if they are nil
         if @extended_catalog_path.nil?
           @extended_catalog_path = File.join(File.dirname(__FILE__), '..', '..', '..', 'catalogs', 'extended_catalog.json')
@@ -118,7 +121,7 @@ module URBANopt
       ##
       def create_simulation_files
         # generate RNM-US input files
-        in_files = URBANopt::RNM::InputFiles.new(@run_dir, @feature_file_path, @extended_catalog_path, @average_peak_catalog_path, reopt: @reopt, opendss_catalog: @opendss_catalog)
+        in_files = URBANopt::RNM::InputFiles.new(@run_dir, @feature_file, @extended_catalog_path, @average_peak_catalog_path, reopt: @reopt, opendss_catalog: @opendss_catalog)
         in_files.create
       end
 
@@ -146,7 +149,7 @@ module URBANopt
       # Post-process results back into scenario json file
       ##
       def post_process
-        @rnm_pp = URBANopt::RNM::PostProcessor.new(@results, @run_dir, @feature_file_path)
+        @rnm_pp = URBANopt::RNM::PostProcessor.new(@results, @run_dir, @feature_file)
         @rnm_pp.post_process
       end
     end
