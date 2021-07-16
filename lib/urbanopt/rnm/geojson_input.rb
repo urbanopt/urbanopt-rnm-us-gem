@@ -48,6 +48,7 @@ module URBANopt
       # Set constants
       UG_RATIO_DEFAULT = 0.9
       ONLY_LV_CONSUMERS_DEFAULT = true
+      MAX_LV_NODES_DEFAULT = 1
 
       # defining a method to set each street nodes to a uniform distance among eachothers, valid for both streets and buildings
       # the method is passing as arguments the hash with each feature info from the geojson file, the latitude and longitude to be converted to UTM,
