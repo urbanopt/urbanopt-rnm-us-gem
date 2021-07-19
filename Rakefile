@@ -157,7 +157,7 @@ task :create_opendss_catalog, [:save_path] do |t, args|
   save_path = args[:save_path] || './opendss_catalog.json'
 
   extended_catalog_path = File.join(File.dirname(__FILE__), 'catalogs', 'extended_catalog.json')
-  opendss_catalog = URBANopt::RNM::Conversion_to_opendss_catalog.new(extended_catalog_path)
+  opendss_catalog = URBANopt::RNM::ConversionToOpendssCatalog.new(extended_catalog_path)
   # create catalog and save to specified path
   opendss_catalog.create_catalog(save_path)
 
