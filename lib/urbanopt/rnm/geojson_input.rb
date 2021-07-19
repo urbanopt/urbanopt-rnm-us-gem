@@ -154,6 +154,7 @@ module URBANopt
         building_ids = [] # array containing building_ids to retrieve urbanopt results later
         building_floors = [] # array containing numb of floors for each building
         substation_location = []
+        utm_zone = 0
         streets = geojson_hash
         # parsing the options defined by the user to run the RNM-US with a certain % of UG cables and designing the network with only LV nodes
         # to be consistent in case several case-studies are run to have an homogenous parameter on how to compare the same buildings with different energy consumption
@@ -171,6 +172,13 @@ module URBANopt
         else
           only_lv_consumers = ONLY_LV_CONSUMERS_DEFAULT
           puts "RNM-US gem WARNING: field ['project']['only_lv_consumers'] not specified in Feature File...using default value of #{ONLY_LV_CONSUMERS_DEFAULT}"
+        end
+        if streets.key?('project') && streets['project'].key?('maximum_number_lv_nodes_representing_single_building')
+          max_num_lv_nodes = streets['project']['maximum_number_lv_nodes_representing_single_building']
+          puts "RNM-US gem INFO: using at max #{max_num_lv_nodes} lv nodes per building"
+        else
+          max_num_lv_nodes = MAXIMUM_NUMBER_LV_NODES_REPRESENTING_SINGLE_BUILDING
+          puts "RNM-US gem WARNING: field ['project']['maximum_number_lv_nodes_representing_single_building'] not specified in Feature File...using default value of #{MAXIMUM_NUMBER_LV_NODES_REPRESENTING_SINGLE_BUILDING}"
         end
         # each features (linestring, multilinestring and polygon) are processed in an external method, to create intermediate nodes
         # for a better graphical representation of the district
@@ -210,6 +218,10 @@ module URBANopt
               coordinates_buildings[building_number] = building # inserting in each index the nodes coordinates and id of each building
               building_ids[building_number] = street['properties']['id']
               building_floors[building_number] = street['properties']['number_of_stories']
+              if building_number == 0
+                utm = GeoUtm::LatLon.new(street['geometry']['coordinates'][k][j][1], street['geometry']['coordinates'][k][j][0]).to_utm
+                utm_zone = utm.zone
+              end
               building_number += 1
          end
           end
@@ -235,7 +247,7 @@ module URBANopt
         for i in 0..building_number - 1
           customers_coordinates[i] = consumer_coordinates(coordinates_buildings[i], street)
         end
-        return street, customers_coordinates, coordinates_buildings, building_number, building_ids, substation_location, only_lv_consumers # considering creating an hash as attribute
+        return street, customers_coordinates, coordinates_buildings, building_number, building_ids, substation_location, only_lv_consumers, max_num_lv_nodes, utm_zone # considering creating an hash as attribute
       end
     end
   end
