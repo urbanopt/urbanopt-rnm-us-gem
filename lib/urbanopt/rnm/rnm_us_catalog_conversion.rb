@@ -95,7 +95,7 @@ module URBANopt
         end
       end
 
-      def processing_data
+      def processing_data(utm_zone)
         # parsing lines and wires info:
         row = Array.new(25)
         ext_catalog = JSON.parse(File.read(@extended_catalog_path))
@@ -104,6 +104,9 @@ module URBANopt
             if key != 'WIRES'
               csv << ["<#{key}>"]
               if ext_catalog[key].is_a?(Hash) # defining the section under consideration is an Hash or an Array
+                if key == 'OTHERS'
+                    ext_catalog[key]["UTM Zone"] = utm_zone.to_s
+                end
                 ext_catalog[key].each do |k, v|
                   row = []
                   row.push(k) # title of the array
