@@ -58,15 +58,16 @@ task :version_number do
 end
 
 # create input files for a project
-# pass in the path to the scenario directory, the path to the json feature file, and whether this a reopt analysis (true/false)
+# pass in the path to the scenario csv, the path to the json feature file, and whether this a reopt analysis (true/false)
 desc 'Create input files'
-task :create_inputs, [:scenario_dir_path, :feature_file_path, :reopt, :opendss_catalog] do |t, args|
+task :create_inputs, [:scenario_csv_path, :feature_file_path, :reopt, :opendss_catalog] do |t, args|
   puts 'Creating input files'
   # if no path passed in, use default:
-  scenario_dir = args[:scenario_dir_path] || 'spec/test/example_project/run/baseline_scenario'
-
-  run_dir = scenario_dir
-  root_dir = File.join(run_dir, '..', '..') # 2 levels up
+  scenario_csv_path = args[:scenario_csv_path] || 'spec/test/example_project/baseline_scenario.csv'
+  root_dir, scenario_file_name = File.split(File.expand_path(scenario_csv_path))
+  scenario_name = File.basename(scenario_file_name, File.extname(scenario_file_name))
+  run_dir = File.join(root_dir, 'run', scenario_name.downcase)
+  puts "SCENARIO NAME: #{scenario_name}"
 
   # set up variables
   feature_file_path = args[:feature_file_path] || File.join(root_dir, 'example_project_with_network_and_streets.json')
@@ -77,52 +78,53 @@ task :create_inputs, [:scenario_dir_path, :feature_file_path, :reopt, :opendss_c
 
   extended_catalog_path = File.join(File.dirname(__FILE__), 'catalogs',  'extended_catalog.json')
   average_peak_catalog_path = File.join(File.dirname(__FILE__), 'catalogs', 'average_peak_per_building_type.json')
-  scenario_name = Pathname.new(scenario_dir).basename
 
   if !File.exist?(File.join(File.dirname(__FILE__), '..', 'test'))
     FileUtils.mkdir_p(File.join(File.dirname(__FILE__), '..', 'test'))
   end
 
   # generate inputs
-  runner = URBANopt::RNM::Runner.new(scenario_name, root_dir, run_dir, feature_file_path, extended_catalog_path: extended_catalog_path, average_peak_catalog_path: average_peak_catalog_path, reopt: reopt, opendss_catalog: opendss_catalog)
+  runner = URBANopt::RNM::Runner.new(scenario_name, run_dir, scenario_csv_path, feature_file_path, extended_catalog_path: extended_catalog_path, average_peak_catalog_path: average_peak_catalog_path, reopt: reopt, opendss_catalog: opendss_catalog)
   runner.create_simulation_files
   puts '....done!'
 end
 
-# create input files for a project
-# pass in the path to the scenario directory, the path to the json feature file, and whether this a reopt analysis (true/false)
-desc 'Create input files'
-task :create_inputs_default, [:scenario_dir_path, :feature_file_path] do |t, args|
+# create input files for a project using defaults
+# pass in the path to the scenario csv, the path to the json feature file, and whether this a reopt analysis (true/false)
+desc 'Create input files with defaults'
+task :create_inputs_default, [:scenario_csv_path, :feature_file_path] do |t, args|
   puts 'Creating input files with defaulted settings'
-  # if no path passed in, use default:
-  scenario_dir = args[:scenario_dir_path] || 'spec/test/example_project/run/baseline_scenario'
-
-  run_dir = scenario_dir
-  root_dir = File.join(run_dir, '..', '..') # 2 levels up
+ # if no path passed in, use default:
+  scenario_csv_path = args[:scenario_csv_path] || 'spec/test/example_project/baseline_scenario.csv'
+  root_dir, scenario_file_name = File.split(File.expand_path(scenario_csv_path))
+  scenario_name = File.basename(scenario_file_name, File.extname(scenario_file_name))
+  run_dir = File.join(root_dir, 'run', scenario_name.downcase)
+  puts "SCENARIO NAME: #{scenario_name}"
 
   # set up variables
   feature_file_path = args[:feature_file_path] || File.join(root_dir, 'example_project_with_network_and_streets.json')
-
-  scenario_name = Pathname.new(scenario_dir).basename
 
   if !File.exist?(File.join(File.dirname(__FILE__), '..', 'test'))
     FileUtils.mkdir_p(File.join(File.dirname(__FILE__), '..', 'test'))
   end
 
   # generate inputs
-  runner = URBANopt::RNM::Runner.new(scenario_name, root_dir, run_dir, feature_file_path)
+  runner = URBANopt::RNM::Runner.new(scenario_name, run_dir, scenario_csv_path, feature_file_path)
   runner.create_simulation_files
   puts '....done!'
 end
 
 # run simulation and retrieve results
-# pass in the path to the scenario directory, whether this is a reopt analysis (true/false), and whether to use localhost RNM API (true/false)
+# pass in the path to the scenario csv, whether this is a reopt analysis (true/false), and whether to use localhost RNM API (true/false)
 desc 'Run Simulation'
-task :run_simulation, [:scenario_dir_path, :reopt, :use_localhost] do |t, args|
+task :run_simulation, [:scenario_csv_path, :reopt, :use_localhost] do |t, args|
   puts 'Running simulation'
   # if no path passed in, use default:
-  run_dir = args[:scenario_dir_path] || 'spec/test/example_project/run/baseline_scenario'
-  scenario_name = Pathname.new(run_dir).basename
+  scenario_csv = args[:scenario_csv_path] || 'spec/test/example_project/run/baseline_scenario'
+  root_dir, scenario_file_name = File.split(File.expand_path(scenario_csv))
+  scenario_name = File.basename(scenario_file_name, File.extname(scenario_file_name))
+  run_dir = File.join(root_dir, 'run', scenario_name.downcase)
+
   rnm_dir = File.join(run_dir, 'rnm-us')
   reopt = args[:reopt] || false
   reopt = reopt == 'true'

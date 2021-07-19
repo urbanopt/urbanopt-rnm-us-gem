@@ -143,7 +143,7 @@ module URBANopt
       # creating a method passing the GeoJSON file from URBANopt as the argument to define options that can be modified by the user
       # streets and building and primary substation coordinates
       # and returning the street coordinates array, the building coordinates array and the tot number of buildings in the project
-      def coordinates_feature_hash(geojson_hash)
+      def coordinates_feature_hash(geojson_hash,scenario_features=[])
         i = 0 # index representing the number of street_nodes
         building_number = 0 # variable created to keep track the number of buildings in the project
         street_number = 0 # variable created to keep track the number of streets in the project
@@ -156,6 +156,7 @@ module URBANopt
         substation_location = []
         utm_zone = 0
         streets = geojson_hash
+        puts "SCENARIO FEATURES: #{scenario_features}"
         # parsing the options defined by the user to run the RNM-US with a certain % of UG cables and designing the network with only LV nodes
         # to be consistent in case several case-studies are run to have an homogenous parameter on how to compare the same buildings with different energy consumption
         # Use defaults and warn user if these fields are unset
@@ -183,7 +184,7 @@ module URBANopt
         # each features (linestring, multilinestring and polygon) are processed in an external method, to create intermediate nodes
         # for a better graphical representation of the district
         # "Point" geometry is ignored (site origin feature)
-        # put error ifthere is not this info, and use default values
+        # put error if there is not this info, and use default values
         streets['features'].each do |street|
           # the geojson file is read and according to the "type" of feature (linestring, multilinestring, polygon)
           # a different loop is executed to fill every node coordinates in a specific array
@@ -208,7 +209,7 @@ module URBANopt
             end
             street_coordinates[street_number] = each_street
             street_number += 1
-          elsif street['geometry']['type'] == 'Polygon' && street['properties']['type'] == 'Building'
+          elsif street['geometry']['type'] == 'Polygon' && street['properties']['type'] == 'Building' and scenario_features.include? street['properties']['id']
             for k in 0..street['geometry']['coordinates'].length - 1
               h = 0 # index representing number of nodes for each single building
               building = [] # array containing every building node coordinates and id of 1 building
@@ -223,7 +224,7 @@ module URBANopt
                 utm_zone = utm.zone
               end
               building_number += 1
-         end
+            end
           end
         end
         street_type = []

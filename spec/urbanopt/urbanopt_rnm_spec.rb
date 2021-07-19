@@ -62,6 +62,7 @@ RSpec.describe URBANopt::RNM do
       @rnm_dir = File.join(@run_dir, 'rnm-us')
       @results_dir = File.join(@rnm_dir, 'results')
       @feature_file_path = File.join(@root_dir, 'example_project_with_network_and_streets.json')
+      @scenario_csv_path = File.join(@root_dir, 'baseline_scenario.csv')
       @reopt = false
       @extended_catalog_path = File.join(File.dirname(__FILE__), '..', '..', 'catalogs',  'extended_catalog.json')
       @average_peak_catalog_path = File.join(File.dirname(__FILE__), '..', '..', 'catalogs', 'average_peak_per_building_type.json')
@@ -73,7 +74,7 @@ RSpec.describe URBANopt::RNM do
       end
 
       FileUtils.cp_r(File.join(File.dirname(__FILE__), '..', 'files', 'example_project'), File.join(File.dirname(__FILE__), '..', 'test'))
-      @runner = URBANopt::RNM::Runner.new(@name, @root_dir, @run_dir, @feature_file_path, extended_catalog_path: @extended_catalog_path, average_peak_catalog_path: @average_peak_catalog_path, reopt: @reopt, opendss_catalog: @opendss_catalog)
+      @runner = URBANopt::RNM::Runner.new(@name, @run_dir, @scenario_csv_path, @feature_file_path, extended_catalog_path: @extended_catalog_path, average_peak_catalog_path: @average_peak_catalog_path, reopt: @reopt, opendss_catalog: @opendss_catalog)
     end
 
     it 'creates the rnm-us input files' do
@@ -102,10 +103,11 @@ RSpec.describe URBANopt::RNM do
     it 'uses default field values when none are specified in feature file' do
       @feature_file_path2 = File.join(@root_dir, 'example_project_streets_missingfields.json')
 
-      # also attempt to use default catalogs
-      @runner2 = URBANopt::RNM::Runner.new(@name, @root_dir, @run_dir, @feature_file_path2, reopt: @reopt)
-      expect {  @runner2.create_simulation_files }.to output(a_string_including("RNM-US gem WARNING: field ['project']['only_lv_consumers'] not specified in Feature File...using default value of true")).to_stdout
-      expect {  @runner2.create_simulation_files }.to output(a_string_including("RNM-US gem WARNING: field ['project']['underground_cables_ratio'] not specified in Feature File...using default value of 0.9")).to_stdout
+      # also attempt to use defaults
+      @runner2 = URBANopt::RNM::Runner.new(@name, @run_dir, @scenario_csv_path, @feature_file_path2, reopt: @reopt)
+      expect {  @runner2.create_simulation_files }.to output(a_string_including("RNM-US gem WARNING: field ['project']['only_lv_consumers'] not specified in Feature File...using default value of")).to_stdout
+      expect {  @runner2.create_simulation_files }.to output(a_string_including("RNM-US gem WARNING: field ['project']['underground_cables_ratio'] not specified in Feature File...using default value of")).to_stdout
+      expect {  @runner2.create_simulation_files }.to output(a_string_including("RNM-US gem WARNING: field ['project']['max_number_of_lv_nodes_per_building'] not specified in Feature File...using default value of")).to_stdout
     end
 
     it 'runs simulation and gets results' do
@@ -143,6 +145,7 @@ RSpec.describe URBANopt::RNM do
       @root_dir = File.join(File.dirname(__FILE__), '..', 'test_reopt', 'example_project')
       @run_dir = File.join(@root_dir, 'run', 'reopt_scenario')
       @feature_file_path = File.join(@root_dir, 'example_project_with_network_and_streets.json')
+      @scenario_csv_path = File.join(@root_dir, 'REopt_scenario.csv')
       @name = 'reopt_scenario'
       @reopt = true
       @extended_catalog_path = File.join(File.dirname(__FILE__), '..', '..', 'catalogs',  'extended_catalog.json')
@@ -154,7 +157,7 @@ RSpec.describe URBANopt::RNM do
       end
 
       FileUtils.cp_r(File.join(File.dirname(__FILE__), '..', 'files', 'example_project'), File.join(File.dirname(__FILE__), '..', 'test_reopt'))
-      @runner = URBANopt::RNM::Runner.new(@name, @root_dir, @run_dir, @feature_file_path, extended_catalog_path: @extended_catalog_path, average_peak_catalog_path: @average_peak_catalog_path, reopt: @reopt, opendss_catalog: @opendss_catalog)
+      @runner = URBANopt::RNM::Runner.new(@name, @run_dir, @scenario_csv_path, @feature_file_path, extended_catalog_path: @extended_catalog_path, average_peak_catalog_path: @average_peak_catalog_path, reopt: @reopt, opendss_catalog: @opendss_catalog)
     end
 
     it 'creates the rnm-us input files' do
