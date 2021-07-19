@@ -92,7 +92,6 @@ module URBANopt
               @peak_hour_min_res = (@time[j].split(' ')[1]).split(':')[0].to_i # defined the most-stressing scenario
               @hour_index_min_res = j
             end
-            # j += 1
           end
 
         else # case when reopt is not run and there is only a consumption scenario, without DG generation
@@ -107,13 +106,9 @@ module URBANopt
               @peak_hour_max_res = (@time[j].split(' ')[1]).split(':')[0].to_i # defined the most-stressing scenario
               @hour_index_max_res = j
             end
-            # j += 1
           end
         end
-        puts @hour_index_max_res
-        puts @hour_index_max_comm
       end
-
       def aggregate_consumption(file_csv, file_json, n_feature)
         feature_type = file_json['program']['building_types'][0]['building_type']
         # residential_building_types = "Single-Family Detached" #add the other types
