@@ -48,11 +48,11 @@ module URBANopt
       attr_accessor :customers, :customers_ext, :profile_customer_p, :profile_customer_q, :profile_customer_p_ext, :profile_customer_q_ext, :power_factor
 
       # initializing all the attributes to build the inputs files required by the RNM-US model
-      def initialize(reopt, only_lv_consumers = false, average_building_peak_catalog_path, lv_limit)
+      def initialize(reopt, only_lv_consumers = false, max_num_lv_nodes, average_building_peak_catalog_path, lv_limit)
         @reopt = reopt
         @average_building_peak_catalog_path = average_building_peak_catalog_path
         @only_lv_consumers = only_lv_consumers
-        @only_lv_consumers = only_lv_consumers
+        @max_num_lv_nodes = max_num_lv_nodes
         @customers = []
         @customers_ext = []
         @profile_customer_p = []
@@ -170,7 +170,6 @@ module URBANopt
         mixed_use_av_peak = 0
         area_mixed_use = 0
         medium_voltage = false
-        @max_num_nodes = 1
         # defining a conservative factor which creates some margin with the number of nodes found using the av_peak catalog, with the
         # actual nodes that could be found with the current buildings peak consumptions in the project
         conservative_factor = 0.8 # considered as a reasonable assumption, but this value could be changed
@@ -202,7 +201,7 @@ module URBANopt
           area = area_mixed_use
         end
         nodes_per_bldg = (average_peak / (@lv_limit[:three_phase] * @power_factor * conservative_factor)).to_f.ceil # computing number of nodes per building
-        if nodes_per_bldg > @max_num_nodes # to define this as an input in the geojson file
+        if nodes_per_bldg > @max_num_lv_nodes # to define this as an input in the geojson file
           nodes_per_bldg = 1
           medium_voltage = true
         end
