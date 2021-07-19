@@ -58,8 +58,8 @@ module URBANopt
           hash[:is_center_tap] = true
         end
         hash[:high_voltage] = trafo['Primary Voltage (kV)']
-        hash[:lov_voltage] = trafo['Secondary Voltage (kV)']
-        hash[:conncection] = trafo['connection']
+        hash[:low_voltage] = trafo['Secondary Voltage (kV)']
+        hash[:connection] = trafo['connection']
         return hash
       end
     end

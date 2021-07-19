@@ -110,7 +110,7 @@ RSpec.describe URBANopt::RNM do
       expect {  @runner2.create_simulation_files }.to output(a_string_including("RNM-US gem WARNING: field ['project']['max_number_of_lv_nodes_per_building'] not specified in Feature File...using default value of")).to_stdout
     end
 
-    it 'runs simulation and gets results' do
+    it 'zips inputs, runs simulation and gets results' do
       @runner.run
       expect(File.exist?(File.join(@rnm_dir, 'inputs.zip')))
       expect(!File.exist?(File.join(@rnm_dir, 'udcons.csv'))) # this should have gotten cleaned up
@@ -123,20 +123,6 @@ RSpec.describe URBANopt::RNM do
       expect(File.exist?(File.join(@run_dir, 'scenario_report_rnm.json')))
       expect(File.exist?(File.join(@run_dir, 'feature_file_rnm.json')))
     end
-
-    # it 'zips input files' do
-    #   @rnm_dir = File.join(@run_dir, 'rnm-us')
-
-    #   if File.exist?(File.join(@rnm_dir, 'inputs.zip'))
-    #     FileUtils.rm_r(File.join(@rnm_dir, 'inputs.zip'))
-    #   end
-
-    #   use_local = true
-    #   @api_client = URBANopt::RNM::ApiClient.new(@name, @rnm_dir, use_local, @reopt)
-    #   @api_client.zip_input_files
-
-    #   expect(File.exist?(File.join(@rnm_dir, 'inputs.zip'))).to be true
-    # end
   end
 
   # modify this according to reopt
@@ -144,6 +130,8 @@ RSpec.describe URBANopt::RNM do
     before(:all) do
       @root_dir = File.join(File.dirname(__FILE__), '..', 'test_reopt', 'example_project')
       @run_dir = File.join(@root_dir, 'run', 'reopt_scenario')
+      @rnm_dir = File.join(@run_dir, 'rnm-us')
+      @results_dir = File.join(@rnm_dir, 'results')
       @feature_file_path = File.join(@root_dir, 'example_project_with_network_and_streets.json')
       @scenario_csv_path = File.join(@root_dir, 'REopt_scenario.csv')
       @name = 'reopt_scenario'
@@ -189,18 +177,18 @@ RSpec.describe URBANopt::RNM do
       expect(File.exist?(File.join(@run_dir, 'opendss_catalog.json'))).to be false
     end
 
-    it 'zips input files including reopt files' do
-      @rnm_dir = File.join(@run_dir, 'rnm-us')
+    it 'zips inputs, runs simulation and gets results' do
+      @runner.run
+      expect(File.exist?(File.join(@rnm_dir, 'inputs.zip')))
+      expect(!File.exist?(File.join(@rnm_dir, 'udcons.csv'))) # this should have gotten cleaned up
+      expect(Dir.exist?(File.join(@results_dir)))
+      expect(File.exist?(File.join(@results_dir, 'Summary', 'Summary.json')))
+    end
 
-      if File.exist?(File.join(@rnm_dir, 'inputs.zip'))
-        FileUtils.rm_r(File.join(@rnm_dir, 'inputs.zip'))
-      end
-
-      use_local = true
-      @api_client = URBANopt::RNM::ApiClient.new(@name, @rnm_dir, use_local, @reopt)
-      @api_client.zip_input_files
-
-      expect(File.exist?(File.join(@rnm_dir, 'inputs.zip'))).to be true
+    it 'post processes simulation results' do
+      @runner.post_process
+      expect(File.exist?(File.join(@run_dir, 'scenario_report_rnm.json')))
+      expect(File.exist?(File.join(@run_dir, 'feature_file_rnm.json')))
     end
   end
 
