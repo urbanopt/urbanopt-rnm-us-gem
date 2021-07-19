@@ -48,11 +48,11 @@ module URBANopt
       attr_accessor :customers, :customers_ext, :profile_customer_p, :profile_customer_q, :profile_customer_p_ext, :profile_customer_q_ext, :dg, :dg_profile_p, :dg_profile_q, :profile_dg_p_extended, :profile_dg_q_extended, :power_factor
 
       # initializing all the attributes to build the inputs files required by the RNM-US model
-      def initialize(reopt, only_lv_consumers = false, average_building_peak_catalog_path, lv_limit)
+      def initialize(reopt, only_lv_consumers = false, max_num_lv_nodes, average_building_peak_catalog_path, lv_limit)
         @reopt = reopt
         @average_building_peak_catalog_path = average_building_peak_catalog_path
         @only_lv_consumers = only_lv_consumers
-        @only_lv_consumers = only_lv_consumers
+        @max_num_lv_nodes = max_num_lv_nodes
         @customers = []
         @customers_ext = []
         @profile_customer_p = []
@@ -242,7 +242,6 @@ module URBANopt
         average_peak = 5 # defining a random value first, since now the residential buildings are not considered in the catalog
         mixed_use_av_peak = 0
         area_mixed_use = 0
-        @max_num_nodes = 1
         # defining a conservative factor which creates some margin with the number of nodes found using the av_peak catalog, with the
         # actual nodes that could be found with the current buildings peak consumptions in the project
         conservative_factor = 0.8 # considered as a reasonable assumption, but this value could be changed
@@ -274,7 +273,7 @@ module URBANopt
           area = area_mixed_use
         end
         nodes_per_bldg = (average_peak / (@lv_limit[:three_phase] * @power_factor * conservative_factor)).to_f.ceil # computing number of nodes per building
-        if nodes_per_bldg > @max_num_nodes # defined as reasonable maximum
+        if nodes_per_bldg > @max_num_lv_nodes # defined as reasonable maximum
           nodes_per_bldg = 1
           @medium_voltage = true
         end
@@ -356,7 +355,7 @@ module URBANopt
         der_capacity = sum_dg(json_feature_report['distributed_generation'])
         if @only_lv_consumers
           nodes_per_bldg, area = av_peak_cons_per_building_type(json_feature_report['program']['building_types'])
-          if @max_num_nodes == 1
+          if @max_num_lv_nodes == 1
             construct_prosumer_general(profiles, single_values, building_map, area, height, users, der_capacity)
           else
             construct_prosumer_lv(nodes_per_bldg, profiles, single_values, building_map, building_nodes, area, height, users, der_capacity)
