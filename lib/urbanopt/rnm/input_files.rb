@@ -152,9 +152,9 @@ module URBANopt
       ##
       def create
         # the GEOjson file is loaded and a method is called to extract the required information regarding the street, building and substation location
-        street_coordinates, customers_coordinates, coordinates_buildings, tot_buildings, building_ids, substation_location, only_lv_consumers = URBANopt::RNM::GeojsonInput.new.coordinates_feature_hash(@feature_file)
+        street_coordinates, customers_coordinates, coordinates_buildings, tot_buildings, building_ids, substation_location, only_lv_consumers, max_num_lv_nodes, utm_zone = URBANopt::RNM::GeojsonInput.new.coordinates_feature_hash(@feature_file)
         # puts("BUILDING IDS: #{building_ids}")
-        # define the LV/MV limit imposed by the components of the catalog: distr.transformers and power lines
+        # define the LV/MV limit imposed by the components of the catalog: distr.transformers and power lines and exporting the utm_zone to the catalog
         lv_limit = catalog_limits
         # verifying if running RNM-US with REopt option
 
@@ -162,7 +162,7 @@ module URBANopt
           if !File.join(@run_dir, 'feature_optimization').nil?
             scenario_report_path = File.join(@run_dir, 'feature_optimization')
             # creating a class prosumers with all the info for all the DER and consumption for each building
-            prosumers = URBANopt::RNM::Prosumers.new(@reopt, only_lv_consumers, @average_building_peak_catalog_path, lv_limit) # passing these 2 conditions to see what option did the user
+            prosumers = URBANopt::RNM::Prosumers.new(@reopt, only_lv_consumers, max_num_lv_nodes, @average_building_peak_catalog_path, lv_limit) # passing these 2 conditions to see what option did the user
           else
             raise 'scenario report is not found'
           end
@@ -171,7 +171,7 @@ module URBANopt
           if !File.join(@run_dir, 'scenario_report').nil?
             scenario_report_path = File.join(@run_dir, 'default_scenario_report')
             # creating a class consumers with all the info about the consumption for each building
-            consumers = URBANopt::RNM::Consumers.new(@reopt, only_lv_consumers, @average_building_peak_catalog_path, lv_limit) # passing these 2 conditions to see what option did the user applied
+            consumers = URBANopt::RNM::Consumers.new(@reopt, only_lv_consumers, max_num_lv_nodes, @average_building_peak_catalog_path, lv_limit) # passing these 2 conditions to see what option did the user applied
           else
             raise 'scenario_report is not found'
           end
@@ -210,7 +210,7 @@ module URBANopt
           end
         end
         rnm_us_catalog = URBANopt::RNM::RnmUsCatalogConversion.new(@extended_catalog_path, @run_dir, @rnm_dirname)
-        rnm_us_catalog.processing_data
+        rnm_us_catalog.processing_data(utm_zone)
         # call and create the opendss_catalog class if the user wants to convert the extended catalog into OpenDSS catalog
         if @opendss_catalog
           @opendss_catalog = URBANopt::RNM::ConversionToOpendssCatalog.new(@extended_catalog_path)
