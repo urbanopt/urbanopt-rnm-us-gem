@@ -173,12 +173,12 @@ module URBANopt
           only_lv_consumers = ONLY_LV_CONSUMERS_DEFAULT
           puts "RNM-US gem WARNING: field ['project']['only_lv_consumers'] not specified in Feature File...using default value of #{ONLY_LV_CONSUMERS_DEFAULT}"
         end
-        if streets.key?('project') && streets['project'].key?('maximum_number_lv_nodes_representing_single_building')
-          max_num_lv_nodes = streets['project']['maximum_number_lv_nodes_representing_single_building']
+        if streets.key?('project') && streets['project'].key?('max_number_of_lv_nodes_per_building')
+          max_num_lv_nodes = streets['project']['max_number_of_lv_nodes_per_building']
           puts "RNM-US gem INFO: using at max #{max_num_lv_nodes} lv nodes per building"
         else
-          max_num_lv_nodes = MAXIMUM_NUMBER_LV_NODES_REPRESENTING_SINGLE_BUILDING
-          puts "RNM-US gem WARNING: field ['project']['maximum_number_lv_nodes_representing_single_building'] not specified in Feature File...using default value of #{MAXIMUM_NUMBER_LV_NODES_REPRESENTING_SINGLE_BUILDING}"
+          max_num_lv_nodes = MAX_LV_NODES_DEFAULT
+          puts "RNM-US gem WARNING: field ['project']['max_number_of_lv_nodes_per_building'] not specified in Feature File...using default value of #{MAX_LV_NODES_DEFAULT}"
         end
         # each features (linestring, multilinestring and polygon) are processed in an external method, to create intermediate nodes
         # for a better graphical representation of the district
