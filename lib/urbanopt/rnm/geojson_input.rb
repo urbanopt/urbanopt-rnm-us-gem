@@ -230,7 +230,7 @@ module URBANopt
 
         # raise error if no streets were found
         if street_number == 0
-          raise 'No roads were found in the Feature File. Road locations must be in the Feature File for RNM analysis.'
+          raise 'ERROR: No roads were found in the Feature File. Road locations must be in the Feature File for RNM analysis.'
         end
 
         street_type = []

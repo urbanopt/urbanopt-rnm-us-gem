@@ -133,8 +133,8 @@ module URBANopt
         @results['Demand/generation and number of consumers/distributed generators'].each do |item|
           rec = {}
           case item['Voltage level']
-     when 'LV'
-       rec['type'] = "Low Voltage (LV) #{item['Type'].strip}"
+          when 'LV'
+            rec['type'] = "Low Voltage (LV) #{item['Type'].strip}"
           when 'MV'
             rec['type'] = "Medium Voltage (MV) #{item['Type'].strip}"
           else
@@ -155,16 +155,17 @@ module URBANopt
 
         # lines LV and MV
         stats['electrical_lines_length'] = {}
+        km_to_mi = 0.621371 
         @results['Length of overhead and underground electrical lines'].each do |item|
           case item['Voltage level']
-     when 'Lines LV'
-       stats['electrical_lines_length']['low_voltage'] = {}
-       stats['electrical_lines_length']['low_voltage']['overhead_km'] = item['Overhead (km)']
-       stats['electrical_lines_length']['low_voltage']['underground_km'] = item['Underground (km)']
+          when 'Lines LV'
+            stats['electrical_lines_length']['low_voltage'] = {}
+            stats['electrical_lines_length']['low_voltage']['overhead_mi'] = (item['Overhead (km)'] * km_to_mi).round(4)
+            stats['electrical_lines_length']['low_voltage']['underground_mi'] = (item['Underground (km)'] * km_to_mi).round(4)
           when 'Lines MV'
             stats['electrical_lines_length']['medium_voltage'] = {}
-            stats['electrical_lines_length']['medium_voltage']['overhead_km'] = item['Overhead (km)']
-            stats['electrical_lines_length']['medium_voltage']['underground_km'] = item['Underground (km)']
+            stats['electrical_lines_length']['medium_voltage']['overhead_mi'] = (item['Overhead (km)'] * km_to_mi).round(4)
+            stats['electrical_lines_length']['medium_voltage']['underground_mi'] = (item['Underground (km)'] * km_to_mi).round(4)
           end
         end
         transformer_capacity = 0
@@ -179,9 +180,9 @@ module URBANopt
         stats['costs']['yearly_maintenance'] = {}
         @results['Summary'].each do |item|
           case item['Level']
-     when 'LV'
-       stats['costs']['investment']['low_voltage_network'] = item['Investment cost']
-       stats['costs']['yearly_maintenance']['low_voltage_network'] = item['Preventive maintenance (yearly)']
+          when 'LV'
+           stats['costs']['investment']['low_voltage_network'] = item['Investment cost']
+           stats['costs']['yearly_maintenance']['low_voltage_network'] = item['Preventive maintenance (yearly)']
           when 'MV'
             stats['costs']['investment']['medium_voltage_network'] = item['Investment cost']
             stats['costs']['yearly_maintenance']['medium_voltage_network'] = item['Preventive maintenance (yearly)']
