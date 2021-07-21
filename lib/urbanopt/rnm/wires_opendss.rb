@@ -53,13 +53,25 @@ module URBANopt
         hash = {}
         conductor.each do |k, v|
           if k.include? '(mm)'
-            new_key = "#{k.sub('(mm)', '')}(ft)"
+            # new_key = "#{k.sub('(mm)', '')}(ft)"
+            new_key = "#{k.sub(' (mm)', '').gsub(' ','_')}"
+            hash[new_key] = v
+          elsif k.include? '(A)'
+            new_key = "#{k.sub(' (A)', '').gsub(' ','_')}"
+            hash[new_key] = v
+          elsif k.include? '#'
+            new_key = "#{k.sub('#', 'num').gsub(' ', '_')}"
             hash[new_key] = v
           elsif k.include? '(ohm/km)'
-            new_key = "#{k.sub('(ohm/km)', '')}(ohm/mi)"
+            # new_key = "#{k.sub('(ohm/km)', '')}(ohm/mi)"
+            new_key = "#{k.sub(' (ohm/km)', '').gsub(' ','_')}"
             hash[new_key] = v
           elsif k != 'voltage level' && k != 'type'
-            hash[k] = v
+            new_key = "#{k.gsub(' ', '_')}"
+            hash[new_key] = v
+          else
+            new_key = "#{k.gsub(' ', '_')}"
+            hash[new_key] = v
           end
         end
         line_geometry.each do |k, v|
@@ -70,7 +82,8 @@ module URBANopt
           elsif k.include? '(m)'
             hash.delete(k)
             k = k.split(' ')[0]
-            hash[k] = v
+            new_key = "#{k.sub(' ', '_')}"
+            hash[new_key] = v
           end
         end
         return hash
