@@ -1,31 +1,47 @@
 {
   "id": "1",
   "name": "Mixed_use 1",
-  "directory_name": "/Users/kflemin/Downloads/rnm_project/run/baseline_scenario/1",
+  "directory_name": "/Users/kflemin/Downloads/uo-july/run/baseline_scenario/1",
   "feature_type": "Building",
   "timesteps_per_hour": 1,
   "simulation_status": "Complete",
   "timeseries_csv": {
-    "path": "/Users/kflemin/Downloads/rnm_project/run/baseline_scenario/1/013_default_feature_reports/default_feature_reports.csv",
+    "path": "/feature_reports/default_feature_report.csv",
     "first_report_datetime": "0",
     "column_names": [
       "Datetime",
       "Electricity:Facility(kWh)",
       "ElectricityProduced:Facility()",
-      "Gas:Facility(kBtu)",
+      "NaturalGas:Facility(kBtu)",
+      "Propane:Facility(kBtu)",
+      "FuelOilNo2:Facility(kBtu)",
+      "OtherFuels:Facility(kBtu)",
       "Cooling:Electricity(kWh)",
       "Heating:Electricity(kWh)",
       "InteriorLights:Electricity(kWh)",
       "ExteriorLights:Electricity(kWh)",
       "InteriorEquipment:Electricity(kWh)",
+      "ExteriorEquipment:Electricity()",
       "Fans:Electricity(kWh)",
       "Pumps:Electricity(kWh)",
       "WaterSystems:Electricity(kWh)",
       "HeatRejection:Electricity(kWh)",
-      "HeatRejection:Gas(kBtu)",
-      "Heating:Gas(kBtu)",
-      "WaterSystems:Gas(kBtu)",
-      "InteriorEquipment:Gas(kBtu)",
+      "HeatRejection:NaturalGas(kBtu)",
+      "Heating:NaturalGas(kBtu)",
+      "WaterSystems:NaturalGas(kBtu)",
+      "InteriorEquipment:NaturalGas(kBtu)",
+      "HeatRejection:Propane(kBtu)",
+      "Heating:Propane(kBtu)",
+      "WaterSystems:Propane(kBtu)",
+      "InteriorEquipment:Propane(kBtu)",
+      "HeatRejection:FuelOilNo2(kBtu)",
+      "Heating:FuelOilNo2(kBtu)",
+      "WaterSystems:FuelOilNo2(kBtu)",
+      "InteriorEquipment:FuelOilNo2(kBtu)",
+      "HeatRejection:OtherFuels(kBtu)",
+      "Heating:OtherFuels(kBtu)",
+      "WaterSystems:OtherFuels(kBtu)",
+      "InteriorEquipment:OtherFuels(kBtu)",
       "DistrictCooling:Facility()",
       "DistrictHeating:Facility()",
       "District Cooling Chilled Water Rate()",
@@ -168,48 +184,50 @@
     ]
   },
   "location": {
-    "latitude": -78.84701779283981,
-    "longitude": 42.81428489227519,
-    "surface_elevation": 215.0
+    "latitude_deg": 42.81428490645774,
+    "longitude_deg": -78.84701778930912,
+    "surface_elevation_ft": 215.0
   },
   "program": {
-    "floor_area": 751787.4549637988,
-    "conditioned_area": 751787.4549637988,
-    "unconditioned_area": 0.0,
-    "footprint_area": 751787.4549637988,
-    "maximum_roof_height": 14.399999618530273,
+    "floor_area_sqft": 751787.4549637988,
+    "conditioned_area_sqft": 751787.4549637988,
+    "unconditioned_area_sqft": 0.0,
+    "footprint_area_sqft": 187946.8637409497,
+    "maximum_roof_height_ft": 14.4,
     "maximum_number_of_stories": 4,
+    "maximum_number_of_stories_above_ground": 4,
     "number_of_residential_units": 1,
     "building_types": [
       {
         "building_type": "FullServiceRestaurant",
         "floor_area": 375893.7463428323,
-        "maximum_occupancy": 19647.214333847172
+        "maximum_occupancy": 19647.214333847176
       },
       {
         "building_type": "Office",
-        "floor_area": 375893.7463428323,
-        "maximum_occupancy": 1830.038704070079
+        "floor_area": 375893.74634283234,
+        "maximum_occupancy": 1830.0387040700787
       }
     ],
-    "window_area": {
-      "north_window_area": 4894.565344686245,
-      "south_window_area": 2814.8702130737593,
-      "east_window_area": 10392.232590020736,
-      "west_window_area": 10045.311757290181,
-      "total_window_area": 28146.979905070923
+    "window_area_sqft": {
+      "north_window_area_sqft": 4894.565344686245,
+      "south_window_area_sqft": 2814.8702130737593,
+      "east_window_area_sqft": 10392.232590020736,
+      "west_window_area_sqft": 10045.311757290181,
+      "total_window_area_sqft": 28146.979905070923
     },
-    "wall_area": {
-      "north_wall_area": 16315.181935919427,
-      "south_wall_area": 9382.793071141698,
-      "east_wall_area": 34640.63178126356,
-      "west_wall_area": 33484.26488519643,
-      "total_wall_area": 93822.87167352112
+    "wall_area_sqft": {
+      "north_wall_area_sqft": 16315.181935919427,
+      "south_wall_area_sqft": 9382.793071141698,
+      "east_wall_area_sqft": 34640.63178126356,
+      "west_wall_area_sqft": 33484.26488519643,
+      "total_wall_area_sqft": 93822.87167352112
     },
-    "roof_area": {
-      "total_roof_area": 187946.87317141617
+    "roof_area_sqft": {
+      "available_roof_area_sqft": 140960.15487856214,
+      "total_roof_area_sqft": 187946.8731714162
     },
-    "orientation": 0.0,
+    "orientation_deg": 0.0,
     "aspect_ratio": 0.47098396007730986
   },
   "construction_costs": [
@@ -220,58 +238,64 @@
       "start_date": {
         "month": 1,
         "day_of_month": 1,
-        "year": "2017"
+        "year": 2017
       },
       "end_date": {
         "month": 12,
         "day_of_month": 31,
-        "year": "2017"
+        "year": 2017
       },
-      "total_site_energy": 158846187.70070133,
-      "total_source_energy": 325901391.04592276,
-      "net_site_energy": 158846187.70070133,
-      "net_source_energy": 325901391.04592276,
-      "electricity": 73793628.84596175,
-      "natural_gas": 85052568.33291079,
-      "additional_fuel": 0.0,
-      "district_cooling": 0.0,
-      "district_heating": 0.0,
-      "water": 117233.85,
-      "electricity_produced": 73793624.10687615,
+      "total_site_energy_kwh": 46376458.333333336,
+      "total_source_energy_kwh": 95458030.55555555,
+      "site_EUI_kwh_per_m2": 664.0068807324126,
+      "site_EUI_kbtu_per_ft2": 210.48907271778026,
+      "source_EUI_kwh_per_m2": 1366.7449259378998,
+      "source_EUI_kbtu_per_ft2": 433.2558599168095,
+      "net_site_energy_kwh": 46376458.333333336,
+      "net_source_energy_kwh": 95458030.55555555,
+      "electricity_kwh": 21692727.77777778,
+      "natural_gas_kwh": 24683733.333333332,
+      "propane_kwh": 0.0,
+      "fuel_oil_kwh": 0.0,
+      "other_fuels_kwh": 0.0,
+      "district_cooling_kwh": 0.0,
+      "district_heating_kwh": 0.0,
+      "water_qbft": 117903.92,
+      "electricity_produced_kwh": 21692726.666666668,
       "end_uses": {
-        "electricity": {
+        "electricity_kwh": {
           "heating": 0.0,
-          "cooling": 6443099.654979477,
-          "interior_lighting": 8350761.694862888,
-          "exterior_lighting": 2336985.2827005307,
-          "interior_equipment": 40272749.44211285,
+          "cooling": 1969213.888888889,
+          "interior_lighting": 2392522.2222222225,
+          "exterior_lighting": 684902.7777777778,
+          "interior_equipment": 11802591.666666666,
           "exterior_equipment": 0.0,
-          "fans": 6767565.889776336,
-          "pumps": 3107579.557857664,
-          "heat_rejection": 299595.5135598364,
+          "fans": 1883925.0,
+          "pumps": 1005488.8888888889,
+          "heat_rejection": 85738.88888888889,
           "humidification": 0.0,
-          "heat_recovery": 1027253.6731667764,
-          "water_systems": 5188038.136945396,
+          "heat_recovery": 296763.8888888888,
+          "water_systems": 1571577.7777777778,
           "refrigeration": 0.0,
           "generators": 0.0
         },
-        "natural_gas": {
-          "heating": 12584461.729707211,
+        "natural_gas_kwh": {
+          "heating": 3447886.111111111,
           "cooling": 0.0,
           "interior_lighting": 0.0,
           "exterior_lighting": 0.0,
-          "interior_equipment": 30427469.711939923,
+          "interior_equipment": 8917411.11111111,
           "exterior_equipment": 0.0,
           "fans": 0.0,
           "pumps": 0.0,
           "heat_rejection": 0.0,
           "humidification": 0.0,
           "heat_recovery": 0.0,
-          "water_systems": 42040627.41309246,
+          "water_systems": 12318436.11111111,
           "refrigeration": 0.0,
           "generators": 0.0
         },
-        "additional_fuel": {
+        "propane_kwh": {
           "heating": 0.0,
           "cooling": 0.0,
           "interior_lighting": 0.0,
@@ -287,7 +311,7 @@
           "refrigeration": 0.0,
           "generators": 0.0
         },
-        "district_cooling": {
+        "fuel_oil_kwh": {
           "heating": 0.0,
           "cooling": 0.0,
           "interior_lighting": 0.0,
@@ -303,7 +327,7 @@
           "refrigeration": 0.0,
           "generators": 0.0
         },
-        "district_heating": {
+        "other_fuels_kwh": {
           "heating": 0.0,
           "cooling": 0.0,
           "interior_lighting": 0.0,
@@ -319,7 +343,7 @@
           "refrigeration": 0.0,
           "generators": 0.0
         },
-        "water": {
+        "district_cooling_kwh": {
           "heating": 0.0,
           "cooling": 0.0,
           "interior_lighting": 0.0,
@@ -328,20 +352,52 @@
           "exterior_equipment": 0.0,
           "fans": 0.0,
           "pumps": 0.0,
-          "heat_rejection": 20606056.016856488,
+          "heat_rejection": 0.0,
           "humidification": 0.0,
           "heat_recovery": 0.0,
-          "water_systems": 90510194.0933869,
+          "water_systems": 0.0,
+          "refrigeration": 0.0,
+          "generators": 0.0
+        },
+        "district_heating_kwh": {
+          "heating": 0.0,
+          "cooling": 0.0,
+          "interior_lighting": 0.0,
+          "exterior_lighting": 0.0,
+          "interior_equipment": 0.0,
+          "exterior_equipment": 0.0,
+          "fans": 0.0,
+          "pumps": 0.0,
+          "heat_rejection": 0.0,
+          "humidification": 0.0,
+          "heat_recovery": 0.0,
+          "water_systems": 0.0,
+          "refrigeration": 0.0,
+          "generators": 0.0
+        },
+        "water_qbft": {
+          "heating": 0.0,
+          "cooling": 0.0,
+          "interior_lighting": 0.0,
+          "exterior_lighting": 0.0,
+          "interior_equipment": 0.0,
+          "exterior_equipment": 0.0,
+          "fans": 0.0,
+          "pumps": 0.0,
+          "heat_rejection": 6225647.222222222,
+          "humidification": 0.0,
+          "heat_recovery": 0.0,
+          "water_systems": 26525441.666666668,
           "refrigeration": 0.0,
           "generators": 0.0
         }
       },
-      "energy_production": {
+      "energy_production_kwh": {
         "electricity_produced": {
           "photovoltaic": 0.0
         }
       },
-      "utility_costs": [
+      "utility_costs_dollar": [
         {
           "fuel_type": "Electricity"
         },
@@ -350,11 +406,11 @@
         }
       ],
       "comfort_result": {
-        "time_setpoint_not_met_during_occupied_cooling": 1479.0,
-        "time_setpoint_not_met_during_occupied_heating": 873.0,
-        "time_setpoint_not_met_during_occupied_hours": 2352.0,
-        "hours_out_of_comfort_bounds_PMV": 1503.0,
-        "hours_out_of_comfort_bounds_PPD": 223.0
+        "time_setpoint_not_met_during_occupied_cooling": 648.0,
+        "time_setpoint_not_met_during_occupied_heating": 414.0,
+        "time_setpoint_not_met_during_occupied_hours": 1062.0,
+        "hours_out_of_comfort_bounds_PMV": 127.0,
+        "hours_out_of_comfort_bounds_PPD": 0.0
       }
     }
   ],
