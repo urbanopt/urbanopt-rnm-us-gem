@@ -227,6 +227,12 @@ module URBANopt
             end
           end
         end
+
+        # raise error if no streets were found
+        if street_number == 0
+          raise 'No roads were found in the Feature File. Road locations must be in the Feature File for RNM analysis.'
+        end
+
         street_type = []
         for i in 0..street_number - 1
           # creating a class to define when the lines in each street have to be considered OH or UG
