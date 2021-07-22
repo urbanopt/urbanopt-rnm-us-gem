@@ -185,6 +185,13 @@ module URBANopt
         (0..tot_buildings - 1).each do |j|
           if @reopt
             file_csv[j] = File.join(@run_dir, (building_ids[j]).to_s, 'feature_reports', 'feature_optimization.csv')
+
+            # check that reopt json file exists (feature optimization only)
+            if !File.exist?(File.join(@run_dir, (building_ids[j]).to_s, 'feature_reports', 'feature_optimization.json'))
+              raise 'REopt feature_optimization.json file not found. To use REopt results in the RNM analysis, \
+              first post-process the project with the --reopt-feature flag.'
+            end
+
             file_json[j] = JSON.parse(File.read(File.join(@run_dir, (building_ids[j]).to_s, 'feature_reports', 'feature_optimization.json')))
             hours.aggregate_consumption(file_csv[j], file_json[j], j)
           else
