@@ -188,8 +188,9 @@ module URBANopt
 
             # check that reopt json file exists (feature optimization only)
             if !File.exist?(File.join(@run_dir, (building_ids[j]).to_s, 'feature_reports', 'feature_optimization.json'))
-              raise 'REopt feature_optimization.json file not found. To use REopt results in the RNM analysis, \
-              first post-process the project with the --reopt-feature flag.'
+              msg = 'REopt feature_optimization.json file not found. To use REopt results in the RNM analysis,' \
+              'first post-process the project with the --reopt-feature flag.'
+              raise msg
             end
 
             file_json[j] = JSON.parse(File.read(File.join(@run_dir, (building_ids[j]).to_s, 'feature_reports', 'feature_optimization.json')))
