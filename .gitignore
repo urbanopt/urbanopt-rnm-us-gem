@@ -10,6 +10,7 @@ Gemfile.lock
 /pkg/
 /spec/reports/
 /spec/test/
+/spec/test_reopt/
 /tmp/
 /test/
 /lib/measures/test_results
@@ -25,3 +26,7 @@ Gemfile.lock
 /.idea
 runner.conf
 
+# ignore template files for now
+/template_inputs/*
+test_opendss_catalog.json
+*.sql

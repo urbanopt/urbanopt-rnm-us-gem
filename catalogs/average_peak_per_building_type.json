@@ -1,0 +1,94 @@
+[
+  {
+    "building type": "Office",
+    "sub-type": "SmallOffice",
+    "average peak demand (kW/ft2)": 0.0032,
+    "floor_area (ft2)": 5500
+  },
+  {
+    "building type": "Office",
+    "sub-type": "MediumOffice",
+    "average peak demand (kW/ft2)": 0.0058,
+    "floor_area (ft2)": 53628
+  },
+  {
+    "building type": "Office",
+    "sub-type": "LargeOffice",
+    "average peak demand (kW/ft2)": 0.0033,
+    "floor_area (ft2)": 498588
+  },
+  {
+    "building type": "School",
+    "sub-type": "PrimarySchool",
+    "average peak demand (kW/ft2)": 0.0043,
+    "floor_area (ft2)": 73960
+  },
+  {
+    "building type": "School",
+    "sub-type": "SecondarySchool",
+    "average peak demand (kW/ft2)": 0.0056,
+    "floor_area (ft2)": 210887
+  },
+  {
+    "building type": "Retail",
+    "sub-type": "Stand-aloneRetail",
+    "average peak demand (kW/ft2)": 0.0037,
+    "floor_area (ft2)": 24962
+  },
+  {
+    "building type": "Mall",
+    "sub-type": "StripMall",
+    "average peak demand (kW/ft2)": 0.0037,
+    "floor_area (ft2)": 22500
+  },
+  {
+    "building type": "SuperMarket",
+    "average peak demand (kW/ft2)": 0.0077,
+    "floor_area (ft2)": 45000
+  },
+  {
+    "building type": "Restaurant",
+    "sub-type": "QuickServiceRestaurant",
+    "average peak demand (kW/ft2)": 0.0144,
+    "floor_area (ft2)": 2500
+  },
+  {
+    "building type": "Restaurant",
+    "sub-type": "FullServiceRestaurant",
+    "average peak demand (kW/ft2)": 0.0115,
+    "floor_area (ft2)": 5500
+  },
+  {
+    "building type": "Hotel",
+    "sub-type": "SmallHotel",
+    "average peak demand (kW/ft2)": 0.0029,
+    "floor_area (ft2)": 43200
+  },
+  {
+    "building type": "Hotel",
+    "sub-type": "LargeHotel",
+    "average peak demand (kW/ft2)": 0.0038,
+    "floor_area (ft2)": 122120
+  },
+  {
+    "building type": "Hospital",
+    "average peak demand (kW/ft2)": 0.0064,
+    "floor_area (ft2)": 241351
+  },
+  {
+    "building type": "Outpatient",
+    "average peak demand (kW/ft2)": 0.0071,
+    "floor_area (ft2)": 40946
+  },
+  {
+    "building type": "Warehouse",
+    "average peak demand (kW/ft2)": 0.0017,
+    "floor_area (ft2)": 52045
+  },
+  {
+    "building type": "Apartment",
+    "sub-type": "MidriseApartment",
+    "average peak demand (kW/ft2)": 0.0017,
+    "floor_area (ft2)": 33740
+  }
+]
