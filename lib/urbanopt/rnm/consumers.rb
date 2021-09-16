@@ -219,12 +219,12 @@ module URBANopt
         single_values = Hash.new(0)
         hours = 24 * n_timestep_per_hour -1
         feature_type = json_feature_report['program']['building_types'][0]['building_type']
-        residential_building_types = 'Single-Family Detached' # add the other types
+        residential_building_types = ["Single-Family Detached", "Single-Family Attached", "Multifamily"]
         # finding the index where to start computing and saving the info, from the value of the "worst-case hour" for the max peak consumption of the district
         if residential_building_types.include? feature_type
-          profile_start_max = hour.hour_index_max_res - (hour.peak_hour_max_res*n_timestep_per_hour) - 1
+          profile_start_max = hour.hour_index_max_res - ((hour.peak_hour_max_res.split(':')[0].to_i + (hour.peak_hour_max_res.split(':')[1].to_i / 60)) * n_timestep_per_hour)
         else
-          profile_start_max = hour.hour_index_max_comm - (hour.peak_hour_max_comm*n_timestep_per_hour) - 1
+          profile_start_max = hour.hour_index_max_comm - ((hour.peak_hour_max_comm.split(':')[0].to_i + (hour.peak_hour_max_comm.split(':')[1].to_i / 60)) * n_timestep_per_hour)
         end
         k = 0 # index for each hour of the year represented in the csv file
         i = 0 # to represent the 24 hours of a day

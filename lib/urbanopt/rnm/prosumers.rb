@@ -243,7 +243,6 @@ module URBANopt
         average_peak = 5 # defining a random value first, since now the residential buildings are not considered in the catalog
         mixed_use_av_peak = 0
         area_mixed_use = 0
-        @max_num_nodes = 1 # set this value as input in GeoJSON feature file
         # defining a conservative factor which creates some margin with the number of nodes found using the av_peak catalog, with the
         # actual nodes that could be found with the current buildings peak consumptions in the project
         conservative_factor = 0.8 # considered as a reasonable assumption, but this value could be changed
@@ -275,7 +274,7 @@ module URBANopt
           area = area_mixed_use
         end
         nodes_per_bldg = ((average_peak / (@lv_limit[:three_phase] * @power_factor * conservative_factor)).to_f).ceil # computing number of nodes per building
-        if nodes_per_bldg > @max_num_nodes # defined as reasonable maximum
+        if nodes_per_bldg > @max_num_lv_nodes #that it is equal to how it was before
           nodes_per_bldg = 1
           @medium_voltage = true
         end
@@ -321,15 +320,15 @@ module URBANopt
         @medium_voltage = false
         hours = 24 * n_timestep_per_hour -1 # change name, maybe to intervals
         feature_type = json_feature_report['program']['building_types'][0]["building_type"]
-        residential_building_types = "Single-Family Detached" # add the other types
+        residential_building_types = ["Single-Family Detached", "Single-Family Attached", "Multifamily"]
         # finding the index where to start computing and saving the info, from the value of the "worst-case hour" for the max peak consumption of the district
         # considering num timestep per hours and the fact that each day starts from 1 am
         if residential_building_types.include? feature_type
-          profile_start_max = hour.hour_index_max_res - (hour.peak_hour_max_res*n_timestep_per_hour) + 1
-          profile_start_min = hour.hour_index_min_res - (hour.peak_hour_min_res*n_timestep_per_hour) + 1
+          profile_start_max = hour.hour_index_max_res - ((hour.peak_hour_max_res.split(':')[0].to_i + (hour.peak_hour_max_res.split(':')[1].to_i / 60)) * n_timestep_per_hour)
+          profile_start_min = hour.hour_index_min_res - ((hour.peak_hour_min_res.split(':')[0].to_i + (hour.peak_hour_min_res.split(':')[1].to_i / 60)) * n_timestep_per_hour)
         else
-          profile_start_max = hour.hour_index_max_comm - (hour.peak_hour_max_comm*n_timestep_per_hour) + 1
-          profile_start_min = hour.hour_index_min_comm - (hour.peak_hour_min_comm*n_timestep_per_hour) + 1
+          profile_start_max = hour.hour_index_max_comm - ((hour.peak_hour_max_comm.split(':')[0].to_i + (hour.peak_hour_max_comm.split(':')[1].to_i / 60)) * n_timestep_per_hour)
+          profile_start_min = hour.hour_index_min_comm - ((hour.peak_hour_min_comm.split(':')[0].to_i + (hour.peak_hour_min_comm.split(':')[1].to_i / 60)) * n_timestep_per_hour)
         end
         # finding the index where to start computing and saving the info, from the value of the "most extreme hours" for the max peak consumption of the district
         k = 0   # index for each hour of the year represented in the csv file
@@ -340,9 +339,9 @@ module URBANopt
         h_stor_max = 0 # hour with max storage absorption
         max_peak = 0
         CSV.foreach(csv_feature_report, headers: true) do |power|
-          @power_factor = power["Electricity:Facility Power(kW)"].to_f/ power["Electricity:Facility Apparent Power(kVA)"].to_f 
+          @power_factor = power["Electricity:Facility Power(kW)"].to_f / power["Electricity:Facility Apparent Power(kVA)"].to_f
           profiles[:yearly_profile_cust_active].push(power["REopt:Electricity:Load:Total(kw)"].to_f)
-          profiles[:yearly_profile_cust_reactive].push(profiles[:yearly_profile_cust_active][k] * Math.tan(Math.acos(@power_factor))) 
+          profiles[:yearly_profile_cust_reactive].push(profiles[:yearly_profile_cust_active][k] * Math.tan(Math.acos(@power_factor)))
           profiles[:yearly_profile_dg_active].push(power["REopt:ElectricityProduced:Total(kw)"].to_f)
           profiles[:yearly_profile_dg_reactive].push(profiles[:yearly_profile_dg_active][k] * Math.tan(Math.acos(@power_factor)))
           profiles[:yearly_profile_storage_active].push(power['REopt:Electricity:Grid:ToBattery(kw)'].to_f + power['REopt:ElectricityProduced:Generator:ToBattery(kw)'].to_f + power['REopt:ElectricityProduced:PV:ToBattery(kw)'].to_f + power['REopt:ElectricityProduced:Wind:ToBattery(kw)'].to_f - power['REopt:Electricity:Storage:ToLoad(kw)'].to_f - power['REopt:Electricity:Storage:ToGrid(kw)'].to_f)
