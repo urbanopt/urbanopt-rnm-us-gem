@@ -175,7 +175,7 @@ module URBANopt
         conservative_factor = 0.8 # considered as a reasonable assumption, but this value could be changed
         average_peak_folder = JSON.parse(File.read(@average_building_peak_catalog_path))
         for i in 0..feature_file.length - 1
-          area = (feature_file[i]['floor_area']).round(2)
+          area = feature_file[i].has_key?('floor_area') ? (feature_file[i]['floor_area']).round(2) : feature_file[i]['floor_area_sqft'].round(2)
           building_type = feature_file[i]['building_type'] # it specifies the type of building, sometimes it is directly the sub-type
           counter = 0 # counter to find number of buildings type belonging to same "category"
           average_peak_folder.each do |building_class|
