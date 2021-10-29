@@ -175,7 +175,7 @@ module URBANopt
         conservative_factor = 0.8 # considered as a reasonable assumption, but this value could be changed
         average_peak_folder = JSON.parse(File.read(@average_building_peak_catalog_path))
         for i in 0..feature_file.length - 1
-          area = (feature_file[i]['floor_area']).round(2)
+          area = feature_file[i].has_key?('floor_area') ? (feature_file[i]['floor_area']).round(2) : feature_file[i]['floor_area_sqft'].round(2)
           building_type = feature_file[i]['building_type'] # it specifies the type of building, sometimes it is directly the sub-type
           counter = 0 # counter to find number of buildings type belonging to same "category"
           average_peak_folder.each do |building_class|
@@ -214,16 +214,17 @@ module URBANopt
       # the method passes as arguments the urbanopt json and csv output file for each feature and the building coordinates previously calculated
       # and the "extreme" hour used to plan the network
       def customer_files_load(csv_feature_report, json_feature_report, building_map, building_nodes, hour)
+        n_timestep_per_hour = json_feature_report["timesteps_per_hour"].to_i
         profiles = Hash.new { |h, k| h[k] = [] }
         single_values = Hash.new(0)
-        hours = 23
+        hours = 24 * n_timestep_per_hour -1
         feature_type = json_feature_report['program']['building_types'][0]['building_type']
-        residential_building_types = 'Single-Family Detached' # add the other types
+        residential_building_types = ["Single-Family Detached", "Single-Family Attached", "Multifamily"]
         # finding the index where to start computing and saving the info, from the value of the "worst-case hour" for the max peak consumption of the district
         if residential_building_types.include? feature_type
-          profile_start_max = hour.hour_index_max_res - hour.peak_hour_max_res
+          profile_start_max = hour.hour_index_max_res - ((hour.peak_hour_max_res.split(':')[0].to_i + (hour.peak_hour_max_res.split(':')[1].to_i / 60)) * n_timestep_per_hour)
         else
-          profile_start_max = hour.hour_index_max_comm - hour.peak_hour_max_comm
+          profile_start_max = hour.hour_index_max_comm - ((hour.peak_hour_max_comm.split(':')[0].to_i + (hour.peak_hour_max_comm.split(':')[1].to_i / 60)) * n_timestep_per_hour)
         end
         k = 0 # index for each hour of the year represented in the csv file
         i = 0 # to represent the 24 hours of a day

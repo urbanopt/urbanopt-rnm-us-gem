@@ -73,23 +73,23 @@ module URBANopt
           (0..@commercial_consumption.length - 1).each do |j|
             if @commercial_consumption[j] > max_net_load_comm
               max_net_load_comm = @commercial_consumption[j]
-              @peak_hour_max_comm = (@time[j].split(' ')[1]).split(':')[0].to_i # defined the most-stressing scenario
+              @peak_hour_max_comm = (@time[j].split(' ')[1]) # defined the most-stressing scenario
               @hour_index_max_comm = j
             end
             if @commercial_consumption[j] < min_net_load_comm
               min_net_load_comm = @commercial_consumption[j]
-              @peak_hour_min_comm = (@time[j].split(' ')[1]).split(':')[0].to_i # defined the most-stressing scenario
+              @peak_hour_min_comm = (@time[j].split(' ')[1]) # defined the most-stressing scenario
               @hour_index_min_comm = j
             end
 
             if @res_consumption[j] > max_net_load_res
               max_net_load_res = @res_consumption[j]
-              @peak_hour_max_res = (@time[j].split(' ')[1]).split(':')[0].to_i # defined the most-stressing scenario
+              @peak_hour_max_res = (@time[j].split(' ')[1]) # defined the most-stressing scenario
               @hour_index_max_res = j
             end
             if @res_consumption[j] < min_net_load_res
               min_net_load_res = @res_consumption[j]
-              @peak_hour_min_res = (@time[j].split(' ')[1]).split(':')[0].to_i # defined the most-stressing scenario
+              @peak_hour_min_res = (@time[j].split(' ')[1]) # defined the most-stressing scenario
               @hour_index_min_res = j
             end
           end
@@ -98,12 +98,12 @@ module URBANopt
           (0..@commercial_consumption.length - 1).each do |j|
             if @commercial_consumption[j] > max_net_load_comm
               max_net_load_comm = @commercial_consumption[j]
-              @peak_hour_max_comm = (@time[j].split(' ')[1]).split(':')[0].to_i # defined the most-stressing scenario
+              @peak_hour_max_comm = (@time[j].split(' ')[1]) # defined the most-stressing scenario
               @hour_index_max_comm = j
             end
             if @res_consumption[j] > max_net_load_res
               max_net_load_res = @res_consumption[j]
-              @peak_hour_max_res = (@time[j].split(' ')[1]).split(':')[0].to_i # defined the most-stressing scenario
+              @peak_hour_max_res = (@time[j].split(' ')[1]) # defined the most-stressing scenario
               @hour_index_max_res = j
             end
           end
