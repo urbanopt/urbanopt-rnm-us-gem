@@ -243,14 +243,15 @@ module URBANopt
             streamed << chunk
           end
         end
-        # puts("STATUS: #{resp.status}, #{resp.body}")
+        puts "STATUS: #{resp.status}"
 
         if resp.status == 200
 
           file_path = File.join(@rnm_dir, 'results', 'results.zip')
 
           File.open(file_path, 'wb') { |f| f.write streamed.join }
-          # puts "RNM-US results.zip downloaded to #{@rnm_dir}"
+          puts "RNM-US results.zip downloaded to #{@rnm_dir}"
+          
           # unzip
           Zip::File.open(file_path) do |zip_file|
             zip_file.each do |f|
@@ -259,7 +260,7 @@ module URBANopt
               zip_file.extract(f, f_path) unless File.exist?(f_path)
             end
           end
-
+          puts "results.zip extracted"
           # delete zip
           File.delete(file_path)
 

@@ -130,6 +130,7 @@ module URBANopt
         stats = {}
         # demand generation planning
         stats['demand_generation_planning'] = []
+        puts "RESULTS? : #{@results}"
         @results['Demand/generation and number of consumers/distributed generators'].each do |item|
           rec = {}
           case item['Voltage level']
