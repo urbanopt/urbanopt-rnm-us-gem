@@ -183,6 +183,7 @@ module URBANopt
         while !done && (max_tries != tries)
           begin
             resp = conn.get("simulations/#{@sim_id}")
+            puts "status: #{resp.status}"
             if resp.status == 200
               data = JSON.parse(resp.body)
               if data['status'] && ['failed', 'completed'].include?(data['status'])
@@ -196,11 +197,13 @@ module URBANopt
                   end
                 else
                   # get results
+                  puts "body: #{resp.body}"
                   @results = data['results'] || []
 
+                  puts "downloading results"
                   # download results
                   download_results
-
+                  puts "done"
                   return @results
                 end
               else
