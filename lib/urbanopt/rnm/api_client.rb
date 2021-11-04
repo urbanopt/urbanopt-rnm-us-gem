@@ -181,46 +181,52 @@ module URBANopt
         tries = 0
         puts "attempting to retrieve results for simulation #{@sim_id}"
         while !done && (max_tries != tries)
-          resp = conn.get("simulations/#{@sim_id}")
-          if resp.status == 200
-            data = JSON.parse(resp.body)
-            if data['status'] && ['failed', 'completed'].include?(data['status'])
-              # done
-              done = true
-              if data['status'] == 'failed'
-                if data['results'] && data['results']['message']
-                  puts "Simulation Error: #{data['results']['message']}"
+          begin
+            resp = conn.get("simulations/#{@sim_id}")
+            if resp.status == 200
+              data = JSON.parse(resp.body)
+              if data['status'] && ['failed', 'completed'].include?(data['status'])
+                # done
+                done = true
+                if data['status'] == 'failed'
+                  if data['results'] && data['results']['message']
+                    puts "Simulation Error: #{data['results']['message']}"
+                  else
+                    puts 'Simulation Error!'
+                  end
                 else
-                  puts 'Simulation Error!'
+                  # get results
+                  @results = data['results'] || []
+
+                  # download results
+                  download_results
+
+                  return @results
                 end
               else
-                # get results
-                @results = data['results'] || []
-
-                # download results
-                download_results
-
-                return @results
+                tries += 1
+                sleep(1)
               end
+
             else
+              puts("ERROR retrieving: #{resp.body}")
               tries += 1
-              sleep(1)
-            end
 
-          else
-            puts("ERROR retrieving: #{resp.body}")
-            tries += 1
-
-            if tries == max_tries
-              # now raise the error
-              msg = "Error retrieving simulation #{@sim_id}. error code: #{resp.status}"
-              @@logger.error(msg)
-              raise msg
-            else
-              # try again
-              puts("TRYING AGAIN...#{tries}")
-              sleep(3)
+              if tries == max_tries
+                # now raise the error
+                msg = "Error retrieving simulation #{@sim_id}. error code: #{resp.status}"
+                @@logger.error(msg)
+                raise msg
+              else
+                # try again
+                puts("TRYING AGAIN...#{tries}")
+                sleep(3)
+              end
             end
+          rescue => error
+            @@logger.error("Error retrieving simulation #{@sim_id}.")
+            @@logger.error(error.message)
+            raise error.message
           end
         end
       end
