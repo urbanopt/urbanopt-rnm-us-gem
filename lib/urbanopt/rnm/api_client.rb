@@ -196,19 +196,26 @@ module URBANopt
                     puts 'Simulation Error!'
                   end
                 else
-                  # get results
-                  puts "body: #{resp.body}"
-                  @results = data['results'] || []
+                  # edge case, check for results
+                  if data['results'].nil?
+                    puts "no results yet, try again"
+                    tries += 1
+                    sleep(2)
+                  else
+                    # get results
+                    puts "body: #{resp.body}"
+                    @results = data['results'] || []
 
-                  puts "downloading results"
-                  # download results
-                  download_results
-                  puts "done"
-                  return @results
+                    puts "downloading results"
+                    # download results
+                    download_results
+                    puts "done"
+                    return @results
+                  end
                 end
               else
                 tries += 1
-                sleep(1)
+                sleep(2)
               end
 
             else
