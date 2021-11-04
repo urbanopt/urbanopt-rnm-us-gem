@@ -177,7 +177,7 @@ module URBANopt
         # prepare results directory
         prepare_results_dir
 
-        max_tries = 10
+        max_tries = 15
         tries = 0
         puts "attempting to retrieve results for simulation #{@sim_id}"
         while !done && (max_tries != tries)
@@ -198,18 +198,16 @@ module URBANopt
                 else
                   # edge case, check for results
                   if data['results'].nil?
-                    puts "no results yet, try again"
+                    puts "got a 200 but results are null...trying again"
                     tries += 1
                     sleep(2)
                   else
                     # get results
-                    puts "body: #{resp.body}"
                     @results = data['results'] || []
 
                     puts "downloading results"
                     # download results
                     download_results
-                    puts "done"
                     return @results
                   end
                 end
@@ -259,7 +257,6 @@ module URBANopt
             streamed << chunk
           end
         end
-        puts "STATUS: #{resp.status}"
 
         if resp.status == 200
 
