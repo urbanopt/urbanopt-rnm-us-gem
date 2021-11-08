@@ -79,6 +79,7 @@ module URBANopt
           yearly_profile_node_reactive = []
           nodes_per_bldg, area, medium_voltage = av_peak_cons_per_building_type(folder['building_types'])
           # the default variables are defined (i.e. type and rurality type)
+          puts "consumers 82"
           closest_node = building_map[3].split('_')[1].to_i # refers to the node, found in the class above
           node = closest_node
           cont = 1
@@ -219,7 +220,8 @@ module URBANopt
         single_values = Hash.new(0)
         hours = 24 * n_timestep_per_hour -1
         feature_type = json_feature_report['program']['building_types'][0]['building_type']
-        residential_building_types = ["Single-Family Detached", "Single-Family Attached", "Multifamily"]
+        residential_building_types = ['Single-Family Detached', 'Single-Family Attached', 'Multifamily', 'Single-Family', 'Multifamily Detached (2 to 4 units)', 'Multifamily Detached (5 or more units)']
+
         # finding the index where to start computing and saving the info, from the value of the "worst-case hour" for the max peak consumption of the district
         if residential_building_types.include? feature_type
           profile_start_max = hour.hour_index_max_res - ((hour.peak_hour_max_res.split(':')[0].to_i + (hour.peak_hour_max_res.split(':')[1].to_i / 60)) * n_timestep_per_hour)

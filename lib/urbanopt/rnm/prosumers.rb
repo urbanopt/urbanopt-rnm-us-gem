@@ -320,7 +320,8 @@ module URBANopt
         @medium_voltage = false
         hours = 24 * n_timestep_per_hour -1 # change name, maybe to intervals
         feature_type = json_feature_report['program']['building_types'][0]["building_type"]
-        residential_building_types = ["Single-Family Detached", "Single-Family Attached", "Multifamily"]
+        residential_building_types = ['Single-Family Detached', 'Single-Family Attached', 'Multifamily', 'Single-Family', 'Multifamily Detached (2 to 4 units)', 'Multifamily Detached (5 or more units)']
+
         # finding the index where to start computing and saving the info, from the value of the "worst-case hour" for the max peak consumption of the district
         # considering num timestep per hours and the fact that each day starts from 1 am
         if residential_building_types.include? feature_type

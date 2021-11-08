@@ -177,13 +177,12 @@ module URBANopt
         # prepare results directory
         prepare_results_dir
 
-        max_tries = 15
+        max_tries = 20
         tries = 0
         puts "attempting to retrieve results for simulation #{@sim_id}"
         while !done && (max_tries != tries)
           begin
             resp = conn.get("simulations/#{@sim_id}")
-            puts "status: #{resp.status}"
             if resp.status == 200
               data = JSON.parse(resp.body)
               if data['status'] && ['failed', 'completed'].include?(data['status'])
@@ -200,7 +199,7 @@ module URBANopt
                   if data['results'].nil?
                     puts "got a 200 but results are null...trying again"
                     tries += 1
-                    sleep(2)
+                    sleep(3)
                   else
                     # get results
                     @results = data['results'] || []
@@ -212,8 +211,9 @@ module URBANopt
                   end
                 end
               else
+                puts "no status yet...trying again"
                 tries += 1
-                sleep(2)
+                sleep(3)
               end
 
             else
@@ -236,6 +236,10 @@ module URBANopt
             @@logger.error(error.message)
             raise error.message
           end
+        end
+        if !done
+          @@logger.error("Error retrieving simulation #{@sim_id}.")
+          raise 'Simulation not retrieved...maximum tries reached'
         end
       end
 
