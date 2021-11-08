@@ -177,51 +177,69 @@ module URBANopt
         # prepare results directory
         prepare_results_dir
 
-        max_tries = 10
+        max_tries = 20
         tries = 0
         puts "attempting to retrieve results for simulation #{@sim_id}"
         while !done && (max_tries != tries)
-          resp = conn.get("simulations/#{@sim_id}")
-          if resp.status == 200
-            data = JSON.parse(resp.body)
-            if data['status'] && ['failed', 'completed'].include?(data['status'])
-              # done
-              done = true
-              if data['status'] == 'failed'
-                if data['results'] && data['results']['message']
-                  puts "Simulation Error: #{data['results']['message']}"
+          begin
+            resp = conn.get("simulations/#{@sim_id}")
+            if resp.status == 200
+              data = JSON.parse(resp.body)
+              if data['status'] && ['failed', 'completed'].include?(data['status'])
+                # done
+                done = true
+                if data['status'] == 'failed'
+                  if data['results'] && data['results']['message']
+                    puts "Simulation Error: #{data['results']['message']}"
+                  else
+                    puts 'Simulation Error!'
+                  end
                 else
-                  puts 'Simulation Error!'
+                  # edge case, check for results
+                  if data['results'].nil?
+                    puts "got a 200 but results are null...trying again"
+                    tries += 1
+                    sleep(3)
+                  else
+                    # get results
+                    @results = data['results'] || []
+
+                    puts "downloading results"
+                    # download results
+                    download_results
+                    return @results
+                  end
                 end
               else
-                # get results
-                @results = data['results'] || []
-
-                # download results
-                download_results
-
-                return @results
+                puts "no status yet...trying again"
+                tries += 1
+                sleep(3)
               end
+
             else
+              puts("ERROR retrieving: #{resp.body}")
               tries += 1
-              sleep(1)
-            end
 
-          else
-            puts("ERROR retrieving: #{resp.body}")
-            tries += 1
-
-            if tries == max_tries
-              # now raise the error
-              msg = "Error retrieving simulation #{@sim_id}. error code: #{resp.status}"
-              @@logger.error(msg)
-              raise msg
-            else
-              # try again
-              puts("TRYING AGAIN...#{tries}")
-              sleep(3)
+              if tries == max_tries
+                # now raise the error
+                msg = "Error retrieving simulation #{@sim_id}. error code: #{resp.status}"
+                @@logger.error(msg)
+                raise msg
+              else
+                # try again
+                puts("TRYING AGAIN...#{tries}")
+                sleep(3)
+              end
             end
+          rescue => error
+            @@logger.error("Error retrieving simulation #{@sim_id}.")
+            @@logger.error(error.message)
+            raise error.message
           end
+        end
+        if !done
+          @@logger.error("Error retrieving simulation #{@sim_id}.")
+          raise 'Simulation not retrieved...maximum tries reached'
         end
       end
 
@@ -243,14 +261,14 @@ module URBANopt
             streamed << chunk
           end
         end
-        # puts("STATUS: #{resp.status}, #{resp.body}")
 
         if resp.status == 200
 
           file_path = File.join(@rnm_dir, 'results', 'results.zip')
 
           File.open(file_path, 'wb') { |f| f.write streamed.join }
-          # puts "RNM-US results.zip downloaded to #{@rnm_dir}"
+          puts "RNM-US results.zip downloaded to #{@rnm_dir}"
+          
           # unzip
           Zip::File.open(file_path) do |zip_file|
             zip_file.each do |f|
@@ -259,7 +277,7 @@ module URBANopt
               zip_file.extract(f, f_path) unless File.exist?(f_path)
             end
           end
-
+          puts "results.zip extracted"
           # delete zip
           File.delete(file_path)
 

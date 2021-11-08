@@ -112,7 +112,7 @@ module URBANopt
       def aggregate_consumption(file_csv, file_json, n_feature)
         feature_type = file_json['program']['building_types'][0]['building_type']
         # residential_building_types = "Single-Family Detached" #add the other types
-        residential_building_types = ['Single-Family Detached', 'Single-Family Attached', 'MultiFamily', 'Single-Family', 'Multifamily Detached (2 to 4 units)', 'Multifamily Detached (5 or more units)'] # add the other types
+        residential_building_types = ['Single-Family Detached', 'Single-Family Attached', 'Multifamily', 'Single-Family', 'Multifamily Detached (2 to 4 units)', 'Multifamily Detached (5 or more units)'] # add the other types
         puts feature_type
         j = 0
         CSV.foreach(file_csv, headers: true) do |power|

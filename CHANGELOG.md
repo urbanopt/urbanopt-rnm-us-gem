@@ -1,10 +1,18 @@
 # Changelog
 
+## Version 0.1.3
+
+Date Range 11/02/21 - 11/08/21
+
+- Fix [#11](https://github.com/urbanopt/urbanopt-rnm-us-gem/issues/11), results files are not downloading in project directory for large projects
+
+- Fix [#16](https://github.com/urbanopt/urbanopt-rnm-us-gem/issues/16), fix residential enums to be consistent across files and fix typo in multifamily
+
 ## Version 0.1.2
 
 Date Range 10/29/21 - 11/01/21
 
-- Fix [#13] (https://github.com/urbanopt/urbanopt-rnm-us-gem/issues/13), update rubyzip dependency to fix conflict
+- Fix [#13](https://github.com/urbanopt/urbanopt-rnm-us-gem/issues/13), update rubyzip dependency to fix conflict
 
 ## Version 0.1.1
 
