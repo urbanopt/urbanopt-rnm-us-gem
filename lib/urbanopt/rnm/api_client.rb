@@ -1,5 +1,5 @@
 # *********************************************************************************
-# URBANopt (tm), Copyright (c) 2019-2021, Alliance for Sustainable Energy, LLC, and other
+# URBANopt (tm), Copyright (c) 2019-2022, Alliance for Sustainable Energy, LLC, and other
 # contributors. All rights reserved.
 
 # Redistribution and use in source and binary forms, with or without modification,
@@ -268,7 +268,7 @@ module URBANopt
 
           File.open(file_path, 'wb') { |f| f.write streamed.join }
           puts "RNM-US results.zip downloaded to #{@rnm_dir}"
-          
+
           # unzip
           Zip::File.open(file_path) do |zip_file|
             zip_file.each do |f|

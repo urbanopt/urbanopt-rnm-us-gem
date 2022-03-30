@@ -1,5 +1,5 @@
 # *********************************************************************************
-# URBANopt (tm), Copyright (c) 2019-2021, Alliance for Sustainable Energy, LLC, and other
+# URBANopt (tm), Copyright (c) 2019-2022, Alliance for Sustainable Energy, LLC, and other
 # contributors. All rights reserved.
 
 # Redistribution and use in source and binary forms, with or without modification,
@@ -59,7 +59,7 @@ module URBANopt
         @reopt = reopt
       end
 
-      ## 
+      ##
       # Post Process report and feature file
       ##
       def post_process
@@ -68,7 +68,7 @@ module URBANopt
         puts "RNM results were added to scenario report and feature file. New files can be found in #{@results_dir}"
       end
 
-      ## 
+      ##
       # Generate Scenario report
       ##
       def generate_report
@@ -80,9 +80,9 @@ module URBANopt
         scenario = get_scenario
 
         # merge stats with scenario report (before feature_reports section)
-        
+
         scenario['scenario_report']['rnm_results'] = rnm_stats
-       
+
         # save back to scenario directory as scenario_report_rnm.json
         File.open(File.join(@scenario_dir, @report_filename), "w") do |f|
           f.write(JSON.pretty_generate(scenario))
@@ -90,7 +90,7 @@ module URBANopt
 
       end
 
-      ## 
+      ##
       # Load Scenario Report
       ##
       def get_scenario
@@ -98,12 +98,12 @@ module URBANopt
           # get reopt scenario report
           return JSON.parse(File.read(File.join(@scenario_dir, 'feature_optimization.json')))
         else
-          # get default scenario report 
+          # get default scenario report
           return JSON.parse(File.read(File.join(@scenario_dir, 'default_scenario_report.json')))
         end
       end
 
-      ## 
+      ##
       # Generate new GeoJSON file
       ##
       def generate_feature_file
@@ -155,7 +155,7 @@ module URBANopt
 
         # lines LV and MV
         stats['electrical_lines_length'] = {}
-        km_to_mi = 0.621371 
+        km_to_mi = 0.621371
         @results['Length of overhead and underground electrical lines'].each do |item|
           case item['Voltage level']
           when 'Lines LV'

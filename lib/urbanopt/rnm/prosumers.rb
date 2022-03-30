@@ -1,5 +1,5 @@
 # *********************************************************************************
-# URBANopt (tm), Copyright (c) 2019-2021, Alliance for Sustainable Energy, LLC, and other
+# URBANopt (tm), Copyright (c) 2019-2022, Alliance for Sustainable Energy, LLC, and other
 # contributors. All rights reserved.
 
 # Redistribution and use in source and binary forms, with or without modification,
@@ -103,7 +103,7 @@ module URBANopt
         @profile_customer_p.push([id, 48, profiles_planning[:planning_profile_cust_active]])
         @profile_customer_p_ext.push([id, 8760, profiles[:yearly_profile_cust_active]])
         @profile_customer_q_ext.push([id, 8760, profiles[:yearly_profile_cust_reactive]])
-        
+
         if der_capacity[:storage] != nil && der_capacity[:storage] > 0
           @customers.push([building_map, id_batt, voltage_default, single_values[:peak_active_power_storage],single_values[:peak_reactive_power_storage], phases])
           @customers_ext.push([building_map, id_batt, voltage_default, single_values[:peak_active_power_storage], single_values[:peak_reactive_power_storage], phases, area, height, (single_values[:energy]).round(2), single_values[:peak_active_power_storage], single_values[:peak_reactive_power_storage], users])
@@ -138,7 +138,7 @@ module URBANopt
         cont = 1
         cont_reverse = 1
         nodes_consumers = nodes_per_bldg - 1
-        
+
         for i in 1..nodes_per_bldg
           coordinates = building_map
           node = closest_node + cont # to set the new nodes with enough distance among each others
@@ -146,10 +146,10 @@ module URBANopt
           if i > 1 && node <= building_nodes.length - 2
             coordinates = building_nodes[node] # take the closest building node index to the street and pass the nodes after it
             cont += 1
-          elsif i > 1 
+          elsif i > 1
             coordinates = building_nodes[node_reverse]
             cont_reverse += 1
-          end 
+          end
           # this condition is used to firstly place the building consumption nodes and then the last node
           # to be placed is the one referred to DG and battery for the building
           if i < nodes_per_bldg # considering the consumers nodes
@@ -159,11 +159,11 @@ module URBANopt
             peak_reactive_power_cons = (single_values[:peak_reactive_power_cons] / nodes_consumers).round(2)
             voltage_default, phases = voltage_values(peak_active_power_cons / @power_factor)
             for k in 0..profiles_planning[:planning_profile_cust_active].length - 1
-                planning_profile_node_active[k] = (profiles_planning[:planning_profile_cust_active][k] / nodes_consumers).round(2) 
-                planning_profile_node_reactive[k] = (profiles_planning[:planning_profile_cust_reactive][k] / nodes_consumers).round(2) 
+                planning_profile_node_active[k] = (profiles_planning[:planning_profile_cust_active][k] / nodes_consumers).round(2)
+                planning_profile_node_reactive[k] = (profiles_planning[:planning_profile_cust_reactive][k] / nodes_consumers).round(2)
             end
             for k in 0..profiles[:yearly_profile_cust_active].length - 1
-              yearly_profile_node_active[k] = (profiles[:yearly_profile_cust_active][k] / nodes_consumers).round(2) 
+              yearly_profile_node_active[k] = (profiles[:yearly_profile_cust_active][k] / nodes_consumers).round(2)
               yearly_profile_node_reactive[k] = (profiles[:yearly_profile_cust_reactive][k] / nodes_consumers).round(2)
             end
             @customers.push([coordinates, id, voltage_default, peak_active_power_cons, peak_reactive_power_cons, phases])
@@ -278,8 +278,8 @@ module URBANopt
           nodes_per_bldg = 1
           @medium_voltage = true
         end
-  
-          nodes_per_bldg += 1 # tacking into account the extra node for distributed generation and the battery    
+
+          nodes_per_bldg += 1 # tacking into account the extra node for distributed generation and the battery
         return nodes_per_bldg, area
       end
 
@@ -374,7 +374,7 @@ module URBANopt
           area = json_feature_report['program'].has_key?('floor_area') ? (json_feature_report['program']['floor_area']).round(2) : (json_feature_report['program']['floor_area_sqft']).round(2)
           # associating 2 nodes (consumers & DG and battery in the same node) per building considering the consumer, the battery and DG
           self.construct_prosumer_general(profiles, profiles_planning, single_values, building_map, area, height, users, der_capacity)
-        end 
+        end
       end
     end
   end
