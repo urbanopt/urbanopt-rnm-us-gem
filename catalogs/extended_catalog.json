@@ -79,8 +79,8 @@
     "Analyze valley scenario (YES / NO)": "NO"
   },
   "POWER FLOW": {
-    "Number of voltages:": "3",
-    "Mismatch voltages S (kV):": "0.416,12.47,69",
+    "Number of voltages:": "4",
+    "Mismatch voltages S (kV):": "0.120,0.480,12.47,69",
     "Mismatches convergence S (kVA):": "0.01,1,80",
     "Minimum allowable voltages (pu):": "0.95, 0.95, 0.95",
     "Maximum allowable voltages (pu):": "1.05, 1.05, 1.05",
@@ -216,11 +216,11 @@
     {
       "#Interurban Zone A:": [
         {
-          "Name": "1P_OH_AL_4_Periwinkle_0_416_0",
+          "Name": "1P_OH_AL_4_Periwinkle_0_120_0",
           "Type": "IA",
           "Nphases": "1",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.120",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -254,11 +254,11 @@
           ]
         },
         {
-          "Name": "1P_OH_AL_1/0_Neritina_0_416_0",
+          "Name": "1P_OH_AL_1/0_Neritina_0_120_0",
           "Type": "IA",
           "Nphases": "1",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.120",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -292,11 +292,11 @@
           ]
         },
         {
-          "Name": "1P_OH_AL_2/0_Rucina_0_416_0",
+          "Name": "1P_OH_AL_2/0_Rucina_0_120_0",
           "Type": "IA",
           "Nphases": "1",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.120",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -330,11 +330,11 @@
           ]
         },
         {
-          "Name": "1P_OH_AL_4/0_Zuzara_0_416_0",
+          "Name": "1P_OH_AL_4/0_Zuzara_0_120_0",
           "Type": "IA",
           "Nphases": "1",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.120",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -368,11 +368,11 @@
           ]
         },
         {
-          "Name": "3P_UG_AL_4/0_15_0_416_0",
+          "Name": "3P_UG_AL_4/0_15_0_480_0",
           "Type": "IA",
           "Nphases": "3",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.480",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -406,11 +406,11 @@
           ]
         },
         {
-          "Name": "3P_UG_AL_4/0_25_0_416_0",
+          "Name": "3P_UG_AL_4/0_25_0_480_0",
           "Type": "IA",
           "Nphases": "3",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.480",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -444,11 +444,11 @@
           ]
         },
         {
-          "Name": "3P_UG_AL_350kcmil_15_0_416_0",
+          "Name": "3P_UG_AL_350kcmil_15_0_480_0",
           "Type": "IA",
           "Nphases": "3",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.480",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -482,11 +482,11 @@
           ]
         },
         {
-          "Name": "3P_UG_AL_350kcmil_25_0_416_0",
+          "Name": "3P_UG_AL_350kcmil_25_0_480_0",
           "Type": "IA",
           "Nphases": "3",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.480",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -520,11 +520,11 @@
           ]
         },
         {
-          "Name": "3P_UG_AL_750kcmil_15_0_416_0",
+          "Name": "3P_UG_AL_750kcmil_15_0_480_0",
           "Type": "IA",
           "Nphases": "3",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.480",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -558,11 +558,11 @@
           ]
         },
         {
-          "Name": "3P_UG_AL_750kcmil_25_0_416_0",
+          "Name": "3P_UG_AL_750kcmil_25_0_480_0",
           "Type": "IA",
           "Nphases": "3",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.480",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -2292,11 +2292,11 @@
     {
       "#Interurban Zone B:": [
         {
-          "Name": "1P_OH_AL_4_Periwinkle_0_416_0",
+          "Name": "1P_OH_AL_4_Periwinkle_0_120_0",
           "Type": "IB",
           "Nphases": "1",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.120",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -2330,11 +2330,11 @@
           ]
         },
         {
-          "Name": "1P_OH_AL_1/0_Neritina_0_416_0",
+          "Name": "1P_OH_AL_1/0_Neritina_0_120_0",
           "Type": "IB",
           "Nphases": "1",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.120",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -2368,11 +2368,11 @@
           ]
         },
         {
-          "Name": "1P_OH_AL_2/0_Rucina_0_416_0",
+          "Name": "1P_OH_AL_2/0_Rucina_0_120_0",
           "Type": "IB",
           "Nphases": "1",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.120",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -2406,11 +2406,11 @@
           ]
         },
         {
-          "Name": "1P_OH_AL_4/0_Zuzara_0_416_0",
+          "Name": "1P_OH_AL_4/0_Zuzara_0_120_0",
           "Type": "IB",
           "Nphases": "1",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.120",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -2444,11 +2444,11 @@
           ]
         },
         {
-          "Name": "3P_UG_AL_4/0_15_0_416_0",
+          "Name": "3P_UG_AL_4/0_15_0_480_0",
           "Type": "IB",
           "Nphases": "3",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.480",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -2482,11 +2482,11 @@
           ]
         },
         {
-          "Name": "3P_UG_AL_4/0_25_0_416_0",
+          "Name": "3P_UG_AL_4/0_25_0_480_0",
           "Type": "IB",
           "Nphases": "3",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.480",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -2520,11 +2520,11 @@
           ]
         },
         {
-          "Name": "3P_UG_AL_350kcmil_15_0_416_0",
+          "Name": "3P_UG_AL_350kcmil_15_0_480_0",
           "Type": "IB",
           "Nphases": "3",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.480",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -2558,11 +2558,11 @@
           ]
         },
         {
-          "Name": "3P_UG_AL_350kcmil_25_0_416_0",
+          "Name": "3P_UG_AL_350kcmil_25_0_480_0",
           "Type": "IB",
           "Nphases": "3",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.480",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -2596,11 +2596,11 @@
           ]
         },
         {
-          "Name": "3P_UG_AL_750kcmil_15_0_416_0",
+          "Name": "3P_UG_AL_750kcmil_15_0_480_0",
           "Type": "IB",
           "Nphases": "3",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.480",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -2634,11 +2634,11 @@
           ]
         },
         {
-          "Name": "3P_UG_AL_750kcmil_25_0_416_0",
+          "Name": "3P_UG_AL_750kcmil_25_0_480_0",
           "Type": "IB",
           "Nphases": "3",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.480",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -4368,11 +4368,11 @@
     {
       "#Interurban Zone C:": [
         {
-          "Name": "1P_OH_AL_4_Periwinkle_0_416_0",
+          "Name": "1P_OH_AL_4_Periwinkle_0_120_0",
           "Type": "IC",
           "Nphases": "1",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.120",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -4406,11 +4406,11 @@
           ]
         },
         {
-          "Name": "1P_OH_AL_1/0_Neritina_0_416_0",
+          "Name": "1P_OH_AL_1/0_Neritina_0_120_0",
           "Type": "IC",
           "Nphases": "1",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.120",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -4444,11 +4444,11 @@
           ]
         },
         {
-          "Name": "1P_OH_AL_2/0_Rucina_0_416_0",
+          "Name": "1P_OH_AL_2/0_Rucina_0_120_0",
           "Type": "IC",
           "Nphases": "1",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.120",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -4482,11 +4482,11 @@
           ]
         },
         {
-          "Name": "1P_OH_AL_4/0_Zuzara_0_416_0",
+          "Name": "1P_OH_AL_4/0_Zuzara_0_120_0",
           "Type": "IC",
           "Nphases": "1",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.120",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -4520,11 +4520,11 @@
           ]
         },
         {
-          "Name": "3P_UG_AL_4/0_15_0_416_0",
+          "Name": "3P_UG_AL_4/0_15_0_480_0",
           "Type": "IC",
           "Nphases": "3",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.480",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -4558,11 +4558,11 @@
           ]
         },
         {
-          "Name": "3P_UG_AL_4/0_25_0_416_0",
+          "Name": "3P_UG_AL_4/0_25_0_480_0",
           "Type": "IC",
           "Nphases": "3",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.480",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -4596,11 +4596,11 @@
           ]
         },
         {
-          "Name": "3P_UG_AL_350kcmil_15_0_416_0",
+          "Name": "3P_UG_AL_350kcmil_15_0_480_0",
           "Type": "IC",
           "Nphases": "3",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.480",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -4634,11 +4634,11 @@
           ]
         },
         {
-          "Name": "3P_UG_AL_350kcmil_25_0_416_0",
+          "Name": "3P_UG_AL_350kcmil_25_0_480_0",
           "Type": "IC",
           "Nphases": "3",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.480",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -4672,11 +4672,11 @@
           ]
         },
         {
-          "Name": "3P_UG_AL_750kcmil_15_0_416_0",
+          "Name": "3P_UG_AL_750kcmil_15_0_480_0",
           "Type": "IC",
           "Nphases": "3",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.480",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -4710,11 +4710,11 @@
           ]
         },
         {
-          "Name": "3P_UG_AL_750kcmil_25_0_416_0",
+          "Name": "3P_UG_AL_750kcmil_25_0_480_0",
           "Type": "IC",
           "Nphases": "3",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.480",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -6444,11 +6444,11 @@
     {
       "#Urban-Overhead": [
         {
-          "Name": "1P_OH_AL_4_Periwinkle_0_416_0",
+          "Name": "1P_OH_AL_4_Periwinkle_0_120_0",
           "Type": "UA",
           "Nphases": "1",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.120",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -6482,11 +6482,11 @@
           ]
         },
         {
-          "Name": "1P_OH_AL_1/0_Neritina_0_416_0",
+          "Name": "1P_OH_AL_1/0_Neritina_0_120_0",
           "Type": "UA",
           "Nphases": "1",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.120",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -6520,11 +6520,11 @@
           ]
         },
         {
-          "Name": "1P_OH_AL_2/0_Rucina_0_416_0",
+          "Name": "1P_OH_AL_2/0_Rucina_0_120_0",
           "Type": "UA",
           "Nphases": "1",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.120",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -6558,11 +6558,11 @@
           ]
         },
         {
-          "Name": "1P_OH_AL_4/0_Zuzara_0_416_0",
+          "Name": "1P_OH_AL_4/0_Zuzara_0_120_0",
           "Type": "UA",
           "Nphases": "1",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.120",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -6596,11 +6596,11 @@
           ]
         },
         {
-          "Name": "3P_UG_AL_4/0_15_0_416_0",
+          "Name": "3P_UG_AL_4/0_15_0_480_0",
           "Type": "UA",
           "Nphases": "3",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.480",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -6634,11 +6634,11 @@
           ]
         },
         {
-          "Name": "3P_UG_AL_4/0_25_0_416_0",
+          "Name": "3P_UG_AL_4/0_25_0_480_0",
           "Type": "UA",
           "Nphases": "3",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.480",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -6672,11 +6672,11 @@
           ]
         },
         {
-          "Name": "3P_UG_AL_350kcmil_15_0_416_0",
+          "Name": "3P_UG_AL_350kcmil_15_0_480_0",
           "Type": "UA",
           "Nphases": "3",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.480",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -6710,11 +6710,11 @@
           ]
         },
         {
-          "Name": "3P_UG_AL_350kcmil_25_0_416_0",
+          "Name": "3P_UG_AL_350kcmil_25_0_480_0",
           "Type": "UA",
           "Nphases": "3",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.480",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -6748,11 +6748,11 @@
           ]
         },
         {
-          "Name": "3P_UG_AL_750kcmil_15_0_416_0",
+          "Name": "3P_UG_AL_750kcmil_15_0_480_0",
           "Type": "UA",
           "Nphases": "3",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.480",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -6786,11 +6786,11 @@
           ]
         },
         {
-          "Name": "3P_UG_AL_750kcmil_25_0_416_0",
+          "Name": "3P_UG_AL_750kcmil_25_0_480_0",
           "Type": "UA",
           "Nphases": "3",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.480",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -8520,11 +8520,11 @@
     {
       "#Urban-Underground": [
         {
-          "Name": "1P_UG_AL_1/0_Brenau_0_416_0",
+          "Name": "1P_UG_AL_1/0_Brenau_0_120_0",
           "Type": "US",
           "Nphases": "1",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.120",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -8558,11 +8558,11 @@
           ]
         },
         {
-          "Name": "1P_UG_AL_2/0_Converse_0_416_0",
+          "Name": "1P_UG_AL_2/0_Converse_0_120_0",
           "Type": "US",
           "Nphases": "1",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.120",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -8596,11 +8596,11 @@
           ]
         },
         {
-          "Name": "1P_UG_AL_4/0_Sweetbriar_0_416_0",
+          "Name": "1P_UG_AL_4/0_Sweetbriar_0_120_0",
           "Type": "US",
           "Nphases": "1",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.120",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -8634,11 +8634,11 @@
           ]
         },
         {
-          "Name": "3P_UG_AL_4/0_15_0_416_0",
+          "Name": "3P_UG_AL_4/0_15_0_480_0",
           "Type": "US",
           "Nphases": "3",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.480",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -8672,11 +8672,11 @@
           ]
         },
         {
-          "Name": "3P_UG_AL_4/0_25_0_416_0",
+          "Name": "3P_UG_AL_4/0_25_0_480_0",
           "Type": "US",
           "Nphases": "3",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.480",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -8710,11 +8710,11 @@
           ]
         },
         {
-          "Name": "3P_UG_AL_350kcmil_15_0_416_0",
+          "Name": "3P_UG_AL_350kcmil_15_0_480_0",
           "Type": "US",
           "Nphases": "3",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.480",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -8748,11 +8748,11 @@
           ]
         },
         {
-          "Name": "3P_UG_AL_350kcmil_25_0_416_0",
+          "Name": "3P_UG_AL_350kcmil_25_0_480_0",
           "Type": "US",
           "Nphases": "3",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.480",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -8786,11 +8786,11 @@
           ]
         },
         {
-          "Name": "3P_UG_AL_750kcmil_15_0_416_0",
+          "Name": "3P_UG_AL_750kcmil_15_0_480_0",
           "Type": "US",
           "Nphases": "3",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.480",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -8824,11 +8824,11 @@
           ]
         },
         {
-          "Name": "3P_UG_AL_750kcmil_25_0_416_0",
+          "Name": "3P_UG_AL_750kcmil_25_0_480_0",
           "Type": "US",
           "Nphases": "3",
           "Overload(pu) ": "1.1",
-          "Voltage(kV)": "0.416",
+          "Voltage(kV)": "0.480",
           " Failure rate minimum[failures / km year]": "0.1",
           " Failure rate medium[failures / km year]": "0.1",
           " Failure rate maximum[failures / km year]": "0.1",
@@ -10955,7 +10955,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "MAT_2I_230_69",
@@ -10983,7 +10984,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "MAT_3I_230_69",
@@ -11011,7 +11013,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "100",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         }
       ]
     },
@@ -11043,7 +11046,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "MAT_2U_230_69",
@@ -11071,7 +11075,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "MAT_3U_230_69",
@@ -11099,7 +11104,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "100",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         }
       ]
     },
@@ -11131,7 +11137,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_0_69_4",
@@ -11159,7 +11166,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_1_69_4",
@@ -11187,7 +11195,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "100",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_0_69_12_47",
@@ -11215,7 +11224,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_1_69_12_47",
@@ -11243,7 +11253,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_2_69_12_47",
@@ -11271,7 +11282,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_3_69_12_47",
@@ -11299,7 +11311,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_1_2x_69_12_47",
@@ -11327,7 +11340,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_2_2x_69_12_47",
@@ -11355,7 +11369,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "100",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_0_69_13_2",
@@ -11383,7 +11398,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_1_69_13_2",
@@ -11411,7 +11427,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_2_69_13_2",
@@ -11439,7 +11456,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_3_69_13_2",
@@ -11467,7 +11485,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_1_2x_69_13_2",
@@ -11495,7 +11514,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_2_2x_69_13_2",
@@ -11523,7 +11543,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "100",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_0_69_25",
@@ -11551,7 +11572,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_1_69_25",
@@ -11579,7 +11601,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_2_69_25",
@@ -11607,7 +11630,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_3_69_25",
@@ -11635,7 +11659,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_1_2x_69_25",
@@ -11663,7 +11688,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_2_2x_69_25",
@@ -11691,7 +11717,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "100",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         }
       ]
     },
@@ -11723,7 +11750,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_0_69_4",
@@ -11751,7 +11779,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_1_69_4",
@@ -11779,7 +11808,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "100",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_0_69_12_47",
@@ -11807,7 +11837,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_1_69_12_47",
@@ -11835,7 +11866,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_2_69_12_47",
@@ -11863,7 +11895,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_3_69_12_47",
@@ -11891,7 +11924,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_1_2x_69_12_47",
@@ -11919,7 +11953,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_2_2x_69_12_47",
@@ -11947,7 +11982,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "100",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_0_69_13_2",
@@ -11975,7 +12011,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_1_69_13_2",
@@ -12003,7 +12040,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_2_69_13_2",
@@ -12031,7 +12069,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_3_69_13_2",
@@ -12059,7 +12098,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_1_2x_69_13_2",
@@ -12087,7 +12127,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_2_2x_69_13_2",
@@ -12115,7 +12156,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "100",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_0_69_25",
@@ -12143,7 +12185,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_1_69_25",
@@ -12171,7 +12214,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_2_69_25",
@@ -12199,7 +12243,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_3_69_25",
@@ -12227,7 +12272,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_1_2x_69_25",
@@ -12255,7 +12301,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
           "Name": "SUB_2_2x_69_25",
@@ -12283,21 +12330,22 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "100",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         }
       ]
     },
     {
       "#Interurban:": [
         {
-          "Name": "OH1_1_4_0_416",
+          "Name": "OH1_1_4_0_120",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "1",
           "Installed Power(kVA)": "10",
           "Guaranteed Power(kVA)": "10",
           "Primary Voltage (kV)": "4",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.120",
           "Reactance (p.u. transf)": "0.009",
           "No load losses(kW)": "0.068",
           "Low-voltage-side short-circuit resistance (ohms)": "0.144",
@@ -12315,17 +12363,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "21",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": true
         },
         {
-          "Name": "OH1_2_4_0_416",
+          "Name": "OH1_2_4_0_120",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "1",
           "Installed Power(kVA)": "25",
           "Guaranteed Power(kVA)": "25",
           "Primary Voltage (kV)": "4",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.120",
           "Reactance (p.u. transf)": "0.02",
           "No load losses(kW)": "0.118",
           "Low-voltage-side short-circuit resistance (ohms)": "0.036864",
@@ -12343,17 +12392,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "21",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": true
         },
         {
-          "Name": "OH1_3_4_0_416",
+          "Name": "OH1_3_4_0_120",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "1",
           "Installed Power(kVA)": "50",
           "Guaranteed Power(kVA)": "50",
           "Primary Voltage (kV)": "4",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.120",
           "Reactance (p.u. transf)": "0.02",
           "No load losses(kW)": "0.185",
           "Low-voltage-side short-circuit resistance (ohms)": "0.013824",
@@ -12371,17 +12421,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "54",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": true
         },
         {
-          "Name": "OH1_4_4_0_416",
+          "Name": "OH1_4_4_0_120",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "1",
           "Installed Power(kVA)": "75",
           "Guaranteed Power(kVA)": "75",
           "Primary Voltage (kV)": "4",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.120",
           "Reactance (p.u. transf)": "0.02",
           "No load losses(kW)": "0.285",
           "Low-voltage-side short-circuit resistance (ohms)": "0.00768",
@@ -12399,17 +12450,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "4",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": true
         },
         {
-          "Name": "PM3_1_4_0_416",
+          "Name": "PM3_1_4_0_480",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "75",
           "Guaranteed Power(kVA)": "75",
           "Primary Voltage (kV)": "4",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0324",
           "No load losses(kW)": "0.45",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0402432",
@@ -12427,17 +12479,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "15",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_2_4_0_416",
+          "Name": "PM3_2_4_0_480",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "100",
           "Guaranteed Power(kVA)": "100",
           "Primary Voltage (kV)": "4",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0329",
           "No load losses(kW)": "0.62",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0278784",
@@ -12455,17 +12508,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "36",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_3_4_0_416",
+          "Name": "PM3_3_4_0_480",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "150",
           "Guaranteed Power(kVA)": "150",
           "Primary Voltage (kV)": "4",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0339",
           "No load losses(kW)": "0.775",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0248832",
@@ -12483,17 +12537,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "36",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_4_4_0_416",
+          "Name": "PM3_4_4_0_480",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "300",
           "Guaranteed Power(kVA)": "300",
           "Primary Voltage (kV)": "4",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0376",
           "No load losses(kW)": "0.975",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0105216",
@@ -12511,17 +12566,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "6",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_5_4_0_416",
+          "Name": "PM3_5_4_0_480",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "500",
           "Guaranteed Power(kVA)": "500",
           "Primary Voltage (kV)": "4",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0436",
           "No load losses(kW)": "1.33",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0050688",
@@ -12539,17 +12595,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "7",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_6_4_0_416",
+          "Name": "PM3_6_4_0_480",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "1000",
           "Guaranteed Power(kVA)": "1000",
           "Primary Voltage (kV)": "4",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0562",
           "No load losses(kW)": "2",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0027648",
@@ -12567,17 +12624,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_6_4_0_416",
+          "Name": "PM3_6_4_0_480",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "1500",
           "Guaranteed Power(kVA)": "1500",
           "Primary Voltage (kV)": "4",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0565",
           "No load losses(kW)": "2.88",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0016128",
@@ -12595,17 +12653,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "OH1_1_12_47_0_416",
+          "Name": "OH1_1_12_47_0_120",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "1",
           "Installed Power(kVA)": "10",
           "Guaranteed Power(kVA)": "10",
           "Primary Voltage (kV)": "12.47",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.120",
           "Reactance (p.u. transf)": "0.009",
           "No load losses(kW)": "0.068",
           "Low-voltage-side short-circuit resistance (ohms)": "0.144",
@@ -12623,17 +12682,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "21",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": true
         },
         {
-          "Name": "OH1_2_12_47_0_416",
+          "Name": "OH1_2_12_47_0_120",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "1",
           "Installed Power(kVA)": "25",
           "Guaranteed Power(kVA)": "25",
           "Primary Voltage (kV)": "12.47",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.120",
           "Reactance (p.u. transf)": "0.02",
           "No load losses(kW)": "0.118",
           "Low-voltage-side short-circuit resistance (ohms)": "0.036864",
@@ -12651,17 +12711,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "21",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": true
         },
         {
-          "Name": "OH1_3_12_47_0_416",
+          "Name": "OH1_3_12_47_0_120",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "1",
           "Installed Power(kVA)": "50",
           "Guaranteed Power(kVA)": "50",
           "Primary Voltage (kV)": "12.47",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.120",
           "Reactance (p.u. transf)": "0.02",
           "No load losses(kW)": "0.185",
           "Low-voltage-side short-circuit resistance (ohms)": "0.013824",
@@ -12679,17 +12740,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "54",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": true
         },
         {
-          "Name": "OH1_4_12_47_0_416",
+          "Name": "OH1_4_12_47_0_120",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "1",
           "Installed Power(kVA)": "75",
           "Guaranteed Power(kVA)": "75",
           "Primary Voltage (kV)": "12.47",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.120",
           "Reactance (p.u. transf)": "0.02",
           "No load losses(kW)": "0.285",
           "Low-voltage-side short-circuit resistance (ohms)": "0.00768",
@@ -12707,17 +12769,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "4",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": true
         },
         {
-          "Name": "PM3_1_12_47_0_416",
+          "Name": "PM3_1_12_47_0_480",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "75",
           "Guaranteed Power(kVA)": "75",
           "Primary Voltage (kV)": "12.47",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0324",
           "No load losses(kW)": "0.45",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0402432",
@@ -12735,17 +12798,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "15",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_2_12_47_0_416",
+          "Name": "PM3_2_12_47_0_480",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "100",
           "Guaranteed Power(kVA)": "100",
           "Primary Voltage (kV)": "12.47",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0329",
           "No load losses(kW)": "0.62",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0278784",
@@ -12763,17 +12827,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "36",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_3_12_47_0_416",
+          "Name": "PM3_3_12_47_0_480",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "150",
           "Guaranteed Power(kVA)": "150",
           "Primary Voltage (kV)": "12.47",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0339",
           "No load losses(kW)": "0.775",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0248832",
@@ -12791,17 +12856,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "36",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_4_12_47_0_416",
+          "Name": "PM3_4_12_47_0_480",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "300",
           "Guaranteed Power(kVA)": "300",
           "Primary Voltage (kV)": "12.47",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0376",
           "No load losses(kW)": "0.975",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0105216",
@@ -12819,17 +12885,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "6",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_5_12_47_0_416",
+          "Name": "PM3_5_12_47_0_480",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "500",
           "Guaranteed Power(kVA)": "500",
           "Primary Voltage (kV)": "12.47",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0436",
           "No load losses(kW)": "1.33",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0050688",
@@ -12847,17 +12914,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "7",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_6_12_47_0_416",
+          "Name": "PM3_6_12_47_0_480",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "1000",
           "Guaranteed Power(kVA)": "1000",
           "Primary Voltage (kV)": "12.47",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0562",
           "No load losses(kW)": "2",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0027648",
@@ -12875,17 +12943,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_6_12_47_0_416",
+          "Name": "PM3_6_12_47_0_480",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "1500",
           "Guaranteed Power(kVA)": "1500",
           "Primary Voltage (kV)": "12.47",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0565",
           "No load losses(kW)": "2.88",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0016128",
@@ -12903,17 +12972,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "OH1_1_13_2_0_416",
+          "Name": "OH1_1_13_2_0_120",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "1",
           "Installed Power(kVA)": "10",
           "Guaranteed Power(kVA)": "10",
           "Primary Voltage (kV)": "13.2",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.120",
           "Reactance (p.u. transf)": "0.009",
           "No load losses(kW)": "0.068",
           "Low-voltage-side short-circuit resistance (ohms)": "0.144",
@@ -12931,17 +13001,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "21",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": true
         },
         {
-          "Name": "OH1_2_13_2_0_416",
+          "Name": "OH1_2_13_2_0_120",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "1",
           "Installed Power(kVA)": "25",
           "Guaranteed Power(kVA)": "25",
           "Primary Voltage (kV)": "13.2",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.120",
           "Reactance (p.u. transf)": "0.02",
           "No load losses(kW)": "0.118",
           "Low-voltage-side short-circuit resistance (ohms)": "0.036864",
@@ -12959,17 +13030,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "21",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": true
         },
         {
-          "Name": "OH1_3_13_2_0_416",
+          "Name": "OH1_3_13_2_0_120",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "1",
           "Installed Power(kVA)": "50",
           "Guaranteed Power(kVA)": "50",
           "Primary Voltage (kV)": "13.2",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.120",
           "Reactance (p.u. transf)": "0.02",
           "No load losses(kW)": "0.185",
           "Low-voltage-side short-circuit resistance (ohms)": "0.013824",
@@ -12987,17 +13059,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "54",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": true
         },
         {
-          "Name": "OH1_4_13_2_0_416",
+          "Name": "OH1_4_13_2_0_120",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "1",
           "Installed Power(kVA)": "75",
           "Guaranteed Power(kVA)": "75",
           "Primary Voltage (kV)": "13.2",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.120",
           "Reactance (p.u. transf)": "0.02",
           "No load losses(kW)": "0.285",
           "Low-voltage-side short-circuit resistance (ohms)": "0.00768",
@@ -13015,17 +13088,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "4",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": true
         },
         {
-          "Name": "PM3_1_13_2_0_416",
+          "Name": "PM3_1_13_2_0_480",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "75",
           "Guaranteed Power(kVA)": "75",
           "Primary Voltage (kV)": "13.2",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0324",
           "No load losses(kW)": "0.45",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0402432",
@@ -13043,17 +13117,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "15",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_2_13_2_0_416",
+          "Name": "PM3_2_13_2_0_480",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "100",
           "Guaranteed Power(kVA)": "100",
           "Primary Voltage (kV)": "13.2",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0329",
           "No load losses(kW)": "0.62",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0278784",
@@ -13071,17 +13146,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "36",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_3_13_2_0_416",
+          "Name": "PM3_3_13_2_0_480",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "150",
           "Guaranteed Power(kVA)": "150",
           "Primary Voltage (kV)": "13.2",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0339",
           "No load losses(kW)": "0.775",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0248832",
@@ -13099,17 +13175,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "36",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_4_13_2_0_416",
+          "Name": "PM3_4_13_2_0_480",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "300",
           "Guaranteed Power(kVA)": "300",
           "Primary Voltage (kV)": "13.2",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0376",
           "No load losses(kW)": "0.975",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0105216",
@@ -13127,17 +13204,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "6",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_5_13_2_0_416",
+          "Name": "PM3_5_13_2_0_480",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "500",
           "Guaranteed Power(kVA)": "500",
           "Primary Voltage (kV)": "13.2",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0436",
           "No load losses(kW)": "1.33",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0050688",
@@ -13155,17 +13233,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "7",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_6_13_2_0_416",
+          "Name": "PM3_6_13_2_0_480",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "1000",
           "Guaranteed Power(kVA)": "1000",
           "Primary Voltage (kV)": "13.2",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0562",
           "No load losses(kW)": "2",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0027648",
@@ -13183,17 +13262,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_6_13_2_0_416",
+          "Name": "PM3_6_13_2_0_480",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "1500",
           "Guaranteed Power(kVA)": "1500",
           "Primary Voltage (kV)": "13.2",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0565",
           "No load losses(kW)": "2.88",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0016128",
@@ -13211,17 +13291,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "OH1_1_25_0_416",
+          "Name": "OH1_1_25_0_120",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "1",
           "Installed Power(kVA)": "10",
           "Guaranteed Power(kVA)": "10",
           "Primary Voltage (kV)": "25",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.120",
           "Reactance (p.u. transf)": "0.009",
           "No load losses(kW)": "0.068",
           "Low-voltage-side short-circuit resistance (ohms)": "0.144",
@@ -13239,17 +13320,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "21",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": true
         },
         {
-          "Name": "OH1_2_25_0_416",
+          "Name": "OH1_2_25_0_120",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "1",
           "Installed Power(kVA)": "25",
           "Guaranteed Power(kVA)": "25",
           "Primary Voltage (kV)": "25",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.120",
           "Reactance (p.u. transf)": "0.02",
           "No load losses(kW)": "0.118",
           "Low-voltage-side short-circuit resistance (ohms)": "0.036864",
@@ -13267,17 +13349,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "21",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": true
         },
         {
-          "Name": "OH1_3_25_0_416",
+          "Name": "OH1_3_25_0_120",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "1",
           "Installed Power(kVA)": "50",
           "Guaranteed Power(kVA)": "50",
           "Primary Voltage (kV)": "25",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.120",
           "Reactance (p.u. transf)": "0.02",
           "No load losses(kW)": "0.185",
           "Low-voltage-side short-circuit resistance (ohms)": "0.013824",
@@ -13295,17 +13378,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "54",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": true
         },
         {
-          "Name": "OH1_4_25_0_416",
+          "Name": "OH1_4_25_0_120",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "1",
           "Installed Power(kVA)": "75",
           "Guaranteed Power(kVA)": "75",
           "Primary Voltage (kV)": "25",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.120",
           "Reactance (p.u. transf)": "0.02",
           "No load losses(kW)": "0.285",
           "Low-voltage-side short-circuit resistance (ohms)": "0.00768",
@@ -13323,17 +13407,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "4",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": true
         },
         {
-          "Name": "PM3_1_25_0_416",
+          "Name": "PM3_1_25_0_480",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "75",
           "Guaranteed Power(kVA)": "75",
           "Primary Voltage (kV)": "25",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0324",
           "No load losses(kW)": "0.45",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0402432",
@@ -13351,17 +13436,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "15",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_2_25_0_416",
+          "Name": "PM3_2_25_0_480",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "100",
           "Guaranteed Power(kVA)": "100",
           "Primary Voltage (kV)": "25",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0329",
           "No load losses(kW)": "0.62",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0278784",
@@ -13379,17 +13465,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "36",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_3_25_0_416",
+          "Name": "PM3_3_25_0_480",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "150",
           "Guaranteed Power(kVA)": "150",
           "Primary Voltage (kV)": "25",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0339",
           "No load losses(kW)": "0.775",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0248832",
@@ -13407,17 +13494,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "36",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_4_25_0_416",
+          "Name": "PM3_4_25_0_480",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "300",
           "Guaranteed Power(kVA)": "300",
           "Primary Voltage (kV)": "25",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0376",
           "No load losses(kW)": "0.975",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0105216",
@@ -13435,17 +13523,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "6",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_5_25_0_416",
+          "Name": "PM3_5_25_0_480",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "500",
           "Guaranteed Power(kVA)": "500",
           "Primary Voltage (kV)": "25",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0436",
           "No load losses(kW)": "1.33",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0050688",
@@ -13463,17 +13552,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "7",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_6_25_0_416",
+          "Name": "PM3_6_25_0_480",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "1000",
           "Guaranteed Power(kVA)": "1000",
           "Primary Voltage (kV)": "25",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0562",
           "No load losses(kW)": "2",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0027648",
@@ -13491,17 +13581,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_6_25_0_416",
+          "Name": "PM3_6_25_0_480",
           "Type": "I",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "1500",
           "Guaranteed Power(kVA)": "1500",
           "Primary Voltage (kV)": "25",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0565",
           "No load losses(kW)": "2.88",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0016128",
@@ -13519,21 +13610,22 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "0",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         }
       ]
     },
     {
       "#Urban:": [
         {
-          "Name": "OH1_2_4_0_416",
+          "Name": "OH1_2_4_0_120",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "1",
           "Installed Power(kVA)": "25",
           "Guaranteed Power(kVA)": "25",
           "Primary Voltage (kV)": "4",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.120",
           "Reactance (p.u. transf)": "0.02",
           "No load losses(kW)": "0.118",
           "Low-voltage-side short-circuit resistance (ohms)": "0.036864",
@@ -13551,17 +13643,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "12",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": true
         },
         {
-          "Name": "OH1_3_4_0_416",
+          "Name": "OH1_3_4_0_120",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "1",
           "Installed Power(kVA)": "50",
           "Guaranteed Power(kVA)": "50",
           "Primary Voltage (kV)": "4",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.120",
           "Reactance (p.u. transf)": "0.02",
           "No load losses(kW)": "0.185",
           "Low-voltage-side short-circuit resistance (ohms)": "0.018432",
@@ -13579,17 +13672,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "53",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": true
         },
         {
-          "Name": "OH1_4_4_0_416",
+          "Name": "OH1_4_4_0_120",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "1",
           "Installed Power(kVA)": "75",
           "Guaranteed Power(kVA)": "75",
           "Primary Voltage (kV)": "4",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.120",
           "Reactance (p.u. transf)": "0.02",
           "No load losses(kW)": "0.285",
           "Low-voltage-side short-circuit resistance (ohms)": "0.00768",
@@ -13607,17 +13701,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "35",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": true
         },
         {
-          "Name": "PM3_1_4_0_416",
+          "Name": "PM3_1_4_0_480",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "75",
           "Guaranteed Power(kVA)": "75",
           "Primary Voltage (kV)": "4",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0324",
           "No load losses(kW)": "0.45",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0402432",
@@ -13635,17 +13730,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "6",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_2_4_0_416",
+          "Name": "PM3_2_4_0_480",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "100",
           "Guaranteed Power(kVA)": "100",
           "Primary Voltage (kV)": "4",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0329",
           "No load losses(kW)": "0.62",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0278784",
@@ -13663,17 +13759,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "14",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_3_4_0_416",
+          "Name": "PM3_3_4_0_480",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "150",
           "Guaranteed Power(kVA)": "150",
           "Primary Voltage (kV)": "4",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0339",
           "No load losses(kW)": "0.775",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0248832",
@@ -13691,17 +13788,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "14",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_4_4_0_416",
+          "Name": "PM3_4_4_0_480",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "300",
           "Guaranteed Power(kVA)": "300",
           "Primary Voltage (kV)": "4",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0376",
           "No load losses(kW)": "0.975",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0105216",
@@ -13719,17 +13817,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "28",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_5_4_0_416",
+          "Name": "PM3_5_4_0_480",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "500",
           "Guaranteed Power(kVA)": "500",
           "Primary Voltage (kV)": "4",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0436",
           "No load losses(kW)": "1.33",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0050688",
@@ -13747,17 +13846,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "24",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_6_4_0_416",
+          "Name": "PM3_6_4_0_480",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "1000",
           "Guaranteed Power(kVA)": "1000",
           "Primary Voltage (kV)": "4",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0562",
           "No load losses(kW)": "2",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0027648",
@@ -13775,17 +13875,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "10",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_6_4_0_416",
+          "Name": "PM3_6_4_0_480",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "1500",
           "Guaranteed Power(kVA)": "1500",
           "Primary Voltage (kV)": "4",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0565",
           "No load losses(kW)": "2.88",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0016128",
@@ -13803,17 +13904,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "4",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "OH1_2_12_47_0_416",
+          "Name": "OH1_2_12_47_0_120",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "1",
           "Installed Power(kVA)": "25",
           "Guaranteed Power(kVA)": "25",
           "Primary Voltage (kV)": "12.47",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.120",
           "Reactance (p.u. transf)": "0.02",
           "No load losses(kW)": "0.118",
           "Low-voltage-side short-circuit resistance (ohms)": "0.036864",
@@ -13831,17 +13933,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "12",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": true
         },
         {
-          "Name": "OH1_3_12_47_0_416",
+          "Name": "OH1_3_12_47_0_120",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "1",
           "Installed Power(kVA)": "50",
           "Guaranteed Power(kVA)": "50",
           "Primary Voltage (kV)": "12.47",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.120",
           "Reactance (p.u. transf)": "0.02",
           "No load losses(kW)": "0.185",
           "Low-voltage-side short-circuit resistance (ohms)": "0.018432",
@@ -13859,17 +13962,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "53",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": true
         },
         {
-          "Name": "OH1_4_12_47_0_416",
+          "Name": "OH1_4_12_47_0_120",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "1",
           "Installed Power(kVA)": "75",
           "Guaranteed Power(kVA)": "75",
           "Primary Voltage (kV)": "12.47",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.120",
           "Reactance (p.u. transf)": "0.02",
           "No load losses(kW)": "0.285",
           "Low-voltage-side short-circuit resistance (ohms)": "0.00768",
@@ -13887,17 +13991,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "35",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": true
         },
         {
-          "Name": "PM3_1_12_47_0_416",
+          "Name": "PM3_1_12_47_0_480",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "75",
           "Guaranteed Power(kVA)": "75",
           "Primary Voltage (kV)": "12.47",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0324",
           "No load losses(kW)": "0.45",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0402432",
@@ -13915,17 +14020,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "6",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_2_12_47_0_416",
+          "Name": "PM3_2_12_47_0_480",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "100",
           "Guaranteed Power(kVA)": "100",
           "Primary Voltage (kV)": "12.47",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0329",
           "No load losses(kW)": "0.62",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0278784",
@@ -13943,17 +14049,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "14",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_3_12_47_0_416",
+          "Name": "PM3_3_12_47_0_480",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "150",
           "Guaranteed Power(kVA)": "150",
           "Primary Voltage (kV)": "12.47",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0339",
           "No load losses(kW)": "0.775",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0248832",
@@ -13971,17 +14078,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "14",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_4_12_47_0_416",
+          "Name": "PM3_4_12_47_0_480",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "300",
           "Guaranteed Power(kVA)": "300",
           "Primary Voltage (kV)": "12.47",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0376",
           "No load losses(kW)": "0.975",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0105216",
@@ -13999,17 +14107,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "28",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_5_12_47_0_416",
+          "Name": "PM3_5_12_47_0_480",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "500",
           "Guaranteed Power(kVA)": "500",
           "Primary Voltage (kV)": "12.47",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0436",
           "No load losses(kW)": "1.33",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0050688",
@@ -14027,17 +14136,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "24",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_6_12_47_0_416",
+          "Name": "PM3_6_12_47_0_480",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "1000",
           "Guaranteed Power(kVA)": "1000",
           "Primary Voltage (kV)": "12.47",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0562",
           "No load losses(kW)": "2",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0027648",
@@ -14055,17 +14165,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "10",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_6_12_47_0_416",
+          "Name": "PM3_6_12_47_0_480",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "1500",
           "Guaranteed Power(kVA)": "1500",
           "Primary Voltage (kV)": "12.47",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0565",
           "No load losses(kW)": "2.88",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0016128",
@@ -14083,17 +14194,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "4",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "OH1_2_13_2_0_416",
+          "Name": "OH1_2_13_2_0_120",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "1",
           "Installed Power(kVA)": "25",
           "Guaranteed Power(kVA)": "25",
           "Primary Voltage (kV)": "13.2",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.120",
           "Reactance (p.u. transf)": "0.02",
           "No load losses(kW)": "0.118",
           "Low-voltage-side short-circuit resistance (ohms)": "0.036864",
@@ -14111,17 +14223,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "12",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": true
         },
         {
-          "Name": "OH1_3_13_2_0_416",
+          "Name": "OH1_3_13_2_0_120",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "1",
           "Installed Power(kVA)": "50",
           "Guaranteed Power(kVA)": "50",
           "Primary Voltage (kV)": "13.2",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.120",
           "Reactance (p.u. transf)": "0.02",
           "No load losses(kW)": "0.185",
           "Low-voltage-side short-circuit resistance (ohms)": "0.018432",
@@ -14139,17 +14252,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "53",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": true
         },
         {
-          "Name": "OH1_4_13_2_0_416",
+          "Name": "OH1_4_13_2_0_120",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "1",
           "Installed Power(kVA)": "75",
           "Guaranteed Power(kVA)": "75",
           "Primary Voltage (kV)": "13.2",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.120",
           "Reactance (p.u. transf)": "0.02",
           "No load losses(kW)": "0.285",
           "Low-voltage-side short-circuit resistance (ohms)": "0.00768",
@@ -14167,17 +14281,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "35",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": true
         },
         {
-          "Name": "PM3_1_13_2_0_416",
+          "Name": "PM3_1_13_2_0_480",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "75",
           "Guaranteed Power(kVA)": "75",
           "Primary Voltage (kV)": "13.2",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0324",
           "No load losses(kW)": "0.45",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0402432",
@@ -14195,17 +14310,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "6",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_2_13_2_0_416",
+          "Name": "PM3_2_13_2_0_480",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "100",
           "Guaranteed Power(kVA)": "100",
           "Primary Voltage (kV)": "13.2",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0329",
           "No load losses(kW)": "0.62",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0278784",
@@ -14223,17 +14339,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "14",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_3_13_2_0_416",
+          "Name": "PM3_3_13_2_0_480",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "150",
           "Guaranteed Power(kVA)": "150",
           "Primary Voltage (kV)": "13.2",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0339",
           "No load losses(kW)": "0.775",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0248832",
@@ -14251,17 +14368,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "14",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_4_13_2_0_416",
+          "Name": "PM3_4_13_2_0_480",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "300",
           "Guaranteed Power(kVA)": "300",
           "Primary Voltage (kV)": "13.2",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0376",
           "No load losses(kW)": "0.975",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0105216",
@@ -14279,17 +14397,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "28",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_5_13_2_0_416",
+          "Name": "PM3_5_13_2_0_480",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "500",
           "Guaranteed Power(kVA)": "500",
           "Primary Voltage (kV)": "13.2",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0436",
           "No load losses(kW)": "1.33",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0050688",
@@ -14307,17 +14426,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "24",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_6_13_2_0_416",
+          "Name": "PM3_6_13_2_0_480",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "1000",
           "Guaranteed Power(kVA)": "1000",
           "Primary Voltage (kV)": "13.2",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0562",
           "No load losses(kW)": "2",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0027648",
@@ -14335,17 +14455,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "10",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_6_13_2_0_416",
+          "Name": "PM3_6_13_2_0_480",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "1500",
           "Guaranteed Power(kVA)": "1500",
           "Primary Voltage (kV)": "13.2",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0565",
           "No load losses(kW)": "2.88",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0016128",
@@ -14363,17 +14484,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "4",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "OH1_2_25_0_416",
+          "Name": "OH1_2_25_0_120",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "1",
           "Installed Power(kVA)": "25",
           "Guaranteed Power(kVA)": "25",
           "Primary Voltage (kV)": "25",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.120",
           "Reactance (p.u. transf)": "0.02",
           "No load losses(kW)": "0.118",
           "Low-voltage-side short-circuit resistance (ohms)": "0.036864",
@@ -14391,17 +14513,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "12",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": true
         },
         {
-          "Name": "OH1_3_25_0_416",
+          "Name": "OH1_3_25_0_120",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "1",
           "Installed Power(kVA)": "50",
           "Guaranteed Power(kVA)": "50",
           "Primary Voltage (kV)": "25",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.120",
           "Reactance (p.u. transf)": "0.02",
           "No load losses(kW)": "0.185",
           "Low-voltage-side short-circuit resistance (ohms)": "0.018432",
@@ -14419,17 +14542,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "53",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": true
         },
         {
-          "Name": "OH1_4_25_0_416",
+          "Name": "OH1_4_25_0_120",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "1",
           "Installed Power(kVA)": "75",
           "Guaranteed Power(kVA)": "75",
           "Primary Voltage (kV)": "25",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.120",
           "Reactance (p.u. transf)": "0.02",
           "No load losses(kW)": "0.285",
           "Low-voltage-side short-circuit resistance (ohms)": "0.00768",
@@ -14447,17 +14571,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "35",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": true
         },
         {
-          "Name": "PM3_1_25_0_416",
+          "Name": "PM3_1_25_0_480",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "75",
           "Guaranteed Power(kVA)": "75",
           "Primary Voltage (kV)": "25",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0324",
           "No load losses(kW)": "0.45",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0402432",
@@ -14475,17 +14600,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "6",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_2_25_0_416",
+          "Name": "PM3_2_25_0_480",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "100",
           "Guaranteed Power(kVA)": "100",
           "Primary Voltage (kV)": "25",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0329",
           "No load losses(kW)": "0.62",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0278784",
@@ -14503,17 +14629,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "14",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_3_25_0_416",
+          "Name": "PM3_3_25_0_480",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "150",
           "Guaranteed Power(kVA)": "150",
           "Primary Voltage (kV)": "25",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0339",
           "No load losses(kW)": "0.775",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0248832",
@@ -14531,17 +14658,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "14",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_4_25_0_416",
+          "Name": "PM3_4_25_0_480",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "300",
           "Guaranteed Power(kVA)": "300",
           "Primary Voltage (kV)": "25",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0376",
           "No load losses(kW)": "0.975",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0105216",
@@ -14559,17 +14687,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "28",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_5_25_0_416",
+          "Name": "PM3_5_25_0_480",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "500",
           "Guaranteed Power(kVA)": "500",
           "Primary Voltage (kV)": "25",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0436",
           "No load losses(kW)": "1.33",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0050688",
@@ -14587,17 +14716,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "24",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_6_25_0_416",
+          "Name": "PM3_6_25_0_480",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "1000",
           "Guaranteed Power(kVA)": "1000",
           "Primary Voltage (kV)": "25",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0562",
           "No load losses(kW)": "2",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0027648",
@@ -14615,17 +14745,18 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "10",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         },
         {
-          "Name": "PM3_6_25_0_416",
+          "Name": "PM3_6_25_0_480",
           "Type": "U",
           "Voltage level": "MV-LV",
           "Nphases": "3",
           "Installed Power(kVA)": "1500",
           "Guaranteed Power(kVA)": "1500",
           "Primary Voltage (kV)": "25",
-          "Secondary Voltage (kV)": "0.416",
+          "Secondary Voltage (kV)": "0.480",
           "Reactance (p.u. transf)": "0.0565",
           "No load losses(kW)": "2.88",
           "Low-voltage-side short-circuit resistance (ohms)": "0.0016128",
@@ -14643,7 +14774,8 @@
           "Repair time medium (hours)": "30",
           "Repair time maximum (hours)": "44",
           "Probability": "4",
-          "connection": "Wye-Wye"
+          "connection": "Wye-Wye",
+          "Centertap": false
         }
       ]
     }
