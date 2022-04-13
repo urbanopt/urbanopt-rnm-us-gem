@@ -64,7 +64,7 @@ RSpec.describe URBANopt::RNM do
       @feature_file_path = File.join(@root_dir, 'example_project_with_network_and_streets.json')
       @scenario_csv_path = File.join(@root_dir, 'baseline_scenario.csv')
       @reopt = false
-      @extended_catalog_path = File.join(File.dirname(__FILE__), '..', '..', 'catalogs',  'extended_catalog.json')
+      @extended_catalog_path = File.join(Dir.home, 'github', 'urbanopt-ditto-reader', 'urbanopt_ditto_reader', 'extended_catalog.json')
       @average_peak_catalog_path = File.join(File.dirname(__FILE__), '..', '..', 'catalogs', 'average_peak_per_building_type.json')
       @name = 'baseline_scenario'
       @opendss_catalog = true
