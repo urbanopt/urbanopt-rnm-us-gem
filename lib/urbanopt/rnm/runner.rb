@@ -126,8 +126,7 @@ module URBANopt
       def get_scenario_features
         @num_header_rows = 1
         features = []
-        CSV.foreach(@scenario_csv_path, :headers => true) do |row|
-
+        CSV.foreach(@scenario_csv_path, headers: true) do |row|
           break if row[0].nil?
 
           # gets +feature_id+ and append to list

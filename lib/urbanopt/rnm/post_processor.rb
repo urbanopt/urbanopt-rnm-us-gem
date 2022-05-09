@@ -72,7 +72,6 @@ module URBANopt
       # Generate Scenario report
       ##
       def generate_report
-
         # calculate rnm statistics
         rnm_stats = calculate_stats
 
@@ -84,10 +83,9 @@ module URBANopt
         scenario['scenario_report']['rnm_results'] = rnm_stats
 
         # save back to scenario directory as scenario_report_rnm.json
-        File.open(File.join(@scenario_dir, @report_filename), "w") do |f|
+        File.open(File.join(@scenario_dir, @report_filename), 'w') do |f|
           f.write(JSON.pretty_generate(scenario))
         end
-
       end
 
       ##
@@ -107,7 +105,6 @@ module URBANopt
       # Generate new GeoJSON file
       ##
       def generate_feature_file
-
         # get results GeoJSON file and read in
         results = JSON.parse(File.read(File.join(@results_dir, 'GeoJSON', 'Distribution_system.json')))
 
@@ -117,7 +114,7 @@ module URBANopt
         end
 
         # save back to scenario directory as features_and_rnm.json
-         File.open(File.join(@scenario_dir, @geojson_filename), "w") do |f|
+        File.open(File.join(@scenario_dir, @geojson_filename), 'w') do |f|
           f.write(JSON.pretty_generate(@feature_file))
         end
       end
@@ -181,8 +178,8 @@ module URBANopt
         @results['Summary'].each do |item|
           case item['Level']
           when 'LV'
-           stats['costs']['investment']['low_voltage_network'] = item['Investment cost']
-           stats['costs']['yearly_maintenance']['low_voltage_network'] = item['Preventive maintenance (yearly)']
+            stats['costs']['investment']['low_voltage_network'] = item['Investment cost']
+            stats['costs']['yearly_maintenance']['low_voltage_network'] = item['Preventive maintenance (yearly)']
           when 'MV'
             stats['costs']['investment']['medium_voltage_network'] = item['Investment cost']
             stats['costs']['yearly_maintenance']['medium_voltage_network'] = item['Preventive maintenance (yearly)']

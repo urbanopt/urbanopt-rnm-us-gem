@@ -105,7 +105,7 @@ module URBANopt
               csv << ["<#{key}>"]
               if ext_catalog[key].is_a?(Hash) # defining the section under consideration is an Hash or an Array
                 if key == 'OTHERS'
-                    ext_catalog[key]["UTM Zone"] = utm_zone.to_s
+                  ext_catalog[key]['UTM Zone'] = utm_zone.to_s
                 end
                 ext_catalog[key].each do |k, v|
                   row = []
