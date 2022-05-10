@@ -129,6 +129,7 @@ module URBANopt
         stats['demand_generation_planning'] = []
         @results['Demand/generation and number of consumers/distributed generators'].each do |item|
           rec = {}
+          puts "ITEM VOLTAGE LEVEL: #{item['Voltage level']}, item type: #{item['Type'].strip}"
           case item['Voltage level']
           when 'LV'
             rec['type'] = "Low Voltage (LV) #{item['Type'].strip}"

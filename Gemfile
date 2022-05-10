@@ -8,3 +8,5 @@ allow_local = ENV['FAVOR_LOCAL_GEMS']
 
 # Below is an example of how to configure the gemfile for developing with local gems
 # modify as appropriate
+
+gem 'urbanopt-geojson', github: 'URBANopt/urbanopt-geojson-gem', branch: 'develop'
