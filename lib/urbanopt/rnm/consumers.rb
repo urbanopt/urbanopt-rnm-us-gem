@@ -79,7 +79,7 @@ module URBANopt
           yearly_profile_node_reactive = []
           nodes_per_bldg, area, medium_voltage = av_peak_cons_per_building_type(folder['building_types'])
           # the default variables are defined (i.e. type and rurality type)
-          puts "consumers 82"
+          puts 'consumers 82'
           closest_node = building_map[3].split('_')[1].to_i # refers to the node, found in the class above
           node = closest_node
           cont = 1
@@ -176,7 +176,7 @@ module URBANopt
         conservative_factor = 0.8 # considered as a reasonable assumption, but this value could be changed
         average_peak_folder = JSON.parse(File.read(@average_building_peak_catalog_path))
         for i in 0..feature_file.length - 1
-          area = feature_file[i].has_key?('floor_area') ? (feature_file[i]['floor_area']).round(2) : feature_file[i]['floor_area_sqft'].round(2)
+          area = feature_file[i].key?('floor_area') ? (feature_file[i]['floor_area']).round(2) : feature_file[i]['floor_area_sqft'].round(2)
           building_type = feature_file[i]['building_type'] # it specifies the type of building, sometimes it is directly the sub-type
           counter = 0 # counter to find number of buildings type belonging to same "category"
           average_peak_folder.each do |building_class|
@@ -215,10 +215,10 @@ module URBANopt
       # the method passes as arguments the urbanopt json and csv output file for each feature and the building coordinates previously calculated
       # and the "extreme" hour used to plan the network
       def customer_files_load(csv_feature_report, json_feature_report, building_map, building_nodes, hour)
-        n_timestep_per_hour = json_feature_report["timesteps_per_hour"].to_i
+        n_timestep_per_hour = json_feature_report['timesteps_per_hour'].to_i
         profiles = Hash.new { |h, k| h[k] = [] }
         single_values = Hash.new(0)
-        hours = 24 * n_timestep_per_hour -1
+        hours = 24 * n_timestep_per_hour - 1
         feature_type = json_feature_report['program']['building_types'][0]['building_type']
         residential_building_types = ['Single-Family Detached', 'Single-Family Attached', 'Multifamily', 'Single-Family', 'Multifamily Detached (2 to 4 units)', 'Multifamily Detached (5 or more units)']
 

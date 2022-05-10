@@ -94,7 +94,7 @@ end
 desc 'Create input files with defaults'
 task :create_inputs_default, [:scenario_csv_path, :feature_file_path] do |t, args|
   puts 'Creating input files with defaulted settings'
- # if no path passed in, use default:
+  # if no path passed in, use default:
   scenario_csv_path = args[:scenario_csv_path] || 'spec/test/example_project/baseline_scenario.csv'
   root_dir, scenario_file_name = File.split(File.expand_path(scenario_csv_path))
   scenario_name = File.basename(scenario_file_name, File.extname(scenario_file_name))

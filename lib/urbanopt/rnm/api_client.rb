@@ -197,21 +197,21 @@ module URBANopt
                 else
                   # edge case, check for results
                   if data['results'].nil?
-                    puts "got a 200 but results are null...trying again"
+                    puts 'got a 200 but results are null...trying again'
                     tries += 1
                     sleep(3)
                   else
                     # get results
                     @results = data['results'] || []
 
-                    puts "downloading results"
+                    puts 'downloading results'
                     # download results
                     download_results
                     return @results
                   end
                 end
               else
-                puts "no status yet...trying again"
+                puts 'no status yet...trying again'
                 tries += 1
                 sleep(3)
               end
@@ -231,10 +231,10 @@ module URBANopt
                 sleep(3)
               end
             end
-          rescue => error
+          rescue StandardError => e
             @@logger.error("Error retrieving simulation #{@sim_id}.")
-            @@logger.error(error.message)
-            raise error.message
+            @@logger.error(e.message)
+            raise e.message
           end
         end
         if !done
@@ -277,7 +277,7 @@ module URBANopt
               zip_file.extract(f, f_path) unless File.exist?(f_path)
             end
           end
-          puts "results.zip extracted"
+          puts 'results.zip extracted'
           # delete zip
           File.delete(file_path)
 

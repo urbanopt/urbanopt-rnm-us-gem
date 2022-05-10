@@ -109,6 +109,7 @@ module URBANopt
           end
         end
       end
+
       def aggregate_consumption(file_csv, file_json, n_feature)
         feature_type = file_json['program']['building_types'][0]['building_type']
         # residential_building_types = "Single-Family Detached" #add the other types
