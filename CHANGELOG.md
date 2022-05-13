@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 0.3.0
+Date Range 11/23/21 - 05/10/22
+
+- Update copyrights
+
 ## Version 0.2.0
 
 Date Range 11/09/21 - 11/22/21

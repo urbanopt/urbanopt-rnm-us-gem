@@ -143,7 +143,7 @@ module URBANopt
       # creating a method passing the GeoJSON file from URBANopt as the argument to define options that can be modified by the user
       # streets and building and primary substation coordinates
       # and returning the street coordinates array, the building coordinates array and the tot number of buildings in the project
-      def coordinates_feature_hash(geojson_hash,scenario_features=[])
+      def coordinates_feature_hash(geojson_hash, scenario_features = [])
         i = 0 # index representing the number of street_nodes
         building_number = 0 # variable created to keep track the number of buildings in the project
         street_number = 0 # variable created to keep track the number of streets in the project
@@ -209,7 +209,7 @@ module URBANopt
             end
             street_coordinates[street_number] = each_street
             street_number += 1
-          elsif street['geometry']['type'] == 'Polygon' && street['properties']['type'] == 'Building' and scenario_features.include? street['properties']['id']
+          elsif street['geometry']['type'] == 'Polygon' && street['properties']['type'] == 'Building' && scenario_features.include?(street['properties']['id'])
             for k in 0..street['geometry']['coordinates'].length - 1
               h = 0 # index representing number of nodes for each single building
               building = [] # array containing every building node coordinates and id of 1 building
