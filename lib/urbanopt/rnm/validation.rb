@@ -37,27 +37,40 @@
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
 # OF THE POSSIBILITY OF SUCH DAMAGE.
 # *********************************************************************************
+
+require 'urbanopt/rnm/logger'
+
 module URBANopt
   module RNM
-    # creating the Transformers class with required parameters by the OpenDSS catalog
-    class Transformers
-      def create(trafo)
-        hash = {}
-        hash[:nameclass] = trafo['Name']
-        if trafo.include? 'Installed Power(MVA)'
-          hash[:kva] = (trafo['Installed Power(MVA)'].to_i * 1000).to_i # converting to kVA
-        else # trafo.include? "kVA"
-          hash[:kva] = trafo['Installed Power(kVA)']
+    # Class for OpenDSS validation (runs python script)
+    class Validation
+      ##
+      # Initialize attributes: ++run directory+ 
+      ##
+      # [parameters:]
+      # * +rnm_dirname+ - _String_ - name of RNM-US directory that will contain the input files (within the scenario directory)
+      def initialize(rnm_full_path)
+        # absolute path
+        @rnm_full_path = rnm_full_path
+        @opendss_full_path=File.join(@rnm_full_path,'results/OpenDSS')
+        if !Dir.exist?(@opendss_full_path)
+            puts 'Error: folder does not exist'+@rnm_full_path
         end
-        hash[:resistance] = trafo['Low-voltage-side short-circuit resistance (ohms)'].to_f.round(2)
-        hash[:reactance] = trafo['Reactance (p.u. transf)'].to_f.round(2)
-        hash[:phases] = trafo['Nphases']
-        hash[:Centertap] = trafo['Centertap']
-        hash[:high_voltage] = trafo['Primary Voltage (kV)']
-        hash[:low_voltage] = trafo['Secondary Voltage (kV)']
-        hash[:connection] = trafo['connection']
-        return hash
       end
+
+
+      ##
+      # Run validation
+      ##
+      def run_validation()
+        puts "Initating OpenDSS validation in folder"
+        puts @opendss_full_path
+        puts "This can take some minutes"
+        #puts `python ./lib/urbanopt/rnm/validation/main_validation.py #{@rnm_full_path}`
+        log=`python ./lib/urbanopt/rnm/validation/main_validation.py #{@opendss_full_path}`
+        puts log
+      end
+
     end
-  end
+end
 end

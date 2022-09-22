@@ -164,3 +164,34 @@ task :create_opendss_catalog, [:save_path] do |t, args|
   puts "Catalog saved to #{save_path}"
   puts '....done!'
 end
+
+
+# run validation
+# pass in the path to the scenario csv
+desc 'Run Validation'
+task :run_validation, [:scenario_csv_path, :reopt, :use_localhost] do |t, args|
+  #Exammple to run validation
+  #bundle exec rake run_validation[D:/.../urbanopt-rnm-us-gem/spec/files/example_project/baseline_scenario.csv]
+  puts 'Running OpenDSS validation'
+  # if no path passed in, use default:
+  scenario_csv = args[:scenario_csv_path] || 'spec/test/example_project/run/baseline_scenario'
+  root_dir, scenario_file_name = File.split(File.expand_path(scenario_csv))
+  scenario_name = File.basename(scenario_file_name, File.extname(scenario_file_name))
+  run_dir = File.join(root_dir, 'run', scenario_name.downcase)
+
+  rnm_dir = File.join(run_dir, 'rnm-us')
+
+  
+  
+  
+  if !File.exist?(rnm_dir)
+    puts rnm_dir
+    raise 'No rnm-us directory found for this scenario...run the create_inputs rake task first.'
+  end
+
+  puts "run dir path: #{run_dir}"
+  validation = URBANopt::RNM::Validation.new(rnm_dir)
+  validation.run_validation()
+
+  puts '...done!'
+end
