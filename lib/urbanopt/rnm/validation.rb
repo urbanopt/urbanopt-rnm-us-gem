@@ -70,7 +70,6 @@ module URBANopt
         log=`python ./lib/urbanopt/rnm/validation/main_validation.py #{@opendss_full_path}`
         puts log
       end
-
     end
-end
+  end
 end
