@@ -196,7 +196,6 @@ RSpec.describe URBANopt::RNM do
     it 'saves the opendss catalog' do
       @extended_catalog_path = File.join(File.dirname(__FILE__), '..', '..', 'catalogs', 'extended_catalog.json')
       @save_path = File.join(File.dirname(__FILE__), '..', 'test_opendss_catalog.json')
-      $stdout.puts "SAVE PATH: #{@save_path}"
 
       if File.exist?(@save_path)
         FileUtils.rm_r(@save_path)
@@ -205,7 +204,6 @@ RSpec.describe URBANopt::RNM do
       # create catalog and save to specified path
       @opendss_catalog = URBANopt::RNM::ConversionToOpendssCatalog.new(@extended_catalog_path)
       @opendss_catalog.create_catalog(@save_path)
-      $stdout.puts "HI HI"
       expect(File.exist?(@save_path)).to be true
     end
   end
