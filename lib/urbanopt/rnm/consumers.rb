@@ -144,10 +144,10 @@ module URBANopt
         case peak_apparent_power
           when 0..@lv_limit[:single_phase] # set by the catalog limits
             phases = 1
-            voltage_default = 0.416
+            voltage_default = 0.12
           when @lv_limit[:single_phase]..@lv_limit[:three_phase] # defined from the catalog (from the wires)
             phases = 3
-            voltage_default = 0.416
+            voltage_default = 0.48
             # MV and 3 phases untill 16 MVA, defined by the SMART-DS project
           when @lv_limit[:three_phase]..16000
             phases = 3
@@ -201,6 +201,7 @@ module URBANopt
           average_peak = mixed_use_av_peak # average peak per mixed use considering the building types which are in this building
           area = area_mixed_use
         end
+
         nodes_per_bldg = (average_peak / (@lv_limit[:three_phase] * @power_factor * conservative_factor)).to_f.ceil # computing number of nodes per building
         if nodes_per_bldg > @max_num_lv_nodes # to define this as an input in the geojson file
           nodes_per_bldg = 1

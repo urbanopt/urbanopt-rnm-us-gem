@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 0.4.0
+Date Range 05/10/22 - 9/30/22
+
+- Breaking changes to electrical catalog used and compatible RNM-US executable.
+- Update API to version 2. API v1 still working for older URBANopt SDK releases but no longer working for future versions.
+
 ## Version 0.3.0
 Date Range 11/23/21 - 05/10/22
 

@@ -171,6 +171,16 @@ module URBANopt
         @rnm_pp = URBANopt::RNM::PostProcessor.new(@results, @run_dir, @feature_file)
         @rnm_pp.post_process
       end
+
+
+      ##
+      # Run OpenDSS validation
+      ##
+      def run_validation
+        # generate RNM-US input files
+        validation = URBANopt::RNM::Validation.new(@run_dir)
+        validation.run_validation
+      end
     end
   end
 end

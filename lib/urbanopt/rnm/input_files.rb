@@ -87,7 +87,7 @@ module URBANopt
         # lines with the highest capacity
         catalog['LINES'][1].each do |key, v|
           (0..catalog['LINES'][1][key].length - 1).each do |ii|
-            if catalog['LINES'][1][key][ii]['Voltage(kV)'] == '0.416'
+            if Float(catalog['LINES'][1][key][ii]['Voltage(kV)']) < 1
               if catalog['LINES'][1][key][ii]['Line geometry'][0]['phase'] != 'N'
                 wire = catalog['LINES'][1][key][ii]['Line geometry'][0]['wire']
               else

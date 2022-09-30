@@ -201,10 +201,10 @@ module URBANopt
         case peak_apparent_power
           when -10000..@lv_limit[:single_phase] # set by the catalog limits
             phases = 1
-            voltage_default = 0.416
+            voltage_default = 0.12
           when @lv_limit[:single_phase]..@lv_limit[:three_phase] # defined from the catalog (from the wires)
             phases = 3
-            voltage_default = 0.416
+            voltage_default = 0.48
           # MV and 3 phases untill 16 MVA defined by SMART-DS project
           when @lv_limit[:three_phase]..16000
             phases = 3
