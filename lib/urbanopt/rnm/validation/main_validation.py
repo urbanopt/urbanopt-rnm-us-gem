@@ -11,11 +11,11 @@ import report
 import os
 
 class Validation:
-    def __init__(self, folder,b_numeric_ids):
+    def __init__(self, folder,sb_numeric_ids):
         """Initialices the folder variables"""
         self.main_folder = folder        #Main uppper level folder (needed to search for OpenDSS files)     
         self.folder=folder+'/Validation' #Folder where the Validation results are saved
-        self.b_numeric_ids=b_numeric_ids
+        self.b_numeric_ids=sb_numeric_ids.lower()=='true' #Use numeric IDs in the hierarchical plot of the network
         self.mkdir(self.folder)          #It creates the validation folder if it does not exist
 
     def mkdir(self,directory):
@@ -77,7 +77,7 @@ class Validation:
         #Path and file name
         master_file_full_path = self.main_folder + '/dss_files/' + 'Master.dss' #Path for the Master file        
         start_index = 0  #Default initial index (needed to run OpenDSS)
-        num_periods=12   #Number of periods (12 month)
+        num_periods=12   #Number of periods (12 months)
         end_index = 8760 #Default final index, 1 year, 8760h (needed to run OpenDSS)
 
         #Create sub-folders
@@ -141,7 +141,7 @@ if __name__ == "__main__":
     """Runs direclty as a script if called from the command window"""
     #Example of use: python main_validation.py files
     folder = sys.argv[1]        #Use the folder specified in the arguments
-    b_numeric_ids=True
-    valid=Validation(folder,b_numeric_ids)    
+    sb_numeric_ids = sys.argv[2] #Use numeric IDs in the hierarchical plot of the network
+    valid=Validation(folder,sb_numeric_ids)    
     valid.main_validation()     #Call the main validation function
 

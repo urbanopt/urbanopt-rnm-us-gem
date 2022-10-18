@@ -341,7 +341,7 @@ class Plot_Lib:
         return dic_num_violations_v
 
 
-    def get_dict_num_violations_l(self,graph,dict_buses_element,v_dict_loading,v_range_loading):
+    def get_dict_num_violations_l(self,graph,dict_buses_element,v_dict_loading,v_range_loading,v_dict_ids_buses):
         """It obtains number (hours) of violations of each branch"""
         #Obtain number of violations (hours) of each branch
         myopendss_io=opendss_interface.OpenDSS_Interface(self.folder,self.b_numeric_ids)
@@ -350,9 +350,15 @@ class Plot_Lib:
         #For each granch
         for edge in graph.edges():
             #Obtain name from bus1 to bus2
-            bus1to2=self.remove_terminal(edge[0])+'-->'+self.remove_terminal(edge[1])
+            if not self.b_numeric_ids:
+                bus1to2=self.remove_terminal(edge[0])+'-->'+self.remove_terminal(edge[1])
+            else:
+                bus1to2=self.remove_terminal(v_dict_ids_buses[edge[0]])+'-->'+self.remove_terminal(v_dict_ids_buses[edge[1]])
             #Obtain name from bus2 to bus1
-            bus2to1=self.remove_terminal(edge[1])+'-->'+self.remove_terminal(edge[0])
+            if not self.b_numeric_ids:
+                bus2to1=self.remove_terminal(edge[1])+'-->'+self.remove_terminal(edge[0])
+            else:
+                bus2to1=self.remove_terminal(v_dict_ids_buses[edge[1]])+'-->'+self.remove_terminal(v_dict_ids_buses[edge[0]])
             #If bus1 to bus2 is the one that exists in the dictionary
             if bus1to2 in dict_buses_element:
                 #Set element name
@@ -423,7 +429,7 @@ class Plot_Lib:
         color_map_l_closed=[] 
         color_map_l_open=[]
         #Get number of loading valiations
-        dic_num_violations_l=self.get_dict_num_violations_l(mygraph,dict_buses_element,v_dict_loading,v_range_loading)
+        dic_num_violations_l=self.get_dict_num_violations_l(mygraph,dict_buses_element,v_dict_loading,v_range_loading,v_dict_ids_buses)
         #Obtain the maximum number of loading violations in a branch
         max_violations_l=max(dic_num_violations_l.values())
         #if no violations, use only one color in the colormap
@@ -432,17 +438,19 @@ class Plot_Lib:
         else:
             cmap_l = cmap
         #Creater a colormap (color_map_l) o colour the closed branches according to their number of violations
-        for edge in mygraph.edges():
+        for edge in mygraph_only_closed_edges.edges():
             #If there are no violations, set all intensities to zero
             if max_violations_l==0:
                 intensity=0
             else:
                 intensity=dic_num_violations_l[edge]/max_violations_l
             #Add the intensity of the branch to the colormap
-            if edge in mygraph_only_closed_edges.edges():
-                color_map_l_closed.append(intensity)
-            else:
-                color_map_l_open.append(0)
+            color_map_l_closed.append(intensity)
+        #Creater a colormap for the open branches
+        for edge in mygraph.edges():
+            #Add the intensity of the branch to the colormap
+            if not edge in mygraph_only_closed_edges.edges():
+                color_map_l_open.append(0) #As it is a different graph, order may be different, but it does not matter because they are all zero
         #Obtain min and max of x locations
         max_x=0
         max_y=0
@@ -463,7 +471,7 @@ class Plot_Lib:
         #Draw the nodes
         nodes = nx.draw_networkx_nodes(mygraph, pos=locations, node_color=color_map_v, cmap=cmap_v,alpha=myalpha)
         #Draw the closed edges (solid lines)
-        edges=nx.draw_networkx_edges(mygraph,edgelist=my_closed_edges,pos=locations, edge_color=color_map_l_closed,width=4,edge_cmap=cmap_l,alpha=myalpha)
+        edges=nx.draw_networkx_edges(mygraph_only_closed_edges,pos=locations, edge_color=color_map_l_closed,width=4,edge_cmap=cmap_l,alpha=myalpha)
         #Show the buses names
         #nx.draw_networkx_labels(mygraph, pos=locations)        
         nx.draw_networkx_labels(mygraph, pos=locations,font_size=8)        
