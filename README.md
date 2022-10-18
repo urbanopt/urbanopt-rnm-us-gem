@@ -42,6 +42,13 @@ An OpenDSS-formatted catalog can be generated from the extended catalog with the
 bundle exec rake create_opendss_catalog[/desired/path/to/opendss_catalog.json]
 ```
 
+## RNM-US API compatibility
+
+| API Version | RNM-US Gem Version | RNM-US exe Version |
+| ----------- | ----------- | ---------------- |
+| v1      | 0.3.0 and earlier | RNM-US_20220819 |
+| v2      | 0.4.0 | RNM-US_20220927 |
+
 ## Testing
 
 ```bash
