@@ -47,7 +47,21 @@ bundle exec rake create_opendss_catalog[/desired/path/to/opendss_catalog.json]
 | API Version | RNM-US Gem Version | RNM-US exe Version |
 | ----------- | ----------- | ---------------- |
 | v1      | 0.3.0 and earlier | RNM-US_20220819 |
-| v2      | 0.4.0 | RNM-US_20220927 |
+| v2      | 0.4.0 | RNM-US_20221018 |
+
+
+## Validation Functionality
+
+The validation and results visualization functionality is written in python. Follow these steps if you would like to use it.
+
+1. Install python (3.10) if you do not already have it installed
+1. Clone the repo to your computer
+1. cd into the repo directory
+1. run `bundle install` to install the required ruby dependencies
+1. run `pip install -r requirements.txt` to install the required python dependencies for the validation module
+1. create input files and run the simulation as usual
+1. run `bundle exec rake run_validation[/path/to/scenario/csv]` to run the validation
+
 
 ## Testing
 
