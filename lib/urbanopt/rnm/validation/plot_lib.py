@@ -495,11 +495,13 @@ class Plot_Lib:
         plt.axis('off')
         # Maximize figure
         wm = plt.get_current_fig_manager()
-        # the following line doesn't work on mac, comment
-        # wm.window.state('zoomed')
+        backend_name = plt.get_backend()
+        # this won't work on mac but should work on windows?
+        # macosx does not have a "window" attribute
+        if backend_name.lower() != 'macosx':
+            wm.window.state('zoomed')
 
         # Save the figure to file
         plt.savefig(output_file_full_path_fig, dpi=300)
         # Display
-        # the following line hangs the process, comment
-        # plt.show()
+        plt.show()
