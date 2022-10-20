@@ -148,6 +148,29 @@ task :run_simulation, [:scenario_csv_path, :reopt, :use_localhost] do |t, args|
   puts '...done!'
 end
 
+# Full Runner workflow (mimics UO CLI functionality)
+# pass in the path to the scenario csv, geojson path, whether this is a reopt analysis (true/false), and whether to use localhost RNM API (true/false)
+desc 'Full Runner workflow'
+task :full_runner_workflow, [:scenario_csv_path, :geojson_path, :reopt, :use_localhost] do |t, args|
+  # todo: could allow passing in extended catalog, average peak catalog, and opendss_catalog flags too
+  # if no path passed in, use default:
+  scenario_csv = args[:scenario_csv_path] || 'spec/test/example_project/run/baseline_scenario'
+  geojson_path = args[:geojson_path] || 'spec/test/example_project/example_project_with_network_and_streets'
+  root_dir, scenario_file_name = File.split(File.expand_path(scenario_csv))
+  scenario_name = File.basename(scenario_file_name, File.extname(scenario_file_name))
+  run_dir = File.join(root_dir, 'run', scenario_name.downcase)
+  reopt = args[:reopt] || false
+  reopt = reopt == 'true'
+  use_local =  args[:use_localhost] || false
+
+  runner = URBANopt::RNM::Runner.new(scenario_name, run_dir, scenario_csv, geojson_path, reopt: reopt)
+  runner.create_simulation_files
+  runner.run(use_local)
+  runner.post_process
+
+  puts '...done!'
+end
+
 # Create opendss catalog from extended catalog
 # pass in the path and filename where the OpenDSS catalog should be saved
 desc 'Create OpenDSS catalog'
