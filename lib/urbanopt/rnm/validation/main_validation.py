@@ -128,11 +128,11 @@ class Validation:
         #Equipment parameters
         myplot_lib.plot_violin('Equipment/Figures','Power Line - Normal Amps (A)',v_lines_norm_amps,v_range_show_all)
         myplot_lib.plot_violin('Equipment/Figures','Transformer (kVA)',v_transformers_kva,v_range_show_all)
-        #Hierarchical representation of the network
-        myplot_lib.plot_graph('Network/Figures',closed_edges,open_edges,v_dict_voltage,v_range_voltage,v_dict_loading,v_range_loading,dict_buses_element,v_dict_buses_ids,v_dict_ids_buses)
         #Summary operational report
         myreport=report.Report(folder,self.b_numeric_ids)
         myreport.write_summary_operational_report('Summary',v_dict_voltage,v_range_voltage,v_dict_unbalance,v_range_unbalance,v_dict_loading,v_range_loading,v_dict_loads)
+        #Hierarchical representation of the network
+        myplot_lib.plot_graph('Network/Figures',closed_edges,open_edges,v_dict_voltage,v_range_voltage,v_dict_loading,v_range_loading,dict_buses_element,v_dict_buses_ids,v_dict_ids_buses)
         
 
 #def main_validation(folder): #Example: uncomment to make the script run from a function
