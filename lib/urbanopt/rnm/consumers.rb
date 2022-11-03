@@ -45,7 +45,7 @@ require 'csv'
 module URBANopt
   module RNM
     class Consumers
-      attr_accessor :customers, :customers_ext, :profile_customer_p, :profile_customer_q, :profile_customer_p_ext, :profile_customer_q_ext, :power_factor
+      attr_accessor :customers, :customers_ext, :profile_customer_p, :profile_customer_q, :profile_customer_p_ext, :profile_customer_q_ext, :power_factor, :profile_date_time, :profile_date_time_ext
 
       # initializing all the attributes to build the inputs files required by the RNM-US model
       def initialize(reopt, only_lv_consumers = false, max_num_lv_nodes, average_building_peak_catalog_path, lv_limit)
@@ -55,8 +55,10 @@ module URBANopt
         @max_num_lv_nodes = max_num_lv_nodes
         @customers = []
         @customers_ext = []
+        @profile_date_time = []
         @profile_customer_p = []
         @profile_customer_q = []
+        @profile_date_time_ext = []
         @profile_customer_p_ext = []
         @profile_customer_q_ext = []
         @power_factor = power_factor
@@ -73,8 +75,10 @@ module URBANopt
       # while the 2nd option is run in case "only LV" set to false and the consumption for each building will be placed in a single node
       def construct_consumer(profiles, single_values, building_map, building_nodes, height, users, folder)
         if @only_lv_consumers
+          planning_date_time = []
           planning_profile_node_active = []
           planning_profile_node_reactive = []
+          yearly_date_time = []
           yearly_profile_node_active = []
           yearly_profile_node_reactive = []
           nodes_per_bldg, area, medium_voltage = av_peak_cons_per_building_type(folder['building_types'])
@@ -106,19 +110,23 @@ module URBANopt
             else
               voltage_default, phases = voltage_values(peak_active_power_cons / @power_factor)
             end
-
+            
             for k in 0..profiles[:planning_profile_cust_active].length - 1
+              planning_date_time[k]=profiles[:planning_date_time][k]
               planning_profile_node_active[k] = ((profiles[:planning_profile_cust_active][k]) / nodes_per_bldg).round(2)
               planning_profile_node_reactive[k] = ((profiles[:planning_profile_cust_reactive][k]) / nodes_per_bldg).round(2)
             end
             for k in 0..profiles[:yearly_profile_cust_active].length - 1
+              yearly_date_time[k]=profiles[:yearly_date_time][k]
               yearly_profile_node_active[k] = ((profiles[:yearly_profile_cust_active][k]) / nodes_per_bldg).round(2)
               yearly_profile_node_reactive[k] = ((profiles[:yearly_profile_cust_reactive][k]) / nodes_per_bldg).round(2)
             end
             @customers.push([coordinates, voltage_default, peak_active_power_cons, peak_reactive_power_cons, phases])
             @customers_ext.push([coordinates, voltage_default, peak_active_power_cons, peak_reactive_power_cons, phases, area, height, (single_values[:energy] / nodes_per_bldg).round(2), peak_active_power_cons, peak_reactive_power_cons, users])
+            @profile_date_time.push([planning_date_time])
             @profile_customer_q.push([id, 24, planning_profile_node_reactive])
             @profile_customer_p.push([id, 24, planning_profile_node_active])
+            @profile_date_time_ext.push([yearly_date_time])
             @profile_customer_p_ext.push([id, 8760, yearly_profile_node_active])
             @profile_customer_q_ext.push([id, 8760, yearly_profile_node_reactive])
 
@@ -131,8 +139,10 @@ module URBANopt
           voltage_default, phases = voltage_values(single_values[:peak_active_power_cons] / @power_factor * 0.9) # applying safety factor
           @customers.push([building_map, voltage_default, single_values[:peak_active_power_cons], single_values[:peak_reactive_power_cons], phases])
           @customers_ext.push([building_map, voltage_default, single_values[:peak_active_power_cons], single_values[:peak_reactive_power_cons], phases, area, height, (single_values[:energy]).round(2), single_values[:peak_active_power_cons], single_values[:peak_reactive_power_cons], users])
+          @profile_date_time.push([profiles[:planning_date_time]])
           @profile_customer_q.push([id, 24, profiles[:planning_profile_cust_reactive]])
           @profile_customer_p.push([id, 24, profiles[:planning_profile_cust_active]])
+          @profile_date_time_ext.push([profiles[:yearly_date_time]])
           @profile_customer_p_ext.push([id, 8760, profiles[:yearly_profile_cust_active]])
           @profile_customer_q_ext.push([id, 8760, profiles[:yearly_profile_cust_reactive]])
         end
@@ -234,10 +244,12 @@ module URBANopt
         # content = CSV.foreach(csv_feature_report, headers: true) do |power|
         CSV.foreach(csv_feature_report, headers: true) do |power|
           @power_factor = power['Electricity:Facility Power(kW)'].to_f / power['Electricity:Facility Apparent Power(kVA)'].to_f
+          profiles[:yearly_date_time].push(power['Datetime'])
           profiles[:yearly_profile_cust_active].push(power['Electricity:Facility Power(kW)'].to_f)
           profiles[:yearly_profile_cust_reactive].push(profiles[:yearly_profile_cust_active][k] * Math.tan(Math.acos(@power_factor)))
           single_values[:energy] += power['REopt:Electricity:Load:Total(kw)'].to_f # calculating the yearly energy consumed by each feature
           if k >= profile_start_max && k <= profile_start_max + hours
+            profiles[:planning_date_time].push(power['Datetime'])
             profiles[:planning_profile_cust_active].push(power['Electricity:Facility Power(kW)'].to_f)
             if power['Electricity:Facility Power(kW)'].to_f > single_values[:peak_active_power_cons]
               single_values[:peak_active_power_cons] = power['Electricity:Facility Power(kW)'].to_f

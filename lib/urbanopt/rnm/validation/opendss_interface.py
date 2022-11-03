@@ -5,6 +5,7 @@ import numpy as np
 import sys as sys
 import math
 import networkx as nx
+from datetime import datetime
 
 class OpenDSS_Interface:
     def __init__(self, folder,b_numeric_ids):
@@ -42,13 +43,9 @@ class OpenDSS_Interface:
 
 
 
-    def extract_period(self,v_value_i,v_value_period,i,end_index,num_periods):
-        """Extracts period "i" out of "num_periods" from the whole gieve series (v_value_i)"""
-        #It is assumes all the periods have the same length
-        for j in range(num_periods):
-            if (i<=end_index*(j+1)/num_periods):
-                v_value_period[j].extend(v_value_i)
-                break
+    def extract_period(self,v_value_i,v_value_period,i,end_index,num_periods,month):
+        """#Assign v_value_i to the corresponding month"""        
+        v_value_period[month-1].extend(v_value_i)
         return v_value_period
 
     def add_to_dictionary(self,dict_all,dict_i):
@@ -66,6 +63,24 @@ class OpenDSS_Interface:
         #If it has any output, print it
         if (len(output)>0):
             print(output)
+
+
+    def get_time_stamp(self):
+        """Read the timestamps and obtain the raw and the formatted version"""
+        #Select file
+        timestamp_file = self.main_folder + '/profiles/' + 'timestamps.csv'
+        #Read file
+        timestamps = []
+        with open(timestamp_file) as csv_data_file:
+            for row in csv_data_file:
+                timestamps.append(row.strip())
+        #remove the header
+        timestamps.pop(0)  
+        #Define date time format 
+        dt_format = '%Y/%m/%d %H:%M:%S'
+        #Convert to datetime structure
+        timestamps_datetime= [datetime.strptime(i,dt_format) for i in timestamps]
+        return timestamps,timestamps_datetime
 
 
     def get_all_voltage(self):
@@ -448,7 +463,7 @@ class OpenDSS_Interface:
         return num_violations
 
 
-    def write_dict(self,subfolder,v_dict,v_range,type,component,v_dict_buses_ids):
+    def write_dict(self,subfolder,v_dict,v_range,type,component,v_dict_buses_ids,timestamps,v_hours):
         """Writes the dictionary to a file"""
         #Path and file name
         output_file_full_path = self.folder + '/' + subfolder + '/' + type + '_' + component + '.csv'
@@ -456,10 +471,12 @@ class OpenDSS_Interface:
         with open(output_file_full_path, 'w') as fp:
             #Header: ID, hours 
             for idx,name in enumerate(v_dict):
-                if (self.b_numeric_ids):
-                    fp.write('Num. ID,bus/'+'Hour,'+','.join(str(idx2) for idx2,value in enumerate(v_dict[name])) + '\n')
+                if (self.b_numeric_ids and not component=='Branches'):
+                    fp.write(',/ '+'Date,'+','.join(str(value) for idx2,value in enumerate(timestamps)) + '\n')
+                    fp.write('Num. ID,bus / '+'Hour,'+','.join(str(value) for value in v_hours) + '\n')
                 else:
-                    fp.write('Hour,'+','.join(str(idx2) for idx2,value in enumerate(v_dict[name])) + '\n')
+                    fp.write('Date,'+','.join(str(value) for idx2,value in enumerate(timestamps)) + '\n')
+                    fp.write('Hour,'+','.join(str(value) for value in v_hours) + '\n')
                 break
             #Write matrix
             for idx,name in enumerate(v_dict):
@@ -493,12 +510,22 @@ class OpenDSS_Interface:
 
     def solve_powerflow_iteratively(self,num_periods,start_index,end_index,location,v_range_voltage,v_range_loading,v_range_unbalance):
         """Solves the power flow iteratively"""
+        #Get timestamps
+        timestamps,timestamps_datetime=self.get_time_stamp()
+        if start_index is None or start_index<0:
+            start_index=0
+        if end_index is None or end_index>len(timestamps):
+            end_index=len(timestamps)
+        v_hours_sim=range(start_index,end_index,1)           #Hours to run OpenDSS
+        v_hours=range(start_index+1,end_index+1,1)           #Hours for outputting
         #Por flow solving mode (hourly)
         self.dss_run_command("Clear")
         self.dss_run_command('Redirect '+location)
         self.dss_run_command("solve mode = snap")
-        self.dss_run_command("Set mode=yearly stepsize=1h number=1")
+        self.dss_run_command("Set mode=yearly stepsize=1h number="+str(start_index+1))
+        #Additional initializations
         #Init vectors
+        v_months=[[] for _ in range(num_periods)]           #Months
         v_voltage_yearly=[]                                 #Yearly votlage
         v_voltage_period=[[] for _ in range(num_periods)]   #Montly voltage
         v_unbalance_yearly=[]                               #Yearly unbalance
@@ -520,34 +547,36 @@ class OpenDSS_Interface:
         v_dict_loading={}                                   #Dict of loading
         v_dict_losses={}                                    #Dict of losses
         v_dict_loads={}                                     #Dict of loads
-        #Additional initializations
-        my_range=range(start_index,end_index,1)             #Full year
         old_percentage_str="" #Variable for tracking progress
         #Get buses ids
         v_dict_buses_ids,v_dict_ids_buses=self.get_all_buses_ids()
         #For each hour
-        for i in my_range:
+        for i in v_hours_sim:
             #Solve power flow in that hour
             self.dss_run_command("Solve")
+            #Build month vector
+            month=timestamps_datetime[i].month
+            if not month in v_months:
+                v_months[month-1]=month-1
             #Get voltages
             dict_voltage_i, v_voltage_i = self.get_all_voltage()
             self.add_to_dictionary(v_dict_voltage,dict_voltage_i)
             v_voltage_yearly.extend(v_voltage_i)            
-            v_voltage_period=self.extract_period(v_voltage_i,v_voltage_period,i,end_index,num_periods)
+            v_voltage_period=self.extract_period(v_voltage_i,v_voltage_period,i,end_index,num_periods,month)
             #Get voltage unbalance
             dict_unbalance_i, v_unbalance_i = self.get_all_unbalance()
             self.add_to_dictionary(v_dict_unbalance,dict_unbalance_i)
             v_unbalance_yearly.extend(v_unbalance_i)            
-            v_unbalance_period=self.extract_period(v_unbalance_i,v_unbalance_period,i,end_index,num_periods)
+            v_unbalance_period=self.extract_period(v_unbalance_i,v_unbalance_period,i,end_index,num_periods,month)
             #Get power
             dict_power_i, v_power_i = self.get_all_power()
             v_power_yearly.extend(v_power_i)
-            v_power_period=self.extract_period(v_power_i,v_power_period,i,end_index,num_periods)
+            v_power_period=self.extract_period(v_power_i,v_power_period,i,end_index,num_periods,month)
             #Get loading
             dict_loading_i, v_loading_i,dict_buses_element = self.get_all_loading()
             self.add_to_dictionary(v_dict_loading,dict_loading_i)
             v_loading_yearly.extend(v_loading_i)
-            v_loading_period=self.extract_period(v_loading_i,v_loading_period,i,end_index,num_periods)
+            v_loading_period=self.extract_period(v_loading_i,v_loading_period,i,end_index,num_periods,month)
             #Get dict losses
             dict_losses_i, v_losses_i = self.get_all_losses()
             self.add_to_dictionary(v_dict_losses,dict_losses_i)
@@ -560,9 +589,9 @@ class OpenDSS_Interface:
             dict_loads_i, v_loads_kw_i, v_loads_kvar_i= self.get_all_buses_loads(i)
             self.add_to_dictionary(v_dict_loads,dict_loads_i)
             v_loads_kw_yearly.extend(v_loads_kw_i)            
-            v_loads_kw_period=self.extract_period(v_loads_kw_i,v_loads_kw_period,i,end_index,num_periods)
+            v_loads_kw_period=self.extract_period(v_loads_kw_i,v_loads_kw_period,i,end_index,num_periods,month)
             v_loads_kvar_yearly.extend(v_loads_kvar_i)            
-            v_loads_kvar_period=self.extract_period(v_loads_kvar_i,v_loads_kvar_period,i,end_index,num_periods)
+            v_loads_kvar_period=self.extract_period(v_loads_kvar_i,v_loads_kvar_period,i,end_index,num_periods,month)
             #Get total peak load
             v_total_load_kw_yearly.append(sum(v_loads_kw_i))
             v_total_load_kvar_yearly.append(sum(v_loads_kvar_i))
@@ -577,6 +606,8 @@ class OpenDSS_Interface:
         dict_lines,v_lines_norm_amps=self.get_all_lines()
         #Get transformers size
         dict_transformers,v_transformers_kva=self.get_all_transformers()
-        return v_dict_buses_ids,v_dict_ids_buses,v_dict_voltage,v_voltage_yearly,v_voltage_period,v_power_yearly,v_power_period,v_dict_loading,v_loading_yearly,v_loading_period,v_dict_losses,v_subs_losses_yearly,v_line_losses_yearly,dict_buses_element,v_dict_loads,v_loads_kw_yearly,v_loads_kw_period,v_loads_kvar_yearly,v_loads_kvar_period,v_total_load_kw_yearly,v_total_load_kvar_yearly, v_loads_kw, v_loads_kvar,v_dict_unbalance,v_unbalance_yearly,v_unbalance_period,dict_lines,v_lines_norm_amps,dict_transformers,v_transformers_kva
+        #Get only the timestamps simulated
+        timestamps=timestamps[start_index:end_index]
+        return v_dict_buses_ids,v_dict_ids_buses,v_dict_voltage,v_voltage_yearly,v_voltage_period,v_power_yearly,v_power_period,v_dict_loading,v_loading_yearly,v_loading_period,v_dict_losses,v_subs_losses_yearly,v_line_losses_yearly,dict_buses_element,v_dict_loads,v_loads_kw_yearly,v_loads_kw_period,v_loads_kvar_yearly,v_loads_kvar_period,v_total_load_kw_yearly,v_total_load_kvar_yearly, v_loads_kw, v_loads_kvar,v_dict_unbalance,v_unbalance_yearly,v_unbalance_period,dict_lines,v_lines_norm_amps,dict_transformers,v_transformers_kva,timestamps,v_months,v_hours
 
 

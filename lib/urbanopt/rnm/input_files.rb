@@ -258,6 +258,10 @@ module URBANopt
           File.open(File.join(@run_dir, @rnm_dirname, 'customers_ext.txt'), 'w+') do |g|
             g.puts(prosumers.customers_ext.map { |w| w.join(';') })
           end
+          File.open(File.join(@run_dir, @rnm_dirname, 'timestamps.csv'), 'w+') do |g|
+            g.puts("Datetime\n")
+            g.puts(prosumers.profile_date_time[0].map { |w| w.join("\n") })
+          end
           File.open(File.join(@run_dir, @rnm_dirname, 'cust_profile_p.txt'), 'w+') do |g|
             g.puts(prosumers.profile_customer_p.map { |w| w.join(';') })
           end
@@ -267,6 +271,10 @@ module URBANopt
           # CSV.open(File.join(@run_dir, @rnm_dirname, "cust_profile_q_extendido.csv"), "w") do |csv|
           #             csv << [prosumers.profile_customer_q_ext]
           #         end
+          File.open(File.join(@run_dir, @rnm_dirname, 'timestamps_extendido.csv'), 'w+') do |g|
+            g.puts("Datetime\n")
+            g.puts(prosumers.profile_date_time_ext[0].map { |w| w.join("\n") })
+          end
           File.open(File.join(@run_dir, @rnm_dirname, 'cust_profile_q_extendido.txt'), 'w+') do |g|
             g.puts(prosumers.profile_customer_q_ext.map { |w| w.join(';') })
           end
@@ -289,6 +297,7 @@ module URBANopt
           File.open(File.join(@run_dir, @rnm_dirname, 'gen_profile_p_extendido.txt'), 'w+') do |g|
             g.puts(prosumers.profile_dg_p_extended.map { |w| w.join(';') })
           end
+          ficheros_entrada_inc.push('Timestamps;timestamps.csv;timestamps_extendido.csv')
           ficheros_entrada_inc.push('CClienteGreenfield;customers_ext.txt;cust_profile_p.txt;cust_profile_q.txt;cust_profile_p_extendido.txt;cust_profile_q_extendido.txt')
           ficheros_entrada_inc.push('CGeneradorGreenfield;generators.txt;gen_profile_p.txt;gen_profile_q.txt;gen_profile_p_extendido.txt;gen_profile_q_extendido.txt')
           ficheros_entrada_inc.push('END')
@@ -302,11 +311,19 @@ module URBANopt
           File.open(File.join(@run_dir, @rnm_dirname, 'customers_ext.txt'), 'w+') do |g|
             g.puts(consumers.customers_ext.map { |w| w.join(';') })
           end
+          File.open(File.join(@run_dir, @rnm_dirname, 'timestamps.csv'), 'w+') do |g|
+            g.puts("Datetime\n")
+            g.puts(consumers.profile_date_time[0].map { |w| w.join("\n") })
+          end
           File.open(File.join(@run_dir, @rnm_dirname, 'cust_profile_p.txt'), 'w+') do |g|
             g.puts(consumers.profile_customer_p.map { |w| w.join(';') })
           end
           File.open(File.join(@run_dir, @rnm_dirname, 'cust_profile_q.txt'), 'w+') do |g|
             g.puts(consumers.profile_customer_q.map { |w| w.join(';') })
+          end
+          File.open(File.join(@run_dir, @rnm_dirname, 'timestamps_extendido.csv'), 'w+') do |g|
+            g.puts("Datetime\n")
+            g.puts(consumers.profile_date_time_ext[0].map { |w| w.join("\n") })
           end
           File.open(File.join(@run_dir, @rnm_dirname, 'cust_profile_q_extendido.txt'), 'w+') do |g|
             g.puts(consumers.profile_customer_q_ext.map { |w| w.join(';') })
@@ -314,6 +331,7 @@ module URBANopt
           File.open(File.join(@run_dir, @rnm_dirname, 'cust_profile_p_extendido.txt'), 'w+') do |g|
             g.puts(consumers.profile_customer_p_ext.map { |w| w.join(';') })
           end
+          ficheros_entrada_inc.push('Timestamps;timestamps.csv;timestamps_extendido.csv')
           ficheros_entrada_inc.push('CClienteGreenfield;customers_ext.txt;cust_profile_p.txt;cust_profile_q.txt;cust_profile_p_extendido.txt;cust_profile_q_extendido.txt')
           ficheros_entrada_inc.push('END')
           File.open(File.join(@run_dir, @rnm_dirname, 'ficheros_entrada_inc.txt'), 'w+') do |g|

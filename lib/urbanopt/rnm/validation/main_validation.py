@@ -10,6 +10,7 @@ import plot_lib
 import report
 import os
 
+
 class Validation:
     def __init__(self, folder,sb_numeric_ids):
         """Initialices the folder variables"""
@@ -76,9 +77,13 @@ class Validation:
         """Carries out the whole validation of the distribution system"""
         #Path and file name
         master_file_full_path = self.main_folder + '/dss_files/' + 'Master.dss' #Path for the Master file        
-        start_index = 0  #Default initial index (needed to run OpenDSS)
-        num_periods=12   #Number of periods (12 months)
-        end_index = 8760 #Default final index, 1 year, 8760h (needed to run OpenDSS)
+        #Number of periods (always 12 months)
+        num_periods=12   
+        #Start and end index
+        #Define only to simulate only a subset of hours
+        #Set to None to use all timestamps 
+        start_index = None  #Default initial index (0/None)
+        end_index = None    #Default final index, 1 year, 8760h (8760/None)
 
         #Create sub-folders
         self.make_dirs()
@@ -86,7 +91,8 @@ class Validation:
         v_range_voltage,v_range_loading,v_range_unbalance,v_range_show_all=self.define_ranges()
 
         #For tests
-        #end_index = 24  #Simulate few hours (still broken down in 12 periods)
+        #start_index = 2000  #Default initial index 
+        #end_index = 4000    #Simulate few hours (still broken down in 12 periods/months)
         #v_range_voltage['allowed_range']=(0.975, 1.025)    #More stringent limmits than the standard ones to show violations
         #v_range_loading['allowed_range']=(0,0.3)
         #v_range_unbalance['allowed_range']=(0, 4e-5)
@@ -94,16 +100,16 @@ class Validation:
 
         #Run power flow iteratively and obtain the results
         myopendss_io=opendss_interface.OpenDSS_Interface(folder,self.b_numeric_ids)
-        v_dict_buses_ids,v_dict_ids_buses,v_dict_voltage,v_voltage_yearly,v_voltage_period,v_power_yearly,v_power_period,v_dict_loading,v_loading_yearly,v_loading_period,v_dict_losses,v_subs_losses_yearly,v_line_losses_yearly,dict_buses_element,v_dict_loads,v_loads_kw_yearly,v_loads_kw_period,v_loads_kvar_yearly,v_loads_kvar_period,v_total_load_kw_yearly,v_total_load_kvar_yearly, v_loads_kw, v_loads_kvar, v_dict_unbalance,v_unbalance_yearly,v_unbalance_period,dict_lines,v_lines_norm_amps,dict_transformers,v_transformers_kva=myopendss_io.solve_powerflow_iteratively(num_periods,start_index,end_index,master_file_full_path,v_range_voltage,v_range_loading,v_range_unbalance)
+        v_dict_buses_ids,v_dict_ids_buses,v_dict_voltage,v_voltage_yearly,v_voltage_period,v_power_yearly,v_power_period,v_dict_loading,v_loading_yearly,v_loading_period,v_dict_losses,v_subs_losses_yearly,v_line_losses_yearly,dict_buses_element,v_dict_loads,v_loads_kw_yearly,v_loads_kw_period,v_loads_kvar_yearly,v_loads_kvar_period,v_total_load_kw_yearly,v_total_load_kvar_yearly, v_loads_kw, v_loads_kvar, v_dict_unbalance,v_unbalance_yearly,v_unbalance_period,dict_lines,v_lines_norm_amps,dict_transformers,v_transformers_kva,timestamps,v_months,v_hours=myopendss_io.solve_powerflow_iteratively(num_periods,start_index,end_index,master_file_full_path,v_range_voltage,v_range_loading,v_range_unbalance)
 
         #Save voltage, unbalance, loading and losses results in CSV files
-        myopendss_io.write_dict('Voltage/CSV',v_dict_voltage,v_range_show_all,'Voltages (p.u.)','Buses',v_dict_buses_ids)
-        myopendss_io.write_dict('Voltage/CSV',v_dict_voltage,v_range_voltage,'Voltage Violations (p.u.)','Buses',v_dict_buses_ids)
-        myopendss_io.write_dict('Unbalance/CSV',v_dict_unbalance,v_range_show_all,'Unbalance (p.u.)','Buses',v_dict_buses_ids)
-        myopendss_io.write_dict('Unbalance/CSV',v_dict_unbalance,v_range_unbalance,'Unbalance Violations (p.u.)','Buses',v_dict_buses_ids)
-        myopendss_io.write_dict('Loading/CSV',v_dict_loading,v_range_show_all,'Loading (p.u.)','Branches',None)
-        myopendss_io.write_dict('Loading/CSV',v_dict_loading,v_range_loading,'Loading Violations (p.u.)','Branches',None)
-        myopendss_io.write_dict('losses/CSV',v_dict_losses,v_range_show_all,'Losses','Branches',None)        
+        myopendss_io.write_dict('Voltage/CSV',v_dict_voltage,v_range_show_all,'Voltages (p.u.)','Buses',v_dict_buses_ids,timestamps,v_hours)
+        myopendss_io.write_dict('Voltage/CSV',v_dict_voltage,v_range_voltage,'Voltage Violations (p.u.)','Buses',v_dict_buses_ids,timestamps,v_hours)
+        myopendss_io.write_dict('Unbalance/CSV',v_dict_unbalance,v_range_show_all,'Unbalance (p.u.)','Buses',v_dict_buses_ids,timestamps,v_hours)
+        myopendss_io.write_dict('Unbalance/CSV',v_dict_unbalance,v_range_unbalance,'Unbalance Violations (p.u.)','Buses',v_dict_buses_ids,timestamps,v_hours)
+        myopendss_io.write_dict('Loading/CSV',v_dict_loading,v_range_show_all,'Loading (p.u.)','Branches',None,timestamps,v_hours)
+        myopendss_io.write_dict('Loading/CSV',v_dict_loading,v_range_loading,'Loading Violations (p.u.)','Branches',None,timestamps,v_hours)
+        myopendss_io.write_dict('losses/CSV',v_dict_losses,v_range_show_all,'Losses','Branches',None,timestamps,v_hours)        
         if self.b_numeric_ids:
             myopendss_io.write_id_dict('Network/Figures','IDs_Buses',v_dict_buses_ids)
         #Get the edges of the network (for later making a hierarchical representation of the network)
@@ -111,20 +117,20 @@ class Validation:
         #Plot all the figures
         myplot_lib=plot_lib.Plot_Lib(folder,self.b_numeric_ids)
         #Voltage
-        myplot_lib.plot_hist('Voltage','Voltage (p.u.)',v_voltage_yearly,v_voltage_period,v_range_voltage,num_periods,40)
-        myplot_lib.plot_violin_monthly('Voltage/Figures','Voltage (p.u.)',v_voltage_yearly,v_voltage_period,v_range_voltage,num_periods)
+        myplot_lib.plot_hist('Voltage','Voltage (p.u.)',v_voltage_yearly,v_voltage_period,v_range_voltage,num_periods,40,v_months)
+        myplot_lib.plot_violin_monthly('Voltage/Figures','Voltage (p.u.)',v_voltage_yearly,v_voltage_period,v_range_voltage,num_periods,v_months)
         #Unbalance
-        myplot_lib.plot_hist('Unbalance','Unbalance (p.u.)',v_unbalance_yearly,v_unbalance_period,v_range_unbalance,num_periods,40)
-        myplot_lib.plot_violin_monthly('Unbalance/Figures','Unbalance (p.u.)',v_unbalance_yearly,v_unbalance_period,v_range_unbalance,num_periods)
+        myplot_lib.plot_hist('Unbalance','Unbalance (p.u.)',v_unbalance_yearly,v_unbalance_period,v_range_unbalance,num_periods,40,v_months)
+        myplot_lib.plot_violin_monthly('Unbalance/Figures','Unbalance (p.u.)',v_unbalance_yearly,v_unbalance_period,v_range_unbalance,num_periods,v_months)
         #Loading
-        myplot_lib.plot_hist('Loading','Loading (p.u.)',v_loading_yearly,v_loading_period,v_range_loading,num_periods,80)
-        myplot_lib.plot_violin_monthly('Loading/Figures','Loading (p.u.)',v_loading_yearly,v_loading_period,v_range_loading,num_periods)
+        myplot_lib.plot_hist('Loading','Loading (p.u.)',v_loading_yearly,v_loading_period,v_range_loading,num_periods,80,v_months)
+        myplot_lib.plot_violin_monthly('Loading/Figures','Loading (p.u.)',v_loading_yearly,v_loading_period,v_range_loading,num_periods,v_months)
         #Loads and load shpaes
-        myplot_lib.plot_duration_curve('Loads/Figures',v_total_load_kw_yearly,v_total_load_kvar_yearly,False)    
-        myplot_lib.plot_violin_monthly_two_vars('Loads/Figures','Loads',v_loads_kw_yearly,v_loads_kw_period,v_loads_kvar_yearly,v_loads_kvar_period,v_range_show_all,num_periods)
+        myplot_lib.plot_duration_curve('Loads/Figures',v_total_load_kw_yearly,v_total_load_kvar_yearly,False,v_hours)    
+        myplot_lib.plot_violin_monthly_two_vars('Loads/Figures','Loads',v_loads_kw_yearly,v_loads_kw_period,v_loads_kvar_yearly,v_loads_kvar_period,v_range_show_all,num_periods,v_months)
         myplot_lib.plot_violin('Loads/Figures','Loads Peak (kW)',v_loads_kw,v_range_show_all)
         #Losses
-        myplot_lib.plot_duration_curve('Losses/Figures',v_subs_losses_yearly,v_line_losses_yearly,True)    
+        myplot_lib.plot_duration_curve('Losses/Figures',v_subs_losses_yearly,v_line_losses_yearly,True,v_hours)    
         #Equipment parameters
         myplot_lib.plot_violin('Equipment/Figures','Power Line - Normal Amps (A)',v_lines_norm_amps,v_range_show_all)
         myplot_lib.plot_violin('Equipment/Figures','Transformer (kVA)',v_transformers_kva,v_range_show_all)

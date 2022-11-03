@@ -28,7 +28,7 @@ class Plot_Lib:
         return bus
 
 
-    def plot_hist(self,subfolder,type,v_value,v_value_period,v_range,num_periods,num_bins):
+    def plot_hist(self,subfolder,type,v_value,v_value_period,v_range,num_periods,num_bins,v_months):
         """Plots an histogram"""
         # Path and file name
         output_file_full_path_fig = self.folder + '/' + subfolder + '/Figures/' + type +  ' Histogram (p.u.).png'
@@ -38,39 +38,48 @@ class Plot_Lib:
         plt.clf()
         # Activate figure grid
         plt.grid(True)
+        # Evaluate number of valid periods
+        num_valid_periods=0
+        for j in v_months:
+            #If data in the month
+            if not j==[]:
+                num_valid_periods=num_valid_periods+1
         # Init variables
-        v_legend=["" for _ in range(num_periods+2)]
-        matrix=np.empty((num_bins,num_periods+2)) #Matrix for writting to file (index+periods+yearly)
+        v_legend=["" for _ in range(num_valid_periods+1)]
+        matrix=np.empty((num_bins,num_valid_periods+1)) #Matrix for writting to file (index+periods+yearly)
+        # Set xlim
+        if v_range['display_range']:
+            plt.xlim(v_range['display_range'])
+        # Incremental index for months with data
+        i=0        
         # For each month
-        for j in range(num_periods):
-            # Set xlim
-            if v_range['display_range']:
-                plt.xlim(v_range['display_range'])
-            # Set the weight variable
-            v_weights = np.ones_like(v_value_period[j]) / len(v_value_period[j])
-            # Calculate the histogram of each month
-            counts, bins = np.histogram(v_value_period[j], range=v_range['display_range'], bins=num_bins, weights=v_weights)
-            # Update matrix and legend
-            # If first iteration
-            if j==0:
-                matrix[:,0]=bins[:num_bins:]
-                v_legend[0]=type 
-            # In subsequent iterations
-            matrix[:,j+1]=counts
-            v_legend[j+1]= "M"+str(j+1)
-            # Plot the month
-            plt.plot(bins[:-1]+(bins[1]-bins[0])*0.5, counts)
+        for j in v_months:
+            #If data in the month
+            if not j==[]:
+                # Set the weight variable
+                v_weights = np.ones_like(v_value_period[j]) / len(v_value_period[j])
+                # Calculate the histogram of each month
+                counts, bins = np.histogram(v_value_period[j], range=v_range['display_range'], bins=num_bins, weights=v_weights)
+                # Update matrix and legend
+                # In subsequent iterations
+                matrix[:,i]=counts
+                v_legend[i]="M"+str(j+1)
+                # Plot the month
+                plt.plot(bins[:-1]+(bins[1]-bins[0])*0.5, counts)
+                # Increment index if data
+                i=i+1
         # Set the weight variable
         v_weights = np.ones_like(v_value) / len(v_value)
         # Calculate the yearly histogram
         counts, bins = np.histogram(v_value, range=v_range['display_range'], bins=num_bins, weights=v_weights)
         # Update matrix and legend
-        matrix[:,num_periods+1]=counts
-        v_legend[num_periods+1]='Yearly'
+        matrix[:,i]=counts
+        v_legend[i]='Yearly'
         # Plot histogram
         plt.hist(bins[:-1], bins, weights=counts)
         # Plot legend
-        plt.legend(v_legend[1:num_periods+2:])
+        #plt.legend(v_legend[1:num_periods+2:])
+        plt.legend(v_legend)
         # Write line with the limits
         for j in range(len(v_range['limits'])):
             h = plt.axvline(v_range['limits'][j], color='r', linestyle='--')
@@ -145,7 +154,7 @@ class Plot_Lib:
         # plt.show()
 
 
-    def plot_violin_monthly(self,subfolder, type,v_value,v_value_period,v_range,num_periods):
+    def plot_violin_monthly(self,subfolder, type,v_value,v_value_period,v_range,num_periods,v_months):
         """Make a violin plot with the monthly variation"""
         # Path and file name
         output_file_full_path_fig = self.folder + '/' + subfolder + '/' + type +  ' Violin Plot.png'
@@ -159,20 +168,26 @@ class Plot_Lib:
         # Write line with the limits
         for j in range(len(v_range['limits'])):
             h = plt.axhline(v_range['limits'][j], color='r', linestyle='--')
+        # Incremental index for valid months
+        i=0
         # For each month
-        for j in range(num_periods):
-            # Extend lists for monthly
-            l_month=["M"+str(j+1) for _ in v_value_period[j]]
-            l_yearly=['Monthly' for _ in v_value_period[j]]
-            v_data.extend(v_value_period[j])
-            v_month.extend(l_month)
-            v_yearly.extend(l_yearly)
-            # Extend lists for yearly
-            l_month=["M"+str(j+1) for _ in v_value]
-            l_yearly=['Yearly' for _ in v_value]
-            v_data.extend(v_value)
-            v_month.extend(l_month)
-            v_yearly.extend(l_yearly)
+        for j in v_months:
+            # If data in the month
+            if not j==[]:
+                # Extend lists for monthly
+                l_month=["M"+str(j+1) for _ in v_value_period[j]]
+                l_yearly=['Monthly' for _ in v_value_period[j]]
+                v_data.extend(v_value_period[j])
+                v_month.extend(l_month)
+                v_yearly.extend(l_yearly)
+                # Extend lists for yearly
+                l_month=["M"+str(j+1) for _ in v_value]
+                l_yearly=['Yearly' for _ in v_value]
+                v_data.extend(v_value)
+                v_month.extend(l_month)
+                v_yearly.extend(l_yearly)
+                #Increment auto-index if there is data
+                i=i+1
         # Display violin plot
         sns.violinplot(x=v_month, y=v_data, hue=v_yearly, cut=0, split=True)
         # Set y label
@@ -185,7 +200,7 @@ class Plot_Lib:
         # Display
         # plt.show()
 
-    def plot_violin_monthly_two_vars(self,subfolder, type,v_value1,v_value1_period,v_value2,v_value2_period,v_range,num_periods):
+    def plot_violin_monthly_two_vars(self,subfolder, type,v_value1,v_value1_period,v_value2,v_value2_period,v_range,num_periods,v_months):
         """Make a violin plot for two variables (kW/kVAr) with the monthly variation"""
         # Path and file name
         output_file_full_path_fig = self.folder + '/' + subfolder + '/' + type +  ' Violin Plot.png'
@@ -196,19 +211,25 @@ class Plot_Lib:
         v_data=[]
         v_month=[]
         v_type=[]
-        for j in range(num_periods):
-            # Extend lists for monthly var1
-            l_month=["M"+str(j+1) for _ in v_value1_period[j]]
-            l_type=['kW' for _ in v_value1_period[j]]
-            v_data.extend(v_value1_period[j])
-            v_month.extend(l_month)
-            v_type.extend(l_type)
-            # Extend lists for monthly var2
-            l_month=["M"+str(j+1) for _ in v_value2_period[j]]
-            l_type=['kVAr' for _ in v_value2_period[j]]
-            v_data.extend(v_value2_period[j])
-            v_month.extend(l_month)
-            v_type.extend(l_type)
+        # Incremental index for valid months
+        i=0
+        for j in v_months:
+            #If there is data
+            if not j==[]:
+                # Extend lists for monthly var1
+                l_month=["M"+str(j+1) for _ in v_value1_period[j]]
+                l_type=['kW' for _ in v_value1_period[j]]
+                v_data.extend(v_value1_period[j])
+                v_month.extend(l_month)
+                v_type.extend(l_type)
+                # Extend lists for monthly var2
+                l_month=["M"+str(j+1) for _ in v_value2_period[j]]
+                l_type=['kVAr' for _ in v_value2_period[j]]
+                v_data.extend(v_value2_period[j])
+                v_month.extend(l_month)
+                v_type.extend(l_type)
+                #Increment auto-index if there is data
+                i=i+1
         # Extend lists for yearly var1
         l_month=['Yearly' for _ in v_value1]
         l_type=['kW' for _ in v_value1]
@@ -236,19 +257,19 @@ class Plot_Lib:
         # Display
         # plt.show()        
 
-    def plot_duration_curve(self,subfolder, v1_yearly,v2_yearly,b_losses):
+    def plot_duration_curve(self,subfolder, v1_yearly,v2_yearly,b_losses,v_hours):
         """Make a figure with the duration curve (yearly losses or load)"""
         # New figure
         # plt.figure
         plt.clf()
         # Display variable 1
-        plt.plot(sorted(v1_yearly,reverse=True))
+        plt.plot(v_hours,sorted(v1_yearly,reverse=True))
         # Display variable 1
-        plt.plot(sorted(v2_yearly,reverse=True))
+        plt.plot(v_hours,sorted(v2_yearly,reverse=True))
         # If displaying losses
         if b_losses:
             # Plot the added curve (lines + transformers)
-            plt.plot(sorted(np.add(v1_yearly,v2_yearly),reverse=True))
+            plt.plot(v_hours,sorted(np.add(v1_yearly,v2_yearly),reverse=True))
             # Set file path + name
             output_file_full_path_fig = self.folder + '/' + subfolder + '/' + 'Losses' + '.png'
             # Set legend
