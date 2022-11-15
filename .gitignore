@@ -30,3 +30,5 @@ runner.conf
 /template_inputs/*
 test_opendss_catalog.json
 *.sql
+
+*__pycache__

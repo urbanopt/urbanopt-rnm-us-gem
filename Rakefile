@@ -148,6 +148,29 @@ task :run_simulation, [:scenario_csv_path, :reopt, :use_localhost] do |t, args|
   puts '...done!'
 end
 
+# Full Runner workflow (mimics UO CLI functionality)
+# pass in the path to the scenario csv, geojson path, whether this is a reopt analysis (true/false), and whether to use localhost RNM API (true/false)
+desc 'Full Runner workflow'
+task :full_runner_workflow, [:scenario_csv_path, :geojson_path, :reopt, :use_localhost] do |t, args|
+  # todo: could allow passing in extended catalog, average peak catalog, and opendss_catalog flags too
+  # if no path passed in, use default:
+  scenario_csv = args[:scenario_csv_path] || 'spec/test/example_project/run/baseline_scenario'
+  geojson_path = args[:geojson_path] || 'spec/test/example_project/example_project_with_network_and_streets'
+  root_dir, scenario_file_name = File.split(File.expand_path(scenario_csv))
+  scenario_name = File.basename(scenario_file_name, File.extname(scenario_file_name))
+  run_dir = File.join(root_dir, 'run', scenario_name.downcase)
+  reopt = args[:reopt] || false
+  reopt = reopt == 'true'
+  use_local =  args[:use_localhost] || false
+
+  runner = URBANopt::RNM::Runner.new(scenario_name, run_dir, scenario_csv, geojson_path, reopt: reopt)
+  runner.create_simulation_files
+  runner.run(use_local)
+  runner.post_process
+
+  puts '...done!'
+end
+
 # Create opendss catalog from extended catalog
 # pass in the path and filename where the OpenDSS catalog should be saved
 desc 'Create OpenDSS catalog'
@@ -169,20 +192,22 @@ end
 # run validation
 # pass in the path to the scenario csv
 desc 'Run Validation'
-task :run_validation, [:scenario_csv_path, :reopt, :use_localhost] do |t, args|
+task :run_validation, [:scenario_csv_path, :use_numeric_ids] do |t, args|
   #Exammple to run validation
-  #bundle exec rake run_validation[D:/.../urbanopt-rnm-us-gem/spec/files/example_project/baseline_scenario.csv]
+  #bundle exec rake run_validation[D:/.../urbanopt-rnm-us-gem/spec/files/example_project/baseline_scenario.csv,true]
+  
   puts 'Running OpenDSS validation'
+  
   # if no path passed in, use default:
   scenario_csv = args[:scenario_csv_path] || 'spec/test/example_project/run/baseline_scenario'
   root_dir, scenario_file_name = File.split(File.expand_path(scenario_csv))
   scenario_name = File.basename(scenario_file_name, File.extname(scenario_file_name))
   run_dir = File.join(root_dir, 'run', scenario_name.downcase)
-
   rnm_dir = File.join(run_dir, 'rnm-us')
 
-  
-  
+  #Use numeric ids (for the hierarchical plot of the network)
+  use_numeric_ids = args[:use_numeric_ids] || false
+  use_numeric_ids = use_numeric_ids == 'true'  
   
   if !File.exist?(rnm_dir)
     puts rnm_dir
@@ -190,7 +215,7 @@ task :run_validation, [:scenario_csv_path, :reopt, :use_localhost] do |t, args|
   end
 
   puts "run dir path: #{run_dir}"
-  validation = URBANopt::RNM::Validation.new(rnm_dir)
+  validation = URBANopt::RNM::Validation.new(rnm_dir,use_numeric_ids)
   validation.run_validation()
 
   puts '...done!'
