@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'faraday', '~> 1.0.1'
   spec.add_dependency 'geoutm', '~> 1.0.2'
   spec.add_dependency 'rubyzip', '~> 2.3.2'
-  spec.add_dependency 'urbanopt-geojson', '~> 0.8.0'
+  #spec.add_dependency 'urbanopt-geojson', '~> 0.8.0'
 
   spec.add_development_dependency 'bundler', '~> 2.1'
   spec.add_development_dependency 'rake', '~> 13.0'
