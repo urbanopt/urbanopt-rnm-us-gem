@@ -60,11 +60,12 @@ module URBANopt
         # TODO: eventually add NREL developer api key support
 
         @use_localhost = use_localhost
-        if @use_localhost
-          @base_api = 'http://0.0.0.0:8080/api/v2/'
-        else
-          @base_api = 'https://rnm.urbanopt.net/api/v2/'
-        end
+        # if @use_localhost
+        #   @base_api = 'http://0.0.0.0:8080/api/v2/'
+        # else
+        #   @base_api = 'https://rnm.urbanopt.net/api/v2/'
+        # end
+        @base_api = 'http://0.0.0.0:8080/api/v2/'
 
         puts "Running RNM-US at #{@base_api}"
 

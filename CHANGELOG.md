@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 0.5.0
+Date Range 9/30/22 - 12/8/22
+
+- Update dependencies for Extension Gem 0.6.0 and OpenStudio 3.5.0
+
 ## Version 0.4.0
 Date Range 05/10/22 - 9/30/22
 
