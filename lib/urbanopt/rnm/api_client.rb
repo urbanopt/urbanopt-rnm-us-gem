@@ -60,12 +60,11 @@ module URBANopt
         # TODO: eventually add NREL developer api key support
 
         @use_localhost = use_localhost
-        # if @use_localhost
-        #   @base_api = 'http://0.0.0.0:8080/api/v2/'
-        # else
-        #   @base_api = 'https://rnm.urbanopt.net/api/v2/'
-        # end
-        @base_api = 'http://0.0.0.0:8080/api/v2/'
+        if @use_localhost
+          @base_api = 'http://0.0.0.0:8080/api/v2/'
+        else
+          @base_api = 'https://rnm.urbanopt.net/api/v2/'
+        end
 
         puts "Running RNM-US at #{@base_api}"
 
@@ -109,6 +108,7 @@ module URBANopt
         end
 
         if !missing_files.empty?
+          puts "RNM DIR: #{@rnm_dir}"
           raise "Input Files missing in directory: #{missing_files.join(',')}"
         end
 
@@ -281,6 +281,13 @@ module URBANopt
           puts 'results.zip extracted'
           # delete zip
           File.delete(file_path)
+
+          # check if zip is empty
+          if Dir.empty? File.join(@rnm_dir, 'results')
+            msg = "Error in simulation: Results.zip empty"
+            @@logger.error(msg)
+            raise msg
+          end
 
         else
           msg = "Error retrieving results for #{the_sim_id}. error code: #{resp.status}.  #{resp.body}"
