@@ -108,6 +108,7 @@ module URBANopt
         end
 
         if !missing_files.empty?
+          puts "RNM DIR: #{@rnm_dir}"
           raise "Input Files missing in directory: #{missing_files.join(',')}"
         end
 
@@ -280,6 +281,13 @@ module URBANopt
           puts 'results.zip extracted'
           # delete zip
           File.delete(file_path)
+
+          # check if zip is empty
+          if Dir.empty? File.join(@rnm_dir, 'results')
+            msg = "Error in simulation: Results.zip empty"
+            @@logger.error(msg)
+            raise msg
+          end
 
         else
           msg = "Error retrieving results for #{the_sim_id}. error code: #{resp.status}.  #{resp.body}"
