@@ -35,7 +35,7 @@ jobs:
         with:
           name: rspec_results
           path: |
-            spec/test_directory**/run/
+            spec/test*/**
             # coverage/
           retention-days: 7 # save for 1 week before deleting
       # coveralls action docs: https://github.com/marketplace/actions/coveralls-github-action
