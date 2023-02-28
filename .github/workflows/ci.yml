@@ -1,5 +1,5 @@
 
-name: nightly_build
+name: ci
 
 on:
   push:
