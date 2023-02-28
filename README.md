@@ -1,6 +1,8 @@
+[![Coverage Status](https://coveralls.io/repos/github/urbanopt/urbanopt-rnm-us-gem/badge.svg?branch=develop)](https://coveralls.io/github/urbanopt/urbanopt-rnm-us-gem?branch=develop)
+
 # URBANopt RNM-US Gem
 
-The URBANopt<sup>&trade;</sup> RNM-US Gem includes functionalities to interface the URBANopt SDK to the RNM-US Gem for the development of a synthetic optimum distribution network in the considered district, given data related to the buildings energy consumption/DER energy generation and location, modeled by the other URBANopt modules. 
+The URBANopt<sup>&trade;</sup> RNM-US Gem includes functionalities to interface the URBANopt SDK to the RNM-US Gem for the development of a synthetic optimum distribution network in the considered district, given data related to the buildings energy consumption/DER energy generation and location, modeled by the other URBANopt modules.
 The RNM-US Gem is used to collect required data for the execution of RNM-US, which has been modeled in the other URBANopt modules, translating information provided
 in .json and .csv format into .txt files
 
@@ -15,7 +17,7 @@ The OpenDSS format presents results for power system analysis and simulations.
 The current functionalities of the RNM-US Gem include the creation of a streetmap text file, the substation txt file and multiple txt files related to the consumers peak loads and profiles and DERs peak generation and profiles.
 The streetmap text file is developed from coordinates information provided by geoJSON feature file input. The customers and generators text files, which define all the network consumers and DG included in the project, are created from their peak electricity demand/generation, and building location, provided by csv and json feature_report files modeled by the URBANopt Scenario Gem.
 The profiles txt files are divided among the consumers hourly profiles of active and reactive power and the DG hourly profiles of active and reactive power for the 2 most "extreme" days of maximum net demand and maximum net generation for the district .
-Finally, the extended profiles txt files provide the active and reactive profiles for each consumer/DG for the whole year. 
+Finally, the extended profiles txt files provide the active and reactive profiles for each consumer/DG for the whole year.
 
 
 ## Generate input files
