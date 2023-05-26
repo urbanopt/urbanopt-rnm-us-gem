@@ -213,7 +213,7 @@ module URBANopt
             puts "------ processing Building #{ street['properties']['name']} --------"
             # this loop goes through each polygon and assign it a building and is not correct for buildings with
             # inner courtyards (it would create 2 buildings)
-            # Assume the outward footprint is the first polygon -- only process the first one
+            # This assumes the outward footprint is the first polygon -- we only process the first one here
             for k in 0..0
               h = 0 # index representing number of nodes for each single building
               building = [] # array containing every building node coordinates and id of 1 building
