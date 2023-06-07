@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 0.5.1
+Date Range 12/9/22 - 6/7/23
+
+- Fix to handle buildings with courtyard without creating additional erroneous buildings
+
 ## Version 0.5.0
 Date Range 9/30/22 - 12/8/22
 
