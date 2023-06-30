@@ -1,5 +1,5 @@
 
-name: ci
+name: nightly_build
 
 on:
   push:
@@ -40,8 +40,8 @@ jobs:
             # coverage/
           retention-days: 7 # save for 1 week before deleting
       # coveralls action docs: https://github.com/marketplace/actions/coveralls-github-action
-      - name: Coveralls
-        uses: coverallsapp/github-action@master
+      - name: Coveralls GitHub Action
+        uses: coverallsapp/github-action@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           path-to-lcov: "./coverage/lcov/urbanopt-rnm-us-gem.lcov"
