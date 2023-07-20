@@ -32,7 +32,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'bundler', '~> 2.1'
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rspec', '~> 3.7'
-  # pin this one:
+  # pin this dependency:
   spec.add_development_dependency 'parallel', '~> 1.19.1'
   spec.add_development_dependency 'rubocop-checkstyle_formatter', '~> 0.4.0'
   spec.add_development_dependency 'rubocop-performance', '~> 1.11.3'
