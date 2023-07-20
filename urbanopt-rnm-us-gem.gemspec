@@ -27,12 +27,13 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'faraday', '~> 1.0.1'
   spec.add_dependency 'geoutm', '~> 1.0.2'
   spec.add_dependency 'rubyzip', '~> 2.3.2'
-  spec.add_dependency 'urbanopt-geojson', '~> 0.9.0'
+  spec.add_dependency 'urbanopt-geojson', '~> 0.10.0'
 
   spec.add_development_dependency 'bundler', '~> 2.1'
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rspec', '~> 3.7'
-  spec.add_development_dependency 'rubocop', '~> 1.15.0'
+  # pin this one:
+  spec.add_development_dependency 'parallel', '~> 1.19.1'
   spec.add_development_dependency 'rubocop-checkstyle_formatter', '~> 0.4.0'
   spec.add_development_dependency 'rubocop-performance', '~> 1.11.3'
   spec.add_development_dependency 'simplecov', '~> 0.18.2'

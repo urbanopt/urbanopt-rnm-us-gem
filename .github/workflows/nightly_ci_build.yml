@@ -1,5 +1,5 @@
 
-name: ci
+name: nightly_build
 
 on:
   # push:
@@ -17,7 +17,7 @@ jobs:
   weeknight-tests:
     runs-on: ubuntu-latest
     container:
-      image: docker://nrel/openstudio:3.5.1
+      image: docker://nrel/openstudio:3.6.1
     steps:
       - uses: actions/checkout@v3
       - name: Update gems
@@ -31,7 +31,8 @@ jobs:
         run: bundle exec rspec
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
-        if: failure() # Only upload if rspec fails
+        # Only upload if rspec fails
+        if: ${{ failure() }}
         with:
           name: rspec_results
           path: |
@@ -39,8 +40,8 @@ jobs:
             # coverage/
           retention-days: 7 # save for 1 week before deleting
       # coveralls action docs: https://github.com/marketplace/actions/coveralls-github-action
-      - name: Coveralls
-        uses: coverallsapp/github-action@master
+      - name: Coveralls GitHub Action
+        uses: coverallsapp/github-action@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           path-to-lcov: "./coverage/lcov/urbanopt-rnm-us-gem.lcov"

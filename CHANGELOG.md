@@ -1,5 +1,13 @@
 # Changelog
 
+## Version 0.6.0
+Date Range: 6/7/23 - 6/30/23
+
+- Update dependencies & CI for OpenStudio 3.6.1
+- Update license and references to the license file
+- Remove unnecessary dev dependency on rubocop as rubocop comes in from other dependencies
+- Reactivate GitHub Actions for CI
+
 ## Version 0.5.1
 Date Range 12/9/22 - 6/7/23
 
