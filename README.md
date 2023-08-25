@@ -1,5 +1,5 @@
 [![Coverage Status](https://coveralls.io/repos/github/urbanopt/urbanopt-rnm-us-gem/badge.svg?branch=develop)](https://coveralls.io/github/urbanopt/urbanopt-rnm-us-gem?branch=develop)
-[![nightly_build](https://github.com/urbanopt/urbanopt-rnm-us-gem/actions/workflows/nightly_ci_build.yml/badge.svg)](https://github.com/urbanopt/urbanopt-rnm-us-gem/actions/workflows/nightly_ci_build.yml)
+[![RNM-gem CI](https://github.com/urbanopt/urbanopt-rnm-us-gem/actions/workflows/nightly_ci_build.yml/badge.svg)](https://github.com/urbanopt/urbanopt-rnm-us-gem/actions/workflows/nightly_ci_build.yml)
 
 # URBANopt RNM-US Gem
 
