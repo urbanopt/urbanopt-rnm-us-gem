@@ -19,20 +19,22 @@ jobs:
   weeknight-tests:
     runs-on: ubuntu-latest
     container:
-      image: docker://nrel/openstudio:3.6.1
+      image: docker://nrel/openstudio:3.7.0
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+      - name: set git config options
+        shell: bash
+        run: |
+          git config --global --add safe.directory '*'
       - name: Update gems
         run: |
           ruby --version
           bundle update
           bundle exec certified-update
       - name: Run Rspec
-        continue-on-error: true
-        # Continue to upload step even if a test fails, so we can troubleshoot
         run: bundle exec rspec
       - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         # Only upload if rspec fails
         if: ${{ failure() }}
         with:
