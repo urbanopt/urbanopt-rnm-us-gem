@@ -1,41 +1,6 @@
 # *********************************************************************************
-# URBANopt (tm), Copyright (c) 2019-2021, Alliance for Sustainable Energy, LLC, and other
-# contributors. All rights reserved.
-
-# Redistribution and use in source and binary forms, with or without modification,
-# are permitted provided that the following conditions are met:
-
-# Redistributions of source code must retain the above copyright notice, this list
-# of conditions and the following disclaimer.
-
-# Redistributions in binary form must reproduce the above copyright notice, this
-# list of conditions and the following disclaimer in the documentation and/or other
-# materials provided with the distribution.
-
-# Neither the name of the copyright holder nor the names of its contributors may be
-# used to endorse or promote products derived from this software without specific
-# prior written permission.
-
-# Redistribution of this software, without modification, must refer to the software
-# by the same designation. Redistribution of a modified version of this software
-# (i) may not refer to the modified version by the same designation, or by any
-# confusingly similar designation, and (ii) must refer to the underlying software
-# originally provided by Alliance as "URBANopt". Except to comply with the foregoing,
-# the term "URBANopt", or any confusingly similar designation may not be used to
-# refer to any modified version of this software or any modified version of the
-# underlying software originally provided by Alliance without the prior written
-# consent of Alliance.
-
-# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-# ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-# WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-# IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-# INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-# BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-# DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
-# LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
-# OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
-# OF THE POSSIBILITY OF SUCH DAMAGE.
+# URBANopt™, Copyright © Alliance for Sustainable Energy, LLC.
+# See also https://github.com/urbanopt/urbanopt-rnm-us-gem/blob/develop/LICENSE.md
 # *********************************************************************************
 
 require 'bundler/gem_tasks'
@@ -94,7 +59,7 @@ end
 desc 'Create input files with defaults'
 task :create_inputs_default, [:scenario_csv_path, :feature_file_path] do |t, args|
   puts 'Creating input files with defaulted settings'
- # if no path passed in, use default:
+  # if no path passed in, use default:
   scenario_csv_path = args[:scenario_csv_path] || 'spec/test/example_project/baseline_scenario.csv'
   root_dir, scenario_file_name = File.split(File.expand_path(scenario_csv_path))
   scenario_name = File.basename(scenario_file_name, File.extname(scenario_file_name))
@@ -148,6 +113,29 @@ task :run_simulation, [:scenario_csv_path, :reopt, :use_localhost] do |t, args|
   puts '...done!'
 end
 
+# Full Runner workflow (mimics UO CLI functionality)
+# pass in the path to the scenario csv, geojson path, whether this is a reopt analysis (true/false), and whether to use localhost RNM API (true/false)
+desc 'Full Runner workflow'
+task :full_runner_workflow, [:scenario_csv_path, :geojson_path, :reopt, :use_localhost] do |t, args|
+  # todo: could allow passing in extended catalog, average peak catalog, and opendss_catalog flags too
+  # if no path passed in, use default:
+  scenario_csv = args[:scenario_csv_path] || 'spec/test/example_project/run/baseline_scenario'
+  geojson_path = args[:geojson_path] || 'spec/test/example_project/example_project_with_network_and_streets'
+  root_dir, scenario_file_name = File.split(File.expand_path(scenario_csv))
+  scenario_name = File.basename(scenario_file_name, File.extname(scenario_file_name))
+  run_dir = File.join(root_dir, 'run', scenario_name.downcase)
+  reopt = args[:reopt] || false
+  reopt = reopt == 'true'
+  use_local =  args[:use_localhost] || false
+
+  runner = URBANopt::RNM::Runner.new(scenario_name, run_dir, scenario_csv, geojson_path, reopt: reopt)
+  runner.create_simulation_files
+  runner.run(use_local)
+  runner.post_process
+
+  puts '...done!'
+end
+
 # Create opendss catalog from extended catalog
 # pass in the path and filename where the OpenDSS catalog should be saved
 desc 'Create OpenDSS catalog'
@@ -163,4 +151,37 @@ task :create_opendss_catalog, [:save_path] do |t, args|
 
   puts "Catalog saved to #{save_path}"
   puts '....done!'
+end
+
+
+# run validation
+# pass in the path to the scenario csv
+desc 'Run Validation'
+task :run_validation, [:scenario_csv_path, :use_numeric_ids] do |t, args|
+  #Exammple to run validation
+  #bundle exec rake run_validation[D:/.../urbanopt-rnm-us-gem/spec/files/example_project/baseline_scenario.csv,true]
+
+  puts 'Running OpenDSS validation'
+
+  # if no path passed in, use default:
+  scenario_csv = args[:scenario_csv_path] || 'spec/test/example_project/run/baseline_scenario'
+  root_dir, scenario_file_name = File.split(File.expand_path(scenario_csv))
+  scenario_name = File.basename(scenario_file_name, File.extname(scenario_file_name))
+  run_dir = File.join(root_dir, 'run', scenario_name.downcase)
+  rnm_dir = File.join(run_dir, 'rnm-us')
+
+  #Use numeric ids (for the hierarchical plot of the network)
+  use_numeric_ids = args[:use_numeric_ids] || false
+  use_numeric_ids = use_numeric_ids == 'true'
+
+  if !File.exist?(rnm_dir)
+    puts rnm_dir
+    raise 'No rnm-us directory found for this scenario...run the create_inputs rake task first.'
+  end
+
+  puts "run dir path: #{run_dir}"
+  validation = URBANopt::RNM::Validation.new(rnm_dir,use_numeric_ids)
+  validation.run_validation()
+
+  puts '...done!'
 end

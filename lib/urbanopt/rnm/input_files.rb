@@ -1,41 +1,6 @@
 # *********************************************************************************
-# URBANopt (tm), Copyright (c) 2019-2021, Alliance for Sustainable Energy, LLC, and other
-# contributors. All rights reserved.
-
-# Redistribution and use in source and binary forms, with or without modification,
-# are permitted provided that the following conditions are met:
-
-# Redistributions of source code must retain the above copyright notice, this list
-# of conditions and the following disclaimer.
-
-# Redistributions in binary form must reproduce the above copyright notice, this
-# list of conditions and the following disclaimer in the documentation and/or other
-# materials provided with the distribution.
-
-# Neither the name of the copyright holder nor the names of its contributors may be
-# used to endorse or promote products derived from this software without specific
-# prior written permission.
-
-# Redistribution of this software, without modification, must refer to the software
-# by the same designation. Redistribution of a modified version of this software
-# (i) may not refer to the modified version by the same designation, or by any
-# confusingly similar designation, and (ii) must refer to the underlying software
-# originally provided by Alliance as "URBANopt". Except to comply with the foregoing,
-# the term "URBANopt", or any confusingly similar designation may not be used to
-# refer to any modified version of this software or any modified version of the
-# underlying software originally provided by Alliance without the prior written
-# consent of Alliance.
-
-# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-# ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-# WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-# IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-# INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-# BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-# DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
-# LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
-# OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
-# OF THE POSSIBILITY OF SUCH DAMAGE.
+# URBANopt™, Copyright © Alliance for Sustainable Energy, LLC.
+# See also https://github.com/urbanopt/urbanopt-rnm-us-gem/blob/develop/LICENSE.md
 # *********************************************************************************
 
 require 'csv'
@@ -87,7 +52,7 @@ module URBANopt
         # lines with the highest capacity
         catalog['LINES'][1].each do |key, v|
           (0..catalog['LINES'][1][key].length - 1).each do |ii|
-            if catalog['LINES'][1][key][ii]['Voltage(kV)'] == '0.416'
+            if Float(catalog['LINES'][1][key][ii]['Voltage(kV)']) < 1
               if catalog['LINES'][1][key][ii]['Line geometry'][0]['phase'] != 'N'
                 wire = catalog['LINES'][1][key][ii]['Line geometry'][0]['wire']
               else
@@ -258,6 +223,10 @@ module URBANopt
           File.open(File.join(@run_dir, @rnm_dirname, 'customers_ext.txt'), 'w+') do |g|
             g.puts(prosumers.customers_ext.map { |w| w.join(';') })
           end
+          File.open(File.join(@run_dir, @rnm_dirname, 'timestamps.csv'), 'w+') do |g|
+            g.puts("Datetime\n")
+            g.puts(prosumers.profile_date_time[0].map { |w| w.join("\n") })
+          end
           File.open(File.join(@run_dir, @rnm_dirname, 'cust_profile_p.txt'), 'w+') do |g|
             g.puts(prosumers.profile_customer_p.map { |w| w.join(';') })
           end
@@ -267,6 +236,10 @@ module URBANopt
           # CSV.open(File.join(@run_dir, @rnm_dirname, "cust_profile_q_extendido.csv"), "w") do |csv|
           #             csv << [prosumers.profile_customer_q_ext]
           #         end
+          File.open(File.join(@run_dir, @rnm_dirname, 'timestamps_extendido.csv'), 'w+') do |g|
+            g.puts("Datetime\n")
+            g.puts(prosumers.profile_date_time_ext[0].map { |w| w.join("\n") })
+          end
           File.open(File.join(@run_dir, @rnm_dirname, 'cust_profile_q_extendido.txt'), 'w+') do |g|
             g.puts(prosumers.profile_customer_q_ext.map { |w| w.join(';') })
           end
@@ -289,6 +262,7 @@ module URBANopt
           File.open(File.join(@run_dir, @rnm_dirname, 'gen_profile_p_extendido.txt'), 'w+') do |g|
             g.puts(prosumers.profile_dg_p_extended.map { |w| w.join(';') })
           end
+          ficheros_entrada_inc.push('Timestamps;timestamps.csv;timestamps_extendido.csv')
           ficheros_entrada_inc.push('CClienteGreenfield;customers_ext.txt;cust_profile_p.txt;cust_profile_q.txt;cust_profile_p_extendido.txt;cust_profile_q_extendido.txt')
           ficheros_entrada_inc.push('CGeneradorGreenfield;generators.txt;gen_profile_p.txt;gen_profile_q.txt;gen_profile_p_extendido.txt;gen_profile_q_extendido.txt')
           ficheros_entrada_inc.push('END')
@@ -302,11 +276,19 @@ module URBANopt
           File.open(File.join(@run_dir, @rnm_dirname, 'customers_ext.txt'), 'w+') do |g|
             g.puts(consumers.customers_ext.map { |w| w.join(';') })
           end
+          File.open(File.join(@run_dir, @rnm_dirname, 'timestamps.csv'), 'w+') do |g|
+            g.puts("Datetime\n")
+            g.puts(consumers.profile_date_time[0].map { |w| w.join("\n") })
+          end
           File.open(File.join(@run_dir, @rnm_dirname, 'cust_profile_p.txt'), 'w+') do |g|
             g.puts(consumers.profile_customer_p.map { |w| w.join(';') })
           end
           File.open(File.join(@run_dir, @rnm_dirname, 'cust_profile_q.txt'), 'w+') do |g|
             g.puts(consumers.profile_customer_q.map { |w| w.join(';') })
+          end
+          File.open(File.join(@run_dir, @rnm_dirname, 'timestamps_extendido.csv'), 'w+') do |g|
+            g.puts("Datetime\n")
+            g.puts(consumers.profile_date_time_ext[0].map { |w| w.join("\n") })
           end
           File.open(File.join(@run_dir, @rnm_dirname, 'cust_profile_q_extendido.txt'), 'w+') do |g|
             g.puts(consumers.profile_customer_q_ext.map { |w| w.join(';') })
@@ -314,6 +296,7 @@ module URBANopt
           File.open(File.join(@run_dir, @rnm_dirname, 'cust_profile_p_extendido.txt'), 'w+') do |g|
             g.puts(consumers.profile_customer_p_ext.map { |w| w.join(';') })
           end
+          ficheros_entrada_inc.push('Timestamps;timestamps.csv;timestamps_extendido.csv')
           ficheros_entrada_inc.push('CClienteGreenfield;customers_ext.txt;cust_profile_p.txt;cust_profile_q.txt;cust_profile_p_extendido.txt;cust_profile_q_extendido.txt')
           ficheros_entrada_inc.push('END')
           File.open(File.join(@run_dir, @rnm_dirname, 'ficheros_entrada_inc.txt'), 'w+') do |g|

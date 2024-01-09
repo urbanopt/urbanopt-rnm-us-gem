@@ -1,41 +1,6 @@
 # *********************************************************************************
-# URBANopt (tm), Copyright (c) 2019-2021, Alliance for Sustainable Energy, LLC, and other
-# contributors. All rights reserved.
-
-# Redistribution and use in source and binary forms, with or without modification,
-# are permitted provided that the following conditions are met:
-
-# Redistributions of source code must retain the above copyright notice, this list
-# of conditions and the following disclaimer.
-
-# Redistributions in binary form must reproduce the above copyright notice, this
-# list of conditions and the following disclaimer in the documentation and/or other
-# materials provided with the distribution.
-
-# Neither the name of the copyright holder nor the names of its contributors may be
-# used to endorse or promote products derived from this software without specific
-# prior written permission.
-
-# Redistribution of this software, without modification, must refer to the software
-# by the same designation. Redistribution of a modified version of this software
-# (i) may not refer to the modified version by the same designation, or by any
-# confusingly similar designation, and (ii) must refer to the underlying software
-# originally provided by Alliance as "URBANopt". Except to comply with the foregoing,
-# the term "URBANopt", or any confusingly similar designation may not be used to
-# refer to any modified version of this software or any modified version of the
-# underlying software originally provided by Alliance without the prior written
-# consent of Alliance.
-
-# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-# ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-# WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-# IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-# INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-# BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-# DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
-# LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
-# OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
-# OF THE POSSIBILITY OF SUCH DAMAGE.
+# URBANopt™, Copyright © Alliance for Sustainable Energy, LLC.
+# See also https://github.com/urbanopt/urbanopt-rnm-us-gem/blob/develop/LICENSE.md
 # *********************************************************************************
 
 require 'geoutm'
@@ -143,7 +108,7 @@ module URBANopt
       # creating a method passing the GeoJSON file from URBANopt as the argument to define options that can be modified by the user
       # streets and building and primary substation coordinates
       # and returning the street coordinates array, the building coordinates array and the tot number of buildings in the project
-      def coordinates_feature_hash(geojson_hash,scenario_features=[])
+      def coordinates_feature_hash(geojson_hash, scenario_features = [])
         i = 0 # index representing the number of street_nodes
         building_number = 0 # variable created to keep track the number of buildings in the project
         street_number = 0 # variable created to keep track the number of streets in the project
@@ -209,8 +174,12 @@ module URBANopt
             end
             street_coordinates[street_number] = each_street
             street_number += 1
-          elsif street['geometry']['type'] == 'Polygon' && street['properties']['type'] == 'Building' and scenario_features.include? street['properties']['id']
-            for k in 0..street['geometry']['coordinates'].length - 1
+          elsif street['geometry']['type'] == 'Polygon' && street['properties']['type'] == 'Building' && scenario_features.include?(street['properties']['id'])
+            puts "------ processing Building #{ street['properties']['name']} --------"
+            # this loop goes through each polygon and assign it a building and is not correct for buildings with
+            # inner courtyards (it would create 2 buildings)
+            # This assumes the outward footprint is the first polygon -- we only process the first one here
+            for k in 0..0
               h = 0 # index representing number of nodes for each single building
               building = [] # array containing every building node coordinates and id of 1 building
               for j in 0..street['geometry']['coordinates'][k].length - 1

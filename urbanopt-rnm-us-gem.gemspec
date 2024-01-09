@@ -23,15 +23,19 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib', 'catalogs']
   spec.required_ruby_version = '~> 2.7.0'
 
+  spec.add_dependency 'certified', '~> 1'
   spec.add_dependency 'faraday', '~> 1.0.1'
   spec.add_dependency 'geoutm', '~> 1.0.2'
   spec.add_dependency 'rubyzip', '~> 2.3.2'
-  spec.add_dependency 'urbanopt-geojson', '~> 0.6.6'
+  spec.add_dependency 'urbanopt-geojson', '~> 0.10.0'
 
   spec.add_development_dependency 'bundler', '~> 2.1'
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rspec', '~> 3.7'
-  spec.add_development_dependency 'rubocop', '~> 1.15.0'
+  # pin this dependency:
+  spec.add_development_dependency 'parallel', '~> 1.19.1'
   spec.add_development_dependency 'rubocop-checkstyle_formatter', '~> 0.4.0'
   spec.add_development_dependency 'rubocop-performance', '~> 1.11.3'
+  spec.add_development_dependency 'simplecov', '~> 0.18.2'
+  spec.add_development_dependency 'simplecov-lcov', '~> 0.8.0'
 end

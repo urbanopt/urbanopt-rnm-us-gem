@@ -1,41 +1,6 @@
 # *********************************************************************************
-# URBANopt (tm), Copyright (c) 2019-2021, Alliance for Sustainable Energy, LLC, and other
-# contributors. All rights reserved.
-
-# Redistribution and use in source and binary forms, with or without modification,
-# are permitted provided that the following conditions are met:
-
-# Redistributions of source code must retain the above copyright notice, this list
-# of conditions and the following disclaimer.
-
-# Redistributions in binary form must reproduce the above copyright notice, this
-# list of conditions and the following disclaimer in the documentation and/or other
-# materials provided with the distribution.
-
-# Neither the name of the copyright holder nor the names of its contributors may be
-# used to endorse or promote products derived from this software without specific
-# prior written permission.
-
-# Redistribution of this software, without modification, must refer to the software
-# by the same designation. Redistribution of a modified version of this software
-# (i) may not refer to the modified version by the same designation, or by any
-# confusingly similar designation, and (ii) must refer to the underlying software
-# originally provided by Alliance as "URBANopt". Except to comply with the foregoing,
-# the term "URBANopt", or any confusingly similar designation may not be used to
-# refer to any modified version of this software or any modified version of the
-# underlying software originally provided by Alliance without the prior written
-# consent of Alliance.
-
-# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-# ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-# WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-# IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-# INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-# BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-# DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
-# LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
-# OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
-# OF THE POSSIBILITY OF SUCH DAMAGE.
+# URBANopt™, Copyright © Alliance for Sustainable Energy, LLC.
+# See also https://github.com/urbanopt/urbanopt-rnm-us-gem/blob/develop/LICENSE.md
 # *********************************************************************************
 
 # creating a class that creates the consumers input required by the RNM-US model,
@@ -45,7 +10,7 @@ require 'csv'
 module URBANopt
   module RNM
     class Consumers
-      attr_accessor :customers, :customers_ext, :profile_customer_p, :profile_customer_q, :profile_customer_p_ext, :profile_customer_q_ext, :power_factor
+      attr_accessor :customers, :customers_ext, :profile_customer_p, :profile_customer_q, :profile_customer_p_ext, :profile_customer_q_ext, :power_factor, :profile_date_time, :profile_date_time_ext
 
       # initializing all the attributes to build the inputs files required by the RNM-US model
       def initialize(reopt, only_lv_consumers = false, max_num_lv_nodes, average_building_peak_catalog_path, lv_limit)
@@ -55,8 +20,10 @@ module URBANopt
         @max_num_lv_nodes = max_num_lv_nodes
         @customers = []
         @customers_ext = []
+        @profile_date_time = []
         @profile_customer_p = []
         @profile_customer_q = []
+        @profile_date_time_ext = []
         @profile_customer_p_ext = []
         @profile_customer_q_ext = []
         @power_factor = power_factor
@@ -73,13 +40,15 @@ module URBANopt
       # while the 2nd option is run in case "only LV" set to false and the consumption for each building will be placed in a single node
       def construct_consumer(profiles, single_values, building_map, building_nodes, height, users, folder)
         if @only_lv_consumers
+          planning_date_time = []
           planning_profile_node_active = []
           planning_profile_node_reactive = []
+          yearly_date_time = []
           yearly_profile_node_active = []
           yearly_profile_node_reactive = []
           nodes_per_bldg, area, medium_voltage = av_peak_cons_per_building_type(folder['building_types'])
           # the default variables are defined (i.e. type and rurality type)
-          puts "consumers 82"
+          puts 'consumers 82'
           closest_node = building_map[3].split('_')[1].to_i # refers to the node, found in the class above
           node = closest_node
           cont = 1
@@ -108,17 +77,21 @@ module URBANopt
             end
 
             for k in 0..profiles[:planning_profile_cust_active].length - 1
+              planning_date_time[k]=profiles[:planning_date_time][k]
               planning_profile_node_active[k] = ((profiles[:planning_profile_cust_active][k]) / nodes_per_bldg).round(2)
               planning_profile_node_reactive[k] = ((profiles[:planning_profile_cust_reactive][k]) / nodes_per_bldg).round(2)
             end
             for k in 0..profiles[:yearly_profile_cust_active].length - 1
+              yearly_date_time[k]=profiles[:yearly_date_time][k]
               yearly_profile_node_active[k] = ((profiles[:yearly_profile_cust_active][k]) / nodes_per_bldg).round(2)
               yearly_profile_node_reactive[k] = ((profiles[:yearly_profile_cust_reactive][k]) / nodes_per_bldg).round(2)
             end
             @customers.push([coordinates, voltage_default, peak_active_power_cons, peak_reactive_power_cons, phases])
             @customers_ext.push([coordinates, voltage_default, peak_active_power_cons, peak_reactive_power_cons, phases, area, height, (single_values[:energy] / nodes_per_bldg).round(2), peak_active_power_cons, peak_reactive_power_cons, users])
+            @profile_date_time.push([planning_date_time])
             @profile_customer_q.push([id, 24, planning_profile_node_reactive])
             @profile_customer_p.push([id, 24, planning_profile_node_active])
+            @profile_date_time_ext.push([yearly_date_time])
             @profile_customer_p_ext.push([id, 8760, yearly_profile_node_active])
             @profile_customer_q_ext.push([id, 8760, yearly_profile_node_reactive])
 
@@ -131,8 +104,10 @@ module URBANopt
           voltage_default, phases = voltage_values(single_values[:peak_active_power_cons] / @power_factor * 0.9) # applying safety factor
           @customers.push([building_map, voltage_default, single_values[:peak_active_power_cons], single_values[:peak_reactive_power_cons], phases])
           @customers_ext.push([building_map, voltage_default, single_values[:peak_active_power_cons], single_values[:peak_reactive_power_cons], phases, area, height, (single_values[:energy]).round(2), single_values[:peak_active_power_cons], single_values[:peak_reactive_power_cons], users])
+          @profile_date_time.push([profiles[:planning_date_time]])
           @profile_customer_q.push([id, 24, profiles[:planning_profile_cust_reactive]])
           @profile_customer_p.push([id, 24, profiles[:planning_profile_cust_active]])
+          @profile_date_time_ext.push([profiles[:yearly_date_time]])
           @profile_customer_p_ext.push([id, 8760, profiles[:yearly_profile_cust_active]])
           @profile_customer_q_ext.push([id, 8760, profiles[:yearly_profile_cust_reactive]])
         end
@@ -144,10 +119,10 @@ module URBANopt
         case peak_apparent_power
           when 0..@lv_limit[:single_phase] # set by the catalog limits
             phases = 1
-            voltage_default = 0.416
+            voltage_default = 0.12
           when @lv_limit[:single_phase]..@lv_limit[:three_phase] # defined from the catalog (from the wires)
             phases = 3
-            voltage_default = 0.416
+            voltage_default = 0.48
             # MV and 3 phases untill 16 MVA, defined by the SMART-DS project
           when @lv_limit[:three_phase]..16000
             phases = 3
@@ -176,7 +151,7 @@ module URBANopt
         conservative_factor = 0.8 # considered as a reasonable assumption, but this value could be changed
         average_peak_folder = JSON.parse(File.read(@average_building_peak_catalog_path))
         for i in 0..feature_file.length - 1
-          area = feature_file[i].has_key?('floor_area') ? (feature_file[i]['floor_area']).round(2) : feature_file[i]['floor_area_sqft'].round(2)
+          area = feature_file[i].key?('floor_area') ? (feature_file[i]['floor_area']).round(2) : feature_file[i]['floor_area_sqft'].round(2)
           building_type = feature_file[i]['building_type'] # it specifies the type of building, sometimes it is directly the sub-type
           counter = 0 # counter to find number of buildings type belonging to same "category"
           average_peak_folder.each do |building_class|
@@ -201,6 +176,7 @@ module URBANopt
           average_peak = mixed_use_av_peak # average peak per mixed use considering the building types which are in this building
           area = area_mixed_use
         end
+
         nodes_per_bldg = (average_peak / (@lv_limit[:three_phase] * @power_factor * conservative_factor)).to_f.ceil # computing number of nodes per building
         if nodes_per_bldg > @max_num_lv_nodes # to define this as an input in the geojson file
           nodes_per_bldg = 1
@@ -215,10 +191,10 @@ module URBANopt
       # the method passes as arguments the urbanopt json and csv output file for each feature and the building coordinates previously calculated
       # and the "extreme" hour used to plan the network
       def customer_files_load(csv_feature_report, json_feature_report, building_map, building_nodes, hour)
-        n_timestep_per_hour = json_feature_report["timesteps_per_hour"].to_i
+        n_timestep_per_hour = json_feature_report['timesteps_per_hour'].to_i
         profiles = Hash.new { |h, k| h[k] = [] }
         single_values = Hash.new(0)
-        hours = 24 * n_timestep_per_hour -1
+        hours = 24 * n_timestep_per_hour - 1
         feature_type = json_feature_report['program']['building_types'][0]['building_type']
         residential_building_types = ['Single-Family Detached', 'Single-Family Attached', 'Multifamily', 'Single-Family', 'Multifamily Detached (2 to 4 units)', 'Multifamily Detached (5 or more units)']
 
@@ -233,10 +209,12 @@ module URBANopt
         # content = CSV.foreach(csv_feature_report, headers: true) do |power|
         CSV.foreach(csv_feature_report, headers: true) do |power|
           @power_factor = power['Electricity:Facility Power(kW)'].to_f / power['Electricity:Facility Apparent Power(kVA)'].to_f
+          profiles[:yearly_date_time].push(power['Datetime'])
           profiles[:yearly_profile_cust_active].push(power['Electricity:Facility Power(kW)'].to_f)
           profiles[:yearly_profile_cust_reactive].push(profiles[:yearly_profile_cust_active][k] * Math.tan(Math.acos(@power_factor)))
           single_values[:energy] += power['REopt:Electricity:Load:Total(kw)'].to_f # calculating the yearly energy consumed by each feature
           if k >= profile_start_max && k <= profile_start_max + hours
+            profiles[:planning_date_time].push(power['Datetime'])
             profiles[:planning_profile_cust_active].push(power['Electricity:Facility Power(kW)'].to_f)
             if power['Electricity:Facility Power(kW)'].to_f > single_values[:peak_active_power_cons]
               single_values[:peak_active_power_cons] = power['Electricity:Facility Power(kW)'].to_f

@@ -1,41 +1,6 @@
 # *********************************************************************************
-# URBANopt (tm), Copyright (c) 2019-2021, Alliance for Sustainable Energy, LLC, and other
-# contributors. All rights reserved.
-
-# Redistribution and use in source and binary forms, with or without modification,
-# are permitted provided that the following conditions are met:
-
-# Redistributions of source code must retain the above copyright notice, this list
-# of conditions and the following disclaimer.
-
-# Redistributions in binary form must reproduce the above copyright notice, this
-# list of conditions and the following disclaimer in the documentation and/or other
-# materials provided with the distribution.
-
-# Neither the name of the copyright holder nor the names of its contributors may be
-# used to endorse or promote products derived from this software without specific
-# prior written permission.
-
-# Redistribution of this software, without modification, must refer to the software
-# by the same designation. Redistribution of a modified version of this software
-# (i) may not refer to the modified version by the same designation, or by any
-# confusingly similar designation, and (ii) must refer to the underlying software
-# originally provided by Alliance as "URBANopt". Except to comply with the foregoing,
-# the term "URBANopt", or any confusingly similar designation may not be used to
-# refer to any modified version of this software or any modified version of the
-# underlying software originally provided by Alliance without the prior written
-# consent of Alliance.
-
-# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-# ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-# WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-# IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-# INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-# BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-# DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
-# LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
-# OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
-# OF THE POSSIBILITY OF SUCH DAMAGE.
+# URBANopt™, Copyright © Alliance for Sustainable Energy, LLC.
+# See also https://github.com/urbanopt/urbanopt-rnm-us-gem/blob/develop/LICENSE.md
 # *********************************************************************************
 
 require 'faraday'
@@ -61,9 +26,9 @@ module URBANopt
 
         @use_localhost = use_localhost
         if @use_localhost
-          @base_api = 'http://0.0.0.0:8080/api/v1/'
+          @base_api = 'http://0.0.0.0:8080/api/v2/'
         else
-          @base_api = 'https://rnm.urbanopt.net/api/v1/'
+          @base_api = 'https://rnm.urbanopt.net/api/v2/'
         end
 
         puts "Running RNM-US at #{@base_api}"
@@ -108,6 +73,7 @@ module URBANopt
         end
 
         if !missing_files.empty?
+          puts "RNM DIR: #{@rnm_dir}"
           raise "Input Files missing in directory: #{missing_files.join(',')}"
         end
 
@@ -197,21 +163,21 @@ module URBANopt
                 else
                   # edge case, check for results
                   if data['results'].nil?
-                    puts "got a 200 but results are null...trying again"
+                    puts 'got a 200 but results are null...trying again'
                     tries += 1
                     sleep(3)
                   else
                     # get results
                     @results = data['results'] || []
 
-                    puts "downloading results"
+                    puts 'downloading results'
                     # download results
                     download_results
                     return @results
                   end
                 end
               else
-                puts "no status yet...trying again"
+                puts 'no status yet...trying again'
                 tries += 1
                 sleep(3)
               end
@@ -231,10 +197,10 @@ module URBANopt
                 sleep(3)
               end
             end
-          rescue => error
+          rescue StandardError => e
             @@logger.error("Error retrieving simulation #{@sim_id}.")
-            @@logger.error(error.message)
-            raise error.message
+            @@logger.error(e.message)
+            raise e.message
           end
         end
         if !done
@@ -268,7 +234,7 @@ module URBANopt
 
           File.open(file_path, 'wb') { |f| f.write streamed.join }
           puts "RNM-US results.zip downloaded to #{@rnm_dir}"
-          
+
           # unzip
           Zip::File.open(file_path) do |zip_file|
             zip_file.each do |f|
@@ -277,9 +243,16 @@ module URBANopt
               zip_file.extract(f, f_path) unless File.exist?(f_path)
             end
           end
-          puts "results.zip extracted"
+          puts 'results.zip extracted'
           # delete zip
           File.delete(file_path)
+
+          # check if zip is empty
+          if Dir.empty? File.join(@rnm_dir, 'results')
+            msg = "Error in simulation: Results.zip empty"
+            @@logger.error(msg)
+            raise msg
+          end
 
         else
           msg = "Error retrieving results for #{the_sim_id}. error code: #{resp.status}.  #{resp.body}"

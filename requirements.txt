@@ -1,0 +1,9 @@
+# python dependencies for RNM validation module
+opendssdirect.py>=0.6.1
+pandas>=1.2.5
+matplotlib>=3.6.0
+networkx
+seaborn
+plotly
+shapely
+geopandas
