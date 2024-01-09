@@ -17,5 +17,5 @@ gem 'parser', '3.2.2.2'
 # if allow_local && File.exists?('../urbanopt-geojson-gem')
   # gem 'urbanopt-geojson', path: '../urbanopt-geojson-gem'
 # elsif allow_local
- gem 'urbanopt-geojson', github: 'URBANopt/urbanopt-geojson-gem', branch: 'os37'
+#  gem 'urbanopt-geojson', github: 'URBANopt/urbanopt-geojson-gem', branch: 'os37'
 # end
