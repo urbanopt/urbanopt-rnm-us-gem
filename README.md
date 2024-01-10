@@ -1,4 +1,5 @@
 [![Coverage Status](https://coveralls.io/repos/github/urbanopt/urbanopt-rnm-us-gem/badge.svg?branch=develop)](https://coveralls.io/github/urbanopt/urbanopt-rnm-us-gem?branch=develop)
+[![RNM-gem CI](https://github.com/urbanopt/urbanopt-rnm-us-gem/actions/workflows/nightly_ci_build.yml/badge.svg)](https://github.com/urbanopt/urbanopt-rnm-us-gem/actions/workflows/nightly_ci_build.yml)
 
 # URBANopt RNM-US Gem
 
@@ -47,16 +48,16 @@ bundle exec rake create_opendss_catalog[/desired/path/to/opendss_catalog.json]
 ## RNM-US API compatibility
 
 | API Version | RNM-US Gem Version | RNM-US exe Version |
-| ----------- | ----------- | ---------------- |
-| v1      | 0.3.0 and earlier | RNM-US_20220819 |
-| v2      | 0.4.0 | RNM-US_20221018 |
+| ----------- | ------------------ | ------------------ |
+| v1          | 0.3.0 and earlier  | RNM-US_20220819    |
+| v2          | 0.4.0              | RNM-US_20221018    |
 
 
 ## Validation Functionality
 
 The validation and results visualization functionality is written in python. Follow these steps if you would like to use it.
 
-1. Install python (3.10) if you do not already have it installed
+1. Install python (>=3.10) if you do not already have it installed
 1. Clone the repo to your computer
 1. cd into the repo directory
 1. run `bundle install` to install the required ruby dependencies

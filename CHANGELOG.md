@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 0.7.0
+Date Range 06/30/23 - 01/09/24
+
+* remove Jenkinsfile by @vtnate in https://github.com/urbanopt/urbanopt-rnm-us-gem/pull/34
+* also run CI when a PR gets a review request by @vtnate in https://github.com/urbanopt/urbanopt-rnm-us-gem/pull/35
+* Support OpenStudio 3.7 by @vtnate in https://github.com/urbanopt/urbanopt-rnm-us-gem/pull/36
+
+**Full Changelog**: https://github.com/urbanopt/urbanopt-rnm-us-gem/compare/v0.6.0...v0.7.0
+
 ## Version 0.6.0
 Date Range: 6/7/23 - 6/30/23
 
