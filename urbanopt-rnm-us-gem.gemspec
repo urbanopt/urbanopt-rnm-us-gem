@@ -21,21 +21,21 @@ Gem::Specification.new do |spec|
   spec.bindir        = 'exe'
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib', 'catalogs']
-  spec.required_ruby_version = '~> 2.7.0'
+  spec.required_ruby_version = '~> 3.2'
 
   spec.add_dependency 'certified', '~> 1'
-  spec.add_dependency 'faraday', '~> 1.0.1'
+  spec.add_dependency 'faraday', '~> 2.10.0'
   spec.add_dependency 'geoutm', '~> 1.0.2'
   spec.add_dependency 'rubyzip', '~> 2.3.2'
-  spec.add_dependency 'urbanopt-geojson', '~> 0.11.1'
+  # spec.add_dependency 'urbanopt-geojson', '~> 0.11.1'
 
-  spec.add_development_dependency 'bundler', '~> 2.1'
-  spec.add_development_dependency 'rake', '~> 13.1'
-  spec.add_development_dependency 'rspec', '~> 3.12'
+  spec.add_development_dependency 'bundler', '~> 2.4.10'
+  spec.add_development_dependency 'rake', '~> 13.2'
+  spec.add_development_dependency 'rspec', '~> 3.13'
   # pin this dependency:
-  spec.add_development_dependency 'parallel', '~> 1.19.1'
-  spec.add_development_dependency 'rubocop-checkstyle_formatter', '~> 0.4.0'
-  spec.add_development_dependency 'rubocop-performance', '~> 1.11.3'
-  spec.add_development_dependency 'simplecov', '~> 0.18.2'
+  spec.add_development_dependency 'parallel', '~> 1.25.1'
+  spec.add_development_dependency 'rubocop-checkstyle_formatter', '~> 0.6.0'
+  spec.add_development_dependency 'rubocop-performance', '~> 1.21'
+  spec.add_development_dependency 'simplecov', '~> 0.22.0'
   spec.add_development_dependency 'simplecov-lcov', '~> 0.8.0'
 end
