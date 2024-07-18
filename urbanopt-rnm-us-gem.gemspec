@@ -21,21 +21,26 @@ Gem::Specification.new do |spec|
   spec.bindir        = 'exe'
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib', 'catalogs']
-  spec.required_ruby_version = '~> 3.2'
+  spec.required_ruby_version = '~> 3.2.2'
 
   spec.add_dependency 'certified', '~> 1'
-  spec.add_dependency 'faraday', '~> 2.10.0'
+  # Faraday version is set by extension-gem
+  spec.add_dependency 'faraday', '~> 1.0.1'
   spec.add_dependency 'geoutm', '~> 1.0.2'
+  # Matrix is in stdlib, but needs to be specifically added here for compatibility with Ruby 3.2.2
+  spec.add_dependency 'matrix', '~> 0.4.2'
   spec.add_dependency 'rubyzip', '~> 2.3.2'
   # spec.add_dependency 'urbanopt-geojson', '~> 0.11.1'
 
+  # bundler version is set by extension-gem
   spec.add_development_dependency 'bundler', '~> 2.4.10'
   spec.add_development_dependency 'rake', '~> 13.2'
   spec.add_development_dependency 'rspec', '~> 3.13'
-  # pin this dependency:
-  spec.add_development_dependency 'parallel', '~> 1.25.1'
+  # parallel version is set by extension-gem
+  spec.add_development_dependency 'parallel', '~> 1.19.1'
   spec.add_development_dependency 'rubocop-checkstyle_formatter', '~> 0.6.0'
-  spec.add_development_dependency 'rubocop-performance', '~> 1.21'
+  # Rubocop-performance version is set by extension-gem
+  spec.add_development_dependency 'rubocop-performance', '~> 1.20'
   spec.add_development_dependency 'simplecov', '~> 0.22.0'
   spec.add_development_dependency 'simplecov-lcov', '~> 0.8.0'
 end

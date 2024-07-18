@@ -19,3 +19,6 @@ allow_local = ENV['FAVOR_LOCAL_GEMS']
 # elsif allow_local
  gem 'urbanopt-geojson', github: 'URBANopt/urbanopt-geojson-gem', branch: 'os38'
 # end
+
+# Temporary! Remove this once core-gem is merged/released
+gem 'urbanopt-core', github: 'URBANopt/urbanopt-core-gem', branch: 'os38'
