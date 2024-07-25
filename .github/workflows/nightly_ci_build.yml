@@ -30,8 +30,7 @@ jobs:
       - name: Update gems
         run: |
           ruby --version
-          bundle update
-          bundle exec certified-update
+          bundle install
       - name: Run Rspec
         run: bundle exec rspec
       - name: Upload artifacts
