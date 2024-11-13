@@ -2,14 +2,12 @@
 name: RNM-gem CI
 
 on:
-  # push:
+  push:
   workflow_dispatch:
   schedule:
     # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
     # 5:23 am UTC (11:23pm MDT the day before) every weekday night in MDT
     - cron: '23 5 * * 2-6'
-  pull_request:
-    types: [review_requested]
 
 env:
   # This env var should enforce develop branch of all dependencies
@@ -20,7 +18,7 @@ jobs:
   weeknight-tests:
     runs-on: ubuntu-latest
     container:
-      image: docker://nrel/openstudio:3.8.0
+      image: docker://nrel/openstudio:dev-3.9.0-rc3
     steps:
       - uses: actions/checkout@v4
       - name: set git config options
@@ -31,6 +29,7 @@ jobs:
         run: |
           ruby --version
           bundle install
+          bundle update
       - name: Run Rspec
         run: bundle exec rspec
       - name: Upload artifacts
