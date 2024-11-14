@@ -7,7 +7,7 @@ gemspec
 allow_local = ENV['FAVOR_LOCAL_GEMS']
 
 # pin this dependency to avoid unicode_normalize error
-# gem 'addressable', '2.8.1'
+gem 'addressable', '2.8.1'
 # pin this dependency to avoid using racc dependency (which has native extensions)
 # gem 'parser', '3.2.2.2'
 
