@@ -6,13 +6,7 @@ gemspec
 # if you want to use local gems during development, use this environment variable to enable them
 allow_local = ENV['FAVOR_LOCAL_GEMS']
 
-# pin this dependency to avoid unicode_normalize error
-gem 'addressable', '2.8.1'
-# pin this dependency to avoid using racc dependency (which has native extensions)
-# gem 'parser', '3.2.2.2'
-
-# Below is an example of how to configure the gemfile for developing with local gems
-# modify as appropriate
+gem 'openstudio-extension', github: 'NREL/openstudio-extension-gem', branch: 'bundler-hack'
 
 # if allow_local && File.exists?('../urbanopt-geojson-gem')
 # gem 'urbanopt-geojson', path: '../urbanopt-geojson-gem'
