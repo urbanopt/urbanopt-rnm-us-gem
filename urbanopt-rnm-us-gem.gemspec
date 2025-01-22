@@ -29,7 +29,7 @@ Gem::Specification.new do |spec|
   # Matrix is in stdlib, but needs to be specifically added here for compatibility with Ruby 3.2
   spec.add_dependency 'matrix', '~> 0.4.2'
   spec.add_dependency 'rubyzip', '~> 2.3.2'
-  # spec.add_dependency 'urbanopt-geojson', '~> 0.11.1'
+  spec.add_dependency 'urbanopt-geojson', '~> 1.0.0'
 
   spec.add_development_dependency 'rspec', '~> 3.13'
   spec.add_development_dependency 'simplecov', '~> 0.22.0'
