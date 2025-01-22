@@ -26,7 +26,7 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '3.2.2'
 
   spec.add_dependency 'geoutm', '~> 1.0.2'
-  # Matrix is in stdlib, but needs to be specifically added here for compatibility with Ruby 3.2
+  # Matrix is in stdlib; needs to be specifically added here for compatibility with Ruby 3.2
   spec.add_dependency 'matrix', '~> 0.4.2'
   spec.add_dependency 'rubyzip', '~> 2.3.2'
   spec.add_dependency 'urbanopt-geojson', '~> 1.0.0'
