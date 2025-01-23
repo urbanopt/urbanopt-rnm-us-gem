@@ -37,7 +37,7 @@ module URBANopt
           # creating variables for x, y for each node, with the right street inclination
           x_uniform = uniform_distance * (distance_x / distance)
           y_uniform = uniform_distance * (distance_y / distance)
-          n = 1 # counter to keep track when the number of intervals for each "distnce" is reached
+          n = 1 # counter to keep track when the number of intervals for each "distance" is reached
           # creating nodes in the coordinates array with the right street inclination and uniform distance among each others
           while n <= intervals
             id = identifier.to_s + "_#{i}"
@@ -64,7 +64,7 @@ module URBANopt
       # and it returns the coordinates and id of the closest node of the building to the street
       ## The new algorithm developed calculates an approximate distance: (x+y)/2, of each building-node with each street-node and compares it with the "minimum_distance"
       # this approximate distance has been defined in order to be able to disregard all the distances which are greater than the "minimum distance" computed until that moment, without being required to compute the Pithagorean Theorem, which requires a long computational time.
-      # Therefore (x+y)/2 has been computed knowing that: if the minimum length of the hypothenuse of a right triangle is when the triangle is isosceles so when the hyphothenuse (d) is equal to d = sqrt(2)*x (where x is the distance among the nodes on the x-axis),
+      # Therefore (x+y)/2 has been computed knowing that: if the minimum length of the hypotenuse of a right triangle is when the triangle is isosceles so when the hyphothenuse (d) is equal to d = sqrt(2)*x (where x is the distance among the nodes on the x-axis),
       # so we can assume that x = (x+y)/2, than if d = sqrt(2)*((x+y)/2) > (x+y)/2 > minimum_distance
       # than it confirmes that x and y can be disregarded and there is no need to compute the real distance for that node since the approximate distance value (which represents the minimum possible distance for the sum of those catheti)
       # is greater than the minimum_distance that it is been compared with.
@@ -82,7 +82,7 @@ module URBANopt
               distance = (x**2 + y**2)**0.5 # the real distance between the building node and the street node is computed
               if distance < dist_min # if the new distance is lower than the minimum distance found until that moment, than this new "distance" value will be set as the minimum distance between the building node and the street node
                 dist_min = distance
-                chosen_coord = building[j] # assigning the node coordinates values and id of the building with the minimium distance to the street to chose_coord variable
+                chosen_coord = building[j] # assigning the node coordinates values and id of the building with the minimum distance to the street to chose_coord variable
               end
             end
             end
@@ -91,7 +91,7 @@ module URBANopt
       end
 
       # defining a method for parsing the coordinates of the substations to be passed in the RNM-US model
-      # choose the closes coord to the street or the one in the midle of the polygon since the sub is far away from district and streets
+      # choose the closes coord to the street or the one in the middle of the polygon since the sub is far away from district and streets
       def sub_coordinates(points_coord, id)
         x_utm = []
         y_utm = []
@@ -123,7 +123,7 @@ module URBANopt
         streets = geojson_hash
         puts "SCENARIO FEATURES: #{scenario_features}"
         # parsing the options defined by the user to run the RNM-US with a certain % of UG cables and designing the network with only LV nodes
-        # to be consistent in case several case-studies are run to have an homogenous parameter on how to compare the same buildings with different energy consumption
+        # to be consistent in case several case-studies are run to have an homogeneous parameter on how to compare the same buildings with different energy consumption
         # Use defaults and warn user if these fields are unset
         if streets.key?('project') && streets['project'].key?('underground_cables_ratio')
           ug_ratio = streets['project']['underground_cables_ratio'].to_f

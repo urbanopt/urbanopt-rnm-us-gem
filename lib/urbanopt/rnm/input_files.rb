@@ -42,7 +42,7 @@ module URBANopt
         end
       end
 
-      # finding the limits on LV defined by the equipments in the catalog
+      # finding the limits on LV defined by the equipment in the catalog
       def catalog_limits
         catalog = JSON.parse(File.read(@extended_catalog_path))
         limit = Hash.new(0)

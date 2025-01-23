@@ -53,7 +53,7 @@ module URBANopt
         @av_height = (height_sum / (i + 1)).to_f.round(2)
       end
 
-      # defining a method which defines the "threshold height", in an iterative way and adding 0.1m of height until the threhold limit is reached
+      # defining a method which defines the "threshold height", in an iterative way and adding 0.1m of height until the threshold limit is reached
       # when the % of streets in the district above the threshold is equal to the UG rate defined by the user
       def threshold_height(street_type, ug_ratio)
         h_threshold = 0
