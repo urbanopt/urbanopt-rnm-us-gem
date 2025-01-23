@@ -21,21 +21,17 @@ Gem::Specification.new do |spec|
   spec.bindir        = 'exe'
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib', 'catalogs']
-  spec.required_ruby_version = '~> 2.7.0'
+  # We support exactly Ruby v3.2.2 because os-extension requires bundler==2.4.10 and that requires Ruby 3.2.2: https://stdgems.org/bundler/
+  # It would be nice to be able to use newer patches of Ruby 3.2, which would require os-extension to relax its dependency on bundler.
+  spec.required_ruby_version = '3.2.2'
 
-  spec.add_dependency 'certified', '~> 1'
-  spec.add_dependency 'faraday', '~> 1.0.1'
   spec.add_dependency 'geoutm', '~> 1.0.2'
+  # Matrix is in stdlib; needs to be specifically added here for compatibility with Ruby 3.2
+  spec.add_dependency 'matrix', '~> 0.4.2'
   spec.add_dependency 'rubyzip', '~> 2.3.2'
-  spec.add_dependency 'urbanopt-geojson', '~> 0.11.1'
+  spec.add_dependency 'urbanopt-geojson', '~> 1.0.0'
 
-  spec.add_development_dependency 'bundler', '~> 2.1'
-  spec.add_development_dependency 'rake', '~> 13.1'
-  spec.add_development_dependency 'rspec', '~> 3.12'
-  # pin this dependency:
-  spec.add_development_dependency 'parallel', '~> 1.19.1'
-  spec.add_development_dependency 'rubocop-checkstyle_formatter', '~> 0.4.0'
-  spec.add_development_dependency 'rubocop-performance', '~> 1.11.3'
-  spec.add_development_dependency 'simplecov', '~> 0.18.2'
+  spec.add_development_dependency 'rspec', '~> 3.13'
+  spec.add_development_dependency 'simplecov', '~> 0.22.0'
   spec.add_development_dependency 'simplecov-lcov', '~> 0.8.0'
 end

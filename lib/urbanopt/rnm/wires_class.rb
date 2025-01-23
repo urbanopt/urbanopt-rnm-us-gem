@@ -12,7 +12,7 @@ require 'matrix'
 module URBANopt
   module RNM
     class WiresExtendedCatalog
-      attr_accessor :x, :height, :gmr, :r, :ampacity, :diameter, :phase, :name, :type, :r_neutral, :gmr_neutral, :neutral_strands, :diameter_n_strand, :outside_diamater_neutral
+      attr_accessor :x, :height, :gmr, :r, :ampacity, :diameter, :phase, :name, :type, :r_neutral, :gmr_neutral, :neutral_strands, :diameter_n_strand, :outside_diameter_neutral
 
       def initialize
         self.x = []
@@ -28,7 +28,7 @@ module URBANopt
         self.gmr_neutral = []
         self.neutral_strands = []
         self.diameter_n_strand = []
-        self.outside_diamater_neutral = []
+        self.outside_diameter_neutral = []
       end
     end
   end

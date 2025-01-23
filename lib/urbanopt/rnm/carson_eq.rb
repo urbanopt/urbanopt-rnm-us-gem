@@ -120,14 +120,14 @@ module URBANopt
 
       # method applying a similar concept of the Carson equation, but for obtaining the primitive potential coeff matrix
       # for obtaining the lines capacitance
-      def get_primitive_potential_coeff_matrix(diamaters, images_matrix, dist_matrix)
+      def get_primitive_potential_coeff_matrix(diameters, images_matrix, dist_matrix)
         n_rows = images_matrix.length
         n_cols = images_matrix.length
         primitive_potential_coeff_matrix = Array.new(n_rows) { Array.new(n_rows) }
         for i in 0..n_rows - 1
           for j in 0..n_cols - 1
             if i == j
-              primitive_potential_coeff_matrix[i][j] = 11.17689 * Math.log(images_matrix[i][j] / (diamaters[i] / 2)) # assuming relative permittivity of air of 1.4240 x 10 mF/mile
+              primitive_potential_coeff_matrix[i][j] = 11.17689 * Math.log(images_matrix[i][j] / (diameters[i] / 2)) # assuming relative permittivity of air of 1.4240 x 10 mF/mile
             else
               primitive_potential_coeff_matrix[i][j] = 11.17689 * Math.log(images_matrix[i][j] / dist_matrix[i][j]) # assuming relative permittivity of air of 1.4240 x 10 mF/mile
             end
@@ -202,7 +202,7 @@ module URBANopt
         else # now computing the capacitance for UG concentric neutral power lines
           material_permettivity = 2.3 # assuming using the minimum permittivity value for "cross-linked polyethlyene", as the insulation material
           free_space_permittivity = 0.0142 # in microfaraday/mile
-          radius = (wire_list.outside_diamater_neutral[0] - wire_list.diameter_n_strand[0]) / 2 # in mm
+          radius = (wire_list.outside_diameter_neutral[0] - wire_list.diameter_n_strand[0]) / 2 # in mm
           radius_ft = si_to_imperial_units(radius, 'mm', 'ft')
           radius_neutral_ft = si_to_imperial_units(wire_list.diameter_n_strand[0] / 2, 'mm', 'ft')
           radius_conductor_ft = diameters_conductors_ft[0] / 2
@@ -232,7 +232,7 @@ module URBANopt
         end
         if !wire_list.r_neutral[0].nil? # computing parameters for concentric neutrals wires
           for j in 0..conc_neutrals - 1
-            radius = (wire_list.outside_diamater_neutral[j] - wire_list.diameter_n_strand[j]) / 2
+            radius = (wire_list.outside_diameter_neutral[j] - wire_list.diameter_n_strand[j]) / 2
             wire_list.gmr.push(wire_list.gmr_neutral[j] * wire_list.neutral_strands[j] * (radius**(wire_list.neutral_strands[j] - 1))**(1 / wire_list.neutral_strands[j]))
             wire_list.r.push(wire_list.r_neutral[j] / wire_list.neutral_strands[j])
             for k in 0..conc_neutrals - 1
@@ -299,7 +299,7 @@ module URBANopt
                 wire_list.gmr_neutral.push(wires['WIRES CATALOG'][k]['gmr neutral (mm)'])
                 wire_list.neutral_strands.push(wires['WIRES CATALOG'][k]['# concentric neutral strands'])
                 wire_list.diameter_n_strand.push(wires['WIRES CATALOG'][k]['concentric diameter neutral strand (mm)'])
-                wire_list.outside_diamater_neutral.push(wires['WIRES CATALOG'][k]['concentric neutral outside diameter (mm)'])
+                wire_list.outside_diameter_neutral.push(wires['WIRES CATALOG'][k]['concentric neutral outside diameter (mm)'])
               end
             end
           end

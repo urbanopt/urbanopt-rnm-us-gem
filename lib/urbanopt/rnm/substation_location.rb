@@ -10,7 +10,7 @@ module URBANopt
   module RNM
     class PrimarySubstation
       # attr_accessor :x, :y, :id
-      # choose the closest coord to the street or the one in the midle of the polygon since the sub is far away from district and streets
+      # choose the closest coord to the street or the one in the middle of the polygon since the sub is far away from district and streets
       def coordinates(points_coord, id)
         x_utm = []
         y_utm = []

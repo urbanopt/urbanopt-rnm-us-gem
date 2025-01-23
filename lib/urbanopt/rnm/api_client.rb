@@ -249,7 +249,7 @@ module URBANopt
 
           # check if zip is empty
           if Dir.empty? File.join(@rnm_dir, 'results')
-            msg = "Error in simulation: Results.zip empty"
+            msg = 'Error in simulation: Results.zip empty'
             @@logger.error(msg)
             raise msg
           end
