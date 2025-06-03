@@ -7,8 +7,6 @@ gemspec
 allow_local = ENV['FAVOR_LOCAL_GEMS']
 
 gem 'openstudio-extension', github: 'NREL/openstudio-extension-gem', branch: 'faraday'
-# Delete this once testing is complete!
-gem 'bcl', github: 'NREL/bcl-gem', branch: 'faraday'
 
 # if allow_local && File.exists?('../urbanopt-geojson-gem')
 # gem 'urbanopt-geojson', path: '../urbanopt-geojson-gem'
