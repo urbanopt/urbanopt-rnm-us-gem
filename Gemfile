@@ -6,7 +6,8 @@ gemspec
 # if you want to use local gems during development, use this environment variable to enable them
 allow_local = ENV['FAVOR_LOCAL_GEMS']
 
-gem 'openstudio-extension', github: 'NREL/openstudio-extension-gem', branch: 'faraday'
+# gem 'openstudio-extension', github: 'NREL/openstudio-extension-gem', branch: 'faraday'
+gem 'openstudio-extension', '~> 0.9.1'
 
 # if allow_local && File.exists?('../urbanopt-geojson-gem')
 # gem 'urbanopt-geojson', path: '../urbanopt-geojson-gem'
