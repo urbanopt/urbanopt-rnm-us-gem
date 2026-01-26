@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.name          = 'urbanopt-rnm-us'
   spec.version       = URBANopt::RNM::VERSION
   spec.authors       = ['Katherine Fleming', 'Luca de Rosa']
-  spec.email         = ['katherine.fleming@nrel.gov', 'luca.derosa@iit.comillas.edu']
+  spec.email         = ['katherine.fleming@nlr.gov', 'luca.derosa@iit.comillas.edu']
 
   spec.summary       = 'Library to create input files for RNM-US'
   spec.description   = 'Library to create input files for RNM-US'
@@ -29,7 +29,7 @@ Gem::Specification.new do |spec|
   # Matrix is in stdlib; needs to be specifically added here for compatibility with Ruby 3.2
   spec.add_dependency 'matrix', '~> 0.4.2'
   spec.add_dependency 'rubyzip', '~> 2.3.2'
-  spec.add_dependency 'urbanopt-geojson', '~> 1.1.0'
+  spec.add_dependency 'urbanopt-geojson', '~> 1.2.0'
 
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rspec', '~> 3.9'

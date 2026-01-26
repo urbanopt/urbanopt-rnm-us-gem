@@ -22,7 +22,7 @@ module URBANopt
       # * +template_inputs+ - _String_ - Location of template inputs for the RNM-US simulation (unused)
       # * +use_localhost+ - _Bool_ - Flag to use localhost API vs production API
       def initialize(name, rnm_dir, use_localhost = false, reopt = false)
-        # TODO: eventually add NREL developer api key support
+        # TODO: eventually add NLR developer api key support
 
         @use_localhost = use_localhost
         if @use_localhost
