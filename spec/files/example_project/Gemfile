@@ -18,7 +18,7 @@ allow_local = ENV['FAVOR_LOCAL_GEMS']
 # if allow_local && File.exist?('../OpenStudio-extension-gem')
 #   gem 'openstudio-extension', path: '../OpenStudio-extension-gem'
 # elsif allow_local
-#   gem 'openstudio-extension', github: 'NREL/openstudio-extension-gem', branch: 'develop'
+#   gem 'openstudio-extension', github: 'NatLabRockies/openstudio-extension-gem', branch: 'develop'
 # end
 
 # if allow_local && File.exist?('../urbanopt-core-gem')
@@ -31,7 +31,7 @@ allow_local = ENV['FAVOR_LOCAL_GEMS']
 if allow_local && File.exist?('../openstudio-common-measures-gem')
   gem 'openstudio-common-measures', path: '../openstudio-common-measures-gem'
 elsif allow_local
-  gem 'openstudio-common-measures', github: 'NREL/openstudio-common-measures-gem', branch: 'develop'
+  gem 'openstudio-common-measures', github: 'NatLabRockies/openstudio-common-measures-gem', branch: 'develop'
 else
   gem 'openstudio-common-measures', '0.2.0'
 end
@@ -39,7 +39,7 @@ end
 if allow_local && File.exist?('../openstudio-model-articulation-gem')
   gem 'openstudio-model-articulation', path: '../openstudio-model-articulation-gem'
 elsif allow_local
-  gem 'openstudio-model-articulation', github: 'NREL/openstudio-model-articulation-gem', branch: 'develop'
+  gem 'openstudio-model-articulation', github: 'NatLabRockies/openstudio-model-articulation-gem', branch: 'develop'
 else
   gem 'openstudio-model-articulation', '0.2.0'
 end
@@ -47,7 +47,7 @@ end
 if allow_local && File.exist?('../openstudio-load-flexibility-measures-gem')
   gem 'openstudio-load-flexibility-measures', path: '../openstudio-load-flexibility-measures-gem'
 elsif allow_local
-  gem 'openstudio-load-flexibility-measures', github: 'NREL/openstudio-load-flexibility-measures-gem', branch: 'master'
+  gem 'openstudio-load-flexibility-measures', github: 'NatLabRockies/openstudio-load-flexibility-measures-gem', branch: 'master'
 else
   gem 'openstudio-load-flexibility-measures', '~> 0.1.3'
 end

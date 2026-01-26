@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 1.2.0
+
+* Update Names and copyright dates
+* Updated dependencies
+
 ## Version 1.1.0
 
 * Upgrade to OpenStudio 3.10 by @vtnate in <https://github.com/urbanopt/urbanopt-rnm-us-gem/pull/43>
