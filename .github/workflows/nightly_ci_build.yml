@@ -3,7 +3,13 @@ name: RNM-gem CI
 
 on:
   push:
+<<<<<<< Updated upstream
   workflow_dispatch:
+=======
+    branches:
+      - "develop"
+      - "main"
+>>>>>>> Stashed changes
   schedule:
     # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
     # 5:23 am UTC (11:23pm MDT the day before) every weekday night in MDT
