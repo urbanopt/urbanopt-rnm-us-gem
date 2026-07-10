@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 1.3.0
+
+* Upgrade to OpenStudio 3.11
+
 ## Version 1.2.0
 
 * Update Names and copyright dates
